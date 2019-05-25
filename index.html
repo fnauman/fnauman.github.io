@@ -7,5 +7,12 @@ title: Farrukh
 
 <div class="blurb">
 	<p> I am a postdoc at Chalmers. I work on accretion disks, dynamos, machine learning, Taylor Couette Flow.</p>
-	<p> <a href="/blog">Read more...</a></p>
 </div><!-- /.blurb -->
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
