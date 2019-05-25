@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Farrukh, first post"
+title: "Random forests"
 date: 2019-02-09
 ---
 
