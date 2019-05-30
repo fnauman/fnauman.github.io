@@ -1,4 +1,5 @@
 name: Farrukh Nauman
 markdown: kramdown
+remote_theme: "mmistakes/minimal-mistakes@4.16.4"
 
 permalink: /blog/:year/:month/:day/:title
