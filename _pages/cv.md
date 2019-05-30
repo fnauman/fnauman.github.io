@@ -1,6 +1,7 @@
 ---
 title: "CV"
-layout: categories
 permalink: /cv/
 author_profile: true
 ---
+
+My CV can be found [here](/assets/cv.pdf).
