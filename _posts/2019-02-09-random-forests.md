@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: single
 title: "Random forests"
 date: 2019-02-09
 ---
