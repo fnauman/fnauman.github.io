@@ -1,4 +1,4 @@
-Summary of my recently published work with [Joonas Nättilä](http://natj.github.io/) where we used various machine learning algorithms to model dynamos: [arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193.)
+A short review of my recently published work with [Joonas Nättilä](http://natj.github.io/) where we used various machine learning algorithms to model dynamos: [arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193.)
 
 ## Introduction
 Astrophysical flows are electrically neutral because the number of positive and negative charges on large scale is roughly equal. Magnetic fields are a different story since the high temperatures close to stars or gravitational friction close to supermassive black holes can ionize these flows. [Earth's magnetic field](https://en.wikipedia.org/wiki/Earth%27s_magnetic_field) has a magnitude of about 0.5 Gauss and is extended up to 200 Earth radii on the magnetotail side. In comparison, the average magnetic field strength on the Sun is only twice as much (1 Gauss) but sunspots can have magnetic field strengths up to 4000 Gauss. If the Sun did not have a way to regenerate its field, it would have lost its magnetic field on [Ohmic decay time scale of a few thousand years](https://en.wikipedia.org/wiki/Dynamo_theory) (the Sun is 4.6 billion years old). Dynamo theory addresses this puzzle by introducing various mechanisms including fluid turbulence.
@@ -30,7 +30,7 @@ $$
 where the various coefficients are computed using linear regression. Some work on non-linear models has been done especially in the context of [magnetic helicity](https://arxiv.org/abs/1402.0933) (for more references, please check out our paper). Once one determines the form the electromotive force in terms of the magnetic fields and its gradients, the closure problem is solved. 
 
 ![Figure 1](../assets/images/r500.png)
-**Figure 1:** Each line represents the spatial profile of the fields at a particular instant in time. The thick red line is the time averaged spatial profile. As one can see, the fields are indeed quite organized spatially. The circle shape is expected because of the averaging we chose: magnetic energy = bx.bx + by.by = constant.
+**Figure 1:** Each line represents the spatial profile of the fields at a particular instant in time. The thick red line is the time averaged spatial profile. As one can see, the fields are indeed quite organized spatially. The circular shape is expected because the forcing is isotropic (no shear, gravity, etc.) and we used planar (x-y) averaging: magnetic energy = bx.bx + by.by = constant.
 
 Our approach is based on:
 
@@ -50,5 +50,4 @@ $$
 
 but as we describe in the paper, this could be misleading as the alpha term here really represents the balance between the generation and dissipation due to currents. In other words, the current density (the curl of B) is highly correlated with the magnetic field so the algorithms are unable to differentiate between the contributions from different terms.
 
-This might seems anti-climactic: why use sophisticated machine learning algorithms to arrive at the conclusion that regularized linear regression is the best model? Our goal in this work is to demonstrate that machine learning algorithms should in principle be used for constructing reduced order models of DNS and more complex data such as shear-driven dynamos might lead to the conclusions that indeed linear regression is incapable of modeling dynamos.
-
+This goes against the [principle of parsimony](https://www.ejwagenmakers.com/inpress/VandekerckhoveEtAlinpress.pdf): why use sophisticated machine learning algorithms to arrive at the conclusion that regularized linear regression is the best model? Our goal in this work is to demonstrate that various machine learning algorithms can model non-linearities, interactions and outliers much better than linear regression. However, if the data is highly organized such as in the helical dynamo case considered here, then *regularlized* linear regression indeed might outperform more sophisticated algorithms. Most previous work has not considered various algorithms and our work is the first one conducting a comparison of various algorithms to construct dynamo models from DNS data.
