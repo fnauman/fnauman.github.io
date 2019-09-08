@@ -10,7 +10,7 @@ Astrophysical flows are electrically neutral because the number of positive and 
 Numerical simulations of astrophysical magnetic field models model magnetohydrodynamic (ionized fluids) turbulence simulation results are modeled using a reduced order model of the form:
 
 $$
-\\partial_t \bar{B} = \nabla\times(\bar{V}\times \bar{B}) \nabla\times \mathcal{E} + \eta \nabla^2 \bar{B}
+\partial_t \bar{B} = \nabla\times(\bar{V}\times \bar{B}) \nabla\times \mathcal{E} + \eta \nabla^2 \bar{B}
 $$
 
 where V is the (background) velocity, B is the magnetic field. The bar represents some sort of averaging, which could be spatial, temporal or ensemble. In a [flow driven dynamo](https://iopscience.iop.org/article/10.1088/1367-2630/9/8/309) with a fixed velocity (that is, one does not have to solve Navier Stokes to compute the velocity) the equation above describes the magnetic field evolution. The electromotive force is defined as:
@@ -41,7 +41,7 @@ Our approach is based on:
 **Dataset**: The data comes from Direct Numerical Simulations (DNS) of the simplest non-linear dynamo model: helically forced magnetohydrodynamic turbulence (or alpha squared) using the [pencil code](https://github.com/pencil-code/pencil-code). This setup is known to lead to a saturated state where the large (box-scale) magnetic fields completely dominate the energy budget, and are typically organized as a single sinusoid owing to the periodic nature of the boundaries. Links to data are [here](https://github.com/fnauman/ML_alpha2).
 
 
-![Figure 2](../images/df15_TIME_kin_comparison_inset.png)
+![Figure 2](../assets/images/df15_TIME_kin_comparison_inset.png)
 **Figure 2:** Time series fits for the electromotive force, comparing the predictions from Lasso and Random Forest to the test data.
 
 **Results**: We found that Lasso outperformed all other algorithms. It is because of the low-dimensional nature of our data. Most of the energy is stored in sinusoids in space, and the temporal profile follows a nice growth then saturation pattern that is easy to model. We considered non-linear models for the electromotive force as well and used ensembles of models to figure out the most important features. It turns out that the isotropic alpha model works best, that is:
