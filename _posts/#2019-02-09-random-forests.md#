@@ -1,6 +1,0 @@
-One popular class of ensemble machine learning algorithms is random forests that have been used extensively for both classification and regression data. Random forests are based on decision trees: each tree's prediction is then averaged over to yield the final prediction. This makes them robust to overfitting as they average out most of the variance.
-
-From a practical standpoint, the biggest advantage of random forests is that they require little hyperparameter fine tuning and are easily parallelizable.. There are two main sources of randomness in random forests: bootstrapping with replacement and the choice of only a random subset of features for each decision tree. Being an ensemble method (average over many decision trees) means that random forests are not prone to overfitting. Like decision trees, they can 
-
-I have recently used random forests for modeling dynamos in helically forced magnetohydrodynamic turbulence [here](https://github.com/fnauman/ML_alpha2).
-
