@@ -1,5 +1,3 @@
-# Machine learning approach to dynamo modeling
-
 Summary of my recently published work with [Joonas Nättilä](http://natj.github.io/) where we used various machine learning algorithms to model dynamos: [arxiv.org/abs/1905.08193](https://arxiv.org/abs/1905.08193.)
 
 ## Introduction
