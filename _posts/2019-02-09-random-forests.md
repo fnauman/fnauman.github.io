@@ -1,4 +1,4 @@
-One popular class of ensemble machine learning algorithms is random forests that can be used for both classification and regression tasks. The name comes from the use of decision trees ([visual tutorial](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)) as the base learner. Since decision trees are good at modeling non-linearities and interactions, it makes random forests a popular choice for non-linear datasets where several interactions exist. The final output of random forests is the weighted average over the outputs of individual trees. From a practical standpoint, random forests are extremely popular because:
+One popular class of ensemble machine learning algorithms is random forests that can be used for both classification and regression tasks. The name comes from the use of decision trees ([visual tutorial](http://www.r2d3.us/visual-intro-to-machine-learning-part-1/)) as the base estimator. Since decision trees are good at modeling non-linearities and interactions, it makes random forests a popular choice for non-linear datasets where several interactions exist. The final output of random forests is the weighted average over the outputs of individual trees. From a practical standpoint, random forests are extremely popular because:
  - hyperparameter tuning is simpler (as opposed to gradient boosted trees, for example)
  - parallelization is easy since each decision tree is independent
 
@@ -15,5 +15,7 @@ mod.fit(X_train, y_train)
 # Predict
 y_pred = mod.predict(X_test)
 ```
+
+Hyperparameters that are worth tuning include: `n_estimators`: number of decision trees to use, `max_depth` (depth of each decision tree: too deep trees can lead to overfitting), `min_samples_leaf`: too small a number of samples in the leaf (last) node could also lead to overfitting, `bootstrap`:  setting bootstrap to False is good for time series). 
 
 For a hands-on tutorial on using random forests for a variety of different datasets, I strongly recommend the [machine learning course by Jeremy Howard](http://course18.fast.ai/ml.html). Note that this is not the [deep learning course](https://course.fast.ai/) that is a lot more popular. 
