@@ -16,8 +16,8 @@ mod.fit(X_train, y_train)
 y_pred = mod.predict(X_test)
 ```
 
-Hyperparameters that are worth tuning include: `n_estimators`: number of decision trees to use, `max_depth` (depth of each decision tree: too deep trees can lead to overfitting), `min_samples_leaf`: too small a number of samples in the leaf (last) node could also lead to overfitting, `bootstrap`:  setting bootstrap to False is good for time series). 
+Hyperparameters that are worth tuning include: `n_estimators` (number of decision trees to use), `max_depth` (depth of each decision tree: too deep trees can lead to overfitting), `min_samples_leaf` (too small a number of samples in the leaf (last) node could also lead to overfitting), `bootstrap` (setting bootstrap to False is good for time series). 
 
-For a hands-on tutorial on using random forests for a variety of different datasets, I strongly recommend the [machine learning course by Jeremy Howard](http://course18.fast.ai/ml.html). Note that this is not the [deep learning course](https://course.fast.ai/) that is a lot more popular. 
+For simple examples and tutorial, see the [data science handbook](https://jakevdp.github.io/PythonDataScienceHandbook/05.08-random-forests.html). Advanced use of random forests for a variety of different datasets is discussed in the [machine learning course by Jeremy Howard](http://course18.fast.ai/ml.html). Note that this is not the [deep learning course](https://course.fast.ai/) that is a lot more popular. 
 
 I have used random forests in my recently published paper: [github.com/fnauman/ML_alpha2](https://github.com/fnauman/ML_alpha2) and currently exploring its use in time series modeling for a follow up [project](https://github.com/fnauman/timeseries/blob/master/xgboost_pipeline_candy.ipynb).
