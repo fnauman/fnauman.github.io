@@ -1,5 +1,3 @@
-# Numpy vectorization, broadcasting, boolean masks
-
 ## Vectorization: avoiding loops
 
 Unlike compiled languages like C or Fortran, loops in python are quite slow. When I first started using python several years ago, if I had to compute the average over one axis (y) of a 2D function `v(x,y)`, I would do something like this:
