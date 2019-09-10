@@ -47,9 +47,9 @@ x = np.random.randn(10)
 y = 3*x + 5 + 0.1*np.random.randn(10)
 model = Lasso()
 model.fit(x,y)
-# Returns ValueError: Expected 2D array, got 1D array instead ...
-Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1)
-
+# Returns ValueError: Expected 2D array, got 1D array...
+# Reshape your data either using array.reshape(-1, 1) if
+# your data has a single feature or array.reshape(1, -1)
 ```
 Scikit-learn throws a helpful error message with a suggested fix: `model.fit(x.reshape(-1,1), y)`.
 
@@ -74,7 +74,6 @@ x = np.linspace(1,10,10)
 x>5
 # array([False, False, False, False, False,  True,  True,  True,  True, True])
 x[x>5] # array([ 6.,  7.,  8.,  9., 10.])
-
 ```
 A conditional statement `x>5` generates a boolean array of the same dimension as the original array. When we use `x[x>5]`, only the values satisfying the conditional statement are returned. In many applications, it is not a problem but if you have code that breaks if the array dimensions don't match anymore, you want to simply multiply the boolean array:
 
