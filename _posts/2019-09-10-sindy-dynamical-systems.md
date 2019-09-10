@@ -64,9 +64,12 @@ mod = Lasso(alpha=0.0001)
 mod
 ```
 
-The model coefficients resulting from using Lasso are: `
-[ 0.         -0.05576026 -0.99852418  0.         -0.         -0.01819165
- -0.50202469 -0.          0.         -0.        ]` where only \\(x_2, x_1^3\\) have significant amplitudes (>0.1). The SMAPE errors are 1% and 9% for the two ODEs. It seems we have correctly identified the original ODE:
+The model coefficients resulting from using Lasso are: 
+```
+[ 0.   -0.05576026  -0.99852418  0.  -0.   -0.01819165  -0.50202469  -0.  0.  -0.]
+```
+
+where only \\(x_2, x_1^3\\) have significant amplitudes (>0.1). The SMAPE errors are 1% and 9% for the two ODEs. It seems we have correctly identified the original ODE:
  
 $$
 dx_1/dt \sim -x_2 - x_1^3
