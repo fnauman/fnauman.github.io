@@ -23,7 +23,7 @@ twitter_username: fnauman809
 github_username: fnauman
 minimal_mistakes_skin: air
 search: true
-google_analytics: UA-134179937-1
+# google_analytics: UA-134179937-1
 
 # Build settings
 markdown: kramdown
@@ -110,3 +110,10 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
+
+
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-134179937-1"
+    anonymize_ip: false # default
