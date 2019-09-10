@@ -10,7 +10,7 @@ Astrophysical flows are electrically neutral because the number of positive and 
 Numerical simulations of astrophysical magnetic fields involve modeling the full magnetohydrodynamic (ionized fluids) equations. The data from such simulations is then modeled using a surrogate form:
 
 $$
-\partial_t \bar{B} = \nabla\times(\bar{V}\times \bar{B}) \nabla\times \mathcal{E} + \eta \nabla^2 \bar{B}
+\partial_t \bar{B} = \nabla\times(\bar{V}\times \bar{B}) +  \nabla\times \mathcal{E} + \eta \nabla^2 \bar{B}
 $$
 
 where \\( \bar{V} \\) is the (background) velocity, \\( \bar{B} \\) is the magnetic field. The bar represents some sort of averaging, which could be spatial, temporal or ensemble. In a [flow driven dynamo](https://iopscience.iop.org/article/10.1088/1367-2630/9/8/309) with a fixed velocity (that is, one does not have to solve Navier Stokes to compute the velocity) the equation above describes the magnetic field evolution. The electromotive force is defined as:
