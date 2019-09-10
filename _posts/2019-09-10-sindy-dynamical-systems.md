@@ -16,6 +16,7 @@ Let's first generate some data. Consider the ODE:
 $$
 \frac{dx_1}{dt} = -x_1^3 - x_2 
 $$
+
 $$
 \frac{dx_2}{dt} = x_1 - x_2^3 
 $$
@@ -65,7 +66,7 @@ mod
 
 The model coefficients resulting from using Lasso are: `
 [ 0.         -0.05576026 -0.99852418  0.         -0.         -0.01819165
- -0.50202469 -0.          0.         -0.        ]` where only \\(x_2, x_1^3\\) have amplitudes more than 0.1 (we neglect smaller terms). The SMAPE errors are 1% and 9% for the two ODEs. It seems we have correctly identified the original ODE!!
+ -0.50202469 -0.          0.         -0.        ]` where only \\(x_2, x_1^3\\) have significant amplitudes (>0.1). The SMAPE errors are 1% and 9% for the two ODEs. It seems we have correctly identified the original ODE!!
 
 ![Figure 2](/assets/images/dx1dt_fit.png)
 ![Figure 3](/assets/images/dx2dt_fit.png)
