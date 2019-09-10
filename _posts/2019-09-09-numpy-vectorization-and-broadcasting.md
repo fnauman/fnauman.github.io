@@ -51,7 +51,7 @@ model.fit(x,y)
 # Reshape your data either using array.reshape(-1, 1) if
 # your data has a single feature or array.reshape(1, -1)
 ```
-Scikit-learn throws a helpful error message with a suggested fix: `model.fit(x.reshape(-1,1), y)`.
+Scikit-learn throws a helpful error message with a suggested fix: `model.fit(x.reshape(-1,1), y)`. You can also use `x[:, np.newaxis]`.
 
 Alternatively, one might want to use two *feature* arrays of dimension 1 in scikit-learn. Scikit-learn expects dimension 2 feature arrays. 
 ```python
@@ -82,4 +82,4 @@ x * (x>5)
 # array([ 0.,  0.,  0.,  0.,  0.,  6.,  7.,  8.,  9., 10.])
 ```
 
-**xarray**: A lot of these vectorization and broadcasting operations are made easy by [xarray](http://xarray.pydata.org/en/stable/quick-overview.html) where as a bonus parallelism is included using [dask](https://dask.org/).
+**xarray**: A lot of these vectorization and broadcasting operations are made easy by [xarray](http://xarray.pydata.org/en/stable/quick-overview.html) where as a bonus, parallelism is included using [dask](https://dask.org/). A good tutorial on the utility of xarray is [here](https://rabernat.github.io/research_computing/xarray.html).
