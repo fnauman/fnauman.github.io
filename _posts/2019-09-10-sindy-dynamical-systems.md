@@ -21,7 +21,9 @@ $$
 $$
  
 We solve it using the `scipy.odeint` library. Here is how the time series looks like:
+
 ![Figure 1](/assets/images/time_series.png)
+
 **Figure 1:**  \\( x_1, x_2 \\) have been evolved to 10 time units with 1000 data points. We will be using the first 800 as the training sample, and the last 200 as the test.
  
 ### Step 1: Compute the time derivative
@@ -67,6 +69,7 @@ The model coefficients resulting from using Lasso are: `
 
 ![Figure 2](/assets/images/dx1dt_fit.png)
 ![Figure 3](/assets/images/dx2dt_fit.png)
+
 **Figure 2:**  As we can clearly see that the algorithm predictions agree well with the test data.
 
 In the notebook, I also show how to extend this for **forecasting**. I have personally found that SINDy is not so good with series that are too noisy and/or have trends. Both these problems could be addressed using pre-processing. 

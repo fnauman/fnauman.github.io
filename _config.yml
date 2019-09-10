@@ -23,6 +23,7 @@ twitter_username: fnauman809
 github_username: fnauman
 minimal_mistakes_skin: air
 search: true
+google_analytics: UA-134179937-1
 
 # Build settings
 markdown: kramdown
