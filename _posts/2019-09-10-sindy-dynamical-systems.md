@@ -1,7 +1,3 @@
----
-title: SINDy: Discover dynamical systems from time series
----
-
 Sparse Identification of Nonlinear Dynamical systems (SINDy) provides an algorithm to discover governing dynamical equations given a time series **x(t)**. This approach is fundamentally different from most time series models where the focus is either on: smoothing (past data), filtering (current data), forecasting (predicting future data). Here the goal is to uncover the set differential equations that **generated** the time series. It was proposed in this [paper](Paper: https://www.pnas.org/content/113/15/3932) by Steven L. Brunton, Joshua L. Proctor, and J. Nathan Kutz. 
 
 ## Algorithm
