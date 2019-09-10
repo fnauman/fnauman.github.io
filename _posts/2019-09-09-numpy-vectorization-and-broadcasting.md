@@ -11,7 +11,7 @@ for i in range(nx):
 ave[i] /= ny
 ```
 
-Then I got a little smarter and remove one loop:
+Then I got a little smarter and removed one loop:
 ```python
 for i in range(nx):
   ave[i] = np.mean(v[i,:]) 
@@ -39,6 +39,20 @@ y = np.array([1,2]) # y.shape = (2)
 x + y[np.newaxis, :] # works!
 ```
 
+Using **scikit-learn**: The feature array in scikit-learn API is expected to be 2 dimensional. Let's say you only want to do linear regression only on 1 feature (1D = number of samples).
+
+```python
+from sklearn.linear_model import Lasso
+x = np.random.randn(10)
+y = 3*x + 5 + 0.1*np.random.randn(10)
+model = Lasso()
+model.fit(x,y)
+# Returns ValueError: Expected 2D array, got 1D array instead ...
+Reshape your data either using array.reshape(-1, 1) if your data has a single feature or array.reshape(1, -1)
+
+```
+Scikit-learn throws a helpful error message with a suggested fix: `model.fit(x.reshape(-1,1), y)`.
+
 Alternatively, one might want to use two *feature* arrays of dimension 1 in scikit-learn. Scikit-learn expects dimension 2 feature arrays. 
 ```python
 x1 = np.random.randn(10)
@@ -58,7 +72,7 @@ For more on broadcasting, see [Hands-on Machine Learning with Scikit-Learn, Kera
 ```python
 x = np.linspace(1,10,10)
 x>5
-# returns: array([False, False, False, False, False,  True,  True,  True,  True, True])
+# array([False, False, False, False, False,  True,  True,  True,  True, True])
 x[x>5] # array([ 6.,  7.,  8.,  9., 10.])
 
 ```
@@ -69,4 +83,4 @@ x * (x>5)
 # array([ 0.,  0.,  0.,  0.,  0.,  6.,  7.,  8.,  9., 10.])
 ```
 
-
+**xarray**: A lot of these vectorization and broadcasting operations are made easy by [xarray](http://xarray.pydata.org/en/stable/quick-overview.html) where as a bonus parallelism is included using [dask](https://dask.org/).
