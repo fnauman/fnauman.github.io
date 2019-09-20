@@ -53,7 +53,7 @@ array([[0, 1, 2, 3],
 
 This matrix contains zeros in the lower triangle. If we want to restrict to **non-zero values**, we need to use:
 ```python
-ar = np.arange(4)
+arr = np.arange(4)
 nrows = 3
 hankel(c=arr[:nrows], r=arr[nrows-1:])
 # Output
@@ -109,7 +109,7 @@ array([17, 18, 19, 20]) # y_train
 
 ```
 
-`y_train` contains a single point because we specified the target size to be one. When this is fed into a RNN, it takes in the entire `x_train` sequence and forecasts a single point that can be compared with `y_train` to see how good the R is. We can forecast multiple steps recursively using RNNs.
+`y_train` contains a single point because we specified the target size to be one. When this is fed into a RNN, it takes in the entire `x_train` sequence and forecasts a single point that can be compared with `y_train` to see how good the RNN is. We can forecast multiple steps recursively using RNNs.
 
 
 
