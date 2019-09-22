@@ -22,7 +22,7 @@ X = (n_samples, input_sequence_length, n_input_features)
 y = (n_samples, output_sequence_length, n_output_features)
 ```
 
-For large datasets, `n_samples -> batch_size` while sequence length is often called the [lookback time](https://stackoverflow.com/questions/45012992/how-to-prepare-data-for-lstm-when-using-multiple-time-series-of-different-length) or [input steps](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/). For univariate time series forecasting problem, `n_input_features = n_output_features = 1`. For the **target vector**, typically `output_sequence_length=1` (single point forecasting) but one can recursively forecast several points to the future. The distinction between **many-to-one** and **many-to-many** can be confusing (see [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)). See also this [notebook](https://github.com/ageron/handson-ml2/blob/master/15_processing_sequences_using_rnns_and_cnns.ipynb) by [Aurélien Géron](https://www.amazon.com/gp/product/B07XGF2G87/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0) for tensorflow 2.0/keras examples. 
+For large datasets, it is convenient to input data only "one batch at a time" (`n_samples -> batch_size`). The sequence length is often called the [lookback time](https://stackoverflow.com/questions/45012992/how-to-prepare-data-for-lstm-when-using-multiple-time-series-of-different-length) or [input steps](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/). For univariate time series forecasting problem, `n_input_features = n_output_features = 1`. For the **target vector**, typically `output_sequence_length=1` (single point forecasting) but one can recursively forecast several points to the future. The distinction between **many-to-one** and **many-to-many** can be confusing (see [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)). See also this [notebook](https://github.com/ageron/handson-ml2/blob/master/15_processing_sequences_using_rnns_and_cnns.ipynb) by [Aurélien Géron](https://www.amazon.com/gp/product/B07XGF2G87/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0) for tensorflow 2.0/keras examples. 
 
 **seq2seq**: For making predictions from variable input sequence lengths to entire output sequence lengths in one go (instead of recursive single step forecasting), one can use sequence-to-sequence (encoder-decoder) models [see this paper by Sutskever et al. 2014](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf).
 
@@ -61,7 +61,7 @@ array([[0, 1],
        [2, 3]])
 ```
 
-**Shift/Delay**: What if we want to introduce a shift in the array? That is instead of taking continuous values of the time series `0, 1, ..., n-1`, we want something like: `0, shift, 2*shift, ..., n-1`.  It is trivial to do with numpy's array indexing: `array[::shift]`:
+**Shift/Delay**: What if we want to introduce a shift in the array? That is instead of taking continuous values of the time series `0, 1, ..., n-1`, we want something like: `0, shift, 2*shift, ..., n-1`.  It is trivial to do with numpy's array indexing: `array[::delay]`:
 ```python
 arr = np.arange(8)
 nrows = 3
@@ -122,7 +122,7 @@ def shuffle(X, y, seed=123):
 ```
 Some gotchas with `np.random.permutation`: 
  - Repeated calls require setting the seed [again](https://stackoverflow.com/questions/47742622/np-random-permutation-with-seed/47742662#47742662) 
- - `np.random.permutation` by default it only permutes the zeroth (`axis=0`) dimension of a numpy array, which is fine in the case above for 1D array. To shuffle another axis, one can use: `np.apply_along_axis(np.random.permutation, 1, x)` for shuffling across the first (`axis=1`) dimension.
+ - `np.random.permutation` by default only permutes the zeroth (`axis=0`) dimension of a numpy array, which is fine in the case above for 1D array. To shuffle another axis, one can use: `np.apply_along_axis(np.random.permutation, 1, x)` for shuffling across the first (`axis=1`) dimension.
 
 **Batching**: Feeding neural networks an entire data set is not recommended because:
  - Feeding entire dataset in one go can be computationally prohibitive.
@@ -130,6 +130,7 @@ Some gotchas with `np.random.permutation`:
  
  For more on batch learning and stochastic gradient descent, see this:
   - [Efficient backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf) by Yann LeCun, Leon Bottou, Genevieve B. Orr, Klaus-Robert Müller.
+  - [Chapter 8](http://www.deeplearningbook.org/contents/optimization.html) of Deep learning by Ian Goodfellow, Yoshua Bengio and Aaron Courville.
 
 Batching can be done in `keras` during the fitting step: `model.fit(X_train, y_train, ..., batch_size=32)` or one could create a data generator object at the input step ([example](https://www.kaggle.com/ezietsman/simple-keras-model-with-data-generator)).
 
