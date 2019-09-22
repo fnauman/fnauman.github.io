@@ -61,7 +61,7 @@ array([[0, 1],
        [2, 3]])
 ```
 
-**Shift/Delay**: What if we want to introduce a shift in the array? That is instead of taking continuous values of the time series `0, 1, ..., n-1`, we want something like: `0, shift, 2*shift, ..., n-1`.  It is trivial to do with numpy's array indexing: `array[::delay]`:
+**Shift/Delay**: What if we want to introduce a shift in the array? That is instead of taking continuous values of the time series `0, 1, ..., n-1`, we want something like: `0, delay, 2*delay, ..., n-1`.  It is trivial to do with numpy's array indexing: `array[::delay]`:
 ```python
 arr = np.arange(8)
 nrows = 3
@@ -128,7 +128,7 @@ Some gotchas with `np.random.permutation`:
  - Feeding entire dataset in one go can be computationally prohibitive.
  - Breaking the data into small batches can help avoid overfitting as models are more likely to see different patterns. 
  
- For more on batch learning and stochastic gradient descent, see this:
+ For more on batch learning and stochastic gradient descent, see:
   - [Efficient backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf) by Yann LeCun, Leon Bottou, Genevieve B. Orr, Klaus-Robert Müller.
   - [Chapter 8](http://www.deeplearningbook.org/contents/optimization.html) of Deep learning by Ian Goodfellow, Yoshua Bengio and Aaron Courville.
 
