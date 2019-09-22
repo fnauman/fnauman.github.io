@@ -108,7 +108,7 @@ array([17, 18, 19, 20]) # y_train
 
 ```
 
-`y_train` contains a single point because we specified the target size to be one. When this is fed into a RNN, it takes in the training data, `x_train` with single point labels. The predictions from such a model generate a forecast that can be compared with the target test sequence (`y_test`) to see how good the RNN is. 
+`y_train` contains a single point because we specified the target size to be one. When this is fed into a RNN, it trains on `x_train` with single point labels `y_train`. The predictions from such a model generate a forecast that can be compared with the target test sequence (`y_test`) to see how good the RNN is. 
 
 **Shuffling the samples**: Feeding a neural network data that represents similar time points can lead to overfitting. In non-sequential data, random shuffling helps to avoid overfitting. A naive random shuffling of time series can lead to problems since temporal data has *order*: an event at time `t` cannot precede an event at time `t-100`. But once we have already broken our time series into train and test sequences, we can shuffle the *samples/rows* without violating the temporal order since each target vector contains temporal points after the corresponding points in the feature vector.
 
@@ -118,7 +118,7 @@ def shuffle(X, y, seed=123):
     np.random.seed(seed)
     idxs = np.arange(y.shape[0])
     random_idxs = np.random.permutation(idxs)
-    return X[idxs], y[idxs]
+    return X[random_idxs], y[random_idxs]
 ```
 Some gotchas with `np.random.permutation`: 
  - Repeated calls require setting the seed [again](https://stackoverflow.com/questions/47742622/np-random-permutation-with-seed/47742662#47742662) 
