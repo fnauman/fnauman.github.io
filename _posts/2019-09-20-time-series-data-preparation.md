@@ -32,11 +32,10 @@ Converting a given time series data to the required input format for RNNs/LSTMs 
 
 **Hankel** matrix is a matrix with a specific structure:
 ```
-[ x(0)  x(1) ... x(c-1)     ]
-[ x(1)  x(1) ... x(c)       ]
-[ ...                       ] 
-[ x(r-2)  x(r-1) ... x(c-1) ]
-[ x(r-1)  x(r) ... x(r+c-1) ]
+[ x(0)  x(1)    ...    x(c-1) ]
+[ x(1)  x(1)    ...      x(c) ]
+[               ...           ] 
+[ x(r-1)  x(r)  ...  x(r+c-2) ]
 ```
 
 where r, c represent number of rows, columns. Using `scipy.hankel`, one can quickly generate such a matrix:
@@ -75,7 +74,7 @@ array([[0, 2],
        [4, 6]])
 ```
 
-We want to use this format for time series since each row can be thought of as representing a sequence that can be broken into a feature and target set. Consider this example:
+We want to use this format for time series since each row (aka **sample**) can be thought of as representing a sequence that can be broken into a feature and target set. Consider this example:
 ```python
 x = np.arange(21)
 x_hank = create_hankel(x, nrows = 4)
@@ -111,7 +110,30 @@ array([17, 18, 19, 20]) # y_train
 
 `y_train` contains a single point because we specified the target size to be one. When this is fed into a RNN, it takes in the entire `x_train` sequence and forecasts a single point that can be compared with `y_train` to see how good the RNN is. We can forecast multiple steps recursively using RNNs.
 
+**Shuffling the samples**: Feeding a neural network data that represents similar time points can lead to overfitting. In non-sequential data, random shuffling of the samples is performed to avoid overfitting. A naive random shuffling of time series can lead to problems since temporal data has *order*: event at time `t` cannot precede event at time `t-100`. But once we have already broken our time series into train and test sequences, we can shuffle the *samples/rows* without violating the temporal order since each target vector contains temporal points after the corresponding points in the feature vector.
 
+Numpy provides convenient functions to do the shuffling in one line. `np.random.shuffle` shuffles the data in-place, which might be a good idea for large arrays. `np.random.permutation` on the other hand creates a new array.  One can define a function to do this:
+```python
+def shuffle(X, y, seed=123):
+    np.random.seed(seed)
+    idxs = np.arange(y.shape[0])
+    random_idxs = np.random.permutation(idxs)
+    return X[idxs], y[idxs]
+```
+Some gotchas with `np.random.permutation`: 
+ - Repeated calls require setting the seed [again](https://stackoverflow.com/questions/47742622/np-random-permutation-with-seed/47742662#47742662) 
+ - `np.random.permutation` by default it only permutes the zeroth (`axis=0`) dimension of a numpy array, which is fine in the case above for 1D array. To shuffle another axis, one can use: `np.apply_along_axis(np.random.permutation, 1, x)` for shuffling across the first (`axis=1`) dimension.
+
+**Batching**: Feeding neural networks an entire data set is not recommended because:
+ - Feeding entire dataset in one go can be computationally prohibitive.
+ - Avoid overfitting: Breaking the data into small batches can help avoid overfitting as models are more likely to see different patterns. 
+ 
+ For more on batch learning and stochastic gradient descent, see this:
+  - [Efficient backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf) by Yann LeCun, Leon Bottou, Genevieve B. Orr, Klaus-Robert Müller.
+
+Batching can be done in `keras` during the fitting step: `model.fit(X_train, y_train, ..., batch_size=32)` or one could create a data generator object at the input step ([example](https://www.kaggle.com/ezietsman/simple-keras-model-with-data-generator)).
+
+ 
 
 
 
