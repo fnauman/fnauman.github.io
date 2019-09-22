@@ -33,7 +33,7 @@ Converting a given time series data to the required input format for RNNs/LSTMs 
 **Hankel** matrix is a matrix with a specific structure:
 ```
 [ x(0)  x(1)    ...    x(c-1) ]
-[ x(1)  x(1)    ...      x(c) ]
+[ x(1)  x(2)    ...      x(c) ]
 [               ...           ] 
 [ x(r-1)  x(r)  ...  x(r+c-2) ]
 ```
