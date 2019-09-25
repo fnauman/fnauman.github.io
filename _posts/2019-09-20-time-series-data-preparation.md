@@ -1,4 +1,4 @@
-When modeling time series using neural networks, the first issue one has to deal with is the data formatting. For machine learning algorithms like random forests or linear regression, one can transform univariate time series like this:
+When forecasting time series using neural networks, one has to first transform the data into the required form. For regression algorithms such as random forests or linear regression, one can transform univariate time series relatively easily:
 
 ```python
 import numpy as np
@@ -12,7 +12,7 @@ feature_size = int(0.8 * tseries.shape[0])
 X, y = tseries[:feature_size].reshape(-1,1), tseries[feature_size:]
 ```
 
-This, however, is not recommended as no validation and test sets have been created. Splitting time series data for cross validation and testing even for machine learning models is not the same as other data: one has to choose either a [rolling/sliding (fixed size) window; or an expanding window](https://stats.stackexchange.com/questions/326228/cross-validation-with-time-series). The [TimeSeriesSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html) function in scikit-learn for cross validation uses expanding window. For an implementation of fixed size rolling window, see the [code here](https://hub.packtpub.com/cross-validation-strategies-for-time-series-forecasting-tutorial/). Another relevant issue with time series data is of using appropriate metrics. [Marios Michailidis](https://www.h2o.ai/blog/regression-metrics-guide/) discusses the pros and cons of using various popular metrics for time series.
+This is not recommended as no validation and test sets have been created. Splitting time series data for cross validation and testing can be tricky as opposed to other data: one has to be careful in not violating temporal causality. Common strategies include a [rolling/sliding (fixed size) window; or an expanding window](https://stats.stackexchange.com/questions/326228/cross-validation-with-time-series). The [TimeSeriesSplit](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.TimeSeriesSplit.html) function in scikit-learn for cross validation uses the expanding window. For an implementation of the fixed size rolling window, see the [code here](https://hub.packtpub.com/cross-validation-strategies-for-time-series-forecasting-tutorial/). Another relevant issue with time series data is of using the appropriate metrics. [Marios Michailidis](https://www.h2o.ai/blog/regression-metrics-guide/) discusses the pros and cons of using various popular metrics for time series.
 
 ## Input data shape for RNNs
 
@@ -22,9 +22,9 @@ X = (n_samples, input_sequence_length, n_input_features)
 y = (n_samples, output_sequence_length, n_output_features)
 ```
 
-For large datasets, it is convenient to input data only "one batch at a time" (`n_samples -> batch_size`). The sequence length is often called the [lookback time](https://stackoverflow.com/questions/45012992/how-to-prepare-data-for-lstm-when-using-multiple-time-series-of-different-length) or [input steps](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/). For univariate time series forecasting problem, `n_input_features = n_output_features = 1`. For the **target vector**, typically `output_sequence_length=1` (single point forecasting) but one can recursively forecast several points to the future. The distinction between **many-to-one** and **many-to-many** can be confusing (see [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)). See also this [notebook](https://github.com/ageron/handson-ml2/blob/master/15_processing_sequences_using_rnns_and_cnns.ipynb) by [Aurélien Géron](https://www.amazon.com/gp/product/B07XGF2G87/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0) for tensorflow 2.0/keras examples. 
+For large datasets, it is convenient to input data only "one batch at a time" (`n_samples -> batch_size`). The sequence length is often called the [lookback time](https://stackoverflow.com/questions/45012992/how-to-prepare-data-for-lstm-when-using-multiple-time-series-of-different-length) or [input steps](https://machinelearningmastery.com/reshape-input-data-long-short-term-memory-networks-keras/). For univariate time series forecasting problem, `n_input_features = n_output_features = 1`. For the **target vector**, typically `output_sequence_length=1` (single point forecasting) is chosen but one can recursively forecast several points to the future. The distinction between **many-to-one** and **many-to-many** can be confusing (see [Andrej Karpathy's blog](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)). See also the  [notebook](https://github.com/ageron/handson-ml2/blob/master/15_processing_sequences_using_rnns_and_cnns.ipynb) by [Aurélien Géron](https://www.amazon.com/gp/product/B07XGF2G87/ref=dbs_a_def_rwt_hsch_vapi_tkin_p1_i0) for tensorflow 2.0/keras examples. 
 
-**seq2seq**: For making predictions from variable input sequence lengths to entire output sequence lengths in one go (instead of recursive single step forecasting), one can use sequence-to-sequence (encoder-decoder) models [see this paper by Sutskever et al. 2014](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf).
+**seq2seq**: For making predictions from variable input sequence lengths to (entire) output sequence lengths in one go (as opposed to recursive single step forecasting), one can use sequence-to-sequence (encoder-decoder) models [see this paper by Sutskever et al. 2014](https://papers.nips.cc/paper/5346-sequence-to-sequence-learning-with-neural-networks.pdf).
 
 ## Preparing data using numpy/scipy
 
@@ -132,7 +132,7 @@ Some gotchas with `np.random.permutation`:
   - [Efficient backprop](http://yann.lecun.com/exdb/publis/pdf/lecun-98b.pdf) by Yann LeCun, Leon Bottou, Genevieve B. Orr, Klaus-Robert Müller.
   - [Chapter 8](http://www.deeplearningbook.org/contents/optimization.html) of Deep learning by Ian Goodfellow, Yoshua Bengio and Aaron Courville.
 
-Batching can be done in `keras` during the fitting step: `model.fit(X_train, y_train, ..., batch_size=32)` or one could create a data generator object at the input step ([example](https://www.kaggle.com/ezietsman/simple-keras-model-with-data-generator)).
+Batching can be done in `keras` during the fitting step: `model.fit(X_train, y_train, ..., batch_size=32)` or one could create a data generator object at the input step ([example](https://www.kaggle.com/ezietsman/simple-keras-model-with-data-generator)). Tensorflow has its own dataset API that can be used for time series following their [tutorial](https://www.tensorflow.org/beta/guide/data#time_series_windowing)
 
  
 
