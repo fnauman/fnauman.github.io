@@ -60,7 +60,7 @@ plugins:
 
 author:
   name   : "Farrukh Nauman"
-  avatar : "/assets/images/IMG-20150731.jpg"
+  avatar : "/assets/images/pic.jpg"
   bio    : "Astrophysics, fluid dynamics, machine learning, neural networks."
   location: Gothenburg, Sweden
   links:
