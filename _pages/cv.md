@@ -4,4 +4,4 @@ permalink: /cv/
 author_profile: true
 ---
 
-My CV can be found [here](/assets/cv.pdf).
+My linkedin profile: https://www.linkedin.com/in/fnauman. 
