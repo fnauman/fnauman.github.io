@@ -1,0 +1,43 @@
+---
+title: "TIL: Decoding the Secrets of Language Model Decoding"
+description: "Just learned something cool about how language models like ChatGPT interpret our words. Let's dive in!"
+author:
+  - name: Farrukh Nauman
+    url: Your Website or Profile URL
+date: 2023-11-10 # Current date or date of posting
+categories: [Today I Learned, AI Explorations, Tech Musings]
+keywords: [Language Models, Decoding Algorithms, AI, Machine Learning]
+# image: a-fun-visual-representation.jpg # A casual or fun image related to the topic
+draft: false
+# language: en
+twitter:card: summary_large_image
+og:title: "Today I Learned: Unraveling Language Model Decoding"
+og:description: "A light-hearted exploration into how language models decode our complex language. Join me in this fun learning journey!"
+---
+
+# TIL: Decoding the Secrets of Language Model Decoding
+
+## Introduction
+
+Hey there! Today I stumbled upon something fascinating about how language models work. Have you ever wondered how AI like ChatGPT understands and responds to our queries? Let's get into the world of decoding!
+
+## What is Decoding in Language Models?
+
+* Explain what decoding is in a simple and engaging manner.
+* Maybe throw in a fun analogy or two!
+
+## Types of Decoding Algorithms
+
+* Briefly introduce various decoding algorithms with easy-to-understand examples.
+
+## Why It Matters
+
+* Share why understanding these algorithms is cool and important in layman's terms.
+
+## What I Learned
+
+* Sum up your key takeaways in a friendly and conversational tone.
+
+## Conclusion
+
+* End with a light-hearted closing thought or a teaser for what you might explore next.

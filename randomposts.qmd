@@ -1,0 +1,10 @@
+---
+title: "Random thoughts/TIL"
+listing: 
+  contents: randomposts 
+  type: grid # or `default` or `table`; each type has its own set of yaml options to include
+  sort: "date desc" 
+  categories: true # allows you to sort posts by assigned categories 
+---
+
+This is a collection of random thoughts and things I've learned. This often reflects a work in progress, and I may update posts as I learn more. 

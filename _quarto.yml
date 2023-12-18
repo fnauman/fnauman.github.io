@@ -1,0 +1,41 @@
+project:
+  type: website
+
+website:
+  title: "Farrukh Nauman"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      # - href: about.qmd 
+      #   text: About
+      - href: projects.qmd 
+        text: Projects
+      - href: posts.qmd 
+        text: Blog
+      - href: randomposts.qmd
+        text: Random/TIL
+
+    # your social media handles
+    right:
+      - icon: github
+        href: https://github.com/fnauman
+      - icon: twitter
+        href: https://twitter.com/naumanf_
+      - icon: linkedin
+        href: https://www.linkedin.com/in/fnauman/
+      - icon: envelope
+        aria-label: email
+        href: "mailto:farrukh.nauman@ri.se"  
+  
+
+format:
+  html:
+    theme: 
+      - styles.scss
+    #   light: flatly
+    #   dark: darkly
+    # css: styles.css
+    # mainfont: Nunito
+    toc: true # false
+    page-layout: full

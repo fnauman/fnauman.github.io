@@ -1,0 +1,32 @@
+/*-- scss:defaults --*/
+
+// Import fonts
+// @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+// Colors
+$dark-green: #858E79;
+$orange: #ad7237; 
+$light-blue: #A1C6C9;
+
+// other variables omitted for brevity ~
+
+/*-- scss:rules --*/
+
+// h1, h2 {
+//     letter-spacing: 5px; 
+//     text-transform: uppercase;
+//     color: $light-blue;   
+// //   color: $dark-green;
+// }
+
+// .title {
+//     color: red;
+// }
+
+.center-text {
+    text-align: center;
+}
+
+.orange-text {
+    color: $orange;
+}
