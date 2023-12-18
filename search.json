@@ -1,10 +1,94 @@
 [
   {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Automating second-hand fashion\n\n\n\nApplied AI\n\n\nSustainable Fashion\n\n\nCircular Economy\n\n\nRISE\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\nFarrukh Nauman\n\n\nDec 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Automating second-hand fashion\n\n\n\nApplied AI\n\n\nSustainable Fashion\n\n\nCircular Economy\n\n\nRISE\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\nFarrukh Nauman\n\n\nDec 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "randomposts.html",
     "href": "randomposts.html",
     "title": "Random thoughts/TIL",
     "section": "",
     "text": "This is a collection of random thoughts and things I’ve learned. This often reflects a work in progress, and I may update posts as I learn more.\n\n\n\n\n\n\n\n\n\n\n\n\nTIL: Decoding the Secrets of Language Model Decoding\n\n\n\nToday I Learned\n\n\nAI Explorations\n\n\nTech Musings\n\n\n\nJust learned something cool about how language models like ChatGPT interpret our words. Let’s dive in!\n\n\n\nFarrukh Nauman\n\n\nNov 10, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Farrukh Nauman",
+    "section": "",
+    "text": "I am Farrukh Nauman, PhD in Physics from University of Rochester, and currently working as an AI Researcher at RISE Research Institutes of Sweden AB. My research interests span a broad range from Applied AI domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows.\nUpdate: I am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector.\n\n\n\n\nBriefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices.\n\n\n\n\n\nOverview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience.\n\n\n\n\n\n\n\nExplain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction.\n\n\n\n\n\n\nShare real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector.\n\n\n\n\n\nDiscuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field.\n\n\n\n\n\nSummarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices.\n\n\n\n\n\nList any references or further reading materials here."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#introduction",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#introduction",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "Briefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "Overview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "Explain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#case-studies",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#case-studies",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "Share real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "Discuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#conclusion",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#conclusion",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "Summarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices."
+  },
+  {
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#references",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#references",
+    "title": "Automating second-hand fashion",
+    "section": "",
+    "text": "List any references or further reading materials here."
   },
   {
     "objectID": "posts/2023-12-16-second-hand-fashion/index.html",
@@ -70,20 +154,6 @@
     "text": "List any references or further reading materials here."
   },
   {
-    "objectID": "posts.html",
-    "href": "posts.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Automating second-hand fashion\n\n\n\nApplied AI\n\n\nSustainable Fashion\n\n\nCircular Economy\n\n\nRISE\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\nFarrukh Nauman\n\n\nDec 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Farrukh Nauman",
-    "section": "",
-    "text": "I am Farrukh Nauman, PhD in Physics from University of Rochester, and currently working as an AI Researcher at RISE Research Institutes of Sweden AB. My research interests span a broad range from Applied AI domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows."
-  },
-  {
     "objectID": "randomposts/2023-11-10-llm-decoding/index.html",
     "href": "randomposts/2023-11-10-llm-decoding/index.html",
     "title": "TIL: Decoding the Secrets of Language Model Decoding",
@@ -131,82 +201,5 @@
     "title": "TIL: Decoding the Secrets of Language Model Decoding",
     "section": "",
     "text": "End with a light-hearted closing thought or a teaser for what you might explore next."
-  },
-  {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
-    "section": "",
-    "text": "Automating second-hand fashion\n\n\n\nApplied AI\n\n\nSustainable Fashion\n\n\nCircular Economy\n\n\nRISE\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\nFarrukh Nauman\n\n\nDec 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "Farrukh Nauman, Researcher at RISE Research Institutes of Sweden AB."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector.\n\n\n\n\nBriefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices.\n\n\n\n\n\nOverview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience.\n\n\n\n\n\n\n\nExplain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction.\n\n\n\n\n\n\nShare real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector.\n\n\n\n\n\nDiscuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field.\n\n\n\n\n\nSummarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices.\n\n\n\n\n\nList any references or further reading materials here."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#introduction",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#introduction",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Briefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Overview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Explain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#case-studies",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#case-studies",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Share real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Discuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#conclusion",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#conclusion",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Summarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#references",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#references",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "List any references or further reading materials here."
   }
 ]

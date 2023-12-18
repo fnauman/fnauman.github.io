@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fnauman.github.io/randomposts.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/index.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
+    <loc>https://fnauman.github.io/projects.html</loc>
+    <lastmod>2023-12-18T11:29:57.676Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.github.io/posts.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
+    <lastmod>2023-12-18T11:29:57.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.github.io/randomposts.html</loc>
+    <lastmod>2023-12-18T11:29:57.680Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.github.io/index.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.github.io/randomposts/2023-11-10-llm-decoding/index.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.github.io/projects.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.github.io/about.html</loc>
-    <lastmod>2023-12-18T09:58:16.256Z</lastmod>
+    <lastmod>2023-12-18T14:34:43.626Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/index.html</loc>
-    <lastmod>2023-12-18T09:58:16.260Z</lastmod>
+    <lastmod>2023-12-18T11:29:57.680Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/index.html</loc>
+    <lastmod>2023-12-18T11:29:57.676Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.github.io/randomposts/2023-11-10-llm-decoding/index.html</loc>
+    <lastmod>2023-12-18T11:29:57.680Z</lastmod>
   </url>
 </urlset>

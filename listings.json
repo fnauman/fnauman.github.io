@@ -1,8 +1,8 @@
 [
   {
-    "listing": "/randomposts.html",
+    "listing": "/projects.html",
     "items": [
-      "/randomposts/2023-11-10-llm-decoding/index.html"
+      "/projects/2023-12-16-second-hand-fashion/index.html"
     ]
   },
   {
@@ -12,9 +12,9 @@
     ]
   },
   {
-    "listing": "/projects.html",
+    "listing": "/randomposts.html",
     "items": [
-      "/projects/2023-12-16-second-hand-fashion/index.html"
+      "/randomposts/2023-11-10-llm-decoding/index.html"
     ]
   }
 ]
