@@ -1,5 +1,0 @@
----
-title: "About"
----
-
-Farrukh Nauman, Researcher at RISE Research Institutes of Sweden AB.

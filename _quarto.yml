@@ -28,6 +28,9 @@ website:
         aria-label: email
         href: "mailto:farrukh.nauman@ri.se"  
   
+  # your google analytics tracking id
+  google-analytics: G-9BN5NTZ1J1
+  
 
 format:
   html:
