@@ -3,7 +3,9 @@ project:
 
 website:
   title: "Farrukh Nauman"
-  navbar:
+  navbar: 
+    # your site name
+    title: false # "Farrukh Nauman"
     left:
       - href: index.qmd
         text: Home
@@ -30,7 +32,10 @@ website:
   
   # your google analytics tracking id
   google-analytics: G-9BN5NTZ1J1
-  
+  open-graph: true
+  twitter-card: 
+    creator: "@naumanf_" 
+    site: "@naumanf_"
 
 format:
   html:

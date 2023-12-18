@@ -15,9 +15,12 @@ citation:
   url: https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/ 
 image: front_2023_05_11_07_43_41.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
-twitter:card: summary_large_image
-og:title: "Automating Second-Hand Fashion: AI's Role in a Circular Economy"
-og:description: "A deep dive into how AI technologies are reshaping the second-hand fashion industry towards more sustainable practices."
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "Automating Second-Hand Fashion: AI's Role in a Circular Economy"
+  description: "A deep dive into how AI technologies are reshaping the second-hand fashion industry towards more sustainable practices."
 ---
 
 
