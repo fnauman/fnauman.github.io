@@ -2,6 +2,7 @@
 title: "Farrukh Nauman" 
 subtitle: "AI Researcher at RISE | PhD in Physics"
 image: assets/officialpic.JPG
+resources: assets/cv.pdf
 toc: false
 about: 
   template: trestles
