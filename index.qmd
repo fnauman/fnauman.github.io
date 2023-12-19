@@ -30,7 +30,6 @@ format:
     page-layout: full
 ---
 
-<!-- # About -->
 
 I am Farrukh Nauman, PhD in Physics from University of Rochester, and currently working as an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en). My research interests span a broad range from Applied AI domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. 
 

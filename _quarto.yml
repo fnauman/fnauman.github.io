@@ -4,13 +4,10 @@ project:
 website:
   title: "Farrukh Nauman"
   navbar: 
-    # your site name
     title: false # "Farrukh Nauman"
     left:
       - href: index.qmd
         text: Home
-      # - href: about.qmd 
-      #   text: About
       - href: projects.qmd 
         text: Projects
       - href: posts.qmd 
@@ -18,7 +15,6 @@ website:
       - href: randomposts.qmd
         text: Random/TIL
 
-    # your social media handles
     right:
       - icon: github
         href: https://github.com/fnauman
@@ -30,7 +26,6 @@ website:
         aria-label: email
         href: "mailto:farrukh.nauman@ri.se"  
   
-  # your google analytics tracking id
   google-analytics: G-9BN5NTZ1J1
   open-graph: true
   twitter-card: 
@@ -40,10 +35,8 @@ website:
 format:
   html:
     theme: 
-      - styles.scss
-    #   light: flatly
-    #   dark: darkly
+      light: flatly # styles.scss # [flatly, styles.scss]
+      dark: darkly
     # css: styles.css
-    # mainfont: Nunito
     toc: true # false
     page-layout: full

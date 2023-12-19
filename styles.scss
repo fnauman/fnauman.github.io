@@ -6,7 +6,13 @@
 // Colors
 $dark-green: #858E79;
 $orange: #ad7237; 
-$light-blue: #A1C6C9;
+// $light-blue: #A1C6C9;
+// Define your color palette
+$primary-color: #b1ebff;  // Light blue
+$secondary-color: #b0e0e6; // Powder blue
+$accent-color: #87cefa;   // Sky blue
+
+$navbar-bg: #5490c8;
 
 // other variables omitted for brevity ~
 
@@ -23,10 +29,10 @@ $light-blue: #A1C6C9;
 //     color: red;
 // }
 
-.center-text {
-    text-align: center;
-}
+// .center-text {
+//     text-align: center;
+// }
 
-.orange-text {
-    color: $orange;
-}
+// .orange-text {
+//     color: $orange;
+// }
