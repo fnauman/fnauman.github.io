@@ -39,10 +39,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,11 +85,11 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <meta property="og:title" content="Farrukh Nauman - Automating second-hand fashion">
 <meta property="og:description" content="How can AI be used to accelerate the transition to a circular economy?">
-<meta property="og:image" content="https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta property="og:image" content="front_2023_05_11_07_43_41.jpg">
 <meta property="og:site_name" content="Farrukh Nauman">
 <meta name="twitter:title" content="Farrukh Nauman - Automating second-hand fashion">
 <meta name="twitter:description" content="How can AI be used to accelerate the transition to a circular economy?">
-<meta name="twitter:image" content="https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta name="twitter:image" content="front_2023_05_11_07_43_41.jpg">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
 <meta name="twitter:card" content="summary_large_image">
@@ -146,6 +148,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -198,7 +201,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">December 18, 2023</p>
+        <p class="date-modified">December 21, 2023</p>
       </div>
     </div>
       
@@ -223,15 +226,12 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <li><a href="#automating-second-hand-fashion" id="toc-automating-second-hand-fashion" class="nav-link active" data-scroll-target="#automating-second-hand-fashion">Automating Second-Hand Fashion</a>
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-need-for-sustainable-practices-in-fashion" id="toc-the-need-for-sustainable-practices-in-fashion" class="nav-link" data-scroll-target="#the-need-for-sustainable-practices-in-fashion">The Need for Sustainable Practices in Fashion</a></li>
-  <li><a href="#ai-in-the-fashion-industry" id="toc-ai-in-the-fashion-industry" class="nav-link" data-scroll-target="#ai-in-the-fashion-industry">AI in the Fashion Industry</a></li>
-  <li><a href="#revolutionizing-second-hand-fashion-with-ai" id="toc-revolutionizing-second-hand-fashion-with-ai" class="nav-link" data-scroll-target="#revolutionizing-second-hand-fashion-with-ai">Revolutionizing Second-Hand Fashion with AI</a>
+  <li><a href="#ai-and-second-hand-fashion" id="toc-ai-and-second-hand-fashion" class="nav-link" data-scroll-target="#ai-and-second-hand-fashion">AI and Second-Hand fashion</a>
   <ul class="collapse">
   <li><a href="#ai-powered-sorting-and-grading" id="toc-ai-powered-sorting-and-grading" class="nav-link" data-scroll-target="#ai-powered-sorting-and-grading">AI-Powered Sorting and Grading</a></li>
   <li><a href="#enhanced-inventory-management" id="toc-enhanced-inventory-management" class="nav-link" data-scroll-target="#enhanced-inventory-management">Enhanced Inventory Management</a></li>
   </ul></li>
-  <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies">Case Studies</a></li>
-  <li><a href="#challenges-and-future-outlook" id="toc-challenges-and-future-outlook" class="nav-link" data-scroll-target="#challenges-and-future-outlook">Challenges and Future Outlook</a></li>
+  <li><a href="#challenges" id="toc-challenges" class="nav-link" data-scroll-target="#challenges">Challenges</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul></li>
@@ -249,24 +249,11 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <h1>Automating Second-Hand Fashion</h1>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector.</p>
+<p>The textile industry accounts for up to 10% of the global carbon footprint and is the second-largest consumer of water. The fashion industry is also responsible for 20% of global wastewater and 85% of textiles end up in landfills or are incinerated.</p>
 </section>
-<section id="the-need-for-sustainable-practices-in-fashion" class="level2">
-<h2 class="anchored" data-anchor-id="the-need-for-sustainable-practices-in-fashion">The Need for Sustainable Practices in Fashion</h2>
-<ul>
-<li>Briefly discuss the environmental impact of the fashion industry.</li>
-<li>Highlight the growing demand for sustainable fashion practices.</li>
-</ul>
-</section>
-<section id="ai-in-the-fashion-industry" class="level2">
-<h2 class="anchored" data-anchor-id="ai-in-the-fashion-industry">AI in the Fashion Industry</h2>
-<ul>
-<li>Overview of AI applications in fashion.</li>
-<li>Specific examples of AI use in design, manufacturing, or customer experience.</li>
-</ul>
-</section>
-<section id="revolutionizing-second-hand-fashion-with-ai" class="level2">
-<h2 class="anchored" data-anchor-id="revolutionizing-second-hand-fashion-with-ai">Revolutionizing Second-Hand Fashion with AI</h2>
+<section id="ai-and-second-hand-fashion" class="level2">
+<h2 class="anchored" data-anchor-id="ai-and-second-hand-fashion">AI and Second-Hand fashion</h2>
+<p>AI has been extensively used in <em>first-hand</em> fashion applications: category classification, style recommendation, virtual try-on, visual search, and more. However, the use of AI in <em>second-hand</em> fashion is still in its infancy. What makes second-hand fashion particularly difficult is the lack of high quality data containing detailed annotations for clothes with varying degrees of damage and wear. First-hand fashion clothes might also suffer from quality issues, but the data is usually much cleaner and easier to work with. Second-hand fashion data is also more difficult to collect and annotate, as it requires a lot of manual effort and expertise from professional sorters who can assess the value of these clothing items.</p>
 <section id="ai-powered-sorting-and-grading" class="level3">
 <h3 class="anchored" data-anchor-id="ai-powered-sorting-and-grading">AI-Powered Sorting and Grading</h3>
 <ul>
@@ -282,14 +269,8 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </ul>
 </section>
 </section>
-<section id="case-studies" class="level2">
-<h2 class="anchored" data-anchor-id="case-studies">Case Studies</h2>
-<ul>
-<li>Share real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector.</li>
-</ul>
-</section>
-<section id="challenges-and-future-outlook" class="level2">
-<h2 class="anchored" data-anchor-id="challenges-and-future-outlook">Challenges and Future Outlook</h2>
+<section id="challenges" class="level2">
+<h2 class="anchored" data-anchor-id="challenges">Challenges</h2>
 <ul>
 <li>Discuss the challenges faced in integrating AI into second-hand fashion.</li>
 <li>Offer insights into the future of AI in this field.</li>
@@ -343,6 +324,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {

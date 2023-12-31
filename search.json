@@ -11,7 +11,7 @@
     "href": "posts.html",
     "title": "Blog",
     "section": "",
-    "text": "Automating second-hand fashion\n\n\n\nApplied AI\n\n\nSustainable Fashion\n\n\nCircular Economy\n\n\nRISE\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\nFarrukh Nauman\n\n\nDec 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Large Language Models: A Compact Guide\n\n\n\nApplied AI\n\n\nNatural Language Processing\n\n\nLarge Language Models\n\n\n\nWhat are Large Language Models? What are their limitations and common use cases?\n\n\n\nFarrukh Nauman\n\n\nDec 16, 2023\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "randomposts.html",
@@ -25,133 +25,63 @@
     "href": "index.html",
     "title": "Farrukh Nauman",
     "section": "",
-    "text": "I am Farrukh Nauman, PhD in Physics from University of Rochester, and currently working as an AI Researcher at RISE Research Institutes of Sweden AB. My research interests span a broad range from Applied AI domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows.\n\n\nUpdate (Dec. 18th, 2023):\nI am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process."
+    "text": "I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at RISE Research Institutes of Sweden AB, I am primarily focused on large-scale AI projects in the fashion industry.\n\nMy research interests span a broad range: from my more recent focus on Applied AI in domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN, and MATLAB. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry.\n\n\nUpdate (Dec. 18th, 2023):\nI am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process."
   },
   {
     "objectID": "projects/2023-12-16-second-hand-fashion/index.html",
     "href": "projects/2023-12-16-second-hand-fashion/index.html",
     "title": "Automating second-hand fashion",
     "section": "",
-    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector.\n\n\n\n\nBriefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices.\n\n\n\n\n\nOverview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience.\n\n\n\n\n\n\n\nExplain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction.\n\n\n\n\n\n\nShare real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector.\n\n\n\n\n\nDiscuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field.\n\n\n\n\n\nSummarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices.\n\n\n\n\n\nList any references or further reading materials here."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#introduction",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#introduction",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector."
-  },
-  {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Briefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices."
+    "text": "Textile industry is one of the biggest contributors to global pollution and green house emissions. Some statistics from the Nordic council of ministers report 2023:\n\nIt accounts for up to 10% of global green house gas emssions McKinsey 2020.\nThe water use of the textile industry exceeds 215 trillion liters per year.\nIn Nordic countries, the annual consumption textiles per capita is between 13.5 and 16 kgs.\nSynthetic fiber production, which are harder to recycle than natural fibers, has increased from less than 20% of the global fiber production to 60% today.\nLess than 1% of textiles are recycled every year.\nMany garments are only used 7-8 times before being discarded. If each garment could be worn twice as much, the emissions from the textile industry would be reduced by nearly half.\n\nThese alarming trends and statistics have forced the European Union to propose Extended Producer Responsibility (EPR) for textiles. The EPR is a policy approach that makes the producer responsible for the entire life cycle of the product, including the management of the product after its end-of-life. The EPR is expected to be implemented in the EU by 2025. See here for more details.\n\n\nAI has been used in many applications in the fashion industry including product recommendation, visual search, virtual try-on, and trend forecasting. Second-hand fashion, on the other hand, remains almost exclusively manual. The sorting and grading of second-hand clothing is a labor-intensive process that requires a lot of time and effort. The lack of automation in this sector is a major bottleneck in the transition to a circular economy.\nI am fortunate to be involved in two large projects aiming to automate the second-hand fashion industry. The first project is AI for Resource-Efficient Circular Fashion funded by the Swedish Innovation Agency, Vinnova. The second project is funded by the EU: Increasing Circularity and Sustainability in Textiles and Clothing in Europe.\n\n\n\nSorting is a multi-step process that involves the following steps:\n\nPre-sorting: Separate shoes, household textiles like bedsheets and curtains, and other non-fashion items from the fashion items.\nSorting fashion clothes [THIS PROJECT]: Predict various attributes of the clothing items and sort them for:\n\nReuse: Items that are in good condition and can be sold as-is. Reuse is the most sustainable option and has further sub-categories:\n\nSell in Sweden.\nSell outside Sweden or export.\n\nRepair: Items in need of repairs, but are otherwise reusable.\nRecycle: Items made of recyclable materials like 100% cotton.\nLandfill: Items that are in extremely poor condition and cannot be reused or recycled.\n\nFine sorting: This is the sorting that is most relevant to second-hand retailers that sell in-store and online. Their goal is to take the chunk of reusable clothing items and then decide which items to sell at what price and in what location. We do not address this in our project directly although our sorting model can be used to support this process.\n\nIn addition to this, clothes must be handled manually when they first arrive at the facility in large containers. Currently, no known technology exists that can fully automate this step although exciting advances in the field of robotics are being made.\n\n\n\nThe first major challenge that any project aiming to automate the second-hand fashion industry faces is the lack of data. Existing “foundation AI models” are largely biased towards first-hand fashion since that is the kind of data that is readily available on the internet. For instance, these models are incapable of recognizing the wear and tear of second-hand clothing since first-hand fashion images are usually of pristine quality.\nIn the Vinnova project that I am leading from RISE, we are developing a novel dataset with 30,000 used clothing items in partnership with Wargön Innovation. The first version of the dataset has already been released:\n\nDataset v1, 3000 clothing items: Zenodo link.\n\nThe dataset has been released under a permissive CC-BY 4.0 license that allows commercial use given that the authors are properly cited.\nFurthermore, we are developing AI models to recognize damage on clothes and to grade them according to their quality. The scope of ongoing projects is not full automation, but to instead provide a “decision support tool”. A decision support tool is supposed to assist the human operator in making the final decision by judging the cloth condition, assessing the brand quality and how it compares with other brands in the market, and finally, estimating the best use case for the item.\n\n\n\nWe have identified the following challenges and opportunities in the second-hand fashion industry:\n\nData: While our dataset of 30,000 clothing items is the largest of its kind, it is still not large enough to train a deep learning model of the “foundation model” kind. Instead, we must resort to using existing foundation models and finetune them with this data. What makes this particularly challenging is that for first-hand fashion, training a model on, for example, pink T-shirts and black pants is sufficient, but for second-hand fashion, one must be able to distinguish between a pink T-shirt that is in good condition and one that is in poor condition. In other words, we need a dataset large enough to contain different degrees of damage to clothes. One major problem with lack of data will be addressed by the introduction of the digital product passport that aims to preserve the data about a product throughout its life cycle.\nAnnotations: Similar to the subjectivity of language annotations, the annotations of second-hand clothing items are often specific to the annotators and the scope of the facility they are working for. For instance, Wargön Innovation works with the Swedish Red Cross and does not directly price the clothing items. In contrast, other sorting facilities like Myrorna and Björkåfrihet price the items to be sold in their own stores. This means that the annotations are not only subjective, but also specific to the business model of the sorting facility.\nRobotics: The second-hand fashion industry is still almost exclusively manual. With the recent advances in robotics, there is an exciting opportunity to fully automate the entire sorting process from the pre-sorting step to the fine sorting step.\n\n\n\n\nThe second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow exponentially. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players."
   },
   {
     "objectID": "projects/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
     "href": "projects/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
     "title": "Automating second-hand fashion",
     "section": "",
-    "text": "Overview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience."
+    "text": "AI has been used in many applications in the fashion industry including product recommendation, visual search, virtual try-on, and trend forecasting. Second-hand fashion, on the other hand, remains almost exclusively manual. The sorting and grading of second-hand clothing is a labor-intensive process that requires a lot of time and effort. The lack of automation in this sector is a major bottleneck in the transition to a circular economy.\nI am fortunate to be involved in two large projects aiming to automate the second-hand fashion industry. The first project is AI for Resource-Efficient Circular Fashion funded by the Swedish Innovation Agency, Vinnova. The second project is funded by the EU: Increasing Circularity and Sustainability in Textiles and Clothing in Europe."
   },
   {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#sorting",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#sorting",
     "title": "Automating second-hand fashion",
     "section": "",
-    "text": "Explain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction."
+    "text": "Sorting is a multi-step process that involves the following steps:\n\nPre-sorting: Separate shoes, household textiles like bedsheets and curtains, and other non-fashion items from the fashion items.\nSorting fashion clothes [THIS PROJECT]: Predict various attributes of the clothing items and sort them for:\n\nReuse: Items that are in good condition and can be sold as-is. Reuse is the most sustainable option and has further sub-categories:\n\nSell in Sweden.\nSell outside Sweden or export.\n\nRepair: Items in need of repairs, but are otherwise reusable.\nRecycle: Items made of recyclable materials like 100% cotton.\nLandfill: Items that are in extremely poor condition and cannot be reused or recycled.\n\nFine sorting: This is the sorting that is most relevant to second-hand retailers that sell in-store and online. Their goal is to take the chunk of reusable clothing items and then decide which items to sell at what price and in what location. We do not address this in our project directly although our sorting model can be used to support this process.\n\nIn addition to this, clothes must be handled manually when they first arrive at the facility in large containers. Currently, no known technology exists that can fully automate this step although exciting advances in the field of robotics are being made."
   },
   {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#case-studies",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#case-studies",
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#ai-powered-sorting",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#ai-powered-sorting",
     "title": "Automating second-hand fashion",
     "section": "",
-    "text": "Share real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector."
+    "text": "The first major challenge that any project aiming to automate the second-hand fashion industry faces is the lack of data. Existing “foundation AI models” are largely biased towards first-hand fashion since that is the kind of data that is readily available on the internet. For instance, these models are incapable of recognizing the wear and tear of second-hand clothing since first-hand fashion images are usually of pristine quality.\nIn the Vinnova project that I am leading from RISE, we are developing a novel dataset with 30,000 used clothing items in partnership with Wargön Innovation. The first version of the dataset has already been released:\n\nDataset v1, 3000 clothing items: Zenodo link.\n\nThe dataset has been released under a permissive CC-BY 4.0 license that allows commercial use given that the authors are properly cited.\nFurthermore, we are developing AI models to recognize damage on clothes and to grade them according to their quality. The scope of ongoing projects is not full automation, but to instead provide a “decision support tool”. A decision support tool is supposed to assist the human operator in making the final decision by judging the cloth condition, assessing the brand quality and how it compares with other brands in the market, and finally, estimating the best use case for the item."
   },
   {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
+    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-opportunities",
+    "href": "projects/2023-12-16-second-hand-fashion/index.html#challenges-and-opportunities",
     "title": "Automating second-hand fashion",
     "section": "",
-    "text": "Discuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field."
+    "text": "We have identified the following challenges and opportunities in the second-hand fashion industry:\n\nData: While our dataset of 30,000 clothing items is the largest of its kind, it is still not large enough to train a deep learning model of the “foundation model” kind. Instead, we must resort to using existing foundation models and finetune them with this data. What makes this particularly challenging is that for first-hand fashion, training a model on, for example, pink T-shirts and black pants is sufficient, but for second-hand fashion, one must be able to distinguish between a pink T-shirt that is in good condition and one that is in poor condition. In other words, we need a dataset large enough to contain different degrees of damage to clothes. One major problem with lack of data will be addressed by the introduction of the digital product passport that aims to preserve the data about a product throughout its life cycle.\nAnnotations: Similar to the subjectivity of language annotations, the annotations of second-hand clothing items are often specific to the annotators and the scope of the facility they are working for. For instance, Wargön Innovation works with the Swedish Red Cross and does not directly price the clothing items. In contrast, other sorting facilities like Myrorna and Björkåfrihet price the items to be sold in their own stores. This means that the annotations are not only subjective, but also specific to the business model of the sorting facility.\nRobotics: The second-hand fashion industry is still almost exclusively manual. With the recent advances in robotics, there is an exciting opportunity to fully automate the entire sorting process from the pre-sorting step to the fine sorting step."
   },
   {
     "objectID": "projects/2023-12-16-second-hand-fashion/index.html#conclusion",
     "href": "projects/2023-12-16-second-hand-fashion/index.html#conclusion",
     "title": "Automating second-hand fashion",
     "section": "",
-    "text": "Summarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices."
+    "text": "The second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow exponentially. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players."
   },
   {
-    "objectID": "projects/2023-12-16-second-hand-fashion/index.html#references",
-    "href": "projects/2023-12-16-second-hand-fashion/index.html#references",
-    "title": "Automating second-hand fashion",
+    "objectID": "posts/2023-11-20-llms-summary/index.html",
+    "href": "posts/2023-11-20-llms-summary/index.html",
+    "title": "Large Language Models: A Compact Guide",
     "section": "",
-    "text": "List any references or further reading materials here."
+    "text": "A language model aims to learn the probability distribution of a sequence of words. In deep learning, typically a language model consists of the following components:\n\nTokenizer: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn’t seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer.\nEmbedding layer: The numerical representations of text are converted into dense vectors by a learned embedding layer.\nNeural network layers:\n\nUntil 2017, most of the work in Natural Language Processing was using Recurrent Neural Networks (RNNs). RNNs are autoregressive by definition and are able to capture the sequential nature of text. However, they are computationally expensive, hard to parallelize, and find it particularly difficult to capture non-local relationships between words in a sentence and long term dependencies.\nTransformers are based on the idea of self-attention. Self-attention is a fascinating concept: it allows each word or token to “attend” to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture long term dependencies and non-local relationships between tokens granted they are trained on a large enough dataset. As of this writing, all state-of-the-art Large Language Models are based on Transformers with the exciting exceptions of RWKV-LM and Mamba.\n\nOutput layer: The output layer is typically a softmax layer that predicts the next word in the sequence.\n\n\n\n\nEncoder only: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition.\nEncoder-decoder: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include T5.\nDecoder only (ChatGPT, Claude, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words."
   },
   {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html",
-    "title": "Automating second-hand fashion",
+    "objectID": "posts/2023-11-20-llms-summary/index.html#type-of-language-models",
+    "href": "posts/2023-11-20-llms-summary/index.html#type-of-language-models",
+    "title": "Large Language Models: A Compact Guide",
     "section": "",
-    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector.\n\n\n\n\nBriefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices.\n\n\n\n\n\nOverview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience.\n\n\n\n\n\n\n\nExplain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction.\n\n\n\n\n\n\nShare real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector.\n\n\n\n\n\nDiscuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field.\n\n\n\n\n\nSummarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices.\n\n\n\n\n\nList any references or further reading materials here."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#introduction",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#introduction",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "In recent years, the fashion industry has been undergoing a significant transformation, with sustainability and circular economy becoming key priorities. This blog post explores how Artificial Intelligence (AI) is playing a crucial role in driving these changes, particularly in the second-hand fashion sector."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#the-need-for-sustainable-practices-in-fashion",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Briefly discuss the environmental impact of the fashion industry.\nHighlight the growing demand for sustainable fashion practices."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#ai-in-the-fashion-industry",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Overview of AI applications in fashion.\nSpecific examples of AI use in design, manufacturing, or customer experience."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#revolutionizing-second-hand-fashion-with-ai",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Explain how AI is used in sorting and grading second-hand clothing.\nDiscuss the benefits of automating these processes.\n\n\n\n\n\nDescribe AI tools for inventory management in second-hand stores.\nThe impact on efficiency and customer satisfaction."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#case-studies",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#case-studies",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Share real-world examples or case studies where AI has been successfully implemented in the second-hand fashion sector."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#challenges-and-future-outlook",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Discuss the challenges faced in integrating AI into second-hand fashion.\nOffer insights into the future of AI in this field."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#conclusion",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#conclusion",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "Summarize the key points discussed in the blog.\nReflect on the potential long-term impact of AI on sustainable fashion practices."
-  },
-  {
-    "objectID": "posts/2023-12-16-second-hand-fashion/index.html#references",
-    "href": "posts/2023-12-16-second-hand-fashion/index.html#references",
-    "title": "Automating second-hand fashion",
-    "section": "",
-    "text": "List any references or further reading materials here."
+    "text": "Encoder only: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition.\nEncoder-decoder: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include T5.\nDecoder only (ChatGPT, Claude, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words."
   },
   {
     "objectID": "randomposts/2023-11-10-llm-decoding/index.html",
