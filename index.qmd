@@ -2,7 +2,9 @@
 title: "Farrukh Nauman" 
 subtitle: "AI Researcher at RISE | PhD in Physics"
 image: assets/officialpic.JPG
-resources: assets/cv.pdf
+resources: 
+  - assets/cv.pdf
+  # - assets/wandb-dots-logo.svg
 toc: false
 about: 
   template: trestles
@@ -24,6 +26,8 @@ about:
     - text: CV
       icon: file-earmark-pdf
       href: assets/cv.pdf
+    # - text: <img src="assets/wandb-dots-logo.svg" width="15" height="15"/> wandb # "![w](assets/wandb-dots-logo.svg) wandb"
+    #   href: https://wandb.ai/fnauman
 
 format: 
   html: 
@@ -31,7 +35,11 @@ format:
 ---
 
 
-I am Farrukh Nauman, PhD in Physics from University of Rochester, and currently working as an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en). My research interests span a broad range from Applied AI domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. 
+I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en), I am primarily focused on large-scale AI projects in the fashion industry. 
+
+<br>
+
+My research interests span a broad range: from my more recent focus on Applied AI in domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN, and MATLAB. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry. 
 
 <br>
 

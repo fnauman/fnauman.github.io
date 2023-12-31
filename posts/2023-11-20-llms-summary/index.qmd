@@ -1,0 +1,45 @@
+---
+title: "Large Language Models: A Compact Guide"
+description: "What are Large Language Models? What are their limitations and common use cases?"
+author:
+  - name: Farrukh Nauman
+    url: https://fnauman.github.io/
+    orcid: 0000-0003-2940-8432
+    # affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
+    # affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
+date: 2023-12-31
+date-modified: last-modified
+categories: [Applied AI, Natural Language Processing, Large Language Models]
+keywords: [Applied AI, Natural Language Processing, Deep Learning, Large Language Models]
+citation: 
+  url: https://fnauman.github.io/posts/2023-11-20-llms-summary/ 
+# image: front_2023_05_11_07_43_41.jpg
+draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "Large Language Models: A Compact Guide"
+  description: "What are Large Language Models? What are their limitations and common use cases?"
+---
+
+# Large Language Models: A Compact Guide
+
+A language model aims to learn the probability distribution of a sequence of words. In deep learning, typically a language model consists of the following components:
+
+- Tokenizer: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn't seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer. 
+- Embedding layer: The numerical representations of text are converted into dense vectors by a *learned* embedding layer. 
+- Neural network layers:
+    - Until 2017, most of the work in Natural Language Processing was using Recurrent Neural Networks (RNNs). RNNs are autoregressive by definition and are able to capture the sequential nature of text. However, they are computationally expensive, hard to parallelize, and find it particularly difficult to capture non-local relationships between words in a sentence and long term dependencies. 
+    - Transformers are based on the idea of self-attention. Self-attention is a fascinating concept: it allows each word or token to "attend" to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture long term dependencies and non-local relationships between tokens granted they are trained on a large enough dataset. As of this writing, all state-of-the-art Large Language Models are based on Transformers with the exciting exceptions of [RWKV-LM](https://github.com/BlinkDL/RWKV-LM) and [Mamba](https://arxiv.org/abs/2312.00752). 
+- Output layer: The output layer is typically a softmax layer that predicts the next word in the sequence. 
+
+## Type of Language Models: 
+
+- Encoder only: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition. 
+- Encoder-decoder: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include [T5](https://arxiv.org/abs/1910.10683). 
+- Decoder only (ChatGPT, Claude, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words.
+
+## Generative Models
+
+
