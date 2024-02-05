@@ -45,6 +45,6 @@ My research interests span a broad range: from my more recent focus on Applied A
 
 <br>
 
-<small>*Update (Dec. 18th, 2023)*: 
+<small>*Update (Jan. 13th, 2024)*: 
 
 I am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process.</small>

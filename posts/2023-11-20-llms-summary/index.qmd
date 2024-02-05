@@ -7,7 +7,7 @@ author:
     orcid: 0000-0003-2940-8432
     # affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
     # affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
-date: 2023-12-31
+date: 2023-11-20
 date-modified: last-modified
 categories: [Applied AI, Natural Language Processing, Large Language Models]
 keywords: [Applied AI, Natural Language Processing, Deep Learning, Large Language Models]
