@@ -35,16 +35,16 @@ format:
 ---
 
 
-I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en), I am primarily focused on large-scale AI projects in the fashion industry. 
+I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en), my work is primarily focused on large-scale AI projects in the fashion industry. 
 
 <br>
 
-My research interests span a broad range: from my more recent focus on Applied AI in domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN, and MATLAB. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry. 
+My research interests span a broad range: from my more recent focus on Applied AI in domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry. 
 
 <br>
 
 <br>
 
-<small>*Update (Jan. 13th, 2024)*: 
+<small>*Update (Jun. 15th, 2024)*: 
 
 I am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process.</small>
