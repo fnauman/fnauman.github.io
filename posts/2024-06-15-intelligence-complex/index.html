@@ -7,11 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Farrukh Nauman">
-<meta name="dcterms.date" content="2023-12-16">
-<meta name="keywords" content="AI in fashion, circular economy, sustainable fashion, technology in recycling">
-<meta name="description" content="How can AI be used to accelerate the transition to a circular economy?">
+<meta name="dcterms.date" content="2024-06-15">
+<meta name="keywords" content="Artificial Intelligence, Complex Systems, Natural Language Processing, Deep Learning, Large Language Models">
+<meta name="description" content="Understanding Intelligence Throught the Lens of Physics">
 
-<title>Farrukh Nauman – Automating second-hand fashion</title>
+<title>Farrukh Nauman – Intelligence as a Complex System: Lessons from Physics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -82,17 +82,44 @@ gtag('js', new Date());
 gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Farrukh Nauman - Automating second-hand fashion">
-<meta property="og:description" content="How can AI be used to accelerate the transition to a circular economy?">
-<meta property="og:image" content="https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Farrukh Nauman - Intelligence as a Complex System: Lessons from Physics">
+<meta property="og:description" content="Understanding Intelligence Throught the Lens of Physics">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta name="twitter:title" content="Farrukh Nauman - Automating second-hand fashion">
-<meta name="twitter:description" content="How can AI be used to accelerate the transition to a circular economy?">
-<meta name="twitter:image" content="https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta name="twitter:title" content="Farrukh Nauman - Intelligence as a Complex System: Lessons from Physics">
+<meta name="twitter:description" content="Understanding Intelligence Throught the Lens of Physics">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -157,51 +184,42 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Automating second-hand fashion</h1>
+      <h1 class="title">Intelligence as a Complex System: Lessons from Physics</h1>
                   <div>
         <div class="description">
-          How can AI be used to accelerate the transition to a circular economy?
+          Understanding Intelligence Throught the Lens of Physics
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Applied AI</div>
-                <div class="quarto-category">Sustainable Fashion</div>
-                <div class="quarto-category">Circular Economy</div>
-                <div class="quarto-category">RISE</div>
+                <div class="quarto-category">Aritifical Intelligence</div>
+                <div class="quarto-category">Complex Systems</div>
+                <div class="quarto-category">Natural Language Processing</div>
+                <div class="quarto-category">Large Language Models</div>
               </div>
                   </div>
   </div>
     
-  <div class="quarto-title-meta-author column-page-left">
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://fnauman.github.io/">Farrukh Nauman</a> <a href="https://orcid.org/0000-0003-2940-8432" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              <a href="https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion">
-              Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
-              </a>
-            </p>
-        </div>
-    </div>
-
+  
   <div class="quarto-title-meta column-page-left">
 
-        
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://fnauman.github.io/">Farrukh Nauman</a> </p>
+            </div>
+    </div>
+      
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 16, 2023</p>
+        <p class="date">June 15, 2024</p>
       </div>
     </div>
     
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">December 31, 2023</p>
+        <p class="date-modified">June 21, 2024</p>
       </div>
     </div>
       
@@ -211,7 +229,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <div>
     <div class="keywords">
       <div class="block-title">Keywords</div>
-      <p>AI in fashion, circular economy, sustainable fashion, technology in recycling</p>
+      <p>Artificial Intelligence, Complex Systems, Natural Language Processing, Deep Learning, Large Language Models</p>
     </div>
   </div>
   
@@ -223,12 +241,13 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#automating-second-hand-fashion" id="toc-automating-second-hand-fashion" class="nav-link active" data-scroll-target="#automating-second-hand-fashion">Automating Second-Hand Fashion</a>
+  <li><a href="#intelligence-as-a-complex-system-lessons-from-physics" id="toc-intelligence-as-a-complex-system-lessons-from-physics" class="nav-link active" data-scroll-target="#intelligence-as-a-complex-system-lessons-from-physics">Intelligence as a Complex System: Lessons from Physics</a>
   <ul class="collapse">
-  <li><a href="#ai-in-the-fashion-industry" id="toc-ai-in-the-fashion-industry" class="nav-link" data-scroll-target="#ai-in-the-fashion-industry">AI in the Fashion Industry</a></li>
-  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
-  <li><a href="#ai-powered-sorting" id="toc-ai-powered-sorting" class="nav-link" data-scroll-target="#ai-powered-sorting">AI-Powered Sorting</a></li>
-  <li><a href="#challenges-and-opportunities" id="toc-challenges-and-opportunities" class="nav-link" data-scroll-target="#challenges-and-opportunities">Challenges and Opportunities</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-complexity-spectrum" id="toc-the-complexity-spectrum" class="nav-link" data-scroll-target="#the-complexity-spectrum">The Complexity Spectrum</a></li>
+  <li><a href="#the-danger-of-reductionism" id="toc-the-danger-of-reductionism" class="nav-link" data-scroll-target="#the-danger-of-reductionism">The Danger of Reductionism</a></li>
+  <li><a href="#key-aspects-of-intelligence-as-a-complex-system" id="toc-key-aspects-of-intelligence-as-a-complex-system" class="nav-link" data-scroll-target="#key-aspects-of-intelligence-as-a-complex-system">Key Aspects of Intelligence as a Complex System</a></li>
+  <li><a href="#the-unique-pace-of-ai-development" id="toc-the-unique-pace-of-ai-development" class="nav-link" data-scroll-target="#the-unique-pace-of-ai-development">The Unique Pace of AI Development</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
@@ -241,82 +260,94 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 
 
-<section id="automating-second-hand-fashion" class="level1">
-<h1>Automating Second-Hand Fashion</h1>
-<!-- ## Introduction -->
-<p>Textile industry is one of the biggest contributors to global pollution and green house emissions. Some statistics from the Nordic council of ministers <a href="https://pub.norden.org/temanord2023-502/#122166">report 2023</a>:</p>
-<ul>
-<li>It accounts for up to 10% of global green house gas emssions <a href="https://www.mckinsey.com/industries/retail/our-insights/fashion-on-climate">McKinsey 2020</a>.</li>
-<li>The water use of the textile industry exceeds 215 trillion liters per year.</li>
-<li>In Nordic countries, the annual consumption textiles per capita is between 13.5 and 16 kgs.</li>
-<li>Synthetic fiber production, which are harder to recycle than natural fibers, has increased from less than 20% of the global fiber production to 60% today.</li>
-<li>Less than 1% of textiles are recycled every year.</li>
-<li>Many garments are only used 7-8 times before being discarded. If each garment could be worn twice as much, the emissions from the textile industry would be reduced by nearly half.</li>
-</ul>
-<p>These alarming trends and statistics have forced the European Union to propose Extended Producer Responsibility (EPR) for textiles. The EPR is a policy approach that makes the producer responsible for the entire life cycle of the product, including the management of the product after its end-of-life. The EPR is expected to be implemented in the EU by 2025. See <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3635">here</a> for more details.</p>
-<section id="ai-in-the-fashion-industry" class="level2">
-<h2 class="anchored" data-anchor-id="ai-in-the-fashion-industry">AI in the Fashion Industry</h2>
-<p>AI has been used in many applications in the fashion industry including product recommendation, visual search, virtual try-on, and trend forecasting. Second-hand fashion, on the other hand, remains almost exclusively manual. The sorting and grading of second-hand clothing is a labor-intensive process that requires a lot of time and effort. The lack of automation in this sector is a major bottleneck in the transition to a circular economy.</p>
-<p>I am fortunate to be involved in two large projects aiming to automate the second-hand fashion industry. The first project is <a href="https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion">AI for Resource-Efficient Circular Fashion</a> funded by the Swedish Innovation Agency, Vinnova. The second project is funded by the EU: <a href="https://www.cisutac.eu/">Increasing Circularity and Sustainability in Textiles and Clothing in Europe</a>.</p>
+<section id="intelligence-as-a-complex-system-lessons-from-physics" class="level1">
+<h1>Intelligence as a Complex System: Lessons from Physics</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>In the rapidly evolving field of artificial intelligence, there’s a growing need to understand the nuances and complexities of intelligence itself. By drawing analogies from successful physical models of complex systems, we can gain valuable insights into the nature of intelligence and the challenges we face in replicating it. This essay explores the parallels between intelligence and other complex phenomena in physics, highlighting why simplistic approaches to AI may fall short of true artificial general intelligence (AGI).</p>
 </section>
-<section id="sorting" class="level2">
-<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
-<p>Sorting is a multi-step process that involves the following steps:</p>
+<section id="the-complexity-spectrum" class="level2">
+<h2 class="anchored" data-anchor-id="the-complexity-spectrum">The Complexity Spectrum</h2>
+<p>Just as physical phenomena exhibit varying degrees of complexity, intelligence exists on a spectrum. Consider the following examples:</p>
+<ol type="1">
+<li><strong>Turbulence in fluid dynamics</strong>:
 <ul>
-<li>Pre-sorting: Separate shoes, household textiles like bedsheets and curtains, and other non-fashion items from the fashion items.</li>
-<li><strong>Sorting fashion clothes</strong> [THIS PROJECT]: Predict various attributes of the clothing items and sort them for:
-<ul>
-<li>Reuse: Items that are in good condition and can be sold as-is. Reuse is the most sustainable option and has further sub-categories:
-<ul>
-<li>Sell in Sweden.</li>
-<li>Sell outside Sweden or export.</li>
+<li>Simple: Rayleigh–Bénard convection near the transition point.</li>
+<li>Complex: Plasma behavior around supermassive black holes (Reynolds number <span class="math inline">\(\sim 10^{20}\)</span>).</li>
 </ul></li>
-<li>Repair: Items in need of repairs, but are otherwise reusable.</li>
-<li>Recycle: Items made of recyclable materials like 100% cotton.</li>
-<li>Landfill: Items that are in extremely poor condition and cannot be reused or recycled.</li>
+<li><strong>Intelligence tasks</strong>:
+<ul>
+<li>Simple: Grade school math problems.</li>
+<li>Complex: Developing groundbreaking scientific theories (e.g., the Ising model in ferromagnetism).</li>
 </ul></li>
-<li>Fine sorting: This is the sorting that is most relevant to second-hand retailers that sell in-store and online. Their goal is to take the chunk of reusable clothing items and then decide which items to sell at what price and in what location. We do not address this in our project directly although our sorting model can be used to support this process.</li>
-</ul>
-<p>In addition to this, clothes must be handled manually when they first arrive at the facility in large containers. Currently, no known technology exists that can fully automate this step although exciting advances in the field of robotics are being made.</p>
+</ol>
+<p>This spectrum illustrates that, like turbulence, we may not yet know if there’s an upper limit to intelligence. It also suggests that for many tasks, a simplified or “compressed” representation might suffice, explaining why some believe AGI has been achieved based on performance in limited domains.</p>
 </section>
-<section id="ai-powered-sorting" class="level2">
-<h2 class="anchored" data-anchor-id="ai-powered-sorting">AI-Powered Sorting</h2>
-<p>The first major challenge that any project aiming to automate the second-hand fashion industry faces is the lack of data. Existing “foundation AI models” are largely biased towards first-hand fashion since that is the kind of data that is readily available on the internet. For instance, these models are incapable of recognizing the wear and tear of second-hand clothing since first-hand fashion images are usually of pristine quality.</p>
-<p>In the Vinnova project that I am leading from RISE, we are developing a novel dataset with 30,000 used clothing items in partnership with <a href="https://wargoninnovation.se/en/">Wargön Innovation</a>. The first version of the dataset has already been released:</p>
-<ul>
-<li>Dataset v1, 3000 clothing items: <a href="https://zenodo.org/records/8386668">Zenodo link</a>.</li>
-</ul>
-<p>The dataset has been released under a permissive CC-BY 4.0 license that allows commercial use given that the authors are properly cited.</p>
-<p>Furthermore, we are developing AI models to recognize damage on clothes and to grade them according to their quality. The scope of ongoing projects is not full automation, but to instead provide a “decision support tool”. A decision support tool is supposed to assist the human operator in making the final decision by judging the cloth condition, assessing the brand quality and how it compares with other brands in the market, and finally, estimating the best use case for the item.</p>
+<section id="the-danger-of-reductionism" class="level2">
+<h2 class="anchored" data-anchor-id="the-danger-of-reductionism">The Danger of Reductionism</h2>
+<p>Historically, scientists have fallen into the trap of reductionism – the belief that complex phenomena can be fully explained by understanding their fundamental components. Paul Dirac’s 1929 statement exemplifies this:</p>
+<blockquote class="blockquote">
+<p>“The underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known.” <a href="https://royalsocietypublishing.org/doi/10.1098/rspa.1929.0094">Source</a></p>
+</blockquote>
+<p>However, just as a unified theory of fundamental forces wouldn’t explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. Complex systems often require multiple levels of description and analysis.</p>
 </section>
-<section id="challenges-and-opportunities" class="level2">
-<h2 class="anchored" data-anchor-id="challenges-and-opportunities">Challenges and Opportunities</h2>
-<p>We have identified the following challenges and opportunities in the second-hand fashion industry:</p>
+<section id="key-aspects-of-intelligence-as-a-complex-system" class="level2">
+<h2 class="anchored" data-anchor-id="key-aspects-of-intelligence-as-a-complex-system">Key Aspects of Intelligence as a Complex System</h2>
+<ol type="1">
+<li><p><strong>Dynamic nature</strong>: Intelligence is inherently non-equilibrium, dynamic, nonlinear, and high-dimensional. A static language model, no matter how advanced, cannot fully capture these aspects.</p></li>
+<li><p><strong>Hierarchical complexity</strong>: Like physical systems, intelligence requires flexible frameworks that allow for hierarchical representations. In physics, we have:</p>
 <ul>
-<li><strong>Data</strong>: While our dataset of 30,000 clothing items is the largest of its kind, it is still not large enough to train a deep learning model of the “foundation model” kind. Instead, we must resort to using existing foundation models and finetune them with this data. What makes this particularly challenging is that for first-hand fashion, training a model on, for example, pink T-shirts and black pants is sufficient, but for second-hand fashion, one must be able to distinguish between a pink T-shirt that is in good condition and one that is in poor condition. In other words, we need a dataset large enough to contain different degrees of damage to clothes. One major problem with lack of data will be addressed by the introduction of the digital product passport that aims to preserve the data about a product throughout its life cycle.</li>
-<li><strong>Annotations</strong>: Similar to the subjectivity of language annotations, the annotations of second-hand clothing items are often specific to the annotators and the scope of the facility they are working for. For instance, Wargön Innovation works with the Swedish Red Cross and does not directly price the clothing items. In contrast, other sorting facilities like Myrorna and Björkåfrihet price the items to be sold in their own stores. This means that the annotations are not only subjective, but also specific to the business model of the sorting facility.</li>
-<li><strong>Robotics</strong>: The second-hand fashion industry is still almost exclusively manual. With the recent advances in robotics, there is an exciting opportunity to fully automate the entire sorting process from the pre-sorting step to the fine sorting step.</li>
+<li>N-particle descriptions (e.g., molecular dynamics)</li>
+<li>Kinetic descriptions (e.g., Boltzmann, Vlasov equations)</li>
+<li>Fluid descriptions (e.g., Navier-Stokes equations)</li>
+<li>Mean field descriptions (e.g., filtered turbulent fields)</li>
 </ul>
+<p>AI research needs analogous frameworks to capture different levels of cognitive processes.</p></li>
+<li><p><strong>Meta-frameworks for problem-solving</strong>: Current AI models lack robust strategies for approaching intractable problems. Historically, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).</p></li>
+<li><p><strong>Data limitations</strong>: Current AI models have almost no inductive biases and learn everything from the data, which has limitations:</p>
+<ul>
+<li>Web-scale data has a <em>long-tail</em> of complex reasoning tasks, which makes complex reasoning difficult to model.</li>
+<li>Detailed reasoning steps are not available since humans only write down the final answer.</li>
+<li>Equal weighting of data samples is sub-optimal since only a fraction represent high-quality research and content.</li>
+<li>Examples from long-term scientific development are randomly distributed in the data and not systematically organized (e.g., the evolution of theories over decades).</li>
+</ul></li>
+</ol>
+</section>
+<section id="the-unique-pace-of-ai-development" class="level2">
+<h2 class="anchored" data-anchor-id="the-unique-pace-of-ai-development">The Unique Pace of AI Development</h2>
+<p>Despite these challenges, AI research progresses at an unprecedented rate compared to other complex fields. This is due to:</p>
+<ul>
+<li>Immediate access to state-of-the-art models through APIs and open-source libraries.</li>
+<li>Enhanced tooling for data ingestion and generation.</li>
+<li>The ability to build upon existing work rapidly.</li>
+</ul>
+<p>Contrast this with research in turbulence or computational fluid dynamics, where reproducing results can take years due to:</p>
+<ul>
+<li>Complex, million-line codebases in C, C++, Fortran.</li>
+<li>Limited access to high-performance computing.</li>
+<li>The need for deep understanding of underlying physics.</li>
+</ul>
+<p>As an example, consider the difficulty in generating <span class="math inline">\(1000\)</span> time steps for a turbulent flow simulation and contrast it with generating <span class="math inline">\(1000\)</span> tokens in language models through the interface, API or running local models.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow exponentially. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players.</p>
-<!-- ## References -->
+<p>While the rapid progress in AI is exciting, we must approach claims of AGI with caution. By viewing intelligence through the lens of complex systems, we gain a more nuanced understanding of the challenges ahead. Just as physicists continue to grapple with phenomena like turbulence, AI researchers must embrace the multifaceted nature of intelligence, developing new frameworks and approaches to capture its full complexity.</p>
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2024,
   author = {Nauman, Farrukh},
-  title = {Automating Second-Hand Fashion},
-  date = {2023-12-16},
-  url = {https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/},
+  title = {Intelligence as a {Complex} {System:} {Lessons} from
+    {Physics}},
+  date = {2024-06-15},
+  url = {https://fnauman.github.io/posts/2024-06-15-intelligence-complex/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-Nauman, Farrukh. 2023. <span>“Automating Second-Hand Fashion.”</span>
-December 16, 2023. <a href="https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/">https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Nauman, Farrukh. 2024. <span>“Intelligence as a Complex System: Lessons
+from Physics.”</span> June 15, 2024. <a href="https://fnauman.github.io/posts/2024-06-15-intelligence-complex/">https://fnauman.github.io/posts/2024-06-15-intelligence-complex/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
