@@ -219,7 +219,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">June 21, 2024</p>
+        <p class="date-modified">June 23, 2024</p>
       </div>
     </div>
       
@@ -245,7 +245,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#the-complexity-spectrum" id="toc-the-complexity-spectrum" class="nav-link" data-scroll-target="#the-complexity-spectrum">The Complexity Spectrum</a></li>
-  <li><a href="#the-danger-of-reductionism" id="toc-the-danger-of-reductionism" class="nav-link" data-scroll-target="#the-danger-of-reductionism">The Danger of Reductionism</a></li>
+  <li><a href="#the-danger-of-hype-reductionist-thinking" id="toc-the-danger-of-hype-reductionist-thinking" class="nav-link" data-scroll-target="#the-danger-of-hype-reductionist-thinking">The Danger of Hype: Reductionist Thinking</a></li>
   <li><a href="#key-aspects-of-intelligence-as-a-complex-system" id="toc-key-aspects-of-intelligence-as-a-complex-system" class="nav-link" data-scroll-target="#key-aspects-of-intelligence-as-a-complex-system">Key Aspects of Intelligence as a Complex System</a></li>
   <li><a href="#the-unique-pace-of-ai-development" id="toc-the-unique-pace-of-ai-development" class="nav-link" data-scroll-target="#the-unique-pace-of-ai-development">The Unique Pace of AI Development</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
@@ -281,15 +281,15 @@ window.Quarto = {
 <li>Complex: Developing groundbreaking scientific theories (e.g., the Ising model in ferromagnetism).</li>
 </ul></li>
 </ol>
-<p>This spectrum illustrates that, like turbulence, we may not yet know if there’s an upper limit to intelligence. It also suggests that for many tasks, a simplified or “compressed” representation might suffice, explaining why some believe AGI has been achieved based on performance in limited domains.</p>
+<p>This spectrum illustrates that, like turbulence, we may not yet know if there’s an upper limit to intelligence. It also suggests that for many tasks, a simplified or “compressed” representation might suffice, explaining why some believe AGI has been achieved based on performance in limited domains. The complexity of turbulence is well characterized by the Reynolds number, but studies in the <em>scaling laws</em> of LLMs leaves a lot to be desired where claims of emergence are being made on simple datasets with fixed task complexity, input and output lengths. See <a href="https://arxiv.org/abs/2304.15004">Are Emergent Abilities of Large Language Models a Mirage?</a> for a refreshing take on this.</p>
 </section>
-<section id="the-danger-of-reductionism" class="level2">
-<h2 class="anchored" data-anchor-id="the-danger-of-reductionism">The Danger of Reductionism</h2>
+<section id="the-danger-of-hype-reductionist-thinking" class="level2">
+<h2 class="anchored" data-anchor-id="the-danger-of-hype-reductionist-thinking">The Danger of Hype: Reductionist Thinking</h2>
 <p>Historically, scientists have fallen into the trap of reductionism – the belief that complex phenomena can be fully explained by understanding their fundamental components. Paul Dirac’s 1929 statement exemplifies this:</p>
 <blockquote class="blockquote">
 <p>“The underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known.” <a href="https://royalsocietypublishing.org/doi/10.1098/rspa.1929.0094">Source</a></p>
 </blockquote>
-<p>However, just as a unified theory of fundamental forces wouldn’t explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. Complex systems often require multiple levels of description and analysis.</p>
+<p>However, just as a unified theory of fundamental forces wouldn’t explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. This reductionist thinking can lead to overestimating the capabilities of current AI models, which excel in specific tasks but struggle with generalization and complex reasoning.</p>
 </section>
 <section id="key-aspects-of-intelligence-as-a-complex-system" class="level2">
 <h2 class="anchored" data-anchor-id="key-aspects-of-intelligence-as-a-complex-system">Key Aspects of Intelligence as a Complex System</h2>
@@ -302,32 +302,33 @@ window.Quarto = {
 <li>Fluid descriptions (e.g., Navier-Stokes equations)</li>
 <li>Mean field descriptions (e.g., filtered turbulent fields)</li>
 </ul>
-<p>AI research needs analogous frameworks to capture different levels of cognitive processes.</p></li>
-<li><p><strong>Meta-frameworks for problem-solving</strong>: Current AI models lack robust strategies for approaching intractable problems. Historically, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).</p></li>
+<p>AI research needs analogous frameworks to capture different levels of cognitive processes. However, one might argue that just like how one can use <em>synthetic</em> turbulence models through stochastic forcing to good effect for modeling unobserved physics across scales, GPT-like models with an analogus stochastic training process might be able to capture higher-level cognitive processes.</p></li>
+<li><p><strong>Meta-frameworks for problem-solving</strong>: Current AI models lack robust strategies for approaching intractable problems. For instance, when experimental data is scarce or the physical system under consideration is extremely complex, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).</p></li>
 <li><p><strong>Data limitations</strong>: Current AI models have almost no inductive biases and learn everything from the data, which has limitations:</p>
 <ul>
-<li>Web-scale data has a <em>long-tail</em> of complex reasoning tasks, which makes complex reasoning difficult to model.</li>
+<li>Web-scale data has complex reasoning tasks only in their <em>long-tail</em>, which makes complex reasoning difficult to learn.</li>
 <li>Detailed reasoning steps are not available since humans only write down the final answer.</li>
 <li>Equal weighting of data samples is sub-optimal since only a fraction represent high-quality research and content.</li>
 <li>Examples from long-term scientific development are randomly distributed in the data and not systematically organized (e.g., the evolution of theories over decades).</li>
-</ul></li>
+</ul>
+<p>The specific case of equal weighting of data is particularly problematic since many articles and books are written by people without adequate expertise and contain arguments without rigorous theoretical calculations and experimental results.</p></li>
 </ol>
 </section>
 <section id="the-unique-pace-of-ai-development" class="level2">
 <h2 class="anchored" data-anchor-id="the-unique-pace-of-ai-development">The Unique Pace of AI Development</h2>
-<p>Despite these challenges, AI research progresses at an unprecedented rate compared to other complex fields. This is due to:</p>
+<p>Despite these challenges, AI research progresses at an unprecedented rate compared to other complex fields thanks to:</p>
 <ul>
 <li>Immediate access to state-of-the-art models through APIs and open-source libraries.</li>
 <li>Enhanced tooling for data ingestion and generation.</li>
 <li>The ability to build upon existing work rapidly.</li>
 </ul>
-<p>Contrast this with research in turbulence or computational fluid dynamics, where reproducing results can take years due to:</p>
+<p>Contrast this with research in turbulence or computational fluid dynamics, where reproducing results can take years because of:</p>
 <ul>
 <li>Complex, million-line codebases in C, C++, Fortran.</li>
 <li>Limited access to high-performance computing.</li>
-<li>The need for deep understanding of underlying physics.</li>
+<li>Lack of open data sharing practices, and detailed model descriptions for reproducibility.</li>
 </ul>
-<p>As an example, consider the difficulty in generating <span class="math inline">\(1000\)</span> time steps for a turbulent flow simulation and contrast it with generating <span class="math inline">\(1000\)</span> tokens in language models through the interface, API or running local models.</p>
+<p>As an example, consider the difficulty in generating <span class="math inline">\(1000\)</span> time steps for a turbulent flow simulation and contrast it with generating <span class="math inline">\(1000\)</span> tokens in language models through the interface, API or locally hosted models.</p>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
