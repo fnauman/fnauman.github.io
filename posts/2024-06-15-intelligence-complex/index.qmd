@@ -38,52 +38,55 @@ Just as physical phenomena exhibit varying degrees of complexity, intelligence e
    - Simple: Grade school math problems.
    - Complex: Developing groundbreaking scientific theories (e.g., the Ising model in ferromagnetism).
 
-This spectrum illustrates that, like turbulence, we may not yet know if there's an upper limit to intelligence. It also suggests that for many tasks, a simplified or "compressed" representation might suffice, explaining why some believe AGI has been achieved based on performance in limited domains.
+This spectrum illustrates that, like turbulence, we may not yet know if there's an upper limit to intelligence. It also suggests that for many tasks, a simplified or "compressed" representation might suffice, explaining why some believe AGI has been achieved based on performance in limited domains. The complexity of turbulence is well characterized by the Reynolds number, but studies in the *scaling laws* of LLMs leaves a lot to be desired where claims of emergence are being made on simple datasets with fixed task complexity, input and output lengths. See [Are Emergent Abilities of Large Language Models a Mirage?](https://arxiv.org/abs/2304.15004) for a refreshing take on this.
 
-## The Danger of Reductionism
+## The Danger of Hype: Reductionist Thinking 
 
 Historically, scientists have fallen into the trap of reductionism – the belief that complex phenomena can be fully explained by understanding their fundamental components. Paul Dirac's 1929 statement exemplifies this:
 
 > "The underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known." [Source](https://royalsocietypublishing.org/doi/10.1098/rspa.1929.0094)
 
-However, just as a unified theory of fundamental forces wouldn't explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. Complex systems often require multiple levels of description and analysis.
+However, just as a unified theory of fundamental forces wouldn't explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. This reductionist thinking can lead to overestimating the capabilities of current AI models, which excel in specific tasks but struggle with generalization and complex reasoning.
 
 ## Key Aspects of Intelligence as a Complex System
 
 1. **Dynamic nature**: Intelligence is inherently non-equilibrium, dynamic, nonlinear, and high-dimensional. A static language model, no matter how advanced, cannot fully capture these aspects.
 
 2. **Hierarchical complexity**: Like physical systems, intelligence requires flexible frameworks that allow for hierarchical representations. In physics, we have:
+
    - N-particle descriptions (e.g., molecular dynamics)
    - Kinetic descriptions (e.g., Boltzmann, Vlasov equations)
    - Fluid descriptions (e.g., Navier-Stokes equations)
    - Mean field descriptions (e.g., filtered turbulent fields)
 
-   AI research needs analogous frameworks to capture different levels of cognitive processes.
+   AI research needs analogous frameworks to capture different levels of cognitive processes. However, one might argue that just like how one can use *synthetic* turbulence models through stochastic forcing to good effect for modeling unobserved physics across scales, GPT-like models with an analogus stochastic training process might be able to capture higher-level cognitive processes.
 
-3. **Meta-frameworks for problem-solving**: Current AI models lack robust strategies for approaching intractable problems. Historically, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).
+3. **Meta-frameworks for problem-solving**: Current AI models lack robust strategies for approaching intractable problems. For instance, when experimental data is scarce or the physical system under consideration is extremely complex, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).
 
 4. **Data limitations**: Current AI models have almost no inductive biases and learn everything from the data, which has limitations:
 
-    - Web-scale data has a *long-tail* of complex reasoning tasks, which makes complex reasoning difficult to model.
+    - Web-scale data has complex reasoning tasks only in their *long-tail*, which makes complex reasoning difficult to learn.
     - Detailed reasoning steps are not available since humans only write down the final answer.
     - Equal weighting of data samples is sub-optimal since only a fraction represent high-quality research and content. 
     - Examples from long-term scientific development are randomly distributed in the data and not systematically organized (e.g., the evolution of theories over decades).
 
+    The specific case of equal weighting of data is particularly problematic since many articles and books are written by people without adequate expertise and contain arguments without rigorous theoretical calculations and experimental results. 
+
 ## The Unique Pace of AI Development
 
-Despite these challenges, AI research progresses at an unprecedented rate compared to other complex fields. This is due to:
+Despite these challenges, AI research progresses at an unprecedented rate compared to other complex fields thanks to:
 
 - Immediate access to state-of-the-art models through APIs and open-source libraries.
 - Enhanced tooling for data ingestion and generation.
 - The ability to build upon existing work rapidly.
 
-Contrast this with research in turbulence or computational fluid dynamics, where reproducing results can take years due to:
+Contrast this with research in turbulence or computational fluid dynamics, where reproducing results can take years because of:
 
 - Complex, million-line codebases in C, C++, Fortran.
 - Limited access to high-performance computing.
-- The need for deep understanding of underlying physics. 
+- Lack of open data sharing practices, and detailed model descriptions for reproducibility.
 
-As an example, consider the difficulty in generating $1000$ time steps for a turbulent flow simulation and contrast it with generating $1000$ tokens in language models through the interface, API or running local models. 
+As an example, consider the difficulty in generating $1000$ time steps for a turbulent flow simulation and contrast it with generating $1000$ tokens in language models through the interface, API or locally hosted models. 
 
 ## Conclusion
 
