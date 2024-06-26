@@ -90,4 +90,6 @@ As an example, consider the difficulty in generating $1000$ time steps for a tur
 
 ## Conclusion
 
+The very idea of artificial "intelligence singularity" or its opposite is **problematic from a scientific perspective where singularities are an indication that our theory is invalid at those scales**. The fact that we so readily discuss “singularities” in the context of intelligence might indicate fundamental limitations in our current models of cognition and AI.
+
 While the rapid progress in AI is exciting, we must approach claims of AGI with caution. By viewing intelligence through the lens of complex systems, we gain a more nuanced understanding of the challenges ahead. Just as physicists continue to grapple with phenomena like turbulence, AI researchers must embrace the multifaceted nature of intelligence, developing new frameworks and approaches to capture its full complexity.
