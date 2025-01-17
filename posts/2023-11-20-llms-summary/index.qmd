@@ -9,7 +9,7 @@ author:
     # affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
 date: "2023-11-20"
 date-modified: last-modified
-categories: [Applied AI, Natural Language Processing, Large Language Models]
+categories: [Applied AI, Natural Language Processing, Large Language Models, Notes]
 keywords: [Applied AI, Natural Language Processing, Deep Learning, Large Language Models]
 citation: 
   url: https://fnauman.github.io/posts/2023-11-20-llms-summary/ 
@@ -25,21 +25,52 @@ og:
 
 # Large Language Models: A Compact Guide
 
+The purpose of this guide is to provide a short summary about modern Large Language Models (LLMs) from an application building perspective. I am in the process of adding more references and details to this guide, but for now, this should serve as a good starting point for anyone interested in understanding the basics of Large Language Models.
+
+## Update:
+
+Best models and tools I use as of **Jan. 17th, 2025**:
+
+- **Code**: Claude 3.5 Sonnet (also hearing a lot about DeepSeekv3 - [93.1% of aider's own code writes are using Deepseekv3](https://x.com/paulgauthier/status/1877867244614779030/photo/1))
+- **Writing**: Gemini 2.0 Experimental 1206 - this has become my primary model for most use cases, but unfortunately currently only supports file attachments through AI studio interface, not the Gemini app. 
+- **Audio**: OpenAI's GPT-4o, Gemini 2.0 Flash - both seem to havea 30 min limit unfortunately. 
+- **Planning**: o1 by Open AI (with some input by Claude and Gemini).
+- **Research**: NotebookLM, Gemini Deep Research (mostly human-in-the-loop workflows where I write custom prompts, sources, etc.).
+- **IDEs**: Windsurf, VSCode with Copilot
+
+## Modern Architectures: Short Summary
+
 A language model aims to learn the probability distribution of a sequence of words. In deep learning, typically a language model consists of the following components:
 
-- Tokenizer: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn't seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer. 
-- Embedding layer: The numerical representations of text are converted into dense vectors by a *learned* embedding layer. 
-- Neural network layers:
-    - Until 2017, most of the work in Natural Language Processing was using Recurrent Neural Networks (RNNs). RNNs are autoregressive by definition and are able to capture the sequential nature of text. However, they are computationally expensive, hard to parallelize, and find it particularly difficult to capture non-local relationships between words in a sentence and long term dependencies. 
-    - Transformers are based on the idea of self-attention. Self-attention is a fascinating concept: it allows each word or token to "attend" to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture long term dependencies and non-local relationships between tokens granted they are trained on a large enough dataset. As of this writing, all state-of-the-art Large Language Models are based on Transformers with the exciting exceptions of [RWKV-LM](https://github.com/BlinkDL/RWKV-LM) and [Mamba](https://arxiv.org/abs/2312.00752). 
-- Output layer: The output layer is typically a softmax layer that predicts the next word in the sequence. 
+- **Tokenizer**: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn't seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a *learned* byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer. Tokenizer is often considered a bottleneck in modern language models (and also in encoder models like BERT) because of its inabililty to adapt to:
+  - New natural languages: for example, a model trained only on English will have trouble tokenizing a sentence in Chinese, Urdu, or Swahili.
+  - Domain specific languages like HTML, programming languages, etc. pose particularly difficult challenges for tokenizers since they have their own breaks, tags, etc. A similar issue also shows up with retrieval applications where it is not entirely clear how to divide
+- **Embedding layer**: The numerical representations of text are converted into dense vectors by a *learned* embedding layer. The size of embedding layer is typically a hyperparameter and most modern LLMs likely use an embedding size of 2048 or larger. 
+- **Self-attention layers**: It is a fascinating concept: it allows each word or token to "attend" to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture non-local relationships between tokens granted they are trained on a large enough dataset. Through multiple attention heads, these models learn multiple meanings of the same word given a context. As of this writing, all state-of-the-art Large Language Models are based on decoder-only Transformers with the exciting exceptions of [RWKV-LM](https://github.com/BlinkDL/RWKV-LM) and [Mamba](https://arxiv.org/abs/2312.00752). 
+<!-- - Output layer: The output layer is typically a softmax layer that predicts the next word in the sequence.  -->
+There are other layers like LayerNorm and activations like GeLU that are part of modern architectures, but they have mostly have an *empirical* value - they stabilize the training process. 
+
 
 ## Type of Language Models: 
 
-- Encoder only: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition. 
-- Encoder-decoder: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include [T5](https://arxiv.org/abs/1910.10683). 
-- Decoder only (ChatGPT, Claude, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words.
+- **Encoder only**: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition. If you've heard of `embedding` models, they are typically also encoder only models trained using a contrastive loss. 
+- **Encoder-decoder**: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include [T5](https://arxiv.org/abs/1910.10683). 
+- **Decoder only** (ChatGPT, Claude, Gemini, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words.
 
-## Generative Models
+## Language Model Training stages: 
 
+Modern transformers combine the best ideas from the three big paradigms of machine learning: self-supervised learning, supervised learning, and reinforcement learning. Specifically, training a Large Language Model involves the following stages:
 
+- **Pretraining** or self-supervised training (size $>10$ Trillion tokens): This is arguably the largest and most compute expensive stage where the model predicts the next token. The data for this stage is typically a mix of code, math, science, fiction, etc. and the formatting is kept as is. But modern models also experiment with formatting the data in a similar way to the instruction tuning phase where a piece of text is converted to a "task - response" format. 
+- **Instruction tuning** or supervised fine-tuning (size $0.1-1$ Million tokens): In this phase, the models train on a supervised task such as question answering, summarization, essay writing, etc. The data mixtures are important here: for instance, a model trained on a large fraction of code tasks will likely perform poorly on a essay writing task. For solid general purpose performance as we have grown to expect from GPT-4 class models, the data mixtures should be diverse and high quality. 
+- **Preference tuning** or reinforcement learning from human feedback (size $0.1-1$ Million tokens): Tasks such as the quality of an essay are hard to judge objectively. For such tasks, one can use human preference data to fine-tune the model. The data typically consists of a pair of options for a human to choose from, and based on the preference, the model is updated. The actual process is quite involved with some algorithms requiring reward model training, etc. 
+- **Reinforcement finetuning**: OpenAI's o1 *reasoning* model is a special model that has received an extra stage of training that involves some sort of *process reward modeling* - the core concept is that the models should recieve partial credit if they are thinking in the right direction, and they can have multiple attempts at a task. The details of how this works in practice are not open source although some exciting open source work has been done recently by the [Qwen team](https://qwenlm.github.io/blog/qwq-32b-preview/) among others. 
+
+## Limitations of Large Language Models
+
+- **Prompt Sensitivity**: Due to their stochastic nature and the fact that the training data is hidden from the end user, it is often hard to predict how sensitive the model output will be if a prompt is slightly changed while retaining the same semantic meaning. This is particularly troublesome for *agentic* applications where the LLM is supposed to make decisions on behalf of the user. One possible way to address this is to first test out a range of prompts and then select the one that gives the best output, a process that can be automated using frameworks like [`DSPy`](https://github.com/stanfordnlp/dspy).
+- **Planning**: Leaving out the *reasoning* models like OpenAI's o1, LLMs are not able to plan ahead. That is to say, the models are unable to think through a problem first, and then build a solution. This has been labeled as the *test-time-compute* problem. People often report that prompting the model to "think step by step" solves this issue, but that is a myth since the model is only generating one token at a time at constant compute. 
+- **Self-improvement**: LLMs get stuck in loops, that is they keep making the same mistakes over and over again. Although o1 and Claude 3.5 Sonnet have clearly demonstrated their ability to self-correct and that is why they perform really well on code benchmarks, in general, self-improvement remains a challenge. 
+- **Knowing vs Understanding**: When tested on counterfactual puzzles and questions, the same LLM that performs well on a wide range of tasks fails miserably. This is because the model is not able to understand the underlying concepts and instead *memorizes* the training data. 
+- **Vocabulary and Domain Specializations**: Many domains like medicine or law have their own large set of vocabularies and concepts - words and phrases that do not appear in general language models. This necessitates the need for domain specific models. 
+- **Long Tail**: Concepts and ideas that appear less frequently on the web are unlikely to be learned by the model. While Retrieval Augmented Generation (RAG) has been proposed as a way to address this by providing LLMs relevant context before generation, it remains a hard problem since generating high quality text for rare ideas and concepts might require more "core" knowledge than what the model has.
