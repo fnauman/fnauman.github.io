@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.32">
+<meta name="generator" content="quarto-1.6.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,12 +34,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-86e57405129022890ed92f308a453620.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-5650a1b0c5c6ef971db824b22a5bd0a6.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -190,13 +190,13 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </div>
   </div>
   <div class="about-contents"><main class="content column-page" id="quarto-document-content">
-<p>I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at <a href="https://www.ri.se/en">RISE Research Institutes of Sweden AB</a>, my work is primarily focused on large-scale AI projects in the fashion industry.</p>
+<p>I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at <a href="https://www.ri.se/en">RISE Research Institutes of Sweden AB</a>, my work has involved large-scale <a href="https://fnauman.github.io/second-hand-fashion/">AI projects in the fashion industry</a>, LLMs for research reports, object detection applications in the farming industry, time series classification of sensor signals, etc.</p>
 <p><br></p>
-<p>My research interests span a broad range: from my more recent focus on Applied AI in domains like sustainable fashion to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry.</p>
-<p><br></p>
-<p><br></p>
-<p><small><em>Update (Jun.&nbsp;15th, 2024)</em>:</small></p><small>
-</small><p><small>I am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process.</small></p>
+<p>My braod research interests include my recent interest in LLM applications to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry.</p>
+<!-- <br>
+<br>
+<small>*Update (Jun. 15th, 2024)*: 
+I am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process.</small> -->
 
 
 </main></div>
@@ -421,8 +421,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -533,7 +531,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

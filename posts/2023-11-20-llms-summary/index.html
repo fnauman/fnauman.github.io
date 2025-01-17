@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.32">
+<meta name="generator" content="quarto-1.6.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,7 +11,7 @@
 <meta name="keywords" content="Applied AI, Natural Language Processing, Deep Learning, Large Language Models">
 <meta name="description" content="What are Large Language Models? What are their limitations and common use cases?">
 
-<title>Farrukh Nauman – Large Language Models: A Compact Guide</title>
+<title>Large Language Models: A Compact Guide – Farrukh Nauman</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,12 +39,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-29e2c20b02301cfff04dc8050bf30c7e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-43df0d6f53b733b42d37fa7808e17715.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-86e57405129022890ed92f308a453620.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-5650a1b0c5c6ef971db824b22a5bd0a6.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,12 +82,41 @@ gtag('js', new Date());
 gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="Farrukh Nauman - Large Language Models: A Compact Guide">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="Large Language Models: A Compact Guide – Farrukh Nauman">
 <meta property="og:description" content="What are Large Language Models? What are their limitations and common use cases?">
 <meta property="og:image" content="https://fnauman.github.io/posts/2023-11-20-llms-summary/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta name="twitter:title" content="Farrukh Nauman - Large Language Models: A Compact Guide">
+<meta name="twitter:title" content="Large Language Models: A Compact Guide – Farrukh Nauman">
 <meta name="twitter:description" content="What are Large Language Models? What are their limitations and common use cases?">
 <meta name="twitter:image" content="https://fnauman.github.io/posts/2023-11-20-llms-summary/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:creator" content="@naumanf_">
@@ -167,6 +196,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
                 <div class="quarto-category">Applied AI</div>
                 <div class="quarto-category">Natural Language Processing</div>
                 <div class="quarto-category">Large Language Models</div>
+                <div class="quarto-category">Notes</div>
               </div>
                   </div>
   </div>
@@ -191,7 +221,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">June 21, 2024</p>
+        <p class="date-modified">January 17, 2025</p>
       </div>
     </div>
       
@@ -215,8 +245,11 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <ul>
   <li><a href="#large-language-models-a-compact-guide" id="toc-large-language-models-a-compact-guide" class="nav-link active" data-scroll-target="#large-language-models-a-compact-guide">Large Language Models: A Compact Guide</a>
   <ul class="collapse">
+  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">Update:</a></li>
+  <li><a href="#modern-architectures-short-summary" id="toc-modern-architectures-short-summary" class="nav-link" data-scroll-target="#modern-architectures-short-summary">Modern Architectures: Short Summary</a></li>
   <li><a href="#type-of-language-models" id="toc-type-of-language-models" class="nav-link" data-scroll-target="#type-of-language-models">Type of Language Models:</a></li>
-  <li><a href="#generative-models" id="toc-generative-models" class="nav-link" data-scroll-target="#generative-models">Generative Models</a></li>
+  <li><a href="#language-model-training-stages" id="toc-language-model-training-stages" class="nav-link" data-scroll-target="#language-model-training-stages">Language Model Training stages:</a></li>
+  <li><a href="#limitations-of-large-language-models" id="toc-limitations-of-large-language-models" class="nav-link" data-scroll-target="#limitations-of-large-language-models">Limitations of Large Language Models</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -230,27 +263,60 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <section id="large-language-models-a-compact-guide" class="level1">
 <h1>Large Language Models: A Compact Guide</h1>
+<p>The purpose of this guide is to provide a short summary about modern Large Language Models (LLMs) from an application building perspective. I am in the process of adding more references and details to this guide, but for now, this should serve as a good starting point for anyone interested in understanding the basics of Large Language Models.</p>
+<section id="update" class="level2">
+<h2 class="anchored" data-anchor-id="update">Update:</h2>
+<p>Best models and tools I use as of <strong>Jan.&nbsp;17th, 2025</strong>:</p>
+<ul>
+<li><strong>Code</strong>: Claude 3.5 Sonnet (also hearing a lot about DeepSeekv3 - <a href="https://x.com/paulgauthier/status/1877867244614779030/photo/1">93.1% of aider’s own code writes are using Deepseekv3</a>)</li>
+<li><strong>Writing</strong>: Gemini 2.0 Experimental 1206 - this has become my primary model for most use cases, but unfortunately currently only supports file attachments through AI studio interface, not the Gemini app.</li>
+<li><strong>Audio</strong>: OpenAI’s GPT-4o, Gemini 2.0 Flash - both seem to havea 30 min limit unfortunately.</li>
+<li><strong>Planning</strong>: o1 by Open AI (with some input by Claude and Gemini).</li>
+<li><strong>Research</strong>: NotebookLM, Gemini Deep Research (mostly human-in-the-loop workflows where I write custom prompts, sources, etc.).</li>
+<li><strong>IDEs</strong>: Windsurf, VSCode with Copilot</li>
+</ul>
+</section>
+<section id="modern-architectures-short-summary" class="level2">
+<h2 class="anchored" data-anchor-id="modern-architectures-short-summary">Modern Architectures: Short Summary</h2>
 <p>A language model aims to learn the probability distribution of a sequence of words. In deep learning, typically a language model consists of the following components:</p>
 <ul>
-<li>Tokenizer: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn’t seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer.</li>
-<li>Embedding layer: The numerical representations of text are converted into dense vectors by a <em>learned</em> embedding layer.</li>
-<li>Neural network layers:
+<li><strong>Tokenizer</strong>: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn’t seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a <em>learned</em> byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer. Tokenizer is often considered a bottleneck in modern language models (and also in encoder models like BERT) because of its inabililty to adapt to:
 <ul>
-<li>Until 2017, most of the work in Natural Language Processing was using Recurrent Neural Networks (RNNs). RNNs are autoregressive by definition and are able to capture the sequential nature of text. However, they are computationally expensive, hard to parallelize, and find it particularly difficult to capture non-local relationships between words in a sentence and long term dependencies.</li>
-<li>Transformers are based on the idea of self-attention. Self-attention is a fascinating concept: it allows each word or token to “attend” to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture long term dependencies and non-local relationships between tokens granted they are trained on a large enough dataset. As of this writing, all state-of-the-art Large Language Models are based on Transformers with the exciting exceptions of <a href="https://github.com/BlinkDL/RWKV-LM">RWKV-LM</a> and <a href="https://arxiv.org/abs/2312.00752">Mamba</a>.</li>
+<li>New natural languages: for example, a model trained only on English will have trouble tokenizing a sentence in Chinese, Urdu, or Swahili.</li>
+<li>Domain specific languages like HTML, programming languages, etc. pose particularly difficult challenges for tokenizers since they have their own breaks, tags, etc. A similar issue also shows up with retrieval applications where it is not entirely clear how to divide</li>
 </ul></li>
-<li>Output layer: The output layer is typically a softmax layer that predicts the next word in the sequence.</li>
+<li><strong>Embedding layer</strong>: The numerical representations of text are converted into dense vectors by a <em>learned</em> embedding layer. The size of embedding layer is typically a hyperparameter and most modern LLMs likely use an embedding size of 2048 or larger.</li>
+<li><strong>Self-attention layers</strong>: It is a fascinating concept: it allows each word or token to “attend” to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture non-local relationships between tokens granted they are trained on a large enough dataset. Through multiple attention heads, these models learn multiple meanings of the same word given a context. As of this writing, all state-of-the-art Large Language Models are based on decoder-only Transformers with the exciting exceptions of <a href="https://github.com/BlinkDL/RWKV-LM">RWKV-LM</a> and <a href="https://arxiv.org/abs/2312.00752">Mamba</a>. <!-- - Output layer: The output layer is typically a softmax layer that predicts the next word in the sequence.  --> There are other layers like LayerNorm and activations like GeLU that are part of modern architectures, but they have mostly have an <em>empirical</em> value - they stabilize the training process.</li>
 </ul>
+</section>
 <section id="type-of-language-models" class="level2">
 <h2 class="anchored" data-anchor-id="type-of-language-models">Type of Language Models:</h2>
 <ul>
-<li>Encoder only: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition.</li>
-<li>Encoder-decoder: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include <a href="https://arxiv.org/abs/1910.10683">T5</a>.</li>
-<li>Decoder only (ChatGPT, Claude, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words.</li>
+<li><strong>Encoder only</strong>: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition. If you’ve heard of <code>embedding</code> models, they are typically also encoder only models trained using a contrastive loss.</li>
+<li><strong>Encoder-decoder</strong>: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include <a href="https://arxiv.org/abs/1910.10683">T5</a>.</li>
+<li><strong>Decoder only</strong> (ChatGPT, Claude, Gemini, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words.</li>
 </ul>
 </section>
-<section id="generative-models" class="level2">
-<h2 class="anchored" data-anchor-id="generative-models">Generative Models</h2>
+<section id="language-model-training-stages" class="level2">
+<h2 class="anchored" data-anchor-id="language-model-training-stages">Language Model Training stages:</h2>
+<p>Modern transformers combine the best ideas from the three big paradigms of machine learning: self-supervised learning, supervised learning, and reinforcement learning. Specifically, training a Large Language Model involves the following stages:</p>
+<ul>
+<li><strong>Pretraining</strong> or self-supervised training (size <span class="math inline">\(&gt;10\)</span> Trillion tokens): This is arguably the largest and most compute expensive stage where the model predicts the next token. The data for this stage is typically a mix of code, math, science, fiction, etc. and the formatting is kept as is. But modern models also experiment with formatting the data in a similar way to the instruction tuning phase where a piece of text is converted to a “task - response” format.</li>
+<li><strong>Instruction tuning</strong> or supervised fine-tuning (size <span class="math inline">\(0.1-1\)</span> Million tokens): In this phase, the models train on a supervised task such as question answering, summarization, essay writing, etc. The data mixtures are important here: for instance, a model trained on a large fraction of code tasks will likely perform poorly on a essay writing task. For solid general purpose performance as we have grown to expect from GPT-4 class models, the data mixtures should be diverse and high quality.</li>
+<li><strong>Preference tuning</strong> or reinforcement learning from human feedback (size <span class="math inline">\(0.1-1\)</span> Million tokens): Tasks such as the quality of an essay are hard to judge objectively. For such tasks, one can use human preference data to fine-tune the model. The data typically consists of a pair of options for a human to choose from, and based on the preference, the model is updated. The actual process is quite involved with some algorithms requiring reward model training, etc.</li>
+<li><strong>Reinforcement finetuning</strong>: OpenAI’s o1 <em>reasoning</em> model is a special model that has received an extra stage of training that involves some sort of <em>process reward modeling</em> - the core concept is that the models should recieve partial credit if they are thinking in the right direction, and they can have multiple attempts at a task. The details of how this works in practice are not open source although some exciting open source work has been done recently by the <a href="https://qwenlm.github.io/blog/qwq-32b-preview/">Qwen team</a> among others.</li>
+</ul>
+</section>
+<section id="limitations-of-large-language-models" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-large-language-models">Limitations of Large Language Models</h2>
+<ul>
+<li><strong>Prompt Sensitivity</strong>: Due to their stochastic nature and the fact that the training data is hidden from the end user, it is often hard to predict how sensitive the model output will be if a prompt is slightly changed while retaining the same semantic meaning. This is particularly troublesome for <em>agentic</em> applications where the LLM is supposed to make decisions on behalf of the user. One possible way to address this is to first test out a range of prompts and then select the one that gives the best output, a process that can be automated using frameworks like <a href="https://github.com/stanfordnlp/dspy"><code>DSPy</code></a>.</li>
+<li><strong>Planning</strong>: Leaving out the <em>reasoning</em> models like OpenAI’s o1, LLMs are not able to plan ahead. That is to say, the models are unable to think through a problem first, and then build a solution. This has been labeled as the <em>test-time-compute</em> problem. People often report that prompting the model to “think step by step” solves this issue, but that is a myth since the model is only generating one token at a time at constant compute.</li>
+<li><strong>Self-improvement</strong>: LLMs get stuck in loops, that is they keep making the same mistakes over and over again. Although o1 and Claude 3.5 Sonnet have clearly demonstrated their ability to self-correct and that is why they perform really well on code benchmarks, in general, self-improvement remains a challenge.</li>
+<li><strong>Knowing vs Understanding</strong>: When tested on counterfactual puzzles and questions, the same LLM that performs well on a wide range of tasks fails miserably. This is because the model is not able to understand the underlying concepts and instead <em>memorizes</em> the training data.</li>
+<li><strong>Vocabulary and Domain Specializations</strong>: Many domains like medicine or law have their own large set of vocabularies and concepts - words and phrases that do not appear in general language models. This necessitates the need for domain specific models.</li>
+<li><strong>Long Tail</strong>: Concepts and ideas that appear less frequently on the web are unlikely to be learned by the model. While Retrieval Augmented Generation (RAG) has been proposed as a way to address this by providing LLMs relevant context before generation, it remains a hard problem since generating high quality text for rare ideas and concepts might require more “core” knowledge than what the model has.</li>
+</ul>
 
 
 </section>
@@ -493,8 +559,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -605,7 +669,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
