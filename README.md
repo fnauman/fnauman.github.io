@@ -1,4 +1,5 @@
 # fnauman.github.io
-Farrukh's webpage
 
-Based on [minimal-mistakes](https://github.com/mmistakes/minimal-mistakes)
+This repository contains the source for my webpage at [fnauman.github.io](https://fnauman.github.io/).
+
+It was built with [`quarto`](https://quarto.org/).
