@@ -1,6 +1,6 @@
 ---
 title: "Intelligence as a Complex System: Lessons from Physics"
-description: "Understanding Intelligence Throught the Lens of Physics"
+description: "Understanding Intelligence Through the Lens of Physics"
 author:
   - name: Farrukh Nauman
     url: https://fnauman.github.io/
@@ -16,7 +16,7 @@ twitter:
   card-style: summary_large_image
 og:
   title: "Intelligence as a Complex System: Lessons from Physics"
-  description: "What are Large Language Models? What are their limitations and common use cases?"
+  description: "Understanding Intelligence Through the Lens of Physics."
 ---
 
 

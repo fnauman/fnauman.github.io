@@ -1,0 +1,120 @@
+---
+title: "From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps"
+description: "Learn how to set up a modern web development environment: React, Node.js, and Vite."
+date: "2025-01-26"
+categories: [web development, react, javascript, nodejs, vite, apps]
+# image: "react-vite-logo.png" # Changed to a more relevant image
+# draft: false
+---
+
+
+## Blog Post Content
+
+As a seasoned Python developer, I'm used to the comfort of `conda` environments and the predictability of `pip`. But lately, I've been diving headfirst into the wild world of web development with React. What prompted this shift? The incredible advancements in AI tools like Claude's new [artifact](https://www.anthropic.com/news/artifacts) feature and ChatGPT's enhanced support for [rendering HTML and React](https://x.com/OpenAI/status/1882876172339757392). These tools have made it ridiculously easy to generate React UIs with simple natural language prompts.
+
+However, bridging the gap between AI-generated code and a functional, maintainable application required me to master a new set of tools and concepts. The most pressing challenge? Taming the JavaScript ecosystem. This blog post chronicles my journey, focusing on setting up a solid React template using Vite while navigating the intricacies of Node.js and its package managers.
+
+### `create-react-app` does not work; `vite` does
+
+My first instinct was to reach for the familiar [`create-react-app`](https://github.com/facebook/create-react-app/). Unfortunately, as of January 2025, there are significant issues (see [this GitHub issue](https://github.com/facebook/create-react-app/issues/13911) and many others). 
+
+Vite (French for "fast") is a next-generation build tool that significantly improves the front-end development experience. Here's how I set up my React template using Vite:
+
+#### Prerequisites:
+
+This guide assumes a Linux-based system (specifically Ubuntu 24.04 LTS in my case). I'll update my experiences with Windows later.
+
+#### Step 1: Node.js and the Power of `nvm`
+
+Before diving into Vite, we need Node.js, the runtime environment that allows us to run JavaScript outside of a browser. However, different projects might require different Node.js versions. Here's where Node Version Manager (nvm) comes to the rescue.
+
+-   **Installing `nvm`:**
+    ```bash
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+    ```
+-   **Installing Node.js (LTS):**
+    ```bash
+    nvm install --lts
+    ```
+
+`nvm` allows you to seamlessly switch between Node.js versions using a simple `.nvmrc` file in your project root, ensuring compatibility across your projects.
+
+#### Step 2: Initializing the React Template with Vite
+
+With Node.js in place, creating a React template is a breeze:
+
+```bash
+npm create vite@latest my-react-app
+```
+
+This command prompts you to choose a framework (React, Vue, Svelte, etc.) and whether to use JavaScript or TypeScript. I opted for React and JavaScript. You can also use the shorthand: `npm create vite@latest my-react-app -- --template react`. 
+
+#### Step 3: Understanding `npm` vs. `npx`
+
+Throughout this process, you'll encounter both `npm` and `npx`. Here's a simple way to distinguish them:
+
+-   **`npm` (Node Package Manager):** Use it to install packages, either globally or locally within a project.
+-   **`npx` (Node Package Execute):** Use it to run packages, often one-off tools or generators, without installing them permanently.
+
+For example, we used `npm create vite@latest` to initialize our project because `create-vite` is a tool we might use again. However, for tasks like adding a `shadcn` component later, we'll use `npx`.
+
+#### Step 4: Environment isolation - `node_modules` Directory
+
+Unlike Python's virtual environments, Node.js relies on a project-specific `node_modules` directory to store dependencies. This directory can become quite large, but it guarantees that each project has its own isolated set of packages.
+
+**Key Takeaway:** Never share `node_modules` between projects. Always run `npm install` in a new project clone to populate the `node_modules` directory based on the `package.json` and `package-lock.json` files.
+
+#### Step 5: Embracing `tailwindcss` and `shadcn` (with a Caveat)
+
+Modern React development often involves styling libraries like `tailwindcss` and component libraries like `shadcn`.
+
+**Important Note:** `shadcn` is not an `npm` package but rather a collection of components that you can add to your project. It relies on Radix UI (`@radix-ui/react-*`) packages for its core functionality.
+
+Integrating `tailwindcss` and `shadcn` can be tricky due to version conflicts. As of my writing, `tailwindcss` recently released a major version 4, and `shadcn`'s documentation hasn't fully caught up.
+
+**My Solution:** I've created a [public template repository](https://github.com/fnauman/clip_react) that successfully integrates `tailwindcss` version `3.4.17` with `shadcn`. It includes all the necessary configuration changes to the Vite template.
+
+#### Step 6: Organizing Your Code with Components
+
+For larger projects, it's crucial to structure your code effectively. Instead of dumping everything into `src/App.tsx`, create a `src/components` directory for your UI components. You can then import these components into `App.tsx`. Most LLMs seem to bundle everything in a single `App.tsx` by default, but you can prompt them to write modular code by separating out the components.
+
+Here's a suggested folder structure:
+
+```
+my-react-app/
+├── node_modules/
+├── public/
+├── src/
+│   ├── components/
+│   │   └── Interface.tsx # Main UI code
+│   ├── App.css
+│   ├── App.tsx         # Import and use your UI components
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── index.html
+├── package.json
+├── package-lock.json
+├── tsconfig.json / jsconfig.json
+├── tsconfig.node.json
+└── vite.config.ts / vite.config.js
+```
+
+#### Step 7: Running Your App
+
+Finally, to see your app in action, use:
+
+```bash
+npm run dev
+```
+
+This starts the Vite development server, typically at `localhost:5173` (unlike `create-react-app`'s default `localhost:3000`).
+
+### Conclusion: JavaScript Environment Isolation is Great
+
+The JavaScript ecosystem can feel daunting at first, especially coming from a Python background. However, with tools like Vite and a clear understanding of Node.js's package management, setting up a modern React development environment becomes manageable.
+
+My template repository provides a solid starting point, and I encourage you to explore it, adapt it, and contribute to it. As I continue my journey into web development, I'll keep updating this blog with new insights and discoveries. Stay tuned!
+**Github repository link:** [https://github.com/fnauman/clip_react](https://github.com/fnauman/clip_react)
+
+I hope this comprehensive blog post is helpful! Let me know if you'd like any adjustments or further details on specific aspects.

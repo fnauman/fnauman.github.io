@@ -1,5 +1,5 @@
 ---
-title: "Random thoughts/TIL"
+title: "TIL/Random Notes"
 listing: 
   contents: randomposts 
   type: grid # or `default` or `table`; each type has its own set of yaml options to include

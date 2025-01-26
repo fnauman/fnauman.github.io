@@ -39,7 +39,7 @@ I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the U
 
 <br>
 
-My braod research interests include my recent interest in LLM applications to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry. 
+My broad research interests include my recent interest in LLM applications to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry. 
 
 <!-- <br>
 

@@ -13,7 +13,7 @@ website:
       - href: posts.qmd 
         text: Blog
       - href: randomposts.qmd
-        text: Random/TIL
+        text: TIL/Random
 
     right:
       - icon: github
