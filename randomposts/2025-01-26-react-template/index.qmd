@@ -8,7 +8,7 @@ categories: [web development, react, javascript, nodejs, vite, apps]
 ---
 
 
-## Blog Post Content
+<!-- ## Blog Post Content -->
 
 As a seasoned Python developer, I'm used to the comfort of `conda` environments and the predictability of `pip`. But lately, I've been diving headfirst into the wild world of web development with React. What prompted this shift? The incredible advancements in AI tools like Claude's new [artifact](https://www.anthropic.com/news/artifacts) feature and ChatGPT's enhanced support for [rendering HTML and React](https://x.com/OpenAI/status/1882876172339757392). These tools have made it ridiculously easy to generate React UIs with simple natural language prompts.
 

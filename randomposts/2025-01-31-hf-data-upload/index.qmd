@@ -1,0 +1,68 @@
+---
+title: "Uploading datasets to Hugging Face"
+description: "Hugging Face Datasets and Datasets Hub"
+date: "2025-01-26"
+categories: [huggingface, datasets]
+# draft: false
+---
+
+Uploading datasets to [**huggingface**](https://huggingface.co/) turned out to be harder than I initially thought. 
+
+
+## Data formatting
+
+To be able to view the dataset in the Hugging Face Datasets Hub, the dataset needs to be formatted in the right way. I had an **image classification** dataset with several target attributes. I followed the guide [here](https://huggingface.co/docs/datasets/en/image_dataset). Here is how I formatted the dataset:
+
+```bash
+./
+├── train
+│   ├── metadata.csv
+│   ├── front_2024_02_29_14_26_45.jpg
+│   ├── ...
+├── test
+│   ├── metadata.csv
+│   ├── front_2024_05_30_12_30_02.jpg
+│   ├── ...
+
+```
+
+where the `metadata.csv` file contains the **file_name** as the first column and several other columns each corresponding to a target attribute. Here is a sample:
+
+```bash
+file_name,brand,usage,condition,type,category,price,trend,colors,cut,pattern,season,text,pilling,damage,stains,holes,smell,material
+front_2022_12_14_08_48_42.jpg,Junkyard,Export,3,Jeans,Ladies,50-100,Denim,['Blue'],['Loose'],None,Spring,,4,,Minor,None,None,100%cotton
+front_2023_06_29_08_22_48.jpg,Stacy,Reuse,4,Jeans,Unisex,50-100,None,['Brown'],['Tight'],None,All,,3,,None,None,None,"98% cotton, 2% elastane"
+```
+
+When rendered in the dataset viewer in the Hugging Face Datasets Hub, the dataset converts the **file_name** to an image preview with the title **image** and retains the other columns. Here is the preview of the dataset:
+
+![](data_sample.png)
+
+
+## What worked
+
+In the same [`image_dataset` tutorial](https://huggingface.co/docs/datasets/en/image_dataset), they describe how to upload the dataset using the `python` command: 
+
+```python
+from datasets import load_dataset
+
+# Load the LOCAL folder as a `huggingface/datasets` dataset
+dataset = load_dataset("imagefolder", data_dir="./") # `imagefolder` is a special dataset type that loads images
+
+# Upload the dataset to Hugging Face
+dataset.push_to_hub("fnauman/fashion-second-hand-front-only", private=True) # `private=True` makes the dataset repo private
+```
+
+I recommend first uploading the dataset as a `private` dataset to ensure the upload worked and the data preview works as expected. You can later make the dataset public if you wish. 
+
+
+## What did not work
+
+Following the instructions [here](https://huggingface.co/docs/huggingface_hub/en/guides/upload), I tried using the `huggingface-cli` command with two variations, but it did not work. 
+
+```bash
+huggingface-cli upload fashion-second-hand-front-only . . --repo-type dataset
+huggingface-cli upload-large-folder fashion-second-hand-front-only --repo-type dataset . --num-workers=8
+```
+
+Both of these commands crashed and were relatively slow. I suspect it has to do with the large number of files (30,000) in the dataset.
