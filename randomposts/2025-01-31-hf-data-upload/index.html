@@ -265,6 +265,19 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <section id="what-worked" class="level2">
 <h2 class="anchored" data-anchor-id="what-worked">What worked</h2>
 <p>In the same <a href="https://huggingface.co/docs/datasets/en/image_dataset"><code>image_dataset</code> tutorial</a>, they describe how to upload the dataset using the <code>python</code> command:</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>load_dataset</code> name is misleading: it is not <em>loading</em> the dataset, but it is really setting up your dataset <em>locally</em> in a format suitable for the data viewer in the Hugging Face Datasets Hub. It should really be called <code>setup_dataset</code>.</p>
+</div>
+</div>
 <div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the LOCAL folder as a `huggingface/datasets` dataset</span></span>
