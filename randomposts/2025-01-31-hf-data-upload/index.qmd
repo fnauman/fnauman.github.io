@@ -43,6 +43,10 @@ When rendered in the dataset viewer in the Hugging Face Datasets Hub, the datase
 
 In the same [`image_dataset` tutorial](https://huggingface.co/docs/datasets/en/image_dataset), they describe how to upload the dataset using the `python` command: 
 
+::: {.callout-important}
+`load_dataset` name is misleading: it is not *loading* the dataset, but it is really setting up your dataset *locally* in a format suitable for the data viewer in the Hugging Face Datasets Hub. It should really be called `setup_dataset`.
+:::
+
 ```python
 from datasets import load_dataset
 
