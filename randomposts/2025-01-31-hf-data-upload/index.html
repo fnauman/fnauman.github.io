@@ -6,12 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Farrukh Nauman">
-<meta name="dcterms.date" content="2024-06-15">
-<meta name="keywords" content="Artificial Intelligence, Complex Systems, Natural Language Processing, Deep Learning, Large Language Models">
-<meta name="description" content="Understanding Intelligence Through the Lens of Physics">
+<meta name="dcterms.date" content="2025-01-26">
+<meta name="description" content="Hugging Face Datasets and Datasets Hub">
 
-<title>Intelligence as a Complex System: Lessons from Physics – Farrukh Nauman</title>
+<title>Uploading datasets to Hugging Face – Farrukh Nauman</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -82,44 +114,21 @@ gtag('js', new Date());
 gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Intelligence as a Complex System: Lessons from Physics – Farrukh Nauman">
-<meta property="og:description" content="Understanding Intelligence Through the Lens of Physics">
+<meta property="og:title" content="Uploading datasets to Hugging Face – Farrukh Nauman">
+<meta property="og:description" content="Hugging Face Datasets and Datasets Hub">
+<meta property="og:image" content="https://fnauman.github.io/randomposts/2025-01-31-hf-data-upload/data_sample.png">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta name="twitter:title" content="Intelligence as a Complex System: Lessons from Physics – Farrukh Nauman">
-<meta name="twitter:description" content="Understanding Intelligence Through the Lens of Physics">
+<meta property="og:image:height" content="562">
+<meta property="og:image:width" content="1022">
+<meta name="twitter:title" content="Uploading datasets to Hugging Face – Farrukh Nauman">
+<meta name="twitter:description" content="Hugging Face Datasets and Datasets Hub">
+<meta name="twitter:image" content="https://fnauman.github.io/randomposts/2025-01-31-hf-data-upload/data_sample.png">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:image-height" content="562">
+<meta name="twitter:image-width" content="1022">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
@@ -184,17 +193,15 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Intelligence as a Complex System: Lessons from Physics</h1>
+      <h1 class="title">Uploading datasets to Hugging Face</h1>
                   <div>
         <div class="description">
-          Understanding Intelligence Through the Lens of Physics
+          Hugging Face Datasets and Datasets Hub
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Aritifical Intelligence</div>
-                <div class="quarto-category">Complex Systems</div>
-                <div class="quarto-category">Natural Language Processing</div>
-                <div class="quarto-category">Large Language Models</div>
+                <div class="quarto-category">huggingface</div>
+                <div class="quarto-category">datasets</div>
               </div>
                   </div>
   </div>
@@ -202,36 +209,17 @@ window.Quarto = {
   
   <div class="quarto-title-meta column-page-left">
 
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p><a href="https://fnauman.github.io/">Farrukh Nauman</a> </p>
-            </div>
-    </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 15, 2024</p>
+        <p class="date">January 26, 2025</p>
       </div>
     </div>
     
-      <div>
-      <div class="quarto-title-meta-heading">Modified</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date-modified">January 27, 2025</p>
-      </div>
-    </div>
       
     </div>
     
-
-  <div>
-    <div class="keywords">
-      <div class="block-title">Keywords</div>
-      <p>Artificial Intelligence, Complex Systems, Natural Language Processing, Deep Learning, Large Language Models</p>
-    </div>
-  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
@@ -241,15 +229,9 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#intelligence-as-a-complex-system-lessons-from-physics" id="toc-intelligence-as-a-complex-system-lessons-from-physics" class="nav-link active" data-scroll-target="#intelligence-as-a-complex-system-lessons-from-physics">Intelligence as a Complex System: Lessons from Physics</a>
-  <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#the-complexity-spectrum" id="toc-the-complexity-spectrum" class="nav-link" data-scroll-target="#the-complexity-spectrum">The Complexity Spectrum</a></li>
-  <li><a href="#the-danger-of-hype-reductionist-thinking" id="toc-the-danger-of-hype-reductionist-thinking" class="nav-link" data-scroll-target="#the-danger-of-hype-reductionist-thinking">The Danger of Hype: Reductionist Thinking</a></li>
-  <li><a href="#key-aspects-of-intelligence-as-a-complex-system" id="toc-key-aspects-of-intelligence-as-a-complex-system" class="nav-link" data-scroll-target="#key-aspects-of-intelligence-as-a-complex-system">Key Aspects of Intelligence as a Complex System</a></li>
-  <li><a href="#the-unique-pace-of-ai-development" id="toc-the-unique-pace-of-ai-development" class="nav-link" data-scroll-target="#the-unique-pace-of-ai-development">The Unique Pace of AI Development</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
-  </ul></li>
+  <li><a href="#data-formatting" id="toc-data-formatting" class="nav-link active" data-scroll-target="#data-formatting">Data formatting</a></li>
+  <li><a href="#what-worked" id="toc-what-worked" class="nav-link" data-scroll-target="#what-worked">What worked</a></li>
+  <li><a href="#what-did-not-work" id="toc-what-did-not-work" class="nav-link" data-scroll-target="#what-did-not-work">What did not work</a></li>
   </ul>
 </nav>
     </div>
@@ -260,97 +242,49 @@ window.Quarto = {
 
 
 
-<section id="intelligence-as-a-complex-system-lessons-from-physics" class="level1">
-<h1>Intelligence as a Complex System: Lessons from Physics</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In the rapidly evolving field of artificial intelligence, there’s a growing need to understand the nuances and complexities of intelligence itself. By drawing analogies from successful physical models of complex systems, we can gain valuable insights into the nature of intelligence and the challenges we face in replicating it. This essay explores the parallels between intelligence and other complex phenomena in physics, highlighting why simplistic approaches to AI may fall short of true artificial general intelligence (AGI).</p>
+<p>Uploading datasets to <a href="https://huggingface.co/"><strong>huggingface</strong></a> turned out to be harder than I initially thought.</p>
+<section id="data-formatting" class="level2">
+<h2 class="anchored" data-anchor-id="data-formatting">Data formatting</h2>
+<p>To be able to view the dataset in the Hugging Face Datasets Hub, the dataset needs to be formatted in the right way. I had an <strong>image classification</strong> dataset with several target attributes. I followed the guide <a href="https://huggingface.co/docs/datasets/en/image_dataset">here</a>. Here is how I formatted the dataset:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> train</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── metadata.csv</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── front_2024_02_29_14_26_45.jpg</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── ...</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> test</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── metadata.csv</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── front_2024_05_30_12_30_02.jpg</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where the <code>metadata.csv</code> file contains the <strong>file_name</strong> as the first column and several other columns each corresponding to a target attribute. Here is a sample:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">file_name,brand,usage,condition,type,category,price,trend,colors,cut,pattern,season,text,pilling,damage,stains,holes,smell,material</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">front_2022_12_14_08_48_42.jpg,Junkyard,Export,3,Jeans,Ladies,50-100,Denim,[</span><span class="st">'Blue'</span><span class="ex">],[</span><span class="st">'Loose'</span><span class="ex">],None,Spring,,4,,Minor,None,None,100%cotton</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">front_2023_06_29_08_22_48.jpg,Stacy,Reuse,4,Jeans,Unisex,50-100,None,[</span><span class="st">'Brown'</span><span class="ex">],[</span><span class="st">'Tight'</span><span class="ex">],None,All,,3,,None,None,None,</span><span class="st">"98% cotton, 2% elastane"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>When rendered in the dataset viewer in the Hugging Face Datasets Hub, the dataset converts the <strong>file_name</strong> to an image preview with the title <strong>image</strong> and retains the other columns. Here is the preview of the dataset:</p>
+<p><img src="data_sample.png" class="img-fluid"></p>
 </section>
-<section id="the-complexity-spectrum" class="level2">
-<h2 class="anchored" data-anchor-id="the-complexity-spectrum">The Complexity Spectrum</h2>
-<p>Just as physical phenomena exhibit varying degrees of complexity, intelligence exists on a spectrum. Consider the following examples:</p>
-<ol type="1">
-<li><strong>Turbulence in fluid dynamics</strong>:
-<ul>
-<li>Simple: Rayleigh–Bénard convection near the transition point.</li>
-<li>Complex: Plasma behavior around supermassive black holes (Reynolds number <span class="math inline">\(\sim 10^{20}\)</span>).</li>
-</ul></li>
-<li><strong>Intelligence tasks</strong>:
-<ul>
-<li>Simple: Grade school math problems.</li>
-<li>Complex: Developing groundbreaking scientific theories (e.g., the Ising model in ferromagnetism).</li>
-</ul></li>
-</ol>
-<p>This spectrum illustrates that, like turbulence, we may not yet know if there’s an upper limit to intelligence. It also suggests that for many tasks, a simplified or “compressed” representation might suffice, explaining why some believe AGI has been achieved based on performance in limited domains. The complexity of turbulence is well characterized by the Reynolds number, but studies in the <em>scaling laws</em> of LLMs leaves a lot to be desired where claims of emergence are being made on simple datasets with fixed task complexity, input and output lengths. See <a href="https://arxiv.org/abs/2304.15004">Are Emergent Abilities of Large Language Models a Mirage?</a> for a refreshing take on this.</p>
+<section id="what-worked" class="level2">
+<h2 class="anchored" data-anchor-id="what-worked">What worked</h2>
+<p>In the same <a href="https://huggingface.co/docs/datasets/en/image_dataset"><code>image_dataset</code> tutorial</a>, they describe how to upload the dataset using the <code>python</code> command:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the LOCAL folder as a `huggingface/datasets` dataset</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">"imagefolder"</span>, data_dir<span class="op">=</span><span class="st">"./"</span>) <span class="co"># `imagefolder` is a special dataset type that loads images</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload the dataset to Hugging Face</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dataset.push_to_hub(<span class="st">"fnauman/fashion-second-hand-front-only"</span>, private<span class="op">=</span><span class="va">True</span>) <span class="co"># `private=True` makes the dataset repo private</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>I recommend first uploading the dataset as a <code>private</code> dataset to ensure the upload worked and the data preview works as expected. You can later make the dataset public if you wish.</p>
 </section>
-<section id="the-danger-of-hype-reductionist-thinking" class="level2">
-<h2 class="anchored" data-anchor-id="the-danger-of-hype-reductionist-thinking">The Danger of Hype: Reductionist Thinking</h2>
-<p>Historically, scientists have fallen into the trap of reductionism – the belief that complex phenomena can be fully explained by understanding their fundamental components. Paul Dirac’s 1929 statement exemplifies this:</p>
-<blockquote class="blockquote">
-<p>“The underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known.” <a href="https://royalsocietypublishing.org/doi/10.1098/rspa.1929.0094">Source</a></p>
-</blockquote>
-<p>However, just as a unified theory of fundamental forces wouldn’t explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. This reductionist thinking can lead to overestimating the capabilities of current AI models, which excel in specific tasks but struggle with generalization and complex reasoning.</p>
-</section>
-<section id="key-aspects-of-intelligence-as-a-complex-system" class="level2">
-<h2 class="anchored" data-anchor-id="key-aspects-of-intelligence-as-a-complex-system">Key Aspects of Intelligence as a Complex System</h2>
-<ol type="1">
-<li><p><strong>Dynamic nature</strong>: Intelligence is inherently non-equilibrium, dynamic, nonlinear, and high-dimensional. A static language model, no matter how advanced, cannot fully capture these aspects.</p></li>
-<li><p><strong>Hierarchical complexity</strong>: Like physical systems, intelligence requires flexible frameworks that allow for hierarchical representations. In physics, we have:</p>
-<ul>
-<li>N-particle descriptions (e.g., molecular dynamics)</li>
-<li>Kinetic descriptions (e.g., Boltzmann, Vlasov equations)</li>
-<li>Fluid descriptions (e.g., Navier-Stokes equations)</li>
-<li>Mean field descriptions (e.g., filtered turbulent fields)</li>
-</ul>
-<p>AI research needs analogous frameworks to capture different levels of cognitive processes. However, one might argue that just like how one can use <em>synthetic</em> turbulence models through stochastic forcing to good effect for modeling unobserved physics across scales, GPT-like models with an analogus stochastic training process might be able to capture higher-level cognitive processes.</p></li>
-<li><p><strong>Meta-frameworks for problem-solving</strong>: Current AI models lack robust strategies for approaching intractable problems. For instance, when experimental data is scarce or the physical system under consideration is extremely complex, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).</p></li>
-<li><p><strong>Data limitations</strong>: Current AI models have almost no inductive biases and learn everything from the data, which has limitations:</p>
-<ul>
-<li>Web-scale data has complex reasoning tasks only in their <em>long-tail</em>, which makes complex reasoning difficult to learn.</li>
-<li>Detailed reasoning steps are not available since humans only write down the final answer.</li>
-<li>Equal weighting of data samples is sub-optimal since only a fraction represent high-quality research and content.</li>
-<li>Examples from long-term scientific development are randomly distributed in the data and not systematically organized (e.g., the evolution of theories over decades).</li>
-</ul>
-<p>The specific case of equal weighting of data is particularly problematic since many articles and books are written by people without adequate expertise and contain arguments without rigorous theoretical calculations and experimental results.</p></li>
-</ol>
-</section>
-<section id="the-unique-pace-of-ai-development" class="level2">
-<h2 class="anchored" data-anchor-id="the-unique-pace-of-ai-development">The Unique Pace of AI Development</h2>
-<p>Despite these challenges, AI research progresses at an unprecedented rate compared to other complex fields thanks to:</p>
-<ul>
-<li>Immediate access to state-of-the-art models through APIs and open-source libraries.</li>
-<li>Enhanced tooling for data ingestion and generation.</li>
-<li>The ability to build upon existing work rapidly.</li>
-</ul>
-<p>Contrast this with research in turbulence or computational fluid dynamics, where reproducing results can take years because of:</p>
-<ul>
-<li>Complex, million-line codebases in C, C++, Fortran.</li>
-<li>Limited access to high-performance computing.</li>
-<li>Lack of open data sharing practices, and detailed model descriptions for reproducibility.</li>
-</ul>
-<p>As an example, consider the difficulty in generating <span class="math inline">\(1000\)</span> time steps for a turbulent flow simulation and contrast it with generating <span class="math inline">\(1000\)</span> tokens in language models through the interface, API or locally hosted models.</p>
-</section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The very idea of artificial “intelligence singularity” or its opposite is <strong>problematic from a scientific perspective where singularities are an indication that our theory is invalid at those scales</strong>. The fact that we so readily discuss “singularities” in the context of intelligence might indicate fundamental limitations in our current models of cognition and AI.</p>
-<p>While the rapid progress in AI is exciting, we must approach claims of AGI with caution. By viewing intelligence through the lens of complex systems, we gain a more nuanced understanding of the challenges ahead. Just as physicists continue to grapple with phenomena like turbulence, AI researchers must embrace the multifaceted nature of intelligence, developing new frameworks and approaches to capture its full complexity.</p>
+<section id="what-did-not-work" class="level2">
+<h2 class="anchored" data-anchor-id="what-did-not-work">What did not work</h2>
+<p>Following the instructions <a href="https://huggingface.co/docs/huggingface_hub/en/guides/upload">here</a>, I tried using the <code>huggingface-cli</code> command with two variations, but it did not work.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">huggingface-cli</span> upload fashion-second-hand-front-only . . <span class="at">--repo-type</span> dataset</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">huggingface-cli</span> upload-large-folder fashion-second-hand-front-only <span class="at">--repo-type</span> dataset . <span class="at">--num-workers</span><span class="op">=</span>8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Both of these commands crashed and were relatively slow. I suspect it has to do with the large number of files (30,000) in the dataset.</p>
 
 
 </section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2024,
-  author = {Nauman, Farrukh},
-  title = {Intelligence as a {Complex} {System:} {Lessons} from
-    {Physics}},
-  date = {2024-06-15},
-  url = {https://fnauman.github.io/posts/2024-06-15-intelligence-complex/},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Nauman, Farrukh. 2024. <span>“Intelligence as a Complex System: Lessons
-from Physics.”</span> June 15, 2024. <a href="https://fnauman.github.io/posts/2024-06-15-intelligence-complex/">https://fnauman.github.io/posts/2024-06-15-intelligence-complex/</a>.
-</div></div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
