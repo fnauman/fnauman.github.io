@@ -1,0 +1,87 @@
+/*-- scss:defaults --*/
+// Use Cosmo theme as base
+$primary: #2780e3;
+$secondary: #373a3c;
+$success: #3fb618;
+$info: #9954bb;
+$warning: #ff7518;
+$danger: #ff0039;
+
+// Fonts
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
+$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+// Base document colors
+$body-bg: #fff;
+$body-color: $secondary;
+$link-color: $primary;
+$headings-color: $primary;
+
+// Card styling
+$card-border-color: rgba($primary, 0.125);
+$card-cap-bg: rgba($primary, 0.03);
+
+/*-- scss:rules --*/
+
+// Custom styling
+.navbar {
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.about-links {
+  margin-top: 1em;
+}
+
+.grid {
+  gap: 1.5rem;
+}
+
+.card {
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+// Project cards
+.project-card {
+  height: 100%;
+  border: 1px solid $card-border-color;
+  border-radius: 0.25rem;
+  padding: 1rem;
+  background-color: #fff;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+  }
+}
+
+// Post listings
+.post-preview {
+  margin-bottom: 1.5rem;
+  
+  h3 {
+    margin-bottom: 0.25rem;
+  }
+  
+  .post-meta {
+    color: $secondary;
+    font-size: 0.875rem;
+  }
+}
+
+// Emoji styling
+.emoji {
+  font-size: 1.2em;
+  vertical-align: middle;
+}
+
+// Add some spacing
+.mt-4 {
+  margin-top: 2rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 2rem !important;
+}

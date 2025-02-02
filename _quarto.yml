@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Farrukh Nauman"
+  site-url: https://fnauman.github.io
+  description: "AI Research, Machine Learning Consulting, and Technical Blog"
   navbar: 
     title: false # "Farrukh Nauman"
     left:
@@ -26,6 +28,16 @@ website:
         aria-label: email
         href: "mailto:farrukh.nauman@ri.se"  
   
+  page-footer:
+    left: "Copyright 2024, Farrukh Nauman"
+    right: 
+      - icon: github
+        href: https://github.com/fnauman
+      - icon: twitter
+        href: https://twitter.com/naumanf_
+      - icon: linkedin
+        href: https://www.linkedin.com/in/fnauman/
+  
   google-analytics: G-9BN5NTZ1J1
   open-graph: true
   twitter-card: 
@@ -35,8 +47,14 @@ website:
 format:
   html:
     theme: 
-      light: flatly # styles.scss # [flatly, styles.scss]
-      dark: darkly
-    # css: styles.css
-    toc: true # false
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
+    css: styles.css
+    code-copy: true
+    code-overflow: wrap
+    toc: true
     page-layout: full
+    grid:
+      sidebar-width: 250px
+      body-width: 900px
+      margin-width: 300px

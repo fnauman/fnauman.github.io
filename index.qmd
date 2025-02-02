@@ -1,15 +1,14 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "AI Researcher at RISE | PhD in Physics"
+subtitle: "AI Researcher & Machine Learning Consultant"
 image: assets/officialpic.JPG
 resources: 
   - assets/cv.pdf
-  # - assets/wandb-dots-logo.svg
 toc: false
 about: 
-  template: trestles
+  template: jolla
   image-shape: round
-  image-width: 20em
+  image-width: 15em
   links:
     - text: GitHub
       icon: github
@@ -26,25 +25,116 @@ about:
     - text: CV
       icon: file-earmark-pdf
       href: assets/cv.pdf
-    # - text: <img src="assets/wandb-dots-logo.svg" width="15" height="15"/> wandb # "![w](assets/wandb-dots-logo.svg) wandb"
-    #   href: https://wandb.ai/fnauman
 
 format: 
   html: 
     page-layout: full
 ---
 
+:::{.column-page}
 
-I am Farrukh Nauman, PhD in Theoretial and Computational Astrophysics from the University of Rochester (2015). In my current job as an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en), my work has involved large-scale [AI projects in the fashion industry](https://fnauman.github.io/second-hand-fashion/), LLMs for research reports, object detection applications in the farming industry, time series classification of sensor signals, etc. 
+# Welcome! 👋
 
-<br>
+I'm an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en) with a PhD in Theoretical and Computational Astrophysics. I specialize in:
 
-My broad research interests include my recent interest in LLM applications to computational fluid dynamics applied to astrophysical flows. I have several years of experience working with many programming languages and frameworks including Python, C, FORTRAN. One particular pashion that I have is for time series forecasting and I have worked on several projects in this domain both in academia and industry. 
+- 🤖 Large Language Models (LLMs) for research and industry applications
+- 🔍 Computer Vision & Object Detection
+- 📈 Time Series Analysis & Forecasting
+- 🌊 Computational Fluid Dynamics with ML applications
 
-<!-- <br>
+My work spans both research and practical applications, from implementing LLMs for research report generation to developing object detection systems for the agricultural sector. I'm particularly passionate about bridging the gap between cutting-edge AI research and real-world industry applications.
 
-<br>
+## Recent Posts {.mt-4}
 
-<small>*Update (Jun. 15th, 2024)*: 
+::: {.grid}
 
-I am currently porting my old homepage (last updated in 2019) to this new one. Please bear with me while I do that. I might remove or update a couple of things in the process.</small> -->
+::: {.g-col-12 .g-col-md-6}
+### From the Blog 📝
+```{python}
+#| echo: false
+from pathlib import Path
+import yaml
+from datetime import datetime
+import glob
+
+def get_post_info(file_path):
+    with open(file_path, 'r') as f:
+        content = f.read().split('---')
+        if len(content) > 1:
+            try:
+                front_matter = yaml.safe_load(content[1])
+                return {
+                    'title': front_matter.get('title', 'Untitled'),
+                    'date': front_matter.get('date', '2000-01-01'),
+                    'path': str(file_path)
+                }
+            except:
+                return None
+    return None
+
+# Get blog posts
+blog_posts = []
+for post in glob.glob('posts/**/*.qmd', recursive=True):
+    info = get_post_info(post)
+    if info:
+        blog_posts.append(info)
+
+# Sort by date and get latest 3
+blog_posts.sort(key=lambda x: x['date'], reverse=True)
+blog_posts = blog_posts[:3]
+
+# Print as markdown
+for post in blog_posts:
+    print(f"- [{post['title']}]({post['path']}) - {post['date']}")
+```
+[View all posts →](posts.qmd)
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### TIL/Random 💡
+```{python}
+#| echo: false
+# Get TIL posts
+til_posts = []
+for post in glob.glob('randomposts/**/*.qmd', recursive=True):
+    info = get_post_info(post)
+    if info:
+        til_posts.append(info)
+
+# Sort by date and get latest 3
+til_posts.sort(key=lambda x: x['date'], reverse=True)
+til_posts = til_posts[:3]
+
+# Print as markdown
+for post in til_posts:
+    print(f"- [{post['title']}]({post['path']}) - {post['date']}")
+```
+[View all TIL posts →](randomposts.qmd)
+:::
+
+:::
+
+## Featured Projects {.mt-4}
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+### AI in Fashion Industry
+[AI-powered solutions](portfolio/2023-12-16-second-hand-fashion/index.qmd) for sustainable fashion, including automated classification and trend analysis.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### LLM Research Assistant
+Developing custom LLM solutions for automated research report generation and analysis.
+:::
+
+::: {.g-col-12 .g-col-md-4}
+### Agricultural AI
+Computer vision systems for crop monitoring and automated farming solutions.
+:::
+
+:::
+
+[View full portfolio →](portfolio.qmd)
+
+:::
