@@ -36,3 +36,43 @@ $navbar-bg: #5490c8;
 // .orange-text {
 //     color: $orange;
 // }
+
+/* Post list styling */
+.post-list {
+    margin-top: 1rem;
+    
+    .post-item {
+        margin-bottom: 1rem;
+        
+        a {
+            display: block;
+            color: $primary-color;
+            text-decoration: none;
+            font-weight: 500;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        
+        .post-date {
+            display: block;
+            font-size: 0.9rem;
+            color: $gray-600;
+        }
+    }
+    
+    .view-all {
+        margin-top: 1.5rem;
+        
+        a {
+            color: $primary-color;
+            text-decoration: none;
+            font-size: 0.9rem;
+            
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

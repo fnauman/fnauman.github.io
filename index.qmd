@@ -53,6 +53,7 @@ My work spans both research and practical applications, from implementing LLMs f
 
 ```{python}
 #| echo: false
+#| output: asis
 from pathlib import Path
 import yaml
 from datetime import datetime
@@ -83,11 +84,12 @@ for post in Path('posts').rglob('*.qmd'):
 blog_posts.sort(key=lambda x: x['date'], reverse=True)
 blog_posts = blog_posts[:3]
 
-# Print as markdown links
+# Print as markdown
 for post in blog_posts:
-    print(f"- [{post['title']}]({post['path']})")
+    date_str = datetime.strptime(post['date'], '%Y-%m-%d').strftime('%B %d, %Y')
+    print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
 
-print("\n[View all posts →](posts.qmd)")
+print(f"\n[View all posts →](posts.qmd)")
 ```
 :::
 
@@ -96,6 +98,7 @@ print("\n[View all posts →](posts.qmd)")
 
 ```{python}
 #| echo: false
+#| output: asis
 # Get TIL posts
 til_posts = []
 for post in Path('randomposts').rglob('*.qmd'):
@@ -107,11 +110,12 @@ for post in Path('randomposts').rglob('*.qmd'):
 til_posts.sort(key=lambda x: x['date'], reverse=True)
 til_posts = til_posts[:3]
 
-# Print as markdown links
+# Print as markdown
 for post in til_posts:
-    print(f"- [{post['title']}]({post['path']})")
+    date_str = datetime.strptime(post['date'], '%Y-%m-%d').strftime('%B %d, %Y')
+    print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
 
-print("\n[View all TIL posts →](randomposts.qmd)")
+print(f"\n[View all TIL posts →](randomposts.qmd)")
 ```
 :::
 
@@ -123,7 +127,7 @@ print("\n[View all TIL posts →](randomposts.qmd)")
 
 ::: {.g-col-12 .g-col-md-4}
 ### AI in Fashion Industry
-[AI-powered solutions](portfolio/2023-12-16-second-hand-fashion/index.qmd) for sustainable fashion, including automated classification and trend analysis.
+[AI-powered solutions](portfolio/2023-12-16-second-hand-fashion/index.qmd) for sustainable fashion, including multi-target classification and damage detection.
 :::
 
 ::: {.g-col-12 .g-col-md-4}
@@ -132,8 +136,8 @@ Developing custom LLM solutions for automated research report generation and ana
 :::
 
 ::: {.g-col-12 .g-col-md-4}
-### Agricultural AI
-Computer vision systems for crop monitoring and automated farming solutions.
+### Object Detection in Farming
+Computer vision systems for farming applications.
 :::
 
 :::
