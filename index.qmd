@@ -6,9 +6,9 @@ resources:
   - assets/cv.pdf
 toc: false
 about: 
-  template: jolla
+  template: trestles
   image-shape: round
-  image-width: 15em
+  image-width: 10em
   links:
     - text: GitHub
       icon: github
@@ -44,18 +44,18 @@ I'm an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.s
 
 My work spans both research and practical applications, from implementing LLMs for research report generation to developing object detection systems for the agricultural sector. I'm particularly passionate about bridging the gap between cutting-edge AI research and real-world industry applications.
 
-## Recent Posts {.mt-4}
+## Recent Updates
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
 ### From the Blog 📝
+
 ```{python}
 #| echo: false
 from pathlib import Path
 import yaml
 from datetime import datetime
-import glob
 
 def get_post_info(file_path):
     with open(file_path, 'r') as f:
@@ -74,7 +74,7 @@ def get_post_info(file_path):
 
 # Get blog posts
 blog_posts = []
-for post in glob.glob('posts/**/*.qmd', recursive=True):
+for post in Path('posts').rglob('*.qmd'):
     info = get_post_info(post)
     if info:
         blog_posts.append(info)
@@ -83,20 +83,22 @@ for post in glob.glob('posts/**/*.qmd', recursive=True):
 blog_posts.sort(key=lambda x: x['date'], reverse=True)
 blog_posts = blog_posts[:3]
 
-# Print as markdown
+# Print as markdown links
 for post in blog_posts:
-    print(f"- [{post['title']}]({post['path']}) - {post['date']}")
+    print(f"- [{post['title']}]({post['path']})")
+
+print("\n[View all posts →](posts.qmd)")
 ```
-[View all posts →](posts.qmd)
 :::
 
 ::: {.g-col-12 .g-col-md-6}
 ### TIL/Random 💡
+
 ```{python}
 #| echo: false
 # Get TIL posts
 til_posts = []
-for post in glob.glob('randomposts/**/*.qmd', recursive=True):
+for post in Path('randomposts').rglob('*.qmd'):
     info = get_post_info(post)
     if info:
         til_posts.append(info)
@@ -105,11 +107,12 @@ for post in glob.glob('randomposts/**/*.qmd', recursive=True):
 til_posts.sort(key=lambda x: x['date'], reverse=True)
 til_posts = til_posts[:3]
 
-# Print as markdown
+# Print as markdown links
 for post in til_posts:
-    print(f"- [{post['title']}]({post['path']}) - {post['date']}")
+    print(f"- [{post['title']}]({post['path']})")
+
+print("\n[View all TIL posts →](randomposts.qmd)")
 ```
-[View all TIL posts →](randomposts.qmd)
 :::
 
 :::
