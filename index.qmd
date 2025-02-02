@@ -127,7 +127,7 @@ print(f"\n[View all TIL posts →](randomposts.qmd)")
 
 ::: {.g-col-12 .g-col-md-4}
 ### AI in Fashion Industry
-[AI-powered solutions](portfolio/2023-12-16-second-hand-fashion/index.qmd) for sustainable fashion, including multi-target classification and damage detection.
+[AI-powered solutions](https://fnauman.github.io/second-hand-fashion/) for sustainable fashion, including multi-target classification and damage detection.
 :::
 
 ::: {.g-col-12 .g-col-md-4}

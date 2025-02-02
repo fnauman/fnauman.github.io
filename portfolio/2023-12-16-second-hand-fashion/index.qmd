@@ -23,6 +23,10 @@ og:
   description: "A deep dive into how AI technologies are reshaping the second-hand fashion industry towards more sustainable practices."
 ---
 
+::: {.callout-note}
+**Update February 2025**: For more detailed and up-to-date information, please visit [fnauman.github.io/second-hand-fashion](https://fnauman.github.io/second-hand-fashion/).
+:::
+
 # Automating Second-Hand Fashion
 
 <!-- ## Introduction -->
@@ -69,6 +73,12 @@ In the Vinnova project that I am leading from RISE, we are developing a novel da
 
 - Dataset v1, 3000 clothing items: [Zenodo link](https://zenodo.org/records/8386668).
 
+::: {.callout-important}
+**Update February 2025**: v3 with **31,638** items was released on September 19th, 2024 [here](https://zenodo.org/records/13788681). For up to date information, please visit [fnauman.github.io/second-hand-fashion](https://fnauman.github.io/second-hand-fashion/).
+:::
+
+
+
 The dataset has been released under a permissive CC-BY 4.0 license that allows commercial use given that the authors are properly cited. 
 
 Furthermore, we are developing AI models to recognize damage on clothes and to grade them according to their quality. The scope of ongoing projects is not full automation, but to instead provide a "decision support tool". A decision support tool is supposed to assist the human operator in making the final decision by judging the cloth condition, assessing the brand quality and how it compares with other brands in the market, and finally, estimating the best use case for the item.
@@ -87,6 +97,3 @@ We have identified the following challenges and opportunities in the second-hand
 The second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow exponentially. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players.
 
 <!-- ## References -->
-
-
-
