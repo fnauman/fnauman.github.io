@@ -23,6 +23,53 @@ $card-cap-bg: rgba($primary, 0.03);
 
 /*-- scss:rules --*/
 
+/*-- scss:defaults --*/
+// Keep your existing defaults from the paste.txt
+
+/*-- scss:rules --*/
+// Keep your existing rules, then add:
+
+// Social icons in light mode
+.social-icon {
+  opacity: 0.8;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Consultancy card and buttons
+.card {
+  &.border-primary {
+    border-color: $primary !important;
+    
+    .card-body {
+      color: $body-color !important;
+    }
+  }
+}
+
+.btn-primary {
+  color: white !important;
+  background-color: $primary !important;
+  border-color: $primary !important;
+  
+  &:hover {
+    background-color: darken($primary, 10%) !important;
+    border-color: darken($primary, 10%) !important;
+  }
+}
+
+.btn-outline-primary {
+  color: $primary !important;
+  border-color: $primary !important;
+  background-color: transparent !important;
+  
+  &:hover {
+    color: white !important;
+    background-color: $primary !important;
+  }
+}
+
 // Aggressive spacing reduction
 body {
   line-height: 1.4;  // Tighter line height

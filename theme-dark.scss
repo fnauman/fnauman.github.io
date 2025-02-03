@@ -13,6 +13,13 @@ $body-color: #e1e1e1;
 $link-color: $primary;
 $headings-color: $primary;
 
+// Keep your existing defaults, but add/modify these navbar-specific variables:
+$navbar-dark-color:           rgba($body-color, 0.75) !important;
+$navbar-dark-hover-color:     rgba($body-color, 0.9) !important;
+$navbar-dark-active-color:    $body-color !important;
+$navbar-dark-brand-color:     $body-color !important;
+$navbar-dark-brand-hover-color: $body-color !important;
+
 // Fonts
 $font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 $font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
@@ -29,9 +36,91 @@ $code-color: #e1e1e1;
 /*-- scss:rules --*/
 
 // Custom styling for dark mode
+// Navbar styling for dark theme
 .navbar {
-  box-shadow: 0 2px 4px rgba(0,0,0,.2);
-  background-color: #242424;
+  background-color: $card-bg;  // Use the same color as cards for consistency
+  
+  .navbar-nav {
+    .nav-link {
+      color: $body-color !important;
+      opacity: 0.75;
+      
+      &:hover {
+        opacity: 1;
+      }
+      
+      &.active {
+        color: $primary !important;
+        opacity: 1;
+      }
+    }
+  }
+  
+  // For brand/logo text if you have any
+  .navbar-brand {
+    color: $body-color !important;
+  }
+  
+  // For the toggle button in mobile view
+  .navbar-toggler {
+    color: $body-color !important;
+    border-color: rgba($body-color, 0.1) !important;
+  }
+  
+  // Social icons in navbar
+  .navbar-nav-scroll {
+    .nav-link {
+      img, svg {
+        opacity: 0.75;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+// Social icons in dark mode
+.social-icon {
+  filter: invert(1);
+  opacity: 0.9;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+// Consultancy card and buttons
+.card {
+  &.border-primary {
+    border-color: $primary !important;
+    background-color: $card-bg !important;
+    
+    .card-body {
+      color: $body-color !important;
+    }
+  }
+}
+
+.btn-primary {
+  color: $body-color !important;
+  background-color: $primary !important;
+  border-color: $primary !important;
+  
+  &:hover {
+    background-color: darken($primary, 10%) !important;
+    border-color: darken($primary, 10%) !important;
+  }
+}
+
+.btn-outline-primary {
+  color: $primary !important;
+  border-color: $primary !important;
+  background-color: transparent !important;
+  
+  &:hover {
+    color: $body-color !important;
+    background-color: $primary !important;
+  }
 }
 
 .about-links {
@@ -50,17 +139,48 @@ $code-color: #e1e1e1;
   }
 }
 
-// Project cards
-.project-card {
-  height: 100%;
-  border: 1px solid $card-border-color;
-  border-radius: 0.25rem;
-  padding: 1rem;
-  background-color: $card-bg;
-  transition: all 0.2s ease-in-out;
+// Recent Updates section styling for dark theme
+.grid {
+  // Blog post links
+  ul li {
+    a {
+      color: $body-color !important; // Use the main text color for better visibility
+      
+      &:hover {
+        color: $primary !important;
+        text-decoration: underline;
+      }
+    }
+    
+    // Date text
+    small, span, time {
+      color: $secondary !important;
+    }
+  }
+}
+
+// "View all posts" and similar links
+.view-all-link, 
+[href$="→"],
+[href*="posts"],
+[href*="portfolio"] {
+  color: $primary !important;
   
   &:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+    color: lighten($primary, 15%) !important;
+    text-decoration: underline;
+  }
+}
+
+// Link styling for featured projects
+.project-card {
+  a {
+    color: $primary !important;
+    
+    &:hover {
+      color: lighten($primary, 15%) !important;
+      text-decoration: underline;
+    }
   }
 }
 

@@ -5,34 +5,57 @@ image: assets/officialpic.JPG
 resources: 
   - assets/cv.pdf
 toc: false
-about: 
-  template: trestles
-  image-shape: round
-  image-width: 10em
-  links:
-    - text: GitHub
-      icon: github
-      href: https://github.com/fnauman
-    - text: Twitter
-      icon: twitter
-      href: https://twitter.com/naumanf_
-    - text: LinkedIn
-      icon: linkedin
-      href: https://www.linkedin.com/in/fnauman/
-    - text: Email
-      icon: envelope
-      href: mailto:farrukh.nauman@ri.se
-    - text: CV
-      icon: file-earmark-pdf
-      href: assets/cv.pdf
-
+# about: 
+#   template: trestles
+#   image-shape: round
+#   image-width: 10em
+#   links:
+#     - text: GitHub
+#       icon: github
+#       href: https://github.com/fnauman
+#     - text: Twitter
+#       icon: twitter
+#       href: https://twitter.com/naumanf_
+#     - text: LinkedIn
+#       icon: linkedin
+#       href: https://www.linkedin.com/in/fnauman/
+#     - text: Email
+#       icon: envelope
+#       href: mailto:farrukhnordicworks@gmail.com
+#     - text: CV
+#       icon: file-earmark-pdf
+#       href: assets/cv.pdf
 format: 
   html: 
     page-layout: full
 ---
 
-:::{.column-page}
+::: {.grid}
 
+::: {.g-col-12 .g-col-md-3 .text-center}
+![](assets/officialpic.JPG){.rounded-circle width=200px}
+
+<!-- ### Connect -->
+<!-- ::: {.d-flex .flex-column .align-items-center}
+- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=20px}](https://github.com/fnauman) [GitHub](https://github.com/fnauman)
+- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=20px}](https://twitter.com/naumanf_) [Twitter](https://twitter.com/naumanf_)
+- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=20px}](https://www.linkedin.com/in/fnauman/) [LinkedIn](https://www.linkedin.com/in/fnauman/)
+- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=20px}](mailto:farrukhnordicworks@gmail.com) [Email](mailto:farrukhnordicworks@gmail.com)
+- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=20px}](assets/cv.pdf) [CV](assets/cv.pdf)
+::: -->
+
+::: {.d-flex .justify-content-center .gap-3 .mt-3}
+[![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=24px title="GitHub" .social-icon}](https://github.com/fnauman)
+[![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=24px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
+[![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=24px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
+[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukhnauman@gmail.com)
+[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/cv.pdf)
+:::
+:::
+
+
+::: {.g-col-12 .g-col-md-9}
+<!-- :::{.column-page} -->
 # Welcome! 👋
 
 I'm an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en) with a PhD in Theoretical and Computational Astrophysics. I specialize in:
@@ -40,16 +63,26 @@ I'm an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.s
 - 🤖 Large Language Models (LLMs) for research and industry applications
 - 🔍 Computer Vision & Object Detection
 - 📈 Time Series Analysis & Forecasting
-- 🌊 Computational Fluid Dynamics with ML applications
+- 🌊 Fluid Dynamics (CFD, Modeling, Machine Learning)
 
 My work spans both research and practical applications, from implementing LLMs for research report generation to developing object detection systems for the agricultural sector. I'm particularly passionate about bridging the gap between cutting-edge AI research and real-world industry applications.
+
+::: {.callout-note appearance="simple"}
+## 🤝 Available for Consultancy
+<!-- [Schedule a consultation](calendly_link_here){.btn .btn-primary .me-2}
+[Email me](mailto:farrukhnodicworks@gmail.com){.btn .btn-outline-primary} -->
+::: {.d-flex .gap-2 .mt-3}
+[Schedule a consultation]{.btn .btn-primary}
+[Email me]{.btn .btn-outline-primary}
+:::
+:::
 
 ## Recent Updates
 
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-### From the Blog 📝
+### Blog 📝
 
 ```{python}
 #| echo: false
