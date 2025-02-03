@@ -208,7 +208,25 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container callout-body">
 <div class="d-flex gap-2 mt-3">
-<p><span class="btn btn-primary">Schedule a consultation</span> <a href="mailto:farrukhnodicworks@gmail.com" class="btn btn-outline-primary">Email me</a></p>
+<!-- [Schedule a consultation]{.btn .btn-primary} -->
+<!-- Google Calendar Appointment Scheduling begin -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async=""></script>
+<script>
+(function() {
+  var target = document.currentScript;
+  window.addEventListener('load', function() {
+    calendar.schedulingButton.load({
+      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0xjpTUuITjAslR7WIdraRXZtoKunaB6T2a4CDnuELUAxjFiVx0LMelvbUOQcORHkONM6wbW-oV?gv=true',
+      color: '#039BE5',
+      label: 'Book an appointment',
+      target,
+    });
+  });
+})();
+</script>
+<!-- end Google Calendar Appointment Scheduling -->
+<p><a href="mailto:farrukhnordicworks@gmail.com" class="btn btn-outline-primary">Email me</a></p>
 </div>
 </div>
 </div>
