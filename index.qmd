@@ -35,20 +35,11 @@ format:
 ::: {.g-col-12 .g-col-md-3 .text-center}
 ![](assets/officialpic.JPG){.rounded-circle width=200px}
 
-<!-- ### Connect -->
-<!-- ::: {.d-flex .flex-column .align-items-center}
-- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=20px}](https://github.com/fnauman) [GitHub](https://github.com/fnauman)
-- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=20px}](https://twitter.com/naumanf_) [Twitter](https://twitter.com/naumanf_)
-- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=20px}](https://www.linkedin.com/in/fnauman/) [LinkedIn](https://www.linkedin.com/in/fnauman/)
-- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=20px}](mailto:farrukhnordicworks@gmail.com) [Email](mailto:farrukhnordicworks@gmail.com)
-- [![](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=20px}](assets/cv.pdf) [CV](assets/cv.pdf)
-::: -->
-
 ::: {.d-flex .justify-content-center .gap-3 .mt-3}
 [![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=24px title="GitHub" .social-icon}](https://github.com/fnauman)
 [![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=24px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
 [![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=24px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
-[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukhnauman@gmail.com)
+[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukhnordicworks@gmail.com)
 [![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/cv.pdf)
 :::
 :::
@@ -69,11 +60,9 @@ My work spans both research and practical applications, from implementing LLMs f
 
 ::: {.callout-note appearance="simple"}
 ## 🤝 Available for Consultancy
-<!-- [Schedule a consultation](calendly_link_here){.btn .btn-primary .me-2}
-[Email me](mailto:farrukhnodicworks@gmail.com){.btn .btn-outline-primary} -->
 ::: {.d-flex .gap-2 .mt-3}
 [Schedule a consultation]{.btn .btn-primary}
-[Email me]{.btn .btn-outline-primary}
+[Email me](mailto:farrukhnodicworks@gmail.com){.btn .btn-outline-primary}
 :::
 :::
 
