@@ -23,54 +23,205 @@ og:
   description: "What are Large Language Models? What are their limitations and common use cases?"
 ---
 
-# Large Language Models: A Compact Guide
+<!-- # Large Language Models: A Compact Guide
 
-The purpose of this guide is to provide a short summary about modern Large Language Models (LLMs) from an application building perspective. I am in the process of adding more references and details to this guide, but for now, this should serve as a good starting point for anyone interested in understanding the basics of Large Language Models.
+The purpose of this guide is to provide a short summary about modern Large Language Models (LLMs) from an application building perspective. I am in the process of adding more references and details to this guide, but for now, this should serve as a good starting point for anyone interested in understanding the basics of Large Language Models. -->
 
 ## Update:
 
-Best models and tools I use as of **Jan. 17th, 2025**:
+Best models and tools I use as of **Jan. 20th, 2025**:
 
-- **Code**: Claude 3.5 Sonnet (also hearing a lot about DeepSeekv3 - [93.1% of aider's own code writes are using Deepseekv3](https://x.com/paulgauthier/status/1877867244614779030/photo/1))
+- **Code**: Claude 3.5 Sonnet (also hearing a lot about DeepSeek-r1 and DeekSeekv3 - [93.1% of aider's own code writes are using Deepseekv3](https://x.com/paulgauthier/status/1877867244614779030/photo/1))
 - **Writing**: Gemini 2.0 Experimental 1206 - this has become my primary model for most use cases, but unfortunately currently only supports file attachments through AI studio interface, not the Gemini app. 
 - **Audio**: OpenAI's GPT-4o, Gemini 2.0 Flash - both seem to havea 30 min limit unfortunately. 
 - **Planning**: o1 by Open AI (with some input by Claude and Gemini).
 - **Research**: NotebookLM, Gemini Deep Research (mostly human-in-the-loop workflows where I write custom prompts, sources, etc.).
 - **IDEs**: Windsurf, VSCode with Copilot
 
-## Modern Architectures: Short Summary
+<!-- ## Demystifying Large Language Models: A Technical Introduction for Application Builders -->
 
-A language model aims to learn the probability distribution of a sequence of words. In deep learning, typically a language model consists of the following components:
+This guide provides a technical introduction to modern Large Language Models (LLMs) targeted at academics and software engineers who are beginning to explore this exciting field. LLMs can be leveraged in various applications, such as content generation, code assistance, data analysis, and more.  While this is a concise overview, it should serve as a solid starting point for anyone interested in grasping the fundamentals of LLMs and their potential. I intend to continually update this guide with the latest advancements and insights in the field.
 
-- **Tokenizer**: Words, subwords, or characters need to be first converted into numerical representations. This is done by a tokenizer. Unfortunately, the community doesn't seem to stick to universal tokenizers and many Large Language Models seem to define their own tokenizers. For instance, OpenAI uses a *learned* byte-pair encoding tokenizer, while T5 uses a SentencePiece tokenizer. Tokenizer is often considered a bottleneck in modern language models (and also in encoder models like BERT) because of its inabililty to adapt to:
-  - New natural languages: for example, a model trained only on English will have trouble tokenizing a sentence in Chinese, Urdu, or Swahili.
-  - Domain specific languages like HTML, programming languages, etc. pose particularly difficult challenges for tokenizers since they have their own breaks, tags, etc. A similar issue also shows up with retrieval applications where it is not entirely clear how to divide
-- **Embedding layer**: The numerical representations of text are converted into dense vectors by a *learned* embedding layer. The size of embedding layer is typically a hyperparameter and most modern LLMs likely use an embedding size of 2048 or larger. 
-- **Self-attention layers**: It is a fascinating concept: it allows each word or token to "attend" to all other token in the sequence. This is arguably the most important innovation in NLP in the last decade. By having very little inductive biases, Transformers are able to capture non-local relationships between tokens granted they are trained on a large enough dataset. Through multiple attention heads, these models learn multiple meanings of the same word given a context. As of this writing, all state-of-the-art Large Language Models are based on decoder-only Transformers with the exciting exceptions of [RWKV-LM](https://github.com/BlinkDL/RWKV-LM) and [Mamba](https://arxiv.org/abs/2312.00752). 
-<!-- - Output layer: The output layer is typically a softmax layer that predicts the next word in the sequence.  -->
-There are other layers like LayerNorm and activations like GeLU that are part of modern architectures, but they have mostly have an *empirical* value - they stabilize the training process. 
+### Key Components of Modern LLM Architectures
 
+At their core, Language Models are designed to learn the probability distribution of word sequences.  In the realm of deep learning, modern LLMs typically comprise the following essential components:
 
-## Type of Language Models: 
+#### 1. Tokenization: Converting Text to Numerical Representations
 
-- **Encoder only**: Architectures like BERT are encoder only, and are often used for pre-training on a large corpus of data using a masked language modeling objective. These models can be great for tasks such as sentiment classification, named entity recognition. If you've heard of `embedding` models, they are typically also encoder only models trained using a contrastive loss. 
-- **Encoder-decoder**: For tasks like machine translation, one often needs to take an input sequence and generate an output sequence of approximately same length. This is best achieved by encoder decoder or sequence-to-sequence architectures. Examples include [T5](https://arxiv.org/abs/1910.10683). 
-- **Decoder only** (ChatGPT, Claude, Gemini, Llama): Arguably the most popular LLM architecture currently is the decoder only architectures. Decoder models are generative by construction: they take an input (prompt) and generate a sequence of tokens. These models are often used for tasks such as question answering, summarization, and text generation. The pre-training objective for these models is causal language modeling: that is the model is trained to predict the next word in the sequence given all previous words.
+Before text can be processed by an LLM, it must be converted into numerical representations. This is the role of the **tokenizer**. Tokenizers break down text into smaller units called **tokens**, which can be words, subwords, or characters.  Different LLMs often employ distinct tokenization methods, leading to fragmentation in the ecosystem. For example, OpenAI models utilize Byte-Pair Encoding (BPE), while T5 uses SentencePiece.
 
-## Language Model Training stages: 
+**Tokenization as a Potential Bottleneck:** Tokenization can be a performance bottleneck and introduce limitations, particularly in these scenarios:
 
-Modern transformers combine the best ideas from the three big paradigms of machine learning: self-supervised learning, supervised learning, and reinforcement learning. Specifically, training a Large Language Model involves the following stages:
+* **Vocabulary Size and Out-of-Vocabulary (OOV) Tokens:** Tokenizers typically have a fixed vocabulary size. Words not present in this vocabulary are treated as OOV tokens, often represented by a special `<unk>` token.  A high number of OOV tokens can degrade model performance as the model has no learned representation for these words.
+* **Adaptability to New Languages:** Models trained primarily on English may struggle to tokenize languages with different scripts or linguistic structures (e.g., Chinese, Urdu, Swahili).  This is because their tokenizer vocabularies are optimized for English.
+* **Domain-Specific Languages:** Technical domains like programming languages (HTML, Python) or specialized fields (medicine, law) pose challenges. These domains have unique syntax, terminology, and structures that general-purpose tokenizers may not handle optimally.  For instance, the tokenization of code often needs to preserve whitespace and special characters that have semantic meaning.
 
-- **Pretraining** or self-supervised training (size $>10$ Trillion tokens): This is arguably the largest and most compute expensive stage where the model predicts the next token. The data for this stage is typically a mix of code, math, science, fiction, etc. and the formatting is kept as is. But modern models also experiment with formatting the data in a similar way to the instruction tuning phase where a piece of text is converted to a "task - response" format. 
-- **Instruction tuning** or supervised fine-tuning (size $0.1-1$ Million tokens): In this phase, the models train on a supervised task such as question answering, summarization, essay writing, etc. The data mixtures are important here: for instance, a model trained on a large fraction of code tasks will likely perform poorly on a essay writing task. For solid general purpose performance as we have grown to expect from GPT-4 class models, the data mixtures should be diverse and high quality. 
-- **Preference tuning** or reinforcement learning from human feedback (size $0.1-1$ Million tokens): Tasks such as the quality of an essay are hard to judge objectively. For such tasks, one can use human preference data to fine-tune the model. The data typically consists of a pair of options for a human to choose from, and based on the preference, the model is updated. The actual process is quite involved with some algorithms requiring reward model training, etc. 
-- **Reinforcement finetuning**: OpenAI's o1 *reasoning* model is a special model that has received an extra stage of training that involves some sort of *process reward modeling* - the core concept is that the models should recieve partial credit if they are thinking in the right direction, and they can have multiple attempts at a task. The details of how this works in practice are not open source although some exciting open source work has been done recently by the [Qwen team](https://qwenlm.github.io/blog/qwq-32b-preview/) among others. 
+Understanding tokenizer limitations is crucial when applying LLMs to diverse languages or specialized domains. Libraries like Hugging Face `tokenizers` offer tools to explore different tokenization algorithms and even train custom tokenizers for specific needs.
 
-## Limitations of Large Language Models
+#### 2. Embedding Layer: Representing Tokens Semantically
 
-- **Prompt Sensitivity**: Due to their stochastic nature and the fact that the training data is hidden from the end user, it is often hard to predict how sensitive the model output will be if a prompt is slightly changed while retaining the same semantic meaning. This is particularly troublesome for *agentic* applications where the LLM is supposed to make decisions on behalf of the user. One possible way to address this is to first test out a range of prompts and then select the one that gives the best output, a process that can be automated using frameworks like [`DSPy`](https://github.com/stanfordnlp/dspy).
-- **Planning**: Leaving out the *reasoning* models like OpenAI's o1, LLMs are not able to plan ahead. That is to say, the models are unable to think through a problem first, and then build a solution. This has been labeled as the *test-time-compute* problem. People often report that prompting the model to "think step by step" solves this issue, but that is a myth since the model is only generating one token at a time at constant compute. 
-- **Self-improvement**: LLMs get stuck in loops, that is they keep making the same mistakes over and over again. Although o1 and Claude 3.5 Sonnet have clearly demonstrated their ability to self-correct and that is why they perform really well on code benchmarks, in general, self-improvement remains a challenge. 
-- **Knowing vs Understanding**: When tested on counterfactual puzzles and questions, the same LLM that performs well on a wide range of tasks fails miserably. This is because the model is not able to understand the underlying concepts and instead *memorizes* the training data. 
-- **Vocabulary and Domain Specializations**: Many domains like medicine or law have their own large set of vocabularies and concepts - words and phrases that do not appear in general language models. This necessitates the need for domain specific models. 
-- **Long Tail**: Concepts and ideas that appear less frequently on the web are unlikely to be learned by the model. While Retrieval Augmented Generation (RAG) has been proposed as a way to address this by providing LLMs relevant context before generation, it remains a hard problem since generating high quality text for rare ideas and concepts might require more "core" knowledge than what the model has.
+The numerical tokens are then transformed into **dense vector representations** by a learned **embedding layer**.  These embeddings are not just arbitrary numbers; they are designed to capture the **semantic meaning** of the tokens.  Tokens with similar meanings are positioned closer together in the embedding space.  The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger.
+
+**Purpose of Embeddings:** Embeddings serve as a crucial bridge, translating discrete tokens into a continuous vector space where semantic relationships can be mathematically modeled.  Pre-trained LLMs leverage embeddings learned from vast amounts of text data, enabling them to capture general language understanding.  Larger embedding dimensions can potentially represent more nuanced semantic information, but also increase model complexity and computational demands.
+
+#### 3. Self-Attention Mechanism: Capturing Contextual Relationships
+
+The **self-attention mechanism** is arguably the most significant innovation driving the power of modern LLMs. It allows each token in a sequence to "attend" to all other tokens, enabling the model to capture **contextual relationships** within the input.  This is in contrast to earlier sequential models (like RNNs) which processed text token by token.
+
+**How Self-Attention Works (Simplified):**  Imagine each token as having three vectors associated with it: a **Query**, a **Key**, and a **Value**.  For each token, the model calculates an "attention score" by comparing its Query vector to the Key vectors of all other tokens in the sequence. These scores determine how much attention each token should pay to others when constructing its contextual representation.  The Value vectors are then weighted by these attention scores and aggregated to produce the context-aware representation for each token.
+
+**Multiple Attention Heads:** Most LLMs utilize **multi-head attention**, meaning they perform the self-attention process multiple times in parallel with different sets of Query, Key, and Value matrices.  This allows the model to learn diverse types of relationships and attend to different aspects of the input simultaneously, enriching the contextual understanding.
+
+**Computational Considerations:**  It's important to note that the computational complexity of self-attention is quadratic with respect to the sequence length (O(n<sup>2</sup>)), where n is the number of tokens. This can become a bottleneck for very long sequences, prompting research into more efficient attention mechanisms.
+
+#### 4. Other Architectural Components
+
+Modern LLM architectures, primarily based on decoder-only Transformers, also incorporate other layers such as Layer Normalization (LayerNorm) and activation functions like GeLU (Gaussian Error Linear Unit). While their precise theoretical underpinnings are still being researched, empirically, these components play a crucial role in stabilizing the training process and improving model performance.
+
+<!-- ### Types of Language Models and Their Applications
+
+LLMs can be broadly categorized based on their architectural design and training objectives. Understanding these types helps in choosing the right model for specific applications.
+
+#### 1. Encoder-Only Models (BERT Family): Feature Extraction and Understanding
+
+Architectures like BERT (Bidirectional Encoder Representations from Transformers) are **encoder-only**. They are pre-trained on vast text corpora using objectives like Masked Language Modeling (predicting masked words in a sentence).  Encoder-only models excel at tasks that require understanding the input text and extracting meaningful features.
+
+**Typical Applications:**
+
+* **Sentiment Classification:** Determining the sentiment (positive, negative, neutral) expressed in text.
+* **Named Entity Recognition (NER):** Identifying and classifying named entities (person, organization, location) in text.
+* **Feature Extraction for Downstream Tasks:** Generating high-quality text embeddings that can be used as input features for other machine learning models.
+* **Embedding Models:**  Encoder-only architectures are often used to create embedding models, trained with contrastive losses, for tasks like semantic similarity search and document retrieval.
+
+**Trade-offs:** Encoder-only models are excellent for understanding input text but are not inherently generative. They are less suited for tasks that require generating novel text sequences.
+
+#### 2. Encoder-Decoder Models (T5, BART): Sequence-to-Sequence Tasks
+
+For tasks involving transforming an input sequence into an output sequence (often of similar length), **encoder-decoder** architectures are well-suited. Models like T5 (Text-to-Text Transfer Transformer) and BART (Bidirectional and Auto-Regressive Transformer) fall into this category.
+
+**Typical Applications:**
+
+* **Machine Translation:** Translating text from one language to another.
+* **Text Summarization:** Generating concise summaries of longer documents.
+* **Question Answering (Extractive):**  Identifying the answer to a question directly within a given context.
+* **Text Generation with Input Conditioning:**  Generating text based on a structured input (e.g., generating a product description given product attributes).
+
+**Trade-offs:** Encoder-decoder models are more complex than encoder-only models due to the separate encoder and decoder components. However, they are powerful for sequence-to-sequence tasks.
+
+#### 3. Decoder-Only Models (GPT Family, Claude, Llama): Generative Language and Prompt Engineering
+
+Currently, **decoder-only** architectures are arguably the most popular type of LLM, powering models like ChatGPT, Claude, Gemini, and Llama.  These models are inherently generative. They take an input prompt and generate subsequent tokens, one at a time, to produce text.  Decoder-only models are pre-trained using **causal language modeling**: predicting the next token in a sequence given all preceding tokens.
+
+**Typical Applications:**
+
+* **Text Generation:** Creative writing, story generation, content creation.
+* **Chatbots and Conversational AI:** Building interactive conversational agents.
+* **Question Answering (Generative):** Answering questions in a free-form, conversational style.
+* **Summarization (Abstractive):**  Generating summaries that may rephrase or synthesize information, rather than just extracting sentences.
+* **Code Generation:** Generating code snippets in various programming languages.
+
+**Trade-offs:** Decoder-only models are architecturally simpler for generation compared to encoder-decoder models. However, effectively using them for specific tasks often relies heavily on **prompt engineering** – carefully crafting input prompts to guide the model's generation. -->
+
+### Language Model Training Stages: From Raw Text to Instruction Following
+
+Training a high-performing LLM is a multi-stage process, drawing upon principles from self-supervised learning, supervised learning, and reinforcement learning.  The typical training pipeline involves:
+
+#### 1. Pretraining or Self-Supervised Learning 
+
+This is the most computationally intensive stage, involving training the model on trillions of tokens of text data. The objective is **self-supervised learning**, where the model learns to predict masked words (for encoder models) or the next word in a sequence (for decoder models).
+
+**Data and Objective:** Pretraining data is typically a diverse mix of text from the web, books, code repositories, and scientific articles.  The data is often used "as is," but increasingly, pretraining datasets are structured in a "task-response" format, similar to instruction tuning, to improve downstream task performance.  The goal is to learn general language representations and a broad understanding of the world from this massive dataset.
+
+**Importance:** Pretraining equips the model with fundamental language capabilities and a vast amount of world knowledge, forming the foundation for subsequent fine-tuning stages.
+
+#### 2. Instruction Tuning or Supervised Fine-Tuning 
+
+In this stage, the pretrained model is further trained on a smaller dataset of millions of tokens with **supervised learning**. The focus shifts to aligning the model's general language capabilities with the ability to follow instructions and perform specific tasks.
+
+**Data and Objective:** Instruction tuning datasets consist of examples in a "instruction-response" format, covering a wide range of tasks like question answering, summarization, essay writing, code generation, and more. The data mixture is crucial.  Training on a diverse and high-quality instruction dataset leads to models that generalize well across various tasks.  A model heavily trained on code tasks, for example, might perform poorly on essay writing if not exposed to sufficient writing-related instructions.
+
+**Importance:** Instruction tuning teaches the model to understand and execute instructions, making it more useful for practical applications where users provide specific prompts or task descriptions.
+
+#### 3. Preference Tuning or Reinforcement Learning from Human Feedback (RLHF) 
+
+For tasks where output quality is subjective or difficult to define objectively (e.g., essay quality, helpfulness of a chatbot response), **Reinforcement Learning from Human Feedback (RLHF)** is often employed.
+
+**Data and Objective:** RLHF utilizes human preference data.  Humans are presented with pairs of model-generated outputs for the same prompt and asked to choose the preferred output.  This preference data is then used to train a reward model, which learns to predict human preferences.  Subsequently, reinforcement learning algorithms (like Proximal Policy Optimization - PPO) are used to fine-tune the LLM to maximize the reward predicted by the reward model.
+
+**Importance:** RLHF helps align the model's behavior with human values and preferences, improving the quality, helpfulness, and safety of generated text.  It addresses subjective aspects of language quality that are difficult to capture with purely supervised learning objectives.
+
+#### 4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)
+
+Some advanced models, like OpenAI's o1 or DeepSeek's r1 reasoning models, incorporate additional reinforcement learning stages focused on improving reasoning abilities. While the exact details on how OpenAI trained their "o" series of models are hidden and proprietary, the speculation is that it could include test time search, process reward modeling, chain-of-thought based supervised finetuning, and more. DeepSeek's r1-zero model does not use supervised finetuning at all and relies on verifable (or "rule-based") rewards for training. Their r1 model, however, uses a combination of supervised finetuning, RLHF and verifiable rewards. The most fascinating thing about DeepSeek's r1 model is reflection or backtracking, where the model can reflect on its own reasoning process and correct itself if it finds a mistake. According to the authors, this emerged during training and was not explicitly programmed into the model.
+
+**Data and Objective:** The data for verifable rewards is mostly restricted to domains like math and code. 
+
+<!-- **Concept:**  Instead of just rewarding the final output, process reward modeling aims to provide partial credit to the model for taking steps in the right direction during a reasoning process.  This can involve allowing the model multiple attempts at a task and rewarding intermediate steps that contribute to a correct solution. Open-source efforts, such as those by the Qwen team, are exploring similar techniques. -->
+
+**Importance:** Reinforcement finetuning for reasoning is a frontier in LLM training with multiple labs trying to understand how best to scale reasoning capabilities. 
+
+### Limitations of Large Language Models: Understanding the Boundaries
+
+Despite their impressive capabilities, LLMs have inherent limitations that are crucial to consider when designing applications.
+
+#### 1. Prompt Sensitivity:  Unpredictability and Robustness Challenges
+
+LLMs can exhibit **prompt sensitivity**.  Slight variations in prompt phrasing, even while maintaining semantic meaning, can sometimes lead to surprisingly different model outputs. This stochastic nature, combined with the opacity of the training data, makes it challenging to predict model behavior consistently.
+
+**Implications for Applications:** Prompt sensitivity poses challenges for building reliable and predictable applications, especially in agentic systems where LLMs make decisions on behalf of users.  Inconsistent outputs can undermine user trust and application stability.
+
+**Mitigation Strategies:**
+
+* **Prompt Engineering Best Practices:**  Employing structured prompt formats, clear instructions, adding examples (few shot prompting), chain-of-thought, and consistent phrasing can improve prompt robustness.
+* **Prompt Testing and Selection:**  Systematically testing a range of prompts and selecting those that yield the most consistent and desired outputs for a given task. Many "observability" tools like `wandb weave`, `arize phoenix`, `langsmith`, and `claude`'s prompt tuner tools are available to help with this.
+* **Ensemble Methods:** Combining outputs from multiple prompts or model instances can potentially reduce variance and improve robustness, but at a cost.
+
+#### 2. Limited Self-Improvement:  Stuck in Loops and Knowledge Plateaus
+
+LLMs can exhibit limited self-improvement. They may repeat the same mistakes or biases without fundamentally learning from their errors in an iterative manner.  While models like OpenAI's o1 and Claude 3.5 Sonnet demonstrate improved self-correction, particularly in code-related tasks, general self-improvement remains a significant challenge.
+
+#### 3. Knowing vs. Understanding:  Correlation vs. Causation
+
+LLMs primarily learn statistical correlations from massive datasets.  While they can exhibit impressive "knowledge," they often lack true "understanding" of underlying concepts and causal relationships.
+
+**Counterfactual Reasoning Failures:**  When tested on counterfactual puzzles or questions that require reasoning about "what if" scenarios or understanding causal mechanisms, LLMs often perform poorly.  This highlights their reliance on memorized patterns rather than genuine conceptual understanding.
+
+<!-- **Implications for Reliability:**  The lack of deep understanding can lead to unreliable outputs in situations requiring nuanced reasoning, common sense, or the application of knowledge to novel situations. -->
+
+#### 4. Domain Specializations
+
+General-purpose LLMs are trained on broad internet datasets.  Many specialized domains, such as medicine, law, or specific technical fields, have their own extensive vocabularies, jargon, and conceptual frameworks that are not adequately represented in general language models.
+
+**Domain-Specific Model Requirements:**  Effective application of LLMs in specialized domains often necessitates:
+
+* **Domain-Specific Fine-tuning:**  Further training general LLMs on domain-specific data to adapt their vocabulary and knowledge.
+* **Specialized Models:**  Developing LLMs trained specifically for a particular domain from the outset.
+* **Vocabulary Extension Techniques:**  Methods to expand the tokenizer vocabulary to include domain-specific terms.
+* **Knowledge Augmentation:**  Integrating LLMs with domain-specific knowledge bases or retrieval systems.
+
+Concepts and ideas that appear infrequently in the training data (the "long tail" of the knowledge distribution) are less likely to be learned effectively by LLMs. While Retrieval-Augmented Generation (RAG) can provide LLMs with relevant context from external knowledge sources, it is not a complete solution for long-tail knowledge. Generating high-quality text about rare or novel concepts may require more "core" knowledge and reasoning ability than the model possesses, even with retrieved context.
+
+**Challenges for Niche Applications:**  Applications dealing with highly specialized or niche topics may encounter limitations due to the model's lack of familiarity with long-tail concepts.
+
+### Next Steps and Getting Started
+
+This introduction has provided a foundational understanding of Large Language Models. To further your exploration and begin applying LLMs in your projects, consider the following steps:
+
+* **Explore the Hugging Face Transformers Library:**  A powerful and user-friendly library for working with pre-trained LLMs in Python. Experiment with different models, tokenizers, and prompting techniques.
+* **Dive into Prompt Engineering:**  Learn effective prompt engineering strategies to guide LLMs to generate desired outputs. Online resources and courses dedicated to prompt engineering are readily available.
+* **Experiment with LLM APIs:**  Utilize APIs from providers like OpenAI, Google, and Anthropic to access and experiment with state-of-the-art LLMs without needing to train or host models yourself.
+* **Investigate LLM Application Frameworks:** Explore frameworks like LangChain and LlamaIndex that simplify the process of building complex applications with LLMs, including RAG, agents, and more.
+* **Stay Updated with Research:**  The field of LLMs is rapidly evolving.  Follow research publications, blogs, and communities to stay abreast of the latest advancements and emerging techniques.
+
+By taking these steps, you can move beyond theoretical understanding and begin to practically leverage the power of Large Language Models in your academic research, software development, and beyond.
+
+<!-- **Key Changes and Improvements Incorporated:**
+
+* **Improved Structure and Headings:**  Clearer titles, section headings, and subheadings enhance readability and organization.
+* **More Explanatory Language:**  Concepts are explained in a more accessible way for the target audience, with analogies and simplified explanations where appropriate.
+* **Emphasis on "Why" and "So What?":**  For each component, training stage, and limitation, I've tried to explain *why* it's important and *what* the practical implications are for application builders.
+* **Specific Examples and Applications:**  More concrete examples of applications for each type of LLM and training stage are provided.
+* **Actionable Mitigation Strategies:**  For limitations, I've included suggestions for mitigation strategies and emerging approaches.
+* **"Next Steps" Section:**  Provides concrete recommendations for readers to continue learning and experimenting with LLMs.
+* **Technical Tone Maintained:** The language remains professional and technically appropriate for academics and software engineers. -->
+
