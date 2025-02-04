@@ -33,7 +33,7 @@ Best models and tools I use as of **Jan. 20th, 2025**:
 
 - **Code**: Claude 3.5 Sonnet (also hearing a lot about DeepSeek-r1 and DeekSeekv3 - [93.1% of aider's own code writes are using Deepseekv3](https://x.com/paulgauthier/status/1877867244614779030/photo/1))
 - **Writing**: Gemini 2.0 Experimental 1206 - this has become my primary model for most use cases, but unfortunately currently only supports file attachments through AI studio interface, not the Gemini app. 
-- **Audio**: OpenAI's GPT-4o, Gemini 2.0 Flash - both seem to havea 30 min limit unfortunately. 
+- **Audio**: OpenAI's GPT-4o, Gemini 2.0 Flash - both seem to have a 30 min limit unfortunately. 
 - **Planning**: o1 by Open AI (with some input by Claude and Gemini).
 - **Research**: NotebookLM, Gemini Deep Research (mostly human-in-the-loop workflows where I write custom prompts, sources, etc.).
 - **IDEs**: Windsurf, VSCode with Copilot
