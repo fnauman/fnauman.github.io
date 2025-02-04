@@ -184,3 +184,4 @@ Computer vision systems for farming applications.
 [View full portfolio →](portfolio.qmd)
 
 :::
+:::
