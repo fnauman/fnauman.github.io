@@ -41,8 +41,8 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-edb7f79787ec38f01a25a85becb12d23.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-169454cc8f79e30351d7adb6cf3a722a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-b6a1bfb83197d49235139784a5bc44dd.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-667342eb2efbfacb38885114d196f64d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-b944be58ffcc625a1871145bcb4d6745.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -80,9 +80,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-categories','listing-description','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-date"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -241,18 +241,27 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="QXBwbGllZCUyMEFJJTJDU3VzdGFpbmFibGUlMjBGYXNoaW9uJTJDQ2lyY3VsYXIlMjBFY29ub215JTJDUklTRQ==" data-listing-date-sort="1702681200000" data-listing-file-modified-sort="1738513686616" data-listing-date-modified-sort="1738513686000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1188">
-<a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./portfolio/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Automating second-hand fashion
-</h5>
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="QXBwbGllZCUyMEFJJTJDU3VzdGFpbmFibGUlMjBGYXNoaW9uJTJDQ2lyY3VsYXIlMjBFY29ub215JTJDUklTRQ==" data-listing-date-sort="1702681200000" data-listing-file-modified-sort="1738513686616" data-listing-date-modified-sort="1738513686000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1188">
+<div class="thumbnail">
+<p><a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external"></a></p><a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external">
+<p><img loading="lazy" src="./portfolio/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg" class="thumbnail-image"></p>
+</a><p><a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external"></a></p>
+</div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external">Automating second-hand fashion</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external"></a>
+</div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('QXBwbGllZCUyMEFJ'); return false;">
 Applied AI
@@ -267,20 +276,23 @@ Circular Economy
 RISE
 </div>
 </div>
-<div class="card-text listing-description">
-How can AI be used to accelerate the transition to a circular economy?
+<div class="listing-description">
+<a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external">How can AI be used to accelerate the transition to a circular economy?</a>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
 </div>
+<div class="metadata">
+<a href="./portfolio/2023-12-16-second-hand-fashion/index.html" class="no-external">
 <div class="listing-date">
 Dec 16, 2023
 </div>
+<div class="listing-author">
+Farrukh Nauman
 </div>
-</div>
+<div class="listing-reading-time">
+6 min
 </div>
 </a>
+</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
