@@ -238,3 +238,34 @@ blockquote {
   border-left-color: $primary;
   background-color: rgba($primary, 0.1);
 }
+
+// Blog listing styles
+.listing-author {
+  font-size: 1rem;
+  color: $primary;
+  font-weight: 500;
+}
+
+.listing-date, .listing-reading-time {
+  font-size: 0.95rem;
+  color: $secondary;
+  opacity: 0.9;
+}
+
+.listing-title {
+  color: $primary !important;
+  text-decoration: none;
+  
+  &:hover {
+    color: lighten($primary, 15%) !important;
+    text-decoration: none;
+  }
+}
+
+.quarto-listing-default .listing-item {
+  padding: 1em 0;
+}
+
+.quarto-listing-default .listing-item:not(:last-child) {
+  border-bottom: 1px solid rgba($primary, 0.2);  // Slightly more visible border for dark theme
+}

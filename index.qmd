@@ -49,7 +49,7 @@ format:
 <!-- :::{.column-page} -->
 # Welcome! 👋
 
-I'm an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.se/en) with a PhD in Theoretical and Computational Astrophysics. I specialize in:
+I'm an AI Researcher and Machine Learning Consultant at [RISE Research Institutes of Sweden AB](https://www.ri.se/en) with a PhD in Theoretical and Computational Astrophysics. I specialize in:
 
 - 🤖 Large Language Models (LLMs) for research and industry applications
 - 🔍 Computer Vision & Object Detection
@@ -59,7 +59,7 @@ I'm an AI Researcher at [RISE Research Institutes of Sweden AB](https://www.ri.s
 My work spans both research and practical applications, from implementing LLMs for research report generation to developing object detection systems for the agricultural sector. I'm particularly passionate about bridging the gap between cutting-edge AI research and real-world industry applications.
 
 ::: {.callout-note appearance="simple"}
-## 🤝 Available for Consultancy
+## 🤝 Available for Consulting
 ::: {.d-flex .gap-2 .mt-3}
 <!-- [Schedule a consultation]{.btn .btn-primary} -->
 <!-- Google Calendar Appointment Scheduling begin -->
@@ -183,4 +183,5 @@ Computer vision systems for farming applications.
 
 [View full portfolio →](portfolio.qmd)
 
+:::
 :::

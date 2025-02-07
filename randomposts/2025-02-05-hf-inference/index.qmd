@@ -1,0 +1,48 @@
+---
+title: "Inference on HuggingFace"
+description: "Playing with the Inference Providers on HuggingFace"
+date: "2025-02-05"
+categories: [huggingface, inference, text-to-image, flux]
+# draft: false
+---
+
+HuggingFace just [announced](https://huggingface.co/blog/inference-providers) that they now support third party inference providers: fal, Replicate, Sambanova, Together AI both directly through the HuggingFace Hub and their SDKs.
+
+Being a Pro user of HuggingFace, I get $2 of credits to use each month. So I played around with the Flux model:
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(provider="fal-ai", token="hf_***") # Enable serverless inference when creating the token
+
+image = client.text_to_image("Close-up of a cheetah's face, direct frontal view. Sharp focus on eye and skin texture and color. Natural lighting to capture authentic eye shine and depth.", model="black-forest-labs/FLUX.1-schnell") 
+
+image.save("cheetah.png")
+```
+
+The output looks like this:
+
+![](cheetah.png)
+
+This is fantastic! I can now run quick experiments with many different models on the huggingface hub. There is a text box on the HuggingFace Hub where I can enter text and start generating images (or text for a LLM) easily:
+
+![](hf_hub.png)
+
+I can even get the code to run this via their Python SDK: 
+
+```python
+from huggingface_hub import InferenceClient
+
+client = InferenceClient(
+	provider="fal-ai",
+	api_key="hf_xxxxxxxxxxxxxxxxxxxxxxxx"
+)
+
+# output is a PIL.Image object
+image = client.text_to_image(
+	"Astronaut riding a horse",
+	model="black-forest-labs/FLUX.1-dev"
+)
+```
+
+The only challenge I found so far is that `fal-ai` for example does support the Flux 1.1 pro through their [API](https://fal.ai/models/fal-ai/flux-pro/v1.1/api), but since that model is not available on the HuggingFace Hub, I can't use it. I get a `ValueError: Model fal-ai/flux-pro/v1 is not supported with FalAI for task text-to-image.` error when I try to use it.
