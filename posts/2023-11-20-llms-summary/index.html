@@ -215,11 +215,30 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#update" id="toc-update" class="nav-link active" data-scroll-target="#update">Update:</a>
+  <li><a href="#large-language-models-a-compact-guide" id="toc-large-language-models-a-compact-guide" class="nav-link active" data-scroll-target="#large-language-models-a-compact-guide">Large Language Models: A Compact Guide</a>
   <ul class="collapse">
-  <li><a href="#key-components-of-modern-llm-architectures" id="toc-key-components-of-modern-llm-architectures" class="nav-link" data-scroll-target="#key-components-of-modern-llm-architectures">Key Components of Modern LLM Architectures</a></li>
-  <li><a href="#language-model-training-stages-from-raw-text-to-instruction-following" id="toc-language-model-training-stages-from-raw-text-to-instruction-following" class="nav-link" data-scroll-target="#language-model-training-stages-from-raw-text-to-instruction-following">Language Model Training Stages: From Raw Text to Instruction Following</a></li>
-  <li><a href="#limitations-of-large-language-models-understanding-the-boundaries" id="toc-limitations-of-large-language-models-understanding-the-boundaries" class="nav-link" data-scroll-target="#limitations-of-large-language-models-understanding-the-boundaries">Limitations of Large Language Models: Understanding the Boundaries</a></li>
+  <li><a href="#update-feb.-7th-2025" id="toc-update-feb.-7th-2025" class="nav-link" data-scroll-target="#update-feb.-7th-2025">Update <strong>Feb.&nbsp;7th, 2025</strong>:</a></li>
+  <li><a href="#key-components-of-modern-llm-architectures" id="toc-key-components-of-modern-llm-architectures" class="nav-link" data-scroll-target="#key-components-of-modern-llm-architectures">Key Components of Modern LLM Architectures</a>
+  <ul class="collapse">
+  <li><a href="#tokenization-converting-text-to-numerical-representations" id="toc-tokenization-converting-text-to-numerical-representations" class="nav-link" data-scroll-target="#tokenization-converting-text-to-numerical-representations">1. Tokenization: Converting Text to Numerical Representations</a></li>
+  <li><a href="#embedding-layer-representing-tokens-semantically" id="toc-embedding-layer-representing-tokens-semantically" class="nav-link" data-scroll-target="#embedding-layer-representing-tokens-semantically">2. Embedding Layer: Representing Tokens Semantically</a></li>
+  <li><a href="#self-attention-mechanism-capturing-contextual-relationships" id="toc-self-attention-mechanism-capturing-contextual-relationships" class="nav-link" data-scroll-target="#self-attention-mechanism-capturing-contextual-relationships">3. Self-Attention Mechanism: Capturing Contextual Relationships</a></li>
+  <li><a href="#other-architectural-components" id="toc-other-architectural-components" class="nav-link" data-scroll-target="#other-architectural-components">4. Other Architectural Components</a></li>
+  </ul></li>
+  <li><a href="#language-model-training-stages-from-raw-text-to-instruction-following" id="toc-language-model-training-stages-from-raw-text-to-instruction-following" class="nav-link" data-scroll-target="#language-model-training-stages-from-raw-text-to-instruction-following">Language Model Training Stages: From Raw Text to Instruction Following</a>
+  <ul class="collapse">
+  <li><a href="#pretraining-or-self-supervised-learning" id="toc-pretraining-or-self-supervised-learning" class="nav-link" data-scroll-target="#pretraining-or-self-supervised-learning">1. Pretraining or Self-Supervised Learning</a></li>
+  <li><a href="#instruction-tuning-or-supervised-fine-tuning" id="toc-instruction-tuning-or-supervised-fine-tuning" class="nav-link" data-scroll-target="#instruction-tuning-or-supervised-fine-tuning">2. Instruction Tuning or Supervised Fine-Tuning</a></li>
+  <li><a href="#preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf" id="toc-preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf" class="nav-link" data-scroll-target="#preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf">3. Preference Tuning or Reinforcement Learning from Human Feedback (RLHF)</a></li>
+  <li><a href="#reinforcement-finetuning-for-reasoning-verfiable-rewards" id="toc-reinforcement-finetuning-for-reasoning-verfiable-rewards" class="nav-link" data-scroll-target="#reinforcement-finetuning-for-reasoning-verfiable-rewards">4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)</a></li>
+  </ul></li>
+  <li><a href="#limitations-of-large-language-models-understanding-the-boundaries" id="toc-limitations-of-large-language-models-understanding-the-boundaries" class="nav-link" data-scroll-target="#limitations-of-large-language-models-understanding-the-boundaries">Limitations of Large Language Models: Understanding the Boundaries</a>
+  <ul class="collapse">
+  <li><a href="#prompt-sensitivity-unpredictability-and-robustness-challenges" id="toc-prompt-sensitivity-unpredictability-and-robustness-challenges" class="nav-link" data-scroll-target="#prompt-sensitivity-unpredictability-and-robustness-challenges">1. Prompt Sensitivity: Unpredictability and Robustness Challenges</a></li>
+  <li><a href="#limited-self-improvement-stuck-in-loops-and-knowledge-plateaus" id="toc-limited-self-improvement-stuck-in-loops-and-knowledge-plateaus" class="nav-link" data-scroll-target="#limited-self-improvement-stuck-in-loops-and-knowledge-plateaus">2. Limited Self-Improvement: Stuck in Loops and Knowledge Plateaus</a></li>
+  <li><a href="#knowing-vs.-understanding-correlation-vs.-causation" id="toc-knowing-vs.-understanding-correlation-vs.-causation" class="nav-link" data-scroll-target="#knowing-vs.-understanding-correlation-vs.-causation">3. Knowing vs.&nbsp;Understanding: Correlation vs.&nbsp;Causation</a></li>
+  <li><a href="#domain-specializations" id="toc-domain-specializations" class="nav-link" data-scroll-target="#domain-specializations">4. Domain Specializations</a></li>
+  </ul></li>
   <li><a href="#next-steps-and-getting-started" id="toc-next-steps-and-getting-started" class="nav-link" data-scroll-target="#next-steps-and-getting-started">Next Steps and Getting Started</a></li>
   </ul></li>
   </ul>
@@ -232,130 +251,97 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 
 
-<!-- # Large Language Models: A Compact Guide
-
-The purpose of this guide is to provide a short summary about modern Large Language Models (LLMs) from an application building perspective. I am in the process of adding more references and details to this guide, but for now, this should serve as a good starting point for anyone interested in understanding the basics of Large Language Models. -->
-<section id="update" class="level2">
-<h2 class="anchored" data-anchor-id="update">Update:</h2>
-<p>Best models and tools I use as of <strong>Jan.&nbsp;20th, 2025</strong>:</p>
+<section id="large-language-models-a-compact-guide" class="level1">
+<h1>Large Language Models: A Compact Guide</h1>
+<!-- The purpose of this guide is to provide a short summary about modern Large Language Models (LLMs) from an application building perspective. I am in the process of adding more references and details to this guide, but for now, this should serve as a good starting point for anyone interested in understanding the basics of Large Language Models. -->
+<blockquote class="blockquote">
+<p>This article is a work in progress because the field of LLMs is a work in progress. Additionally, I am unable to keep up with all the fantastic innovations in LLMs every couple of months. This article represents both my own learning experience and a compilation of things that I have tested and found to work well with my workflows.</p>
+</blockquote>
+<p>In November, 2023, when I first wrote this article, GPT-4 with vision capabilities had just come out. Most competitors were playing catch-up with GPT-4 for most of 2023 and early 2024. By Summer 2024, Claude 3.5 Sonnet was released and immediately became the default LLM for coding assistants because of its superior performance over GPT-4/GPT-4o. Since September 2024, multiple reasoning models have been released triggered by the launch of OpenAI’s o1. Below article represents a high level summary of how LLMs work and I start by presenting my top choices for LLMs for various tasks, which changes every few months.</p>
+<!-- This guide provides a technical introduction to modern Large Language Models (LLMs) targeted at academics and software engineers who are beginning to explore this exciting field. LLMs can be leveraged in various applications, such as content generation, code assistance, data analysis, and more. While this is a concise overview, it should serve as a solid starting point for anyone interested in grasping the fundamentals of LLMs and their potential. I intend to continually update this guide with the latest advancements and insights in the field. -->
+<section id="update-feb.-7th-2025" class="level2">
+<h2 class="anchored" data-anchor-id="update-feb.-7th-2025">Update <strong>Feb.&nbsp;7th, 2025</strong>:</h2>
+<p>Best models and tools I use:</p>
 <ul>
-<li><strong>Code</strong>: Claude 3.5 Sonnet (also hearing a lot about DeepSeek-r1 and DeekSeekv3 - <a href="https://x.com/paulgauthier/status/1877867244614779030/photo/1">93.1% of aider’s own code writes are using Deepseekv3</a>)</li>
-<li><strong>Writing</strong>: Gemini 2.0 Experimental 1206 - this has become my primary model for most use cases, but unfortunately currently only supports file attachments through AI studio interface, not the Gemini app.</li>
-<li><strong>Audio</strong>: OpenAI’s GPT-4o, Gemini 2.0 Flash - both seem to have a 30 min limit unfortunately.</li>
-<li><strong>Planning</strong>: o1 by Open AI (with some input by Claude and Gemini).</li>
-<li><strong>Research</strong>: NotebookLM, Gemini Deep Research (mostly human-in-the-loop workflows where I write custom prompts, sources, etc.).</li>
-<li><strong>IDEs</strong>: Windsurf, VSCode with Copilot</li>
+<li><strong>Code</strong>: Claude 3.5 Sonnet, DeepSeek-r1 (see also DeekSeekv3 - <a href="https://x.com/paulgauthier/status/1877867244614779030/photo/1">93.1% of aider’s own code writes are using Deepseekv3</a>)</li>
+<li><strong>Writing</strong>: Gemini 2.0 Pro Experimental 02-05 - this has become my default model for writing. The only complaint I have is that it currently supports file attachments through the AI studio interface, but not the Gemini app.</li>
+<li><strong>Speech-to-Speech</strong>: OpenAI’s GPT-4o, Gemini 2.0 Flash - both seem to have a 30 min limit unfortunately.</li>
+<li><strong>Reasoning/Planning</strong>: OpenAI-o1, DeepSeek-r1, Gemini Flash Thinking Experimental 01-21, OpenAI-o3-mini - in that order. I am hoping OpenAI-o3 will be considerably better than OpenAI-o1 and o3-mini when it becomes available to Plus users.</li>
+<li><strong>Research</strong>: NotebookLM, Gemini Deep Research. One major limitation of these tools and LLMs in general (except Claude 3.5 Sonnet apparently) is that they use OCR to convert PDFs into text, which often does not capture the layout and structure of the document.</li>
+<li><strong>IDEs/Agents</strong>: <code>windsurf</code>, <code>aider</code>, <code>github copilot</code> - in that order. I also tried <code>cursor</code>, which is arguably the most popular IDE right now for power users. I personally do not find it’s composer to be better than Windsurf’s cascade. The <code>tab</code> might be better though. Also, Windsurf costs $10/month while Cursor $20/month with differences in how many times you can call “premium models” (GPT-4o, Claude 3.5 Sonnet, DeepSeek-r1, etc.). I will report back on how <code>[OpenHands](https://github.com/All-Hands-AI/OpenHands)</code> (previously called OpenDevin) compares to the other tools listed here.</li>
 </ul>
+<p>(For text-to-image, <code>imagen-3</code> by Google and <code>flux-dev</code> are my top choices.)</p>
 <!-- ## Demystifying Large Language Models: A Technical Introduction for Application Builders -->
-<p>This guide provides a technical introduction to modern Large Language Models (LLMs) targeted at academics and software engineers who are beginning to explore this exciting field. LLMs can be leveraged in various applications, such as content generation, code assistance, data analysis, and more. While this is a concise overview, it should serve as a solid starting point for anyone interested in grasping the fundamentals of LLMs and their potential. I intend to continually update this guide with the latest advancements and insights in the field.</p>
-<section id="key-components-of-modern-llm-architectures" class="level3">
-<h3 class="anchored" data-anchor-id="key-components-of-modern-llm-architectures">Key Components of Modern LLM Architectures</h3>
-<p>At their core, Language Models are designed to learn the probability distribution of word sequences. In the realm of deep learning, modern LLMs typically comprise the following essential components:</p>
-<section id="tokenization-converting-text-to-numerical-representations" class="level4">
-<h4 class="anchored" data-anchor-id="tokenization-converting-text-to-numerical-representations">1. Tokenization: Converting Text to Numerical Representations</h4>
+</section>
+<section id="key-components-of-modern-llm-architectures" class="level2">
+<h2 class="anchored" data-anchor-id="key-components-of-modern-llm-architectures">Key Components of Modern LLM Architectures</h2>
+<p>At their core, Language Models are designed to learn the probability distribution of word sequences. I like to think of LLM architectures as composed of three major components:</p>
+<ul>
+<li><strong>Input</strong>: This covers tokenization and embedding on input text. Tokenization is a bottleneck especially for domain-specific languages. Frontier research is exploring alternative tokenization methods and tokenization-free approaches that I will write more about later.</li>
+<li><strong>Core (self-attention)</strong>: Multi-head self-attention, several layers of it with residual connection forms the core of the transformer architecture (<em>attention is all you need</em>). This is arguably the reason why LLMs are so powerful at understanding multiple meanings of the same word, and doing “in-context learning”.</li>
+<li><strong>Output</strong>: While earlier models were only focusing on the “pretraining” phase that literally just does next-token prediction, newer models involve extensive instruction tuning and reinforecement learning based approaches to force the model to learn how to generate coherent text over long sequences. Some recent work like <a href="https://arxiv.org/abs/2412.1943">DeepSeekv3</a> has made improvements in the pretraining phase where they introduced an auxiliary multi-token prediction loss instead of just using a single token prediction loss that is commonplace.</li>
+</ul>
+<p>I plan to extend the following discussion with more about the recent innovations in each of the three components: context extension through Rotary Position Embeddings (RoPE), performance improvements through Flash Attention, multi-token prediction, etc.</p>
+<section id="tokenization-converting-text-to-numerical-representations" class="level3">
+<h3 class="anchored" data-anchor-id="tokenization-converting-text-to-numerical-representations">1. Tokenization: Converting Text to Numerical Representations</h3>
 <p>Before text can be processed by an LLM, it must be converted into numerical representations. This is the role of the <strong>tokenizer</strong>. Tokenizers break down text into smaller units called <strong>tokens</strong>, which can be words, subwords, or characters. Different LLMs often employ distinct tokenization methods, leading to fragmentation in the ecosystem. For example, OpenAI models utilize Byte-Pair Encoding (BPE), while T5 uses SentencePiece.</p>
 <p><strong>Tokenization as a Potential Bottleneck:</strong> Tokenization can be a performance bottleneck and introduce limitations, particularly in these scenarios:</p>
 <ul>
-<li><strong>Vocabulary Size and Out-of-Vocabulary (OOV) Tokens:</strong> Tokenizers typically have a fixed vocabulary size. Words not present in this vocabulary are treated as OOV tokens, often represented by a special <code>&lt;unk&gt;</code> token. A high number of OOV tokens can degrade model performance as the model has no learned representation for these words.</li>
-<li><strong>Adaptability to New Languages:</strong> Models trained primarily on English may struggle to tokenize languages with different scripts or linguistic structures (e.g., Chinese, Urdu, Swahili). This is because their tokenizer vocabularies are optimized for English.</li>
-<li><strong>Domain-Specific Languages:</strong> Technical domains like programming languages (HTML, Python) or specialized fields (medicine, law) pose challenges. These domains have unique syntax, terminology, and structures that general-purpose tokenizers may not handle optimally. For instance, the tokenization of code often needs to preserve whitespace and special characters that have semantic meaning.</li>
+<li><strong>Out-of-Vocabulary (OOV) Tokens:</strong> Tokenizers typically have a fixed vocabulary size. Words not present in this vocabulary are treated as OOV tokens, often represented by a special <code>&lt;unk&gt;</code> token. A high number of OOV tokens can degrade model performance as the model has no learned representation for these words.</li>
+<li><strong>Adaptability to New Languages:</strong> Models trained primarily on English may struggle to tokenize languages with different scripts or linguistic structures (e.g., Chinese, Urdu, Swahili).</li>
+<li><strong>Domain-Specific Languages:</strong> Technical domains like programming languages (HTML, Python) or specialized fields (medicine, law) pose challenges. These domains have unique syntax, terminology, and structures that general-purpose tokenizers may not handle optimally. Currently, as a side project, I am trying to port some old fluid dynamics codes from Fortran 90 to Python and finding that some LLMs are worse at understanding Fortran 90 (arguably out of favor in the industry).</li>
 </ul>
-<p>Understanding tokenizer limitations is crucial when applying LLMs to diverse languages or specialized domains. Libraries like Hugging Face <code>tokenizers</code> offer tools to explore different tokenization algorithms and even train custom tokenizers for specific needs.</p>
 </section>
-<section id="embedding-layer-representing-tokens-semantically" class="level4">
-<h4 class="anchored" data-anchor-id="embedding-layer-representing-tokens-semantically">2. Embedding Layer: Representing Tokens Semantically</h4>
-<p>The numerical tokens are then transformed into <strong>dense vector representations</strong> by a learned <strong>embedding layer</strong>. These embeddings are not just arbitrary numbers; they are designed to capture the <strong>semantic meaning</strong> of the tokens. Tokens with similar meanings are positioned closer together in the embedding space. The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger.</p>
-<p><strong>Purpose of Embeddings:</strong> Embeddings serve as a crucial bridge, translating discrete tokens into a continuous vector space where semantic relationships can be mathematically modeled. Pre-trained LLMs leverage embeddings learned from vast amounts of text data, enabling them to capture general language understanding. Larger embedding dimensions can potentially represent more nuanced semantic information, but also increase model complexity and computational demands.</p>
+<section id="embedding-layer-representing-tokens-semantically" class="level3">
+<h3 class="anchored" data-anchor-id="embedding-layer-representing-tokens-semantically">2. Embedding Layer: Representing Tokens Semantically</h3>
+<p>Broadly speaking, this is the stand-out feature of the neural network based approaches as opposed to classical Markovian or n-gram like models: you can embed anything (language, audio, video, images, etc.) into a numerical representation that captures its semantic meaning. The numerical tokens are then transformed into <strong>dense vector representations</strong> by a learned <strong>embedding layer</strong>. These embeddings are not just arbitrary numbers; they are designed to capture the <strong>semantic meaning</strong> of the tokens. Tokens with similar meanings are positioned closer together in the embedding space. The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger. The increasing the embedding dimension can significantly increase the model size and computational complexity.</p>
+<p><strong>Purpose:</strong> Embeddings serve as a crucial bridge, translating discrete tokens into a continuous vector space where semantic relationships can be mathematically modeled. Pre-trained LLMs leverage embeddings learned from vast amounts of text data, enabling them to capture general language understanding.</p>
 </section>
-<section id="self-attention-mechanism-capturing-contextual-relationships" class="level4">
-<h4 class="anchored" data-anchor-id="self-attention-mechanism-capturing-contextual-relationships">3. Self-Attention Mechanism: Capturing Contextual Relationships</h4>
+<section id="self-attention-mechanism-capturing-contextual-relationships" class="level3">
+<h3 class="anchored" data-anchor-id="self-attention-mechanism-capturing-contextual-relationships">3. Self-Attention Mechanism: Capturing Contextual Relationships</h3>
 <p>The <strong>self-attention mechanism</strong> is arguably the most significant innovation driving the power of modern LLMs. It allows each token in a sequence to “attend” to all other tokens, enabling the model to capture <strong>contextual relationships</strong> within the input. This is in contrast to earlier sequential models (like RNNs) which processed text token by token.</p>
 <p><strong>How Self-Attention Works (Simplified):</strong> Imagine each token as having three vectors associated with it: a <strong>Query</strong>, a <strong>Key</strong>, and a <strong>Value</strong>. For each token, the model calculates an “attention score” by comparing its Query vector to the Key vectors of all other tokens in the sequence. These scores determine how much attention each token should pay to others when constructing its contextual representation. The Value vectors are then weighted by these attention scores and aggregated to produce the context-aware representation for each token.</p>
 <p><strong>Multiple Attention Heads:</strong> Most LLMs utilize <strong>multi-head attention</strong>, meaning they perform the self-attention process multiple times in parallel with different sets of Query, Key, and Value matrices. This allows the model to learn diverse types of relationships and attend to different aspects of the input simultaneously, enriching the contextual understanding.</p>
 <p><strong>Computational Considerations:</strong> It’s important to note that the computational complexity of self-attention is quadratic with respect to the sequence length (O(n<sup>2</sup>)), where n is the number of tokens. This can become a bottleneck for very long sequences, prompting research into more efficient attention mechanisms.</p>
 </section>
-<section id="other-architectural-components" class="level4">
-<h4 class="anchored" data-anchor-id="other-architectural-components">4. Other Architectural Components</h4>
+<section id="other-architectural-components" class="level3">
+<h3 class="anchored" data-anchor-id="other-architectural-components">4. Other Architectural Components</h3>
 <p>Modern LLM architectures, primarily based on decoder-only Transformers, also incorporate other layers such as Layer Normalization (LayerNorm) and activation functions like GeLU (Gaussian Error Linear Unit). While their precise theoretical underpinnings are still being researched, empirically, these components play a crucial role in stabilizing the training process and improving model performance.</p>
-<!-- ### Types of Language Models and Their Applications
-
-LLMs can be broadly categorized based on their architectural design and training objectives. Understanding these types helps in choosing the right model for specific applications.
-
-#### 1. Encoder-Only Models (BERT Family): Feature Extraction and Understanding
-
-Architectures like BERT (Bidirectional Encoder Representations from Transformers) are **encoder-only**. They are pre-trained on vast text corpora using objectives like Masked Language Modeling (predicting masked words in a sentence).  Encoder-only models excel at tasks that require understanding the input text and extracting meaningful features.
-
-**Typical Applications:**
-
-* **Sentiment Classification:** Determining the sentiment (positive, negative, neutral) expressed in text.
-* **Named Entity Recognition (NER):** Identifying and classifying named entities (person, organization, location) in text.
-* **Feature Extraction for Downstream Tasks:** Generating high-quality text embeddings that can be used as input features for other machine learning models.
-* **Embedding Models:**  Encoder-only architectures are often used to create embedding models, trained with contrastive losses, for tasks like semantic similarity search and document retrieval.
-
-**Trade-offs:** Encoder-only models are excellent for understanding input text but are not inherently generative. They are less suited for tasks that require generating novel text sequences.
-
-#### 2. Encoder-Decoder Models (T5, BART): Sequence-to-Sequence Tasks
-
-For tasks involving transforming an input sequence into an output sequence (often of similar length), **encoder-decoder** architectures are well-suited. Models like T5 (Text-to-Text Transfer Transformer) and BART (Bidirectional and Auto-Regressive Transformer) fall into this category.
-
-**Typical Applications:**
-
-* **Machine Translation:** Translating text from one language to another.
-* **Text Summarization:** Generating concise summaries of longer documents.
-* **Question Answering (Extractive):**  Identifying the answer to a question directly within a given context.
-* **Text Generation with Input Conditioning:**  Generating text based on a structured input (e.g., generating a product description given product attributes).
-
-**Trade-offs:** Encoder-decoder models are more complex than encoder-only models due to the separate encoder and decoder components. However, they are powerful for sequence-to-sequence tasks.
-
-#### 3. Decoder-Only Models (GPT Family, Claude, Llama): Generative Language and Prompt Engineering
-
-Currently, **decoder-only** architectures are arguably the most popular type of LLM, powering models like ChatGPT, Claude, Gemini, and Llama.  These models are inherently generative. They take an input prompt and generate subsequent tokens, one at a time, to produce text.  Decoder-only models are pre-trained using **causal language modeling**: predicting the next token in a sequence given all preceding tokens.
-
-**Typical Applications:**
-
-* **Text Generation:** Creative writing, story generation, content creation.
-* **Chatbots and Conversational AI:** Building interactive conversational agents.
-* **Question Answering (Generative):** Answering questions in a free-form, conversational style.
-* **Summarization (Abstractive):**  Generating summaries that may rephrase or synthesize information, rather than just extracting sentences.
-* **Code Generation:** Generating code snippets in various programming languages.
-
-**Trade-offs:** Decoder-only models are architecturally simpler for generation compared to encoder-decoder models. However, effectively using them for specific tasks often relies heavily on **prompt engineering** – carefully crafting input prompts to guide the model's generation. -->
 </section>
 </section>
-<section id="language-model-training-stages-from-raw-text-to-instruction-following" class="level3">
-<h3 class="anchored" data-anchor-id="language-model-training-stages-from-raw-text-to-instruction-following">Language Model Training Stages: From Raw Text to Instruction Following</h3>
+<section id="language-model-training-stages-from-raw-text-to-instruction-following" class="level2">
+<h2 class="anchored" data-anchor-id="language-model-training-stages-from-raw-text-to-instruction-following">Language Model Training Stages: From Raw Text to Instruction Following</h2>
 <p>Training a high-performing LLM is a multi-stage process, drawing upon principles from self-supervised learning, supervised learning, and reinforcement learning. The typical training pipeline involves:</p>
-<section id="pretraining-or-self-supervised-learning" class="level4">
-<h4 class="anchored" data-anchor-id="pretraining-or-self-supervised-learning">1. Pretraining or Self-Supervised Learning</h4>
+<section id="pretraining-or-self-supervised-learning" class="level3">
+<h3 class="anchored" data-anchor-id="pretraining-or-self-supervised-learning">1. Pretraining or Self-Supervised Learning</h3>
 <p>This is the most computationally intensive stage, involving training the model on trillions of tokens of text data. The objective is <strong>self-supervised learning</strong>, where the model learns to predict masked words (for encoder models) or the next word in a sequence (for decoder models).</p>
 <p><strong>Data and Objective:</strong> Pretraining data is typically a diverse mix of text from the web, books, code repositories, and scientific articles. The data is often used “as is,” but increasingly, pretraining datasets are structured in a “task-response” format, similar to instruction tuning, to improve downstream task performance. The goal is to learn general language representations and a broad understanding of the world from this massive dataset.</p>
 <p><strong>Importance:</strong> Pretraining equips the model with fundamental language capabilities and a vast amount of world knowledge, forming the foundation for subsequent fine-tuning stages.</p>
 </section>
-<section id="instruction-tuning-or-supervised-fine-tuning" class="level4">
-<h4 class="anchored" data-anchor-id="instruction-tuning-or-supervised-fine-tuning">2. Instruction Tuning or Supervised Fine-Tuning</h4>
+<section id="instruction-tuning-or-supervised-fine-tuning" class="level3">
+<h3 class="anchored" data-anchor-id="instruction-tuning-or-supervised-fine-tuning">2. Instruction Tuning or Supervised Fine-Tuning</h3>
 <p>In this stage, the pretrained model is further trained on a smaller dataset of millions of tokens with <strong>supervised learning</strong>. The focus shifts to aligning the model’s general language capabilities with the ability to follow instructions and perform specific tasks.</p>
 <p><strong>Data and Objective:</strong> Instruction tuning datasets consist of examples in a “instruction-response” format, covering a wide range of tasks like question answering, summarization, essay writing, code generation, and more. The data mixture is crucial. Training on a diverse and high-quality instruction dataset leads to models that generalize well across various tasks. A model heavily trained on code tasks, for example, might perform poorly on essay writing if not exposed to sufficient writing-related instructions.</p>
 <p><strong>Importance:</strong> Instruction tuning teaches the model to understand and execute instructions, making it more useful for practical applications where users provide specific prompts or task descriptions.</p>
 </section>
-<section id="preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf" class="level4">
-<h4 class="anchored" data-anchor-id="preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf">3. Preference Tuning or Reinforcement Learning from Human Feedback (RLHF)</h4>
+<section id="preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf" class="level3">
+<h3 class="anchored" data-anchor-id="preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf">3. Preference Tuning or Reinforcement Learning from Human Feedback (RLHF)</h3>
 <p>For tasks where output quality is subjective or difficult to define objectively (e.g., essay quality, helpfulness of a chatbot response), <strong>Reinforcement Learning from Human Feedback (RLHF)</strong> is often employed.</p>
 <p><strong>Data and Objective:</strong> RLHF utilizes human preference data. Humans are presented with pairs of model-generated outputs for the same prompt and asked to choose the preferred output. This preference data is then used to train a reward model, which learns to predict human preferences. Subsequently, reinforcement learning algorithms (like Proximal Policy Optimization - PPO) are used to fine-tune the LLM to maximize the reward predicted by the reward model.</p>
 <p><strong>Importance:</strong> RLHF helps align the model’s behavior with human values and preferences, improving the quality, helpfulness, and safety of generated text. It addresses subjective aspects of language quality that are difficult to capture with purely supervised learning objectives.</p>
 </section>
-<section id="reinforcement-finetuning-for-reasoning-verfiable-rewards" class="level4">
-<h4 class="anchored" data-anchor-id="reinforcement-finetuning-for-reasoning-verfiable-rewards">4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)</h4>
+<section id="reinforcement-finetuning-for-reasoning-verfiable-rewards" class="level3">
+<h3 class="anchored" data-anchor-id="reinforcement-finetuning-for-reasoning-verfiable-rewards">4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)</h3>
 <p>Some advanced models, like OpenAI’s o1 or DeepSeek’s r1 reasoning models, incorporate additional reinforcement learning stages focused on improving reasoning abilities. While the exact details on how OpenAI trained their “o” series of models are hidden and proprietary, the speculation is that it could include test time search, process reward modeling, chain-of-thought based supervised finetuning, and more. DeepSeek’s r1-zero model does not use supervised finetuning at all and relies on verifable (or “rule-based”) rewards for training. Their r1 model, however, uses a combination of supervised finetuning, RLHF and verifiable rewards. The most fascinating thing about DeepSeek’s r1 model is reflection or backtracking, where the model can reflect on its own reasoning process and correct itself if it finds a mistake. According to the authors, this emerged during training and was not explicitly programmed into the model.</p>
 <p><strong>Data and Objective:</strong> The data for verifable rewards is mostly restricted to domains like math and code.</p>
-<!-- **Concept:**  Instead of just rewarding the final output, process reward modeling aims to provide partial credit to the model for taking steps in the right direction during a reasoning process.  This can involve allowing the model multiple attempts at a task and rewarding intermediate steps that contribute to a correct solution. Open-source efforts, such as those by the Qwen team, are exploring similar techniques. -->
 <p><strong>Importance:</strong> Reinforcement finetuning for reasoning is a frontier in LLM training with multiple labs trying to understand how best to scale reasoning capabilities.</p>
 </section>
 </section>
-<section id="limitations-of-large-language-models-understanding-the-boundaries" class="level3">
-<h3 class="anchored" data-anchor-id="limitations-of-large-language-models-understanding-the-boundaries">Limitations of Large Language Models: Understanding the Boundaries</h3>
+<section id="limitations-of-large-language-models-understanding-the-boundaries" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-large-language-models-understanding-the-boundaries">Limitations of Large Language Models: Understanding the Boundaries</h2>
 <p>Despite their impressive capabilities, LLMs have inherent limitations that are crucial to consider when designing applications.</p>
-<section id="prompt-sensitivity-unpredictability-and-robustness-challenges" class="level4">
-<h4 class="anchored" data-anchor-id="prompt-sensitivity-unpredictability-and-robustness-challenges">1. Prompt Sensitivity: Unpredictability and Robustness Challenges</h4>
+<section id="prompt-sensitivity-unpredictability-and-robustness-challenges" class="level3">
+<h3 class="anchored" data-anchor-id="prompt-sensitivity-unpredictability-and-robustness-challenges">1. Prompt Sensitivity: Unpredictability and Robustness Challenges</h3>
 <p>LLMs can exhibit <strong>prompt sensitivity</strong>. Slight variations in prompt phrasing, even while maintaining semantic meaning, can sometimes lead to surprisingly different model outputs. This stochastic nature, combined with the opacity of the training data, makes it challenging to predict model behavior consistently.</p>
 <p><strong>Implications for Applications:</strong> Prompt sensitivity poses challenges for building reliable and predictable applications, especially in agentic systems where LLMs make decisions on behalf of users. Inconsistent outputs can undermine user trust and application stability.</p>
 <p><strong>Mitigation Strategies:</strong></p>
@@ -365,18 +351,17 @@ Currently, **decoder-only** architectures are arguably the most popular type of 
 <li><strong>Ensemble Methods:</strong> Combining outputs from multiple prompts or model instances can potentially reduce variance and improve robustness, but at a cost.</li>
 </ul>
 </section>
-<section id="limited-self-improvement-stuck-in-loops-and-knowledge-plateaus" class="level4">
-<h4 class="anchored" data-anchor-id="limited-self-improvement-stuck-in-loops-and-knowledge-plateaus">2. Limited Self-Improvement: Stuck in Loops and Knowledge Plateaus</h4>
+<section id="limited-self-improvement-stuck-in-loops-and-knowledge-plateaus" class="level3">
+<h3 class="anchored" data-anchor-id="limited-self-improvement-stuck-in-loops-and-knowledge-plateaus">2. Limited Self-Improvement: Stuck in Loops and Knowledge Plateaus</h3>
 <p>LLMs can exhibit limited self-improvement. They may repeat the same mistakes or biases without fundamentally learning from their errors in an iterative manner. While models like OpenAI’s o1 and Claude 3.5 Sonnet demonstrate improved self-correction, particularly in code-related tasks, general self-improvement remains a significant challenge.</p>
 </section>
-<section id="knowing-vs.-understanding-correlation-vs.-causation" class="level4">
-<h4 class="anchored" data-anchor-id="knowing-vs.-understanding-correlation-vs.-causation">3. Knowing vs.&nbsp;Understanding: Correlation vs.&nbsp;Causation</h4>
+<section id="knowing-vs.-understanding-correlation-vs.-causation" class="level3">
+<h3 class="anchored" data-anchor-id="knowing-vs.-understanding-correlation-vs.-causation">3. Knowing vs.&nbsp;Understanding: Correlation vs.&nbsp;Causation</h3>
 <p>LLMs primarily learn statistical correlations from massive datasets. While they can exhibit impressive “knowledge,” they often lack true “understanding” of underlying concepts and causal relationships.</p>
-<p><strong>Counterfactual Reasoning Failures:</strong> When tested on counterfactual puzzles or questions that require reasoning about “what if” scenarios or understanding causal mechanisms, LLMs often perform poorly. This highlights their reliance on memorized patterns rather than genuine conceptual understanding.</p>
-<!-- **Implications for Reliability:**  The lack of deep understanding can lead to unreliable outputs in situations requiring nuanced reasoning, common sense, or the application of knowledge to novel situations. -->
+<p><strong>Counterfactual Reasoning Failures:</strong> When tested on counterfactual puzzles or questions that require reasoning about “what if” scenarios or understanding causal mechanisms, LLMs often perform poorly. This highlights their reliance on memorized patterns rather than genuine conceptual understanding. Some papers like <a href="https://arxiv.org/abs/2307.02477">“Reasoning or Reciting?”</a> and <a href="https://arxiv.org/abs/2410.02162">“Planning in Strawberry Fields”</a> emphasize distinguishing between knowledge (memory) and understanding through evaluations on counterfactual questions and plans.</p>
 </section>
-<section id="domain-specializations" class="level4">
-<h4 class="anchored" data-anchor-id="domain-specializations">4. Domain Specializations</h4>
+<section id="domain-specializations" class="level3">
+<h3 class="anchored" data-anchor-id="domain-specializations">4. Domain Specializations</h3>
 <p>General-purpose LLMs are trained on broad internet datasets. Many specialized domains, such as medicine, law, or specific technical fields, have their own extensive vocabularies, jargon, and conceptual frameworks that are not adequately represented in general language models.</p>
 <p><strong>Domain-Specific Model Requirements:</strong> Effective application of LLMs in specialized domains often necessitates:</p>
 <ul>
@@ -389,26 +374,16 @@ Currently, **decoder-only** architectures are arguably the most popular type of 
 <p><strong>Challenges for Niche Applications:</strong> Applications dealing with highly specialized or niche topics may encounter limitations due to the model’s lack of familiarity with long-tail concepts.</p>
 </section>
 </section>
-<section id="next-steps-and-getting-started" class="level3">
-<h3 class="anchored" data-anchor-id="next-steps-and-getting-started">Next Steps and Getting Started</h3>
+<section id="next-steps-and-getting-started" class="level2">
+<h2 class="anchored" data-anchor-id="next-steps-and-getting-started">Next Steps and Getting Started</h2>
 <p>This introduction has provided a foundational understanding of Large Language Models. To further your exploration and begin applying LLMs in your projects, consider the following steps:</p>
 <ul>
-<li><strong>Explore the Hugging Face Transformers Library:</strong> A powerful and user-friendly library for working with pre-trained LLMs in Python. Experiment with different models, tokenizers, and prompting techniques.</li>
-<li><strong>Dive into Prompt Engineering:</strong> Learn effective prompt engineering strategies to guide LLMs to generate desired outputs. Online resources and courses dedicated to prompt engineering are readily available.</li>
-<li><strong>Experiment with LLM APIs:</strong> Utilize APIs from providers like OpenAI, Google, and Anthropic to access and experiment with state-of-the-art LLMs without needing to train or host models yourself.</li>
-<li><strong>Investigate LLM Application Frameworks:</strong> Explore frameworks like LangChain and LlamaIndex that simplify the process of building complex applications with LLMs, including RAG, agents, and more.</li>
-<li><strong>Stay Updated with Research:</strong> The field of LLMs is rapidly evolving. Follow research publications, blogs, and communities to stay abreast of the latest advancements and emerging techniques.</li>
+<li><strong>Explore the <a href="https://huggingface.co/docs/transformers/en/index">Transformers</a> Library:</strong> A powerful and user-friendly library for working with pre-trained LLMs in Python. Experiment with different models, tokenizers, and prompting techniques.</li>
+<li><strong>Dive into Prompt Engineering:</strong> A good rule of thumb is that your prompt should contain enough information to be useful for a human to understand. For code, I often think of the LLM as a junior developer that needs specific information on what to do next.</li>
+<li><strong>Practice a lot:</strong> I personally have multiple subscriptions and use many LLMs through the API as well. For instance, I have found that <code>DeepSeek-r1</code> is fantastic at code and math, even out-doing o1 and o3-mini in many cases, but for general physics questions, it is worse.</li>
+<li><strong>Try Frameworks:</strong> <a href="https://python.langchain.com/docs/introduction/"><code>langchain</code></a> and other frameworks are relatively easy to explore, and some including <code>langchain</code> have a LLM-based chatbot for their docs that can generate starter code for you immediately. The only frustration I have is that their API changes every couple of months, so if you found a nice <code>langchain</code> tutorial from 6 months ago, it is unlikely to work anymore.</li>
+<li><strong>Stay up-to-date:</strong> Podcasts like <a href="https://sub.thursdai.news/podcast">thursdai</a> and newsletters like <a href="https://smol.ai/">AI News by smol-ai</a> are great resources for staying up-to-date with the latest developments in LLMs.</li>
 </ul>
-<p>By taking these steps, you can move beyond theoretical understanding and begin to practically leverage the power of Large Language Models in your academic research, software development, and beyond.</p>
-<!-- **Key Changes and Improvements Incorporated:**
-
-* **Improved Structure and Headings:**  Clearer titles, section headings, and subheadings enhance readability and organization.
-* **More Explanatory Language:**  Concepts are explained in a more accessible way for the target audience, with analogies and simplified explanations where appropriate.
-* **Emphasis on "Why" and "So What?":**  For each component, training stage, and limitation, I've tried to explain *why* it's important and *what* the practical implications are for application builders.
-* **Specific Examples and Applications:**  More concrete examples of applications for each type of LLM and training stage are provided.
-* **Actionable Mitigation Strategies:**  For limitations, I've included suggestions for mitigation strategies and emerging approaches.
-* **"Next Steps" Section:**  Provides concrete recommendations for readers to continue learning and experimenting with LLMs.
-* **Technical Tone Maintained:** The language remains professional and technically appropriate for academics and software engineers. -->
 
 
 </section>
