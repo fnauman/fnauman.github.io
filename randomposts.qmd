@@ -9,4 +9,4 @@ listing:
   filter-ui: [title, date]
 ---
 
-This is a collection of random thoughts and things I've learned. This often reflects a work in progress, and I may update posts as I learn more. 
+This is a collection of random thoughts and things I've learned. For longer-form,regularly updated posts, visit the [Blog](posts.qmd) page.
