@@ -1,0 +1,251 @@
+---
+title: "Linear Regression for Fluids"
+description: "SINDy, DMD, and all that"
+author:
+  - name: Farrukh Nauman
+    url: https://fnauman.github.io/
+date: "2025-02-23"
+date-modified: last-modified
+categories: [Physics, Computational Fluid Dynamics, Aritifical Intelligence]
+keywords: [Physics, Computational Fluid Dynamics, Machine Learning, Data-Driven Methods, Artificial Intelligence]
+citation: 
+  url: https://fnauman.github.io/posts/2025-02-23-linear-regression-for-fluids/ 
+draft: true
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "Linear Regression for Fluids"
+  description: "SINDy, DMD, and all that"
+---
+
+# Linear Regression and Approximations for Fluids
+
+Computational Fluid Dynamics is a field of science where fluid dynamics models are built using numerical approximations.  due to a number of reasons: one or multiple physical fields coupled through nonlinear partial differential equations (PDEs), complex geometries, and boundary conditions. In this post, we will explore how to use linear regression to approximate the dynamics of fluids. We will also discuss how to use these approximations to make predictions about the future state of a fluid system.
+
+::: {.callout-note appearance="simple"}
+## Summary
+
+- Linear regression is a good baseline for all machine learning problems, but often fails to capture the nonlinear dynamical nature of fluid systems.
+- Most papers either analyze low-dimensional ODE systems like Lorenz-63 or data from 1-10 numerical simulations. 
+- There is no single go-to algorithm that works for multitude of fluid systems. 
+:::
+
+In this tutorial, we'll explore **Dynamic Mode Decomposition (DMD)** and **Proper Orthogonal Decomposition (POD)**, two powerful techniques for analyzing temporal snapshots from a fluid simulation. You'll learn how they work, how they differ, and how to apply them to your dataset, which consists of temporal snapshots `State(t, x, y)` for `t = 0, 1, ..., T`, where `x` and `y` are spatial coordinates ranging from `-Lx/2` to `+Lx/2` and `-Ly/2` to `+Ly/2`, respectively. We'll provide detailed steps for implementing both algorithms and discuss their practical use in fluid dynamics.
+
+
+## Understanding POD and DMD
+
+### Proper Orthogonal Decomposition (POD)
+POD is a method that decomposes a dataset into a set of orthogonal spatial modes that capture the most variance (or energy) in the data. In fluid dynamics, these modes often represent dominant flow structures. Mathematically, POD is equivalent to **Principal Component Analysis (PCA)** or **Singular Value Decomposition (SVD)**. It’s ideal for identifying the most significant spatial patterns without explicitly considering their temporal dynamics.
+
+### Dynamic Mode Decomposition (DMD)
+DMD, on the other hand, extracts spatial modes associated with specific temporal behaviors, such as frequencies and growth rates, by approximating the data as evolving under a linear dynamical system. It assumes that each snapshot can be related to the next via a linear operator, making it particularly useful for studying dynamic phenomena like oscillations or instabilities in fluid flows.
+
+### Key Comparison
+- **POD**: Provides energy-optimal modes (maximizing variance), but each mode may contain a mix of frequencies. It’s a static decomposition focused on spatial coherence.
+- **DMD**: Provides dynamically relevant modes, each tied to a single frequency and growth rate, assuming a linear evolution. It’s suited for analyzing temporal dynamics.
+
+---
+
+## Preparing Your Data
+Your fluid simulation data is given as `State(t, x, y)` for `t = 0` to `T`, with `x ∈ [-Lx/2, Lx/2]` and `y ∈ [-Ly/2, Ly/2]`. Assume the spatial domain is discretized into a grid of size `N_x × N_y`, where:
+- `N_x` is the number of points along `x`,
+- `N_y` is the number of points along `y`.
+
+For each time `t`, `State(t, x, y)` is a 2D array of size `N_x × N_y`, representing a scalar field (e.g., pressure or a velocity component). If it’s vector-valued (e.g., velocity with components `u` and `v`), you can either:
+1. Treat each component separately, or
+2. Stack them into a longer vector.
+
+Here, we’ll assume a scalar field for simplicity. Each snapshot `State(t, x, y)` is flattened into a vector `x_t` of length `N = N_x * N_y`. For example:
+- `x_t = [State(t, x_1, y_1), State(t, x_2, y_1), ..., State(t, x_{N_x}, y_{N_y})]^T`.
+
+You have `T+1` snapshots (from `t = 0` to `T`), so the data can be organized into a matrix for analysis.
+
+---
+
+## POD: Step-by-Step Algorithm
+
+POD decomposes the full set of snapshots into spatial modes and temporal coefficients using SVD.
+
+### Steps
+1. **Form the Data Matrix**
+   - Collect all snapshots into a matrix `X`:
+     ```
+     X = [x_0, x_1, ..., x_T]
+     ```
+     where each `x_t` is a column vector of length `N`. Thus, `X` is an `N × (T+1)` matrix.
+   - In Python (using NumPy):
+     ```python
+     import numpy as np
+     # Assume data is a 3D array of shape (T+1, N_x, N_y)
+     X = data.reshape(T+1, N_x * N_y).T  # Shape: (N, T+1)
+     ```
+
+2. **Compute the Singular Value Decomposition (SVD)**
+   - Calculate the economy SVD of `X`:
+     ```
+     X = U Σ V^T
+     ```
+     - `U`: `N × (T+1)` matrix, columns are the POD modes (spatial patterns).
+     - `Σ`: `(T+1) × (T+1)` diagonal matrix, diagonal elements `σ_k` are the singular values (indicating mode energy).
+     - `V^T`: `(T+1) × (T+1)` matrix, rows are related to temporal coefficients.
+   - Since `N >> T+1`, the rank of `X` is at most `T+1`, so the economy SVD is efficient.
+   - In Python:
+     ```python
+     U, S, VT = np.linalg.svd(X, full_matrices=False)
+     # U: (N, T+1), S: (T+1,), VT: (T+1, T+1)
+     ```
+
+3. **Extract POD Modes**
+   - The POD modes are the columns of `U`: `u_k = U[:, k-1]` for `k = 1, 2, ..., T+1`.
+   - Each `u_k` is a vector of length `N`, which can be reshaped to `N_x × N_y` for visualization:
+     ```python
+     mode_k = U[:, k-1].reshape(N_x, N_y)
+     ```
+
+4. **Compute Temporal Coefficients**
+   - The temporal evolution of mode `k` at time `t` is given by `σ_k * V[t, k-1]`, where:
+     - `σ_k = S[k-1]` (singular value),
+     - `V = VT.T`, so `V[:, k-1]` is the k-th column of `V`.
+   - The snapshot at time `t` can be reconstructed as:
+     ```
+     x_t ≈ Σ_{k=1}^{T+1} u_k * σ_k * V[t, k-1]
+     ```
+   - In Python:
+     ```python
+     temporal_coeffs = VT.T * S  # Shape: (T+1, T+1)
+     # For mode k at time t: S[k-1] * VT[k-1, t]
+     ```
+
+5. **Interpret Results**
+   - **Modes**: Columns of `U` represent spatial structures, ordered by decreasing energy (`σ_k²`).
+   - **Temporal Coefficients**: `σ_k * V[:, k-1]` show how each mode evolves over time.
+   - Use these to identify dominant flow structures (e.g., large eddies) in your fluid simulation.
+
+---
+
+## DMD: Step-by-Step Algorithm
+
+DMD approximates the dynamics by finding a linear operator that maps one snapshot to the next, then extracts modes with associated eigenvalues.
+
+### Steps
+1. **Form the Snapshot Matrices**
+   - Split the data into two matrices:
+     - `X = [x_0, x_1, ..., x_{T-1}]`: snapshots from `t = 0` to `T-1`, size `N × T`.
+     - `Y = [x_1, x_2, ..., x_T]`: snapshots from `t = 1` to `T`, size `N × T`.
+   - In Python:
+     ```python
+     X = data[:-1].reshape(T, N_x * N_y).T  # Shape: (N, T)
+     Y = data[1:].reshape(T, N_x * N_y).T   # Shape: (N, T)
+     ```
+
+2. **Compute SVD of X**
+   - Perform economy SVD on `X`:
+     ```
+     X = U Σ V^T
+     ```
+     - `U`: `N × r`, columns are basis vectors.
+     - `Σ`: `r × r`, diagonal matrix of singular values.
+     - `V^T`: `r × T`, right singular vectors.
+     - `r ≤ T` is the rank, often truncated to reduce noise (e.g., keep singular values above a threshold).
+   - In Python:
+     ```python
+     U, S, VT = np.linalg.svd(X, full_matrices=False)
+     # U: (N, r), S: (r,), VT: (r, T)
+     # Optionally truncate r by selecting top k singular values
+     r = min(T, np.sum(S > threshold))  # Define threshold based on data
+     U = U[:, :r]
+     S = S[:r]
+     VT = VT[:r, :]
+     ```
+
+3. **Compute the Low-Dimensional Operator**
+   - Approximate the linear operator `A` such that `Y ≈ A X`.
+   - Project `A` onto the POD basis: `Ã = U^T A U ≈ U^T Y V Σ^{-1}`.
+   - Compute:
+     ```
+     Ã = U^T Y V Σ^{-1}
+     ```
+     where `V = VT.T`, `Σ^{-1} = diag(1/S)`.
+   - In Python:
+     ```python
+     V = VT.T  # Shape: (T, r)
+     S_inv = np.diag(1.0 / S)  # Shape: (r, r)
+     A_tilde = U.T @ Y @ V @ S_inv  # Shape: (r, r)
+     ```
+
+4. **Compute Eigenvalues and Eigenvectors**
+   - Solve the eigenvalue problem for `Ã`:
+     ```
+     Ã w_k = λ_k w_k
+     ```
+     - `λ_k`: eigenvalues (complex), indicate growth rates and frequencies.
+     - `w_k`: eigenvectors, size `r × 1`.
+   - In Python:
+     ```python
+     lambda_k, W = np.linalg.eig(A_tilde)
+     # lambda_k: (r,), W: (r, r)
+     ```
+
+5. **Compute DMD Modes**
+   - The DMD modes are projections of the eigenvectors back to the full space:
+     ```
+     φ_k = U w_k
+     ```
+     - Each `φ_k` is a vector of length `N`.
+   - In Python:
+     ```python
+     Phi = U @ W  # Shape: (N, r)
+     # Mode k: Phi[:, k-1].reshape(N_x, N_y) for visualization
+     ```
+
+6. **Analyze Dynamics**
+   - Each mode `φ_k` evolves as `λ_k^t` over time.
+   - Interpret `λ_k`:
+     - If `Δt` is the time step (here, `Δt = 1` since `t = 0, 1, ..., T`), then:
+       ```
+       λ_k = e^{(σ_k + i ω_k) Δt}
+       ```
+       - `σ_k = Re(log(λ_k))/Δt`: growth/decay rate.
+       - `ω_k = Im(log(λ_k))/Δt`: frequency (radians per unit time).
+   - Reconstruct the solution:
+     - `x_t ≈ Σ_{k=1}^r φ_k λ_k^t b_k`, where `b_k` are amplitudes found by solving `x_0 = Φ b` (Φ = [φ_1, ..., φ_r]).
+   - In Python:
+     ```python
+     # Compute b by projecting x_0 onto modes
+     b = np.linalg.lstsq(Phi, X[:, 0], rcond=None)[0]
+     # Dynamics for mode k: Phi[:, k-1] * (lambda_k ** t) * b[k-1]
+     ```
+
+7. **Interpret Results**
+   - **Modes**: Columns of `Phi` are spatial patterns.
+   - **Eigenvalues**: `λ_k` provide dynamic information (oscillation, stability).
+   - Use these to identify periodic structures (e.g., vortex shedding) or instabilities.
+
+---
+
+## Applying POD and DMD to Your Fluid Simulation
+
+### POD Application
+- **Goal**: Identify dominant spatial structures.
+- **Process**: Use all `T+1` snapshots in `X`. After computing SVD, visualize the first few POD modes (columns of `U`) to see the most energetic flow features. Analyze temporal coefficients to understand their evolution.
+- **Example**: In a flow past a cylinder, POD might highlight the mean flow and large-scale vortices.
+
+### DMD Application
+- **Goal**: Extract dynamic modes with specific frequencies.
+- **Process**: Use `X` and `Y` with `T` snapshots each. Compute DMD modes and eigenvalues. Plot modes and check `ω_k` for oscillatory behaviors (e.g., vortex shedding frequency).
+- **Example**: DMD could isolate the vortex shedding mode with its exact frequency.
+
+### Practical Tips
+- **Visualization**: Reshape modes (`N` to `N_x × N_y`) and plot as 2D fields.
+- **Truncation**: For noisy data, truncate SVD to `r < T` based on singular value decay.
+- **Validation**: Compare reconstructed snapshots (`x_t`) with original data to assess accuracy.
+
+---
+
+## Conclusion
+- **POD** is best for reducing dimensionality and capturing dominant structures, regardless of their temporal behavior.
+- **DMD** excels at isolating dynamic modes, making it ideal for studying oscillations or predicting future states (if the linear assumption holds).
+
+For your fluid simulation `State(t, x, y)`, apply POD to understand the overall flow structure and DMD to analyze its temporal dynamics. Together, they provide a comprehensive view of both spatial and temporal characteristics of the flow.

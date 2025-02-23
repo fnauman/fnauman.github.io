@@ -9,8 +9,8 @@ author:
     # affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
 date: "2023-11-20"
 date-modified: last-modified
-categories: [Applied AI, Natural Language Processing, Large Language Models, Notes]
-keywords: [Applied AI, Natural Language Processing, Deep Learning, Large Language Models]
+categories: [Artificial Intelligence, Natural Language Processing, Large Language Models, Notes]
+keywords: [Artificial Intelligence, Natural Language Processing, Deep Learning, Large Language Models]
 citation: 
   url: https://fnauman.github.io/posts/2023-11-20-llms-summary/ 
 # image: front_2023_05_11_07_43_41.jpg
