@@ -14,8 +14,8 @@ website:
         text: Portfolio
       - href: posts.qmd 
         text: Blog
-      - href: randomposts.qmd
-        text: TIL/Random
+      # - href: randomposts.qmd
+      #   text: TIL/Random
 
     right:
       - icon: github

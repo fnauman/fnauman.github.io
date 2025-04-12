@@ -1,6 +1,6 @@
 ---
-title: "Linear Regression for Fluids"
-description: "SINDy, DMD, and all that"
+title: "Machine Learning for Fluid Dynamics"
+description: "Linear Regression, SINDy, DMD, and all that"
 author:
   - name: Farrukh Nauman
     url: https://fnauman.github.io/
@@ -19,19 +19,21 @@ og:
   description: "SINDy, DMD, and all that"
 ---
 
-# Linear Regression and Approximations for Fluids
+<!-- TODO: Deep Research, get citations, add more details, create tables. -->
 
-Computational Fluid Dynamics is a field of science where fluid dynamics models are built using numerical approximations.  due to a number of reasons: one or multiple physical fields coupled through nonlinear partial differential equations (PDEs), complex geometries, and boundary conditions. In this post, we will explore how to use linear regression to approximate the dynamics of fluids. We will also discuss how to use these approximations to make predictions about the future state of a fluid system.
+# Machine Learning for Fluid Dynamics
+
+Understanding and modeling real world fluid and plasma systems typically involves numerical simulations, low and high fidelity models, experimental data, and more recently data-driven methods. Below I will summarize some of the most popular data-driven methods used in fluid dynamics. 
 
 ::: {.callout-note appearance="simple"}
-## Summary
+## Highlights
 
-- Linear regression is a good baseline for all machine learning problems, but often fails to capture the nonlinear dynamical nature of fluid systems.
-- Most papers either analyze low-dimensional ODE systems like Lorenz-63 or data from 1-10 numerical simulations. 
-- There is no single go-to algorithm that works for multitude of fluid systems. 
+- Linear regression (or variants thereof) is generally a good baseline for all sorts of data science problems, but for high dimension non-linear dynamical systems like fluids, it's often not enough.
+- Bulk of the existing literature either analyze low-dimensional ODE systems like Lorenz-63 or data from 1-10 numerical simulations. 
+- There is no single go-to algorithm, linear or otherwise, that works for multitude of fluid systems. 
 :::
 
-In this tutorial, we'll explore **Dynamic Mode Decomposition (DMD)** and **Proper Orthogonal Decomposition (POD)**, two powerful techniques for analyzing temporal snapshots from a fluid simulation. You'll learn how they work, how they differ, and how to apply them to your dataset, which consists of temporal snapshots `State(t, x, y)` for `t = 0, 1, ..., T`, where `x` and `y` are spatial coordinates ranging from `-Lx/2` to `+Lx/2` and `-Ly/2` to `+Ly/2`, respectively. We'll provide detailed steps for implementing both algorithms and discuss their practical use in fluid dynamics.
+In this tutorial, we'll explore **Sparse Identification of Nonlinear Dynamics (SINDy)**, **Dynamic Mode Decomposition (DMD)** and **Proper Orthogonal Decomposition (POD)**, three powerful techniques for analyzing temporal snapshots from a fluid simulation. You'll learn how they work, how they differ, and how to apply them to your dataset, which consists of temporal snapshots `State(t, x, y)` for `t = 0, 1, ..., T`, where `x` and `y` are spatial coordinates ranging from `-Lx/2` to `+Lx/2` and `-Ly/2` to `+Ly/2`, respectively. We'll provide detailed steps for implementing all three algorithms and discuss their practical use in fluid dynamics.
 
 
 ## Understanding POD and DMD
