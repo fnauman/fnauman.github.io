@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "AI Researcher & Machine Learning Consultant"
+subtitle: "Expert AI/ML Consulting: From Research to Real-World Application"
 image: assets/officialpic.JPG
 resources: 
   - assets/cv.pdf
@@ -49,14 +49,14 @@ format:
 <!-- :::{.column-page} -->
 # Welcome! 👋
 
-I'm an AI Researcher and Machine Learning Consultant at [RISE Research Institutes of Sweden AB](https://www.ri.se/en) with a PhD in Theoretical and Computational Astrophysics. I specialize in:
+I help businesses leverage cutting-edge AI. My experience ranges from building sophisticated computer vision systems for industry-specific challenges (like fashion sustainability and agriculture) and developing custom LLM assistants for research, to applying advanced time series analysis for specialized applications like equine gait analysis and optimizing algorithms for edge computing. I specialize in:
 
 - 🤖 Large Language Models (LLMs) for research and industry applications
 - 🔍 Computer Vision & Object Detection
 - 📈 Time Series Analysis & Forecasting
 - 🌊 Fluid Dynamics (CFD, Modeling, Machine Learning)
 
-My work spans both research and practical applications, from implementing LLMs for research report generation to developing object detection systems for the agricultural sector. I'm particularly passionate about bridging the gap between cutting-edge AI research and real-world industry applications.
+I'm available for consulting and can help you leverage AI to solve your business challenges.  
 
 ::: {.callout-note appearance="simple"}
 ## 🤝 Available for Consulting
