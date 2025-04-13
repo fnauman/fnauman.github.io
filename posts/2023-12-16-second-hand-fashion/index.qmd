@@ -12,7 +12,7 @@ date-modified: last-modified
 categories: [Applied AI, Sustainable Fashion, Circular Economy, RISE]
 keywords: [AI in fashion, circular economy, sustainable fashion, technology in recycling]
 citation: 
-  url: https://fnauman.github.io/projects/2023-12-16-second-hand-fashion/ 
+  url: https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/ 
 image: front_2023_05_11_07_43_41.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:

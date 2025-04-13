@@ -1,8 +1,8 @@
 ---
 title: "Uploading datasets to Hugging Face"
-description: "Hugging Face Datasets and Datasets Hub"
+description: "Hugging Face Datasets"
 date: "2025-01-26"
-categories: [huggingface, datasets]
+categories: [short-note, huggingface, datasets]
 # draft: false
 ---
 

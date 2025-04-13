@@ -2,7 +2,7 @@
 title: "Inference on HuggingFace"
 description: "Playing with the Inference Providers on HuggingFace"
 date: "2025-02-05"
-categories: [huggingface, inference, text-to-image, flux]
+categories: [short-note, huggingface, inference, text-to-image, flux]
 # draft: false
 ---
 

@@ -95,7 +95,7 @@ My work spans both research and practical applications, from implementing LLMs f
 #| output: asis
 from pathlib import Path
 import yaml
-from datetime import datetime
+from datetime import datetime, date
 
 def get_post_info(file_path):
     with open(file_path, 'r') as f:
@@ -103,12 +103,23 @@ def get_post_info(file_path):
         if len(content) > 1:
             try:
                 front_matter = yaml.safe_load(content[1])
+                date_str = front_matter.get('date', '2000-01-01')
+                # Ensure date is always a datetime.date object
+                if isinstance(date_str, date):
+                    post_date = date_str
+                else:
+                    try:
+                        post_date = datetime.strptime(str(date_str), '%Y-%m-%d').date()
+                    except (ValueError, TypeError): # Handle invalid format or type
+                        post_date = datetime.strptime('2000-01-01', '%Y-%m-%d').date()
+
                 return {
                     'title': front_matter.get('title', 'Untitled'),
-                    'date': front_matter.get('date', '2000-01-01'),
+                    'date': post_date, # Store as date object
                     'path': str(file_path)
                 }
-            except:
+            except Exception as e: # Catch potential YAML errors or others
+                print(f"Error processing {file_path}: {e}") # Add some logging
                 return None
     return None
 
@@ -125,7 +136,7 @@ blog_posts = blog_posts[:3]
 
 # Print as markdown
 for post in blog_posts:
-    date_str = datetime.strptime(post['date'], '%Y-%m-%d').strftime('%B %d, %Y')
+    date_str = post['date'].strftime('%B %d, %Y') # Format date object for printing
     print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
 
 print(f"\n[View all posts →](posts.qmd)")
@@ -151,7 +162,7 @@ til_posts = til_posts[:3]
 
 # Print as markdown
 for post in til_posts:
-    date_str = datetime.strptime(post['date'], '%Y-%m-%d').strftime('%B %d, %Y')
+    date_str = post['date'].strftime('%B %d, %Y') # Format date object for printing
     print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
 
 print(f"\n[View all TIL posts →](randomposts.qmd)")
