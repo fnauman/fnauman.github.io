@@ -1,9 +1,9 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "AI Researcher & Machine Learning Consultant"
+subtitle: "AI Solutions Consultant | Generative AI, LLMs & Computer Vision | PhD in Physics"
 image: assets/officialpic.JPG
 resources: 
-  - assets/cv.pdf
+  - assets/FarrukhNauman_consulting.pdf
 toc: false
 # about: 
 #   template: trestles
@@ -40,7 +40,7 @@ format:
 [![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=24px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
 [![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=24px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
 [![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukhnordicworks@gmail.com)
-[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/cv.pdf)
+[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/FarrukhNauman_consulting.pdf)
 :::
 :::
 
@@ -49,14 +49,14 @@ format:
 <!-- :::{.column-page} -->
 # Welcome! 👋
 
-I'm an AI Researcher and Machine Learning Consultant at [RISE Research Institutes of Sweden AB](https://www.ri.se/en) with a PhD in Theoretical and Computational Astrophysics. I specialize in:
+I help businesses leverage cutting-edge AI. My experience ranges from building sophisticated computer vision systems for industry-specific challenges (like fashion sustainability and agriculture) and developing custom LLM assistants for research, to applying advanced time series analysis for specialized applications like equine gait analysis and optimizing algorithms for edge computing. I specialize in:
 
 - 🤖 Large Language Models (LLMs) for research and industry applications
 - 🔍 Computer Vision & Object Detection
 - 📈 Time Series Analysis & Forecasting
 - 🌊 Fluid Dynamics (CFD, Modeling, Machine Learning)
 
-My work spans both research and practical applications, from implementing LLMs for research report generation to developing object detection systems for the agricultural sector. I'm particularly passionate about bridging the gap between cutting-edge AI research and real-world industry applications.
+I'm available for consulting and can help you leverage AI to solve your business challenges.  
 
 ::: {.callout-note appearance="simple"}
 ## 🤝 Available for Consulting
