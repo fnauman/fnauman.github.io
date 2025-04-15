@@ -2,15 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.37">
+<meta name="generator" content="quarto-1.4.528">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Farrukh Nauman">
-<meta name="dcterms.date" content="2025-02-05">
-<meta name="description" content="Playing with the Inference Providers on HuggingFace">
+<meta name="dcterms.date" content="2023-11-10">
+<meta name="keywords" content="Language Models, Decoding Algorithms, AI, Machine Learning">
+<meta name="description" content="Just learned something cool about how language models like ChatGPT interpret our words. Let’s dive in!">
 
-<title>Inference on HuggingFace – Farrukh Nauman</title>
+<title>Farrukh Nauman - TIL: Decoding the Secrets of Language Model Decoding</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +23,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -72,12 +39,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-309e2aa087127773e8df20a0f64f1174.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-edb7f79787ec38f01a25a85becb12d23.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-667342eb2efbfacb38885114d196f64d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-b944be58ffcc625a1871145bcb4d6745.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -116,21 +83,14 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Inference on HuggingFace – Farrukh Nauman">
-<meta property="og:description" content="Playing with the Inference Providers on HuggingFace">
-<meta property="og:image" content="https://fnauman.github.io/randomposts/2025-02-05-hf-inference/cheetah.png">
+<meta property="og:title" content="Farrukh Nauman - TIL: Decoding the Secrets of Language Model Decoding">
+<meta property="og:description" content="Just learned something cool about how language models like ChatGPT interpret our words. Let’s dive in!">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta property="og:image:height" content="768">
-<meta property="og:image:width" content="1024">
-<meta name="twitter:title" content="Inference on HuggingFace – Farrukh Nauman">
-<meta name="twitter:description" content="Playing with the Inference Providers on HuggingFace">
-<meta name="twitter:image" content="https://fnauman.github.io/randomposts/2025-02-05-hf-inference/cheetah.png">
+<meta name="twitter:title" content="Farrukh Nauman - TIL: Decoding the Secrets of Language Model Decoding">
+<meta name="twitter:description" content="Just learned something cool about how language models like ChatGPT interpret our words. Let’s dive in!">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:image-height" content="768">
-<meta name="twitter:image-width" content="1024">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed">
@@ -140,7 +100,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -150,12 +110,16 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../portfolio.html"> 
-<span class="menu-text">Portfolio</span></a>
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../randomposts.html"> 
+<span class="menu-text">Random/TIL</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -175,13 +139,13 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="mailto:farrukhnordicworks@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="email">
+    <a class="nav-link" href="mailto:farrukh.nauman@ri.se"> <i class="bi bi-envelope" role="img" aria-label="email">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
@@ -190,86 +154,116 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Inference on HuggingFace</h1>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">TIL: Decoding the Secrets of Language Model Decoding</h1>
                   <div>
         <div class="description">
-          Playing with the Inference Providers on HuggingFace
+          Just learned something cool about how language models like ChatGPT interpret our words. Let’s dive in!
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">short-note</div>
-                <div class="quarto-category">huggingface</div>
-                <div class="quarto-category">inference</div>
-                <div class="quarto-category">text-to-image</div>
-                <div class="quarto-category">flux</div>
+                <div class="quarto-category">Today I Learned</div>
+                <div class="quarto-category">AI Explorations</div>
+                <div class="quarto-category">Tech Musings</div>
               </div>
                   </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta column-page-left">
 
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Farrukh Nauman </p>
+               <p><a href="Your Website or Profile URL">Farrukh Nauman</a> </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 5, 2025</p>
+        <p class="date">November 10, 2023</p>
       </div>
     </div>
     
       
     </div>
     
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>Language Models, Decoding Algorithms, AI, Machine Learning</p>
+    </div>
+  </div>
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#til-decoding-the-secrets-of-language-model-decoding" id="toc-til-decoding-the-secrets-of-language-model-decoding" class="nav-link active" data-scroll-target="#til-decoding-the-secrets-of-language-model-decoding">TIL: Decoding the Secrets of Language Model Decoding</a>
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#what-is-decoding-in-language-models" id="toc-what-is-decoding-in-language-models" class="nav-link" data-scroll-target="#what-is-decoding-in-language-models">What is Decoding in Language Models?</a></li>
+  <li><a href="#types-of-decoding-algorithms" id="toc-types-of-decoding-algorithms" class="nav-link" data-scroll-target="#types-of-decoding-algorithms">Types of Decoding Algorithms</a></li>
+  <li><a href="#why-it-matters" id="toc-why-it-matters" class="nav-link" data-scroll-target="#why-it-matters">Why It Matters</a></li>
+  <li><a href="#what-i-learned" id="toc-what-i-learned" class="nav-link" data-scroll-target="#what-i-learned">What I Learned</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<p>HuggingFace just <a href="https://huggingface.co/blog/inference-providers">announced</a> that they now support third party inference providers: fal, Replicate, Sambanova, Together AI both directly through the HuggingFace Hub and their SDKs.</p>
-<p>Being a Pro user of HuggingFace, I get $2 of credits to use each month. So I played around with the Flux model:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> huggingface_hub <span class="im">import</span> InferenceClient</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> InferenceClient(provider<span class="op">=</span><span class="st">"fal-ai"</span>, token<span class="op">=</span><span class="st">"hf_***"</span>) <span class="co"># Enable serverless inference when creating the token</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> client.text_to_image(<span class="st">"Close-up of a cheetah's face, direct frontal view. Sharp focus on eye and skin texture and color. Natural lighting to capture authentic eye shine and depth."</span>, model<span class="op">=</span><span class="st">"black-forest-labs/FLUX.1-schnell"</span>) </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>image.save(<span class="st">"cheetah.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The output looks like this:</p>
-<p><img src="cheetah.png" class="img-fluid"></p>
-<p>This is fantastic! I can now run quick experiments with many different models on the huggingface hub. There is a text box on the HuggingFace Hub where I can enter text and start generating images (or text for a LLM) easily:</p>
-<p><img src="hf_hub.png" class="img-fluid"></p>
-<p>I can even get the code to run this via their Python SDK:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> huggingface_hub <span class="im">import</span> InferenceClient</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>client <span class="op">=</span> InferenceClient(</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    provider<span class="op">=</span><span class="st">"fal-ai"</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    api_key<span class="op">=</span><span class="st">"hf_xxxxxxxxxxxxxxxxxxxxxxxx"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># output is a PIL.Image object</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>image <span class="op">=</span> client.text_to_image(</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Astronaut riding a horse"</span>,</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    model<span class="op">=</span><span class="st">"black-forest-labs/FLUX.1-dev"</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The only challenge I found so far is that <code>fal-ai</code> for example does support the Flux 1.1 pro through their <a href="https://fal.ai/models/fal-ai/flux-pro/v1.1/api">API</a>, but since that model is not available on the HuggingFace Hub, I can’t use it. I get a <code>ValueError: Model fal-ai/flux-pro/v1 is not supported with FalAI for task text-to-image.</code> error when I try to use it.</p>
+<section id="til-decoding-the-secrets-of-language-model-decoding" class="level1">
+<h1>TIL: Decoding the Secrets of Language Model Decoding</h1>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Hey there! Today I stumbled upon something fascinating about how language models work. Have you ever wondered how AI like ChatGPT understands and responds to our queries? Let’s get into the world of decoding!</p>
+</section>
+<section id="what-is-decoding-in-language-models" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-decoding-in-language-models">What is Decoding in Language Models?</h2>
+<ul>
+<li>Explain what decoding is in a simple and engaging manner.</li>
+<li>Maybe throw in a fun analogy or two!</li>
+</ul>
+</section>
+<section id="types-of-decoding-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-decoding-algorithms">Types of Decoding Algorithms</h2>
+<ul>
+<li>Briefly introduce various decoding algorithms with easy-to-understand examples.</li>
+</ul>
+</section>
+<section id="why-it-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-it-matters">Why It Matters</h2>
+<ul>
+<li>Share why understanding these algorithms is cool and important in layman’s terms.</li>
+</ul>
+</section>
+<section id="what-i-learned" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-learned">What I Learned</h2>
+<ul>
+<li>Sum up your key takeaways in a friendly and conversational tone.</li>
+</ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<ul>
+<li>End with a light-hearted closing thought or a teaser for what you might explore next.</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -451,7 +445,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -483,45 +488,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/fnauman\.github\.io");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -556,11 +523,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -608,11 +571,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
+      return note.innerHTML;
     }
   }
   for (var i=0; i<xrefs.length; i++) {
@@ -834,38 +793,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">
-<p>Copyright 2025, Farrukh Nauman</p>
-</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right">
-      <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/fnauman">
-      <i class="bi bi-github" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://twitter.com/naumanf_">
-      <i class="bi bi-twitter" role="img">
-</i> 
-    </a>
-  </li>  
-    <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/fnauman/">
-      <i class="bi bi-linkedin" role="img">
-</i> 
-    </a>
-  </li>  
-</ul>
-    </div>
-  </div>
-</footer>
 
 
 
