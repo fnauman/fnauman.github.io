@@ -18,7 +18,7 @@
     "href": "portfolio.html",
     "title": "Portfolio",
     "section": "",
-    "text": "1 min\n\n\n\n\n\n\n\n\n\n\n\n\nAI for second-hand fashion\n\n\n\n\n\n\nMLOps\n\n\nObject Detection\n\n\nWeb App Development\n\n\nComputer Vision\n\n\nSynthetic Data\n\n\nProject Management\n\n\nPyTorch\n\n\nHuggingFace\n\n\nDatasets\n\n\n\nMLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management\n\n\n\n\n\nApr 13, 2025\n\n\nFarrukh Nauman\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
+    "text": "AI for second-hand fashion\n\n\n\n\n\n\nMLOps\n\n\nObject Detection\n\n\nWeb App Development\n\n\nComputer Vision\n\n\nSynthetic Data\n\n\nProject Management\n\n\nPyTorch\n\n\nHuggingFace\n\n\nDatasets\n\n\n\nMLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management\n\n\n\n\n\nApr 13, 2025\n\n\nFarrukh Nauman\n\n\n5 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2023-11-20-llms-summary/index.html",
@@ -96,13 +96,6 @@
     "title": "AI for second-hand fashion",
     "section": "",
     "text": "While the solution was not fully deployed to production during my tenure, significant milestones were achieved:\n\nDataset: One of a kind dataset, also hosted on huggingface.\nSuccessful pilot demonstrations with key stakeholders, receiving positive feedback on accuracy, speed and usability.\nCreation of a validated computer vision pipeline ready for production integration.\nDevelopment of a synthetic data generation framework that significantly reduces future data collection costs.\nDissemination: Multiple demos hosted publicly, webinars, presentations and self-containted project website.\n\nThis project showcases my ability to manage complex, long-term technical initiatives while delivering tangible value across the entire machine learning lifecycle—from data collection and preparation through model development and deployment preparation."
-  },
-  {
-    "objectID": "portfolio/list_projects.html",
-    "href": "portfolio/list_projects.html",
-    "title": "Farrukh Nauman",
-    "section": "",
-    "text": "SHOW project: detect hard breaks (2022/2023?: 1-2 months): Time series anomaly detection.\nChicken counting (2021: ~1-2 months): Detect and count chickens running on a conveyor belt.\nVinnova Fashion project (2021-2024):\nData annotation software Data cleaning Image classification Object detection\nCISUTAC (2022-2025) Same as above\nGreenerFlow (2023: 3 months): Report writing, proposal for data collection, etc.\nRamverk (2024-2025: 3 months): Report writing, proposal for data collection, etc.\nIoT Low Energy (2022: 3-6 months): Report writing, presentation, proposal for algorithms, etc.\nAero EDIH (2024: 1 month): Work with startups; identify what kind of data and models will work for on-device deployment for drones."
   },
   {
     "objectID": "index.html",
