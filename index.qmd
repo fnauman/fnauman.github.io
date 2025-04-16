@@ -46,7 +46,6 @@ format:
 
 
 ::: {.g-col-12 .g-col-md-9}
-<!-- :::{.column-page} -->
 # Welcome! 👋
 
 I help organizations leverage cutting-edge AI for measurable business impact. As an AI Solutions Consultant specializing in Large Language Models (LLMs), Generative AI, and Computer Vision, I deliver custom solutions that translate business needs into scalable AI architectures. My expertise includes:
@@ -83,12 +82,7 @@ With a proven track record in developing end-to-end computer vision systems, syn
 :::
 :::
 
-## Recent Updates
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-6}
-### Blog 📝
+## Portfolio {.mt-4}
 
 ```{python}
 #| echo: false
@@ -103,6 +97,11 @@ def get_post_info(file_path):
         if len(content) > 1:
             try:
                 front_matter = yaml.safe_load(content[1])
+                
+                # Skip draft posts
+                if front_matter.get('draft', False) == True:
+                    return None
+                    
                 date_str = front_matter.get('date', '2000-01-01')
                 # Ensure date is always a datetime.date object
                 if isinstance(date_str, date):
@@ -116,13 +115,82 @@ def get_post_info(file_path):
                 return {
                     'title': front_matter.get('title', 'Untitled'),
                     'date': post_date, # Store as date object
-                    'path': str(file_path)
+                    'path': str(file_path),
+                    'description': front_matter.get('description', ''),
+                    'image': front_matter.get('image', None)
                 }
             except Exception as e: # Catch potential YAML errors or others
                 print(f"Error processing {file_path}: {e}") # Add some logging
                 return None
     return None
 
+# Get portfolio items
+portfolio_items = []
+for item_dir in Path('portfolio').glob('*'):
+    if item_dir.is_dir():
+        index_file = item_dir / 'index.qmd'
+        if index_file.exists():
+            info = get_post_info(index_file)
+            if info:
+                # Add the directory path for image reference
+                if info.get('image'):
+                    info['image_path'] = str(item_dir / info['image'])
+                portfolio_items.append(info)
+
+# Sort by date and get latest 3
+portfolio_items.sort(key=lambda x: x['date'], reverse=True)
+portfolio_items = portfolio_items[:3]
+
+# Print as grid
+print("::: {.grid}\n")
+
+for item in portfolio_items:
+    print(f"::: {{.g-col-12 .g-col-md-4}}\n")
+    print(f"### {item['title']}\n")
+    
+    # Get first sentence or part of description if available
+    description = item['description']
+    if description:
+        # Limit to first 150 characters if too long
+        if len(description) > 150:
+            description = description[:150] + "..."
+    else:
+        description = "AI consulting project"
+    
+    # Create link to portfolio item
+    print(f"[{description}]({item['path']})\n")
+    print(":::\n")
+
+# If we have fewer than 3 items, fill with placeholders
+for i in range(3 - len(portfolio_items)):
+    print(f"::: {{.g-col-12 .g-col-md-4}}\n")
+    if i == 0:
+        print("### LLM Research Assistant\n")
+        print("[Developing custom LLM solutions for automated research report generation and analysis.](portfolio.qmd)\n")
+    elif i == 1:
+        print("### Object Detection in Farming\n")
+        print("[Computer vision systems for farming applications.](portfolio.qmd)\n")
+    print(":::\n")
+
+print(":::\n")
+print("\n[View full portfolio →](portfolio.qmd)")
+```
+
+## Recent Updates
+
+::: {.grid}
+
+::: {.g-col-12}
+### Blog 📝
+
+```{python}
+#| echo: false
+#| output: asis
+from pathlib import Path
+import yaml
+from datetime import datetime, date
+
+# Reuse the get_post_info function defined above
 # Get blog posts
 blog_posts = []
 for post in Path('posts').rglob('*.qmd'):
@@ -130,25 +198,6 @@ for post in Path('posts').rglob('*.qmd'):
     if info:
         blog_posts.append(info)
 
-# Sort by date and get latest 3
-blog_posts.sort(key=lambda x: x['date'], reverse=True)
-blog_posts = blog_posts[:3]
-
-# Print as markdown
-for post in blog_posts:
-    date_str = post['date'].strftime('%B %d, %Y') # Format date object for printing
-    print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
-
-print(f"\n[View all posts →](posts.qmd)")
-```
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### TIL/Random 💡
-
-```{python}
-#| echo: false
-#| output: asis
 # Get TIL posts
 til_posts = []
 for post in Path('randomposts').rglob('*.qmd'):
@@ -156,43 +205,20 @@ for post in Path('randomposts').rglob('*.qmd'):
     if info:
         til_posts.append(info)
 
-# Sort by date and get latest 3
-til_posts.sort(key=lambda x: x['date'], reverse=True)
-til_posts = til_posts[:3]
+# Combine both types of posts
+all_posts = blog_posts + til_posts
+
+# Sort by date and get latest 6
+all_posts.sort(key=lambda x: x['date'], reverse=True)
+all_posts = all_posts[:6]
 
 # Print as markdown
-for post in til_posts:
+for post in all_posts:
     date_str = post['date'].strftime('%B %d, %Y') # Format date object for printing
     print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
 
-print(f"\n[View all TIL posts →](randomposts.qmd)")
+print(f"\n[View all posts →](posts.qmd)")
 ```
 :::
 
-:::
-
-## Featured Projects {.mt-4}
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-4}
-### AI in Fashion Industry
-[AI-powered solutions](https://fnauman.github.io/second-hand-fashion/) for sustainable fashion, including multi-target classification and damage detection.
-:::
-
-::: {.g-col-12 .g-col-md-4}
-### LLM Research Assistant
-Developing custom LLM solutions for automated research report generation and analysis.
-:::
-
-::: {.g-col-12 .g-col-md-4}
-### Object Detection in Farming
-Computer vision systems for farming applications.
-:::
-
-:::
-
-[View full portfolio →](portfolio.qmd)
-
-:::
 :::
