@@ -1,0 +1,136 @@
+---
+title: "CV: Farrukh Nauman" 
+subtitle: "AI  & Machine Learning Consultant | Generative AI, Computer Vision & LLMs | PhD"
+image: assets/officialpic.JPG
+resources: 
+  - assets/FarrukhNauman_consulting.pdf
+toc: false
+format: 
+  html: 
+    page-layout: full
+    toc: false
+
+---
+
+
+<!-- # Farrukh Nauman -->
+
+<!-- **AI & Machine Learning Consultant | LLMs, Generative AI & Computer Vision Solutions | PhD** -->
+
+(+46) 0702984959 | [Email](mailto:farrukhnordicworks@gmail.com) | [LinkedIn](https://linkedin.com/in/fnauman) | [Github](https://github.com/fnauman) | [Homepage](https://fnauman.github.io) | [PDF](assets/FarrukhNauman_consulting.pdf)
+
+---
+
+## VALUE PROPOSITION
+
+AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating complex AI capabilities into tangible business value. Proven ability to deliver significant operational improvements:
+* 40% reduction in manual inspection costs for textile quality assessment.
+* 50%+ reduction in data collection costs through synthetic data generation.
+* 90% lower hardware costs for industrial IoT implementations.
+
+## CONSULTING OFFERS
+
+* **Proof-of-Concept (Fixed Price/4-weeks)** - dataset audit, model prototype, ROI roadmap.
+* **Hourly/Daily Rate Projects** - flexible engagement for ongoing development and implementation.
+* **Fractional AI Lead (Retainer)** - steer data teams, drive AI initiatives, governance (1-2 days/week).
+* **AI Workshops** - hands-on training in generative AI, vision and LLMs.
+
+## SKILLS & TECH STACK
+
+| Area | Skills |
+|------|--------|
+| **AI & ML** | **LLMs**: OpenAI, Gemini, HF Transformers, RAG, Fine-tuning, Synthetic Data, OCR, Vector DBs;<br>**GenAI, Vision**: Text-to-Image, Inpainting, Object Detection, Classification, Segmentation, Edge AI;<br>**Core ML**: Predictive Modeling, Anomaly Detection, Time Series;<br>**Libs/Frameworks**: PyTorch (Expert, 6 yrs), Transformers, Diffusers, LangChain, Weights & Biases |
+| **MLOps & Cloud** | Azure ML, Docker, CI/CD, Model Monitoring/Serving, Experiment Tracking, Git, REST APIs |
+| **Programming** | Python (Expert, 8+ yrs), C/C++ (Proficient, 8 yrs), SQL, High Performance Computing (8 years) |
+| **Business** | Stakeholder Management, Requirements Gathering, Project Scoping, Solution Architecture, Technical Leadership, ROI Analysis, Client Communication |
+| **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
+
+## EXPERIENCE
+
+### RISE Research Institutes of Sweden AB
+**AI Researcher & Consultant**  
+*Jul 2021 - Present* | Linköping, Sweden
+
+**Project Lead: Sustainable Fashion AI Automation (2022-2025: 24 months)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://example.com/vinnova) (Project Lead, ~9M SEK) and [CISUTAC](https://example.com/cisutac) (AI Lead, ~2M SEK).
+
+- **Challenge**: Manual quality inspection created major bottlenecks in circular fashion supply chain, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%.
+- **Solution**: Designed and implemented end-to-end computer vision system for automated attribute detection.
+- **Approach**:
+
+  * **Data**: Custom annotation & collection setup; Cleaning, enrichment.
+  * **Model**: Training & optimization; Synthetic data generation.
+  * **Deployment**: Pilot deployment and validation.
+- **Impact**: 40% reduction in processing time, 50%+ reduction in data collection costs through synthetic data.
+- **Technologies**: PyTorch, Vision Transformers, CLIP, Gradio, Docker, Flask, Synthetic Data Generation, Inpainting.
+- **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://example.com/eu-sustainability) (2023) and Vinnova Innovation week (2022).
+- **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://example.com/dataset), [Roadmap for industry adoption](https://example.com/roadmap).
+
+**Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: 4 months)**:
+
+- **Challenge**: Clients needed to integrate LLMs into their networking platform for textile recycling in Europe.
+- **Solution**: Designed a custom LLM chatbot and retrieval system for both structured and unstructured data.
+- **Impact**: Enabled a smart search and retrieval system for connecting textile actors in Europe.
+- **Technologies**: Retrieval Augmented Generation, LangChain, Evaluations, Prompt Engineering, Synthetic Data.
+
+**Project: Low Energy IoT Solutions for Industrial Clients (2022: 4 months)**:
+
+- **Challenge**: Clients needed to process sensor data at the edge with limited energy, preventing real-time analysis.
+- **Solution**: Identified energy-efficient AI algorithms (miniROCKET algorithm) for edge devices that is faster than deep learning methods by over 2000x.
+- **Impact**: Enabled real-time sensor data analysis with 90% lower hardware costs.
+- **Technologies**: Edge AI, Time Series Classification, Anomaly Detection, Low-Energy Computing.
+
+**AI Mentorship Program (2023-2024)**: Established and led mentorship program for Master's thesis students in AI, resulting in 4 industry-applicable projects.
+
+- **Projects**: Damage Detection in Fashion, Generative AI for Fashion, Time Series Forecasting for Fashion Trends, Image Embeddings for Second-Hand Fashion.
+- **Activities**: Provided hands-on training in deep learning and AI for advanced industrial AI application.
+
+**Other Projects**:
+
+- **Aero EDIH (2024)**: Consulted with startups on data/model strategies for on-device drone deployment for vehicle/person detection and runway debris identification. **Tasks**: Object Detection, Edge AI, Diffusion Models.
+- **Ramverk (2024)**: Prepared roadmap for air traffic control automation, including reinforcement learning state-of-the-art models and data collection proposal. **Tasks**: Reinforcement Learning, Data Collection.
+- **GreenerFlow (2023)**: Factor analysis for traffic congestion in metropolitan areas, led consortium formation for a larger project. **Tasks**: Time Series Analysis, Multi-modal Data.
+- **SHOW - Hard Brake Detection (2022)**: Developed time series anomaly detection models to identify hard brakes in autonomous buses. **Tasks**: Time Series Classification, Anomaly Detection.
+
+### 2MNordic IT Consulting AB
+**Data Scientist & Data Engineer**  
+*Dec 2019 - Jun 2021* | Gothenburg, Sweden
+
+**Project: Early Warning System for Student Performance (6 months)**:
+
+- **Challenge**: Helsingborg school district lacked ability to identify at-risk students early, resulting in up to 40% failure rate in some schools in 9th grade.
+- **Solution**: Developed predictive analytics system identifying absence, poor grades in English and Math as the key indicators in 6th grade that predict 9th grade performance, with school-level feature analysis for targeted funding.
+- **Impact**: Enabled early intervention for 10% of the student population, and provided data-driven policy recommendations impacting 3,000+ students.
+- **Technologies**: Azure DevOps, Azure Functions, Data Factory, Python, SQL, Power BI.
+
+**Project: Mathematics Assessment Optimization (4 months)**:
+
+- **Challenge**: New digital mathematics test showed inconsistencies with traditional grading schemes, causing confusion and potential inequities.
+- **Solution**: Conducted comprehensive data analysis of test results across 8 schools, identifying specific misalignments between grading schemes.
+- **Impact**: Findings led to significant improvement in assessment accuracy and informed critical education policy adjustments affecting district-wide mathematics curriculum.
+- **Technologies**: Scikit-learn, Statistical Analysis, Python, Data Visualization, Azure Notebooks.
+
+### Previous Research Positions
+*2009–2019*
+
+- **Research Fellow, Chalmers University of Technology**: Gothenburg, Sweden  (*2018–2019*)
+  Complex systems modeling, large-scale data analysis 
+- **Research Scientist, Niels Bohr Institute**: Copenhagen, Denmark  (*2015–2018*)
+  Simulation, forecasting, computational modeling 
+- **Research Assistant/PhD Student, Univ. of Rochester**: New York, USA  (*2009–2015*)
+  Data analysis, predictive modeling 
+
+## EDUCATION & CERTIFICATIONS
+
+### Microsoft Certified
+**Azure Data Engineer Certificate**  
+*2020*
+
+### University of Rochester
+**PhD in Physics and Astronomy**  
+*Oct 2015* | Rochester, New York (USA)  
+Focus: Complex Systems Modeling, Data Analysis, Computational Fluid Dynamics, High Performance Computing, C/C++
+
+## AWARDS & ACHIEVEMENTS
+
+* **Horton fellowship** from Laboratory for Laser Energetics - full research funding award. *2010-2015*
+* **Susumu Okubo Prize** for highest performance on graduate comprehensive exam and excellence in coursework. *2011*

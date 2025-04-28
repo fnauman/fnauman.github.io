@@ -14,6 +14,8 @@ website:
         text: Portfolio
       - href: posts.qmd 
         text: Blog
+      - href: cv.qmd
+        text: CV
       # - href: randomposts.qmd
       #   text: TIL/Random
 
@@ -37,6 +39,9 @@ website:
         href: https://twitter.com/naumanf_
       - icon: linkedin
         href: https://www.linkedin.com/in/fnauman/
+      - icon: envelope
+        aria-label: email
+        href: "mailto:farrukhnordicworks@gmail.com"  
   
   google-analytics: G-9BN5NTZ1J1
   open-graph: true
