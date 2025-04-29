@@ -1,6 +1,6 @@
 ---
 title: "CV: Farrukh Nauman" 
-subtitle: "AI  & Machine Learning Consultant | Generative AI, Computer Vision & LLMs | PhD"
+subtitle: "AI  & Machine Learning Consultant | LLMs, Generative AI & Computer Vision | PhD"
 image: assets/officialpic.JPG
 resources: 
   - assets/FarrukhNauman_consulting.pdf
