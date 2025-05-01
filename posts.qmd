@@ -1,5 +1,7 @@
 ---
 title: "Blog & Technical Notes"
+resources: 
+  - assets/placeholder-portfolio.png
 listing: 
   contents: 
     - posts # all Quarto docs in the `posts` directory will be included on your listing page
@@ -9,6 +11,7 @@ listing:
   categories: true # allows you to sort posts by assigned categories 
   fields: [image, date, title, categories, description, author, reading-time]
   filter-ui: [title, date, categories]
+  image-placeholder: assets/placeholder-portfolio.png
 ---
 
 `short-note` category represents random thoughts and things I've learned. The rest of the posts are longer-form posts.

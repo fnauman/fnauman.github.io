@@ -7,7 +7,7 @@ author:
 date: "2025-02-23"
 date-modified: last-modified
 categories: [Physics, Computational Fluid Dynamics, Aritifical Intelligence]
-keywords: [Physics, Computational Fluid Dynamics, Machine Learning, Data-Driven Methods, Artificial Intelligence]
+keywords: [Physics, Computational Fluid Dynamics, Machine Learning, Artificial Intelligence]
 citation: 
   url: https://fnauman.github.io/posts/2025-02-23-linear-regression-for-fluids/ 
 draft: true

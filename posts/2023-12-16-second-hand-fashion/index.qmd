@@ -9,8 +9,8 @@ author:
     affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
 date: 2023-12-16
 date-modified: last-modified
-categories: [Applied AI, Sustainable Fashion, Circular Economy, RISE]
-keywords: [AI in fashion, circular economy, sustainable fashion, technology in recycling]
+categories: [Artificial Intelligence, Sustainable Fashion]
+keywords: [circular economy, sustainable fashion]
 citation: 
   url: https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/ 
 image: front_2023_05_11_07_43_41.jpg

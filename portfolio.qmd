@@ -7,21 +7,21 @@ listing:
   categories: true # allows you to sort posts by assigned categories 
   fields: [image, date, title, categories, description, author, reading-time]
   filter-ui: [title, date]
+  image-height: 150px # Control the height of the listing image
+  image-placeholder: assets/placeholder-portfolio.png
 ---
-
 
 ## AI Solutions for Your Business Challenges
 
 Below you'll find a selection of projects that showcase my expertise in Generative AI, LLMs, Computer Vision, and AI strategy. Each project demonstrates how I've helped organizations translate business needs into scalable AI architectures with measurable impact.
 
 ::: {.callout-note appearance="minimal"}
-## Ready to transform your business with AI?
-I offer specialized consulting services in:
+## Specialized AI Consulting Services
 
-- **Generative AI & LLMs**: Custom solutions for synthetic data generation and smart assistants
-- **Computer Vision**: Automated process verification systems that reduce manual inspection costs
-- **Retrieval Augmented Generation (RAG)**: Smart knowledge management and document QA systems
-- **AI Strategy & Technical Advisory**: Guidance from feasibility assessment to deployment
+- **Generative AI & LLMs**: Custom solutions for synthetic data generation and smart assistants.
+- **Computer Vision**: Automated process verification systems that reduce manual inspection costs.
+- **Retrieval Augmented Generation (RAG)**: Smart knowledge management and document QA systems.
+- **AI Strategy & Technical Advisory**: Guidance from feasibility assessment to deployment.
 
 [Schedule a consultation](https://calendar.google.com/calendar/appointments/schedules/AcZssZ0xjpTUuITjAslR7WIdraRXZtoKunaB6T2a4CDnuELUAxjFiVx0LMelvbUOQcORHkONM6wbW-oV?gv=true){.btn .btn-primary} 
 [Email me](mailto:farrukhnordicworks@gmail.com){.btn .btn-outline-primary}

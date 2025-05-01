@@ -2,7 +2,7 @@
 title: "From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps"
 description: "Learn how to set up a modern web development environment: React, Node.js, and Vite."
 date: "2025-01-26"
-categories: [short-note, webapps, react, nodejs]
+categories: [short-note, webapps, react]
 # image: "react-vite-logo.png" # Changed to a more relevant image
 # draft: false
 ---
