@@ -11,8 +11,7 @@ date: 2025-04-13
 date-modified: last-modified
 categories: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
 keywords: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
-citation: 
-  url: https://fnauman.github.io/portfolio/2025-04-13-AI-fashion/ 
+citation: true
 image: background_removed_rotated_front_2023_08_16_10_42_41_rgb.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:

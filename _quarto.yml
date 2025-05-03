@@ -4,14 +4,14 @@ project:
 website:
   title: "Farrukh Nauman"
   site-url: https://fnauman.github.io
-  description: "AI Research, Machine Learning Consulting, and Technical Blog"
+  description: "Machine Learning Consulting, AI Research, and Technical Blog"
   navbar: 
     title: false # "Farrukh Nauman"
     left:
       - href: index.qmd
         text: Home
-      - href: portfolio.qmd 
-        text: Portfolio
+      - href: consulting.qmd 
+        text: Consulting
       - href: posts.qmd 
         text: Blog
       - href: cv.qmd

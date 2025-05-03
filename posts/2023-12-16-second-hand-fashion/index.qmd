@@ -11,8 +11,7 @@ date: 2023-12-16
 date-modified: last-modified
 categories: [Artificial Intelligence, Sustainable Fashion]
 keywords: [circular economy, sustainable fashion]
-citation: 
-  url: https://fnauman.github.io/posts/2023-12-16-second-hand-fashion/ 
+citation: true
 image: front_2023_05_11_07_43_41.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:

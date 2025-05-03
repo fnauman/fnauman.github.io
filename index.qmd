@@ -82,7 +82,7 @@ With a proven track record in developing end-to-end computer vision systems, syn
 :::
 :::
 
-## Portfolio {.mt-4}
+## Consulting {.mt-4}
 
 ```{python}
 #| echo: false
@@ -124,9 +124,9 @@ def get_post_info(file_path):
                 return None
     return None
 
-# Get portfolio items
-portfolio_items = []
-for item_dir in Path('portfolio').glob('*'):
+# Get consulting items
+consulting_items = []
+for item_dir in Path('consulting').glob('*'):
     if item_dir.is_dir():
         index_file = item_dir / 'index.qmd'
         if index_file.exists():
@@ -135,16 +135,16 @@ for item_dir in Path('portfolio').glob('*'):
                 # Add the directory path for image reference
                 if info.get('image'):
                     info['image_path'] = str(item_dir / info['image'])
-                portfolio_items.append(info)
+                consulting_items.append(info)
 
 # Sort by date and get latest 3
-portfolio_items.sort(key=lambda x: x['date'], reverse=True)
-portfolio_items = portfolio_items[:3]
+consulting_items.sort(key=lambda x: x['date'], reverse=True)
+consulting_items = consulting_items[:3]
 
 # Print as grid
 print("::: {.grid}\n")
 
-for item in portfolio_items:
+for item in consulting_items:
     print(f"::: {{.g-col-12 .g-col-md-4}}\n")
     print(f"### {item['title']}\n")
     
@@ -157,23 +157,23 @@ for item in portfolio_items:
     else:
         description = "AI consulting project"
     
-    # Create link to portfolio item
+    # Create link to consulting item
     print(f"[{description}]({item['path']})\n")
     print(":::\n")
 
 # If we have fewer than 3 items, fill with placeholders
-for i in range(3 - len(portfolio_items)):
+for i in range(3 - len(consulting_items)):
     print(f"::: {{.g-col-12 .g-col-md-4}}\n")
     if i == 0:
         print("### LLM Research Assistant\n")
-        print("[Developing custom LLM solutions for automated research report generation and analysis.](portfolio.qmd)\n")
+        print("[Developing custom LLM solutions for automated research report generation and analysis.](consulting.qmd)\n")
     elif i == 1:
         print("### Object Detection in Farming\n")
-        print("[Computer vision systems for farming applications.](portfolio.qmd)\n")
+        print("[Computer vision systems for farming applications.](consulting.qmd)\n")
     print(":::\n")
 
 print(":::\n")
-print("\n[View full portfolio →](portfolio.qmd)")
+print("\n[View full consulting →](consulting.qmd)")
 ```
 
 ## Recent Updates
