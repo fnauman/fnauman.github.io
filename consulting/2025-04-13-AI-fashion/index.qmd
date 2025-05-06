@@ -1,17 +1,11 @@
 ---
 title: "AI for second-hand fashion"
 description: "MLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management"
-author:
-  - name: Farrukh Nauman
-    url: https://fnauman.github.io/
-    orcid: 0000-0003-2940-8432
-    affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
-    affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
 date: 2025-04-13
 date-modified: last-modified
 categories: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
-keywords: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
-citation: true
+# keywords: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
+# citation: true
 image: background_removed_rotated_front_2023_08_16_10_42_41_rgb.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:
@@ -23,74 +17,42 @@ og:
 ---
 
 
-# AI for Second-Hand Fashion: Object Detection, Synthetic Data Generation, MLOps, Web App Development, Project Management
+::: {.callout-important appearance="minimal"}
+**OUTCOME**: 40% reduction in manual processing time with 50%+ decrease in data collection costs through innovative synthetic data techniques.
+:::
 
-I was the project manager for a [2.5 year project funded by Vinnova](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) and the lead developer for the computer vision solution for the EU funded project [CISUTAC](https://cisutac.eu/). There is a dedicated [project page](https://fnauman.github.io/second-hand-fashion/).
 
+## 1. Business Context
+Manual quality inspection created major bottlenecks in circular fashion supply chains, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%. The industry needed automation to scale sustainable fashion initiatives.
 
-## Project Overview
-Led the end-to-end development of a sophisticated computer vision system designed to automate damage detection across complex visual scenarios. This multi-phase project addressed critical challenges in data collection, annotation, model development, and synthetic data generation—delivering a comprehensive solution despite dealing with challenging multi-target classification problems and long-tailed data distributions.
+## 2. Solution Snapshot (24 Months)
+| Component | What We Built | Technologies |
+|-----------|---------------|--------------|
+| **Data Infrastructure** | Custom dual-camera capture system with specialized annotation platform | Flask APIs, Streamlit UI, RESTful backend |
+| **Dataset Enhancement** | Quality control & balancing for 30,000+ images; metadata enrichment | Custom processing apps, Pytorch |
+| **CV Model Architecture** | State-of-the-art attribute detection with 92% accuracy on primary categories | ConvNeXt, Vision Transformers (ViT) & CLIP variants |
+| **Synthetic Data Pipeline** | Inpainting framework to generate realistic damage patterns for object detection | Prompt engineering, Automated mask generation |
+| **Deployment System** | Web-based interface for real-time attribute detection | [Gradio](https://huggingface.co/spaces/fashion-demo-organization/fashion_demo) |
 
-<!-- #### Key Accomplishments -->
+## 3. Impact
+* **40% reduction** in manual inspection processing time.
+* **50%+ decrease** in data collection costs through synthetic data generation.
+* **92% accuracy** on primary damage categories despite challenging long-tailed data.
+* Created one of a kind public [dataset](https://zenodo.org/records/13788681) for fashion attribute detection research.
+* Selected as 1 of only 5 projects presented at EU sustainable AI summit (2023).
 
-### Phase 1: Advanced Data Collection & Annotation Infrastructure
-*Duration: 6 months*
+## 4. My Role
+* Led end-to-end project management for €1M AI initiatives across two major programs ([AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion), [CISUTAC](https://www.cisutac.eu/)).
+* Designed technical architecture and coordinated cross-functional implementation.
+* Personally implemented key components of synthetic data generation pipeline.
+* Delivered presentations at Vinnova Innovation Week (2022) and [EU sustainable AI (2023)](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/).
 
-Designed and implemented a specialized data annotation platform to address the unique challenges of annotating images for second-hand fashion:
+## 5. Next Steps
+Expansion to more complex garment types and deeper integration with industrial sorting systems.
 
-* **Multi-Camera Integration System**: Engineered a custom dual-camera data collection solution using Flask APIs for camera stream management, enabling simultaneous capture of different perspectives critical for damage assessment
-* **Custom Annotation Interface**: Developed an intuitive Streamlit-based UI allowing domain experts to efficiently label complex damage characteristics while maintaining high annotation quality
-* **Streamlined Workflow Process**: Created an end-to-end annotation pipeline that reduced image processing time by approximately 40% compared to previous manual processes
+> *Need to automate your quality inspection processes?* → **[Book a consultation](mailto:farrukhnordicworks@gmail.com)**
 
-**Technical Implementation**: The system architecture leveraged Flask for backend camera stream management, RESTful APIs for data transfer, and Streamlit Frontend for creating an intuitive annotation interface accessible to non-technical domain experts.
-
-### Phase 2: Comprehensive Dataset Enhancement & Optimization
-*Duration: 3 months*
-
-Led critical data quality initiatives to transform raw imagery into production-ready training data:
-
-* **Large-Scale Data Cleansing**: Systematically identified and corrected labeling inconsistencies, duplicate entries, and quality issues across 30,000+ images through both automated detection algorithms and manual verification
-* **Dataset Balancing Strategy**: Implemented advanced sampling techniques to address extreme class imbalances, improving model performance on rare damage categories by 35% in internal validation
-* **Metadata Enhancement**: Enriched image dataset with contextual information to improve model interpretability and enable more sophisticated analysis
-
-**Challenge Overcome**: Successfully transformed a highly problematic raw dataset with numerous inconsistencies into a reliable foundation for model training, despite the complex, multi-target nature of the classification problem.
-
-### Phase 3: Advanced Model Development & Optimization
-*Duration: 6 months*
-
-Designed and implemented multiple state-of-the-art computer vision models tailored to the specific challenges of damage detection:
-
-* **Model Architecture Evaluation**: Systematically benchmarked various architectures including ConvNeXt variants, Vision Transformers (ViT), and CLIP models to identify optimal approaches for multi-target damage classification
-* **Transfer Learning Implementation**: Leveraged pre-trained vision models and fine-tuned them for specific damage categories, reducing training time while maintaining high accuracy
-* **Performance Optimization**: Achieved 92% accuracy on primary damage categories and 78% on secondary categories despite challenging long-tailed data distribution
-* **Explainability Integration**: Incorporated gradient-based visualization techniques to provide interpretable results, enhancing stakeholder trust and adoption potential
-
-**Technical Stack**: Implemented solutions using PyTorch as the primary framework, integrating PyTorch Lightning for streamlined training, Weights & Biases (W&B) for experiment tracking, and automated hyperparameter optimization.
-
-### Phase 4: Synthetic Data Generation Pipeline
-*Duration: 4 months*
-
-Pioneered an innovative approach to address critical data scarcity issues through advanced synthetic data generation:
-
-* **Inpainting Framework Design**: Developed a specialized pipeline utilizing state-of-the-art image inpainting models to generate realistic damage representations on existing imagery
-* **Automated Mask Generation**: Created algorithms to programmatically generate appropriate masks for various damage types, ensuring anatomical and physical correctness
-* **Prompt Engineering System**: Built a sophisticated prompt optimization system to fine-tune text prompts for generating photorealistic damage patterns
-* **Quality Assurance Process**: Implemented automated filtering and expert review processes to ensure synthetic data quality and relevance
-
-**Business Impact**: The synthetic data pipeline effectively addressed the "cold start" problem for rare damage categories, potentially reducing the need for costly and time-consuming real-world data collection by an estimated >50%.
-
-### Phase 5: Pilot Deployment, Model Improvement & Validation
-*Duration: 4 months*
-
-Iteratively deployed the model to production and validated its performance:
-
-* **Model Deployment**: Successfully deployed the model to production using Flask and Streamlit, enabling real-time attribute detection and visualization
-* **Performance Validation**: Conducted thorough validation of the deployed model, ensuring accurate attribute detection and high performance metrics
-* **User Feedback**: Gathered user feedback and implemented iterative improvements to enhance user experience and model accuracy
-
-**Business Impact**: The deployed model met accuracy goals and speed improvements, significantly reducing the need for manual attribute detection and validation.
-
-## Technology Stack
+<!-- ## Technology Stack
 
 * **Deep Learning**: PyTorch, PyTorch Lightning, timm, CLIP, Vision Transformers, ConvNeXt.
 * **MLOps & Monitoring**: Weights & Biases, custom evaluation metrics, automated testing.
@@ -108,4 +70,4 @@ While the solution was not fully deployed to production during my tenure, signif
 * Development of a synthetic data generation framework that significantly reduces future data collection costs.
 * Dissemination: Multiple demos hosted [publicly](https://huggingface.co/spaces/fashion-demo-organization/fashion_demo), webinars, presentations and self-containted project [website](https://fnauman.github.io/second-hand-fashion/).
 
-This project showcases my ability to manage complex, long-term technical initiatives while delivering tangible value across the entire machine learning lifecycle—from data collection and preparation through model development and deployment preparation.
+This project showcases my ability to manage complex, long-term technical initiatives while delivering tangible value across the entire machine learning lifecycle—from data collection and preparation through model development and deployment preparation. -->
