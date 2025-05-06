@@ -48,26 +48,7 @@ Manual quality inspection created major bottlenecks in circular fashion supply c
 * Delivered presentations at Vinnova Innovation Week (2022) and [EU sustainable AI (2023)](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/).
 
 ## 5. Next Steps
-Expansion to more complex garment types and deeper integration with industrial sorting systems.
+Read more [here](https://fnauman.github.io/second-hand-fashion/).
 
-> *Need to automate your quality inspection processes?* → **[Book a consultation](mailto:farrukhnordicworks@gmail.com)**
+> *Need to automate your quality inspection processes using AI?* → **[Book a consultation](mailto:farrukhnordicworks@gmail.com)**
 
-<!-- ## Technology Stack
-
-* **Deep Learning**: PyTorch, PyTorch Lightning, timm, CLIP, Vision Transformers, ConvNeXt.
-* **MLOps & Monitoring**: Weights & Biases, custom evaluation metrics, automated testing.
-* **Web Development**: Flask (backend), Streamlit and Gradio (frontend), RESTful APIs.
-* **Data Processing**: Custom data pipelines, advanced image processing, synthetic data generation.
-* **UI/UX Design**: Intuitive interfaces for data annotation and result visualization.
-
-## Outcomes
-
-While the solution was not fully deployed to production during my tenure, significant milestones were achieved:
-
-* Dataset: One of a kind [dataset](https://zenodo.org/records/13788681), also hosted on [huggingface](https://huggingface.co/datasets/fnauman/fashion-second-hand-front-only-rgb).
-* Successful pilot demonstrations with key stakeholders, receiving positive feedback on accuracy, speed and usability.
-* Creation of a validated computer vision pipeline ready for production integration.
-* Development of a synthetic data generation framework that significantly reduces future data collection costs.
-* Dissemination: Multiple demos hosted [publicly](https://huggingface.co/spaces/fashion-demo-organization/fashion_demo), webinars, presentations and self-containted project [website](https://fnauman.github.io/second-hand-fashion/).
-
-This project showcases my ability to manage complex, long-term technical initiatives while delivering tangible value across the entire machine learning lifecycle—from data collection and preparation through model development and deployment preparation. -->
