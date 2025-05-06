@@ -3,7 +3,7 @@ title: "Farrukh Nauman"
 subtitle: "AI  & Machine Learning Consultant | Generative AI, Computer Vision & LLMs | PhD"
 image: assets/officialpic.JPG
 resources: 
-  - assets/FarrukhNauman_consulting.pdf
+  - assets/cv.pdf
 toc: false
 # about: 
 #   template: trestles
@@ -40,7 +40,7 @@ format:
 [![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=24px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
 [![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=24px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
 [![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukhnordicworks@gmail.com)
-[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/FarrukhNauman_consulting.pdf)
+[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/cv.pdf)
 :::
 :::
 

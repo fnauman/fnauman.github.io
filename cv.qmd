@@ -3,7 +3,7 @@ title: "CV: Farrukh Nauman"
 subtitle: "AI  & Machine Learning Consultant | LLMs, Generative AI & Computer Vision | PhD"
 image: assets/officialpic.JPG
 resources: 
-  - assets/FarrukhNauman_consulting.pdf
+  - assets/cv.pdf
 toc: false
 format: 
   html: 
@@ -17,7 +17,7 @@ format:
 
 <!-- **AI & Machine Learning Consultant | LLMs, Generative AI & Computer Vision Solutions | PhD** -->
 
-(+46) 0702984959 | [Email](mailto:farrukhnordicworks@gmail.com) | [LinkedIn](https://linkedin.com/in/fnauman) | [Github](https://github.com/fnauman) | [Homepage](https://fnauman.github.io) | [PDF](assets/FarrukhNauman_consulting.pdf)
+(+46) 0702984959 | [Email](mailto:farrukhnordicworks@gmail.com) | [LinkedIn](https://linkedin.com/in/fnauman) | [Github](https://github.com/fnauman) | [Homepage](https://fnauman.github.io) | [PDF](assets/cv.pdf)
 
 ---
 
@@ -96,14 +96,14 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
 **Data Scientist & Data Engineer**  
 *Dec 2019 - Jun 2021* | Gothenburg, Sweden
 
-**Project: Early Warning System for Student Performance (6 months)**:
+**Project: Early Warning System for Student Performance (2020: 6 months)**:
 
 - **Challenge**: Helsingborg school district lacked ability to identify at-risk students early, resulting in up to 40% failure rate in some schools in 9th grade.
 - **Solution**: Developed predictive analytics system identifying absence, poor grades in English and Math as the key indicators in 6th grade that predict 9th grade performance, with school-level feature analysis for targeted funding.
 - **Impact**: Enabled early intervention for 10% of the student population, and provided data-driven policy recommendations impacting 3,000+ students.
 - **Technologies**: Azure DevOps, Azure Functions, Data Factory, Python, SQL, Power BI.
 
-**Project: Mathematics Assessment Optimization (4 months)**:
+**Project: Mathematics Assessment Optimization (2021: 4 months)**:
 
 - **Challenge**: New digital mathematics test showed inconsistencies with traditional grading schemes, causing confusion and potential inequities.
 - **Solution**: Conducted comprehensive data analysis of test results across 8 schools, identifying specific misalignments between grading schemes.
