@@ -1,24 +1,24 @@
 [
   {
+    "listing": "/randomposts.html",
+    "items": [
+      "/randomposts/2025-02-05-hf-inference/index.html",
+      "/randomposts/2025-01-26-react-template/index.html",
+      "/randomposts/2025-01-31-hf-data-upload/index.html"
+    ]
+  },
+  {
     "listing": "/consulting.html",
     "items": [
       "/consulting/2025-04-13-AI-fashion/index.html"
     ]
   },
   {
-    "listing": "/randomposts.html",
-    "items": [
-      "/randomposts/2025-02-05-hf-inference/index.html",
-      "/randomposts/2025-01-31-hf-data-upload/index.html",
-      "/randomposts/2025-01-26-react-template/index.html"
-    ]
-  },
-  {
     "listing": "/posts.html",
     "items": [
       "/randomposts/2025-02-05-hf-inference/index.html",
-      "/randomposts/2025-01-31-hf-data-upload/index.html",
       "/randomposts/2025-01-26-react-template/index.html",
+      "/randomposts/2025-01-31-hf-data-upload/index.html",
       "/posts/2024-06-15-intelligence-complex/index.html",
       "/posts/2023-12-16-second-hand-fashion/index.html",
       "/posts/2023-11-20-llms-summary/index.html"
