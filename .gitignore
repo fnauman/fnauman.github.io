@@ -8,3 +8,5 @@ vendor
 .bundle
 
 /.quarto/
+
+**/*.quarto_ipynb
