@@ -1,6 +1,6 @@
 ---
 title: "CV: Farrukh Nauman" 
-subtitle: "AI  & Machine Learning Consultant | LLMs, Generative AI & Computer Vision | PhD"
+subtitle: "AI  & Machine Learning Consultant | LLMs, Time Series & Computer Vision | PhD"
 image: assets/officialpic.JPG
 resources: 
   - assets/cv.pdf
@@ -48,9 +48,13 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
 
 ## EXPERIENCE
 
+### InertialRange Labs AB
+**AI Consultant**  
+*Aug 2025 - Present* | Linköping, Sweden
+
 ### RISE Research Institutes of Sweden AB
 **AI Researcher & Consultant**  
-*Jul 2021 - Present* | Linköping, Sweden
+*Jul 2021 - Aug 2025* | Linköping, Sweden
 
 **Project Lead: Sustainable Fashion AI Automation (2022-2025: 24 months)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://example.com/vinnova) (Project Lead, ~9M SEK) and [CISUTAC](https://example.com/cisutac) (AI Lead, ~2M SEK).
 
