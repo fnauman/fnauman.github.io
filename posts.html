@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -34,18 +34,19 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7d9aa4417ef6a74b525cd8d8fcde34b5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-d20362fff8e1c46cf1795b1263f800f0.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7d9aa4417ef6a74b525cd8d8fcde34b5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2e6efedc327c2ed15767b0e0fdc80ea5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-e7e180893c302b8c263843c04cfff346.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2e6efedc327c2ed15767b0e0fdc80ea5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-ecddbcd8d8f4065d3413c94f7555c371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-ed67a5d21ecc7354867ea052e1a71e1f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-ecddbcd8d8f4065d3413c94f7555c371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-857bf41cf6c6fd3d81dcff85dfa1c936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -126,7 +127,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -323,6 +324,10 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -418,7 +423,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDaW5mZXJlbmNlJTJDdGV4dC10by1pbWFnZSUyQ2ZsdXg=" data-listing-date-sort="1738710000000" data-listing-file-modified-sort="1744531041468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="213">
+<div class="g-col-1" data-index="0" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDaW5mZXJlbmNlJTJDdGV4dC10by1pbWFnZSUyQ2ZsdXg=" data-listing-date-sort="1738710000000" data-listing-file-modified-sort="1746151759415" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="213">
 <a href="./randomposts/2025-02-05-hf-inference/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="randomposts/2025-02-05-hf-inference/cheetah.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -454,39 +459,7 @@ Feb 5, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="c2hvcnQtbm90ZSUyQ3dlYmFwcHMlMkNyZWFjdA==" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1746097072374" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895">
-<a href="./randomposts/2025-01-26-react-template/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps
-</h5>
-<div class="listing-reading-time card-text text-muted">5 min</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2hvcnQtbm90ZQ=='); return false;">short-note</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d2ViYXBwcw=='); return false;">webapps</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmVhY3Q='); return false;">react</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Learn how to set up a modern web development environment: React, Node.js, and Vite.</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
-<div class="listing-date">
-Jan 26, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDZGF0YXNldHM=" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1744531041468" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
+<div class="g-col-1" data-index="1" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDZGF0YXNldHM=" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1746151759411" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
 <a href="./randomposts/2025-01-31-hf-data-upload/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="randomposts/2025-01-31-hf-data-upload/data_sample.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -518,7 +491,39 @@ Jan 26, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0NvbXBsZXglMjBTeXN0ZW1zJTJDTmF0dXJhbCUyMExhbmd1YWdlJTIwUHJvY2Vzc2luZyUyQ0xhcmdlJTIwTGFuZ3VhZ2UlMjBNb2RlbHM=" data-listing-date-sort="1718402400000" data-listing-file-modified-sort="1746514931791" data-listing-date-modified-sort="1746514931000" data-listing-reading-time-sort="5" data-listing-word-count-sort="940">
+<div class="g-col-1" data-index="2" data-categories="c2hvcnQtbm90ZSUyQ3dlYmFwcHMlMkNyZWFjdA==" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1746151759411" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895">
+<a href="./randomposts/2025-01-26-react-template/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps
+</h5>
+<div class="listing-reading-time card-text text-muted">5 min</div>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2hvcnQtbm90ZQ=='); return false;">short-note</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('d2ViYXBwcw=='); return false;">webapps</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVhY3Q='); return false;">react</div>
+
+</div>
+<div class="card-text listing-description delink">
+<p>Learn how to set up a modern web development environment: React, Node.js, and Vite.</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Farrukh Nauman
+</div>
+<div class="listing-date">
+Jan 26, 2025
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0NvbXBsZXglMjBTeXN0ZW1zJTJDTmF0dXJhbCUyMExhbmd1YWdlJTIwUHJvY2Vzc2luZyUyQ0xhcmdlJTIwTGFuZ3VhZ2UlMjBNb2RlbHM=" data-listing-date-sort="1718402400000" data-listing-file-modified-sort="1746237898567" data-listing-date-modified-sort="1746237898000" data-listing-reading-time-sort="5" data-listing-word-count-sort="940">
 <a href="./posts/2024-06-15-intelligence-complex/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -552,7 +557,7 @@ Jun 15, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ1N1c3RhaW5hYmxlJTIwRmFzaGlvbg==" data-listing-date-sort="1702681200000" data-listing-file-modified-sort="1746514931791" data-listing-date-modified-sort="1746514931000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1188">
+<div class="g-col-1" data-index="4" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ1N1c3RhaW5hYmxlJTIwRmFzaGlvbg==" data-listing-date-sort="1702681200000" data-listing-file-modified-sort="1746237874901" data-listing-date-modified-sort="1746237874000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1188">
 <a href="./posts/2023-12-16-second-hand-fashion/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -584,7 +589,7 @@ Dec 16, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ05hdHVyYWwlMjBMYW5ndWFnZSUyMFByb2Nlc3NpbmclMkNMYXJnZSUyMExhbmd1YWdlJTIwTW9kZWxz" data-listing-date-sort="1700434800000" data-listing-file-modified-sort="1746514931790" data-listing-date-modified-sort="1746514931000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2921">
+<div class="g-col-1" data-index="5" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ05hdHVyYWwlMjBMYW5ndWFnZSUyMFByb2Nlc3NpbmclMkNMYXJnZSUyMExhbmd1YWdlJTIwTW9kZWxz" data-listing-date-sort="1700434800000" data-listing-file-modified-sort="1746237889770" data-listing-date-modified-sort="1746237889000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2921">
 <a href="./posts/2023-11-20-llms-summary/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
@@ -683,13 +688,14 @@ Nov 20, 2023
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

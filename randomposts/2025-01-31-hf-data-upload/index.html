@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.30">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,18 +70,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7d9aa4417ef6a74b525cd8d8fcde34b5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d20362fff8e1c46cf1795b1263f800f0.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7d9aa4417ef6a74b525cd8d8fcde34b5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2e6efedc327c2ed15767b0e0fdc80ea5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-e7e180893c302b8c263843c04cfff346.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2e6efedc327c2ed15767b0e0fdc80ea5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ecddbcd8d8f4065d3413c94f7555c371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-ed67a5d21ecc7354867ea052e1a71e1f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-ecddbcd8d8f4065d3413c94f7555c371.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-857bf41cf6c6fd3d81dcff85dfa1c936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -305,6 +306,10 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    </a>
+  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
@@ -422,7 +427,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <section id="data-formatting" class="level2">
 <h2 class="anchored" data-anchor-id="data-formatting">Data formatting</h2>
 <p>To be able to view the dataset in the Hugging Face Datasets Hub, the dataset needs to be formatted in the right way. I had an <strong>image classification</strong> dataset with several target attributes. I followed the guide <a href="https://huggingface.co/docs/datasets/en/image_dataset">here</a>. Here is how I formatted the dataset:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> train</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── metadata.csv</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── front_2024_02_29_14_26_45.jpg</span>
@@ -430,11 +435,11 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="ex">├──</span> test</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── metadata.csv</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── front_2024_05_30_12_30_02.jpg</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="ex">│</span>   ├── ...</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>where the <code>metadata.csv</code> file contains the <strong>file_name</strong> as the first column and several other columns each corresponding to a target attribute. Here is a sample:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">file_name,brand,usage,condition,type,category,price,trend,colors,cut,pattern,season,text,pilling,damage,stains,holes,smell,material</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">file_name,brand,usage,condition,type,category,price,trend,colors,cut,pattern,season,text,pilling,damage,stains,holes,smell,material</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">front_2022_12_14_08_48_42.jpg,Junkyard,Export,3,Jeans,Ladies,50-100,Denim,[</span><span class="st">'Blue'</span><span class="ex">],[</span><span class="st">'Loose'</span><span class="ex">],None,Spring,,4,,Minor,None,None,100%cotton</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">front_2023_06_29_08_22_48.jpg,Stacy,Reuse,4,Jeans,Unisex,50-100,None,[</span><span class="st">'Brown'</span><span class="ex">],[</span><span class="st">'Tight'</span><span class="ex">],None,All,,3,,None,None,None,</span><span class="st">"98% cotton, 2% elastane"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">front_2023_06_29_08_22_48.jpg,Stacy,Reuse,4,Jeans,Unisex,50-100,None,[</span><span class="st">'Brown'</span><span class="ex">],[</span><span class="st">'Tight'</span><span class="ex">],None,All,,3,,None,None,None,</span><span class="st">"98% cotton, 2% elastane"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>When rendered in the dataset viewer in the Hugging Face Datasets Hub, the dataset converts the <strong>file_name</strong> to an image preview with the title <strong>image</strong> and retains the other columns. Here is the preview of the dataset:</p>
 <p><img src="data_sample.png" class="img-fluid"></p>
 </section>
@@ -454,20 +459,20 @@ Important
 <p><code>load_dataset</code> name is misleading: it is not <em>loading</em> the dataset, but it is really setting up your dataset <em>locally</em> in a format suitable for the data viewer in the Hugging Face Datasets Hub. It should really be called <code>setup_dataset</code>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datasets <span class="im">import</span> load_dataset</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the LOCAL folder as a `huggingface/datasets` dataset</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dataset <span class="op">=</span> load_dataset(<span class="st">"imagefolder"</span>, data_dir<span class="op">=</span><span class="st">"./"</span>) <span class="co"># `imagefolder` is a special dataset type that loads images</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Upload the dataset to Hugging Face</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dataset.push_to_hub(<span class="st">"fnauman/fashion-second-hand-front-only"</span>, private<span class="op">=</span><span class="va">True</span>) <span class="co"># `private=True` makes the dataset repo private</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>dataset.push_to_hub(<span class="st">"fnauman/fashion-second-hand-front-only"</span>, private<span class="op">=</span><span class="va">True</span>) <span class="co"># `private=True` makes the dataset repo private</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>I recommend first uploading the dataset as a <code>private</code> dataset to ensure the upload worked and the data preview works as expected. You can later make the dataset public if you wish.</p>
 </section>
 <section id="what-did-not-work" class="level2">
 <h2 class="anchored" data-anchor-id="what-did-not-work">What did not work</h2>
 <p>Following the instructions <a href="https://huggingface.co/docs/huggingface_hub/en/guides/upload">here</a>, I tried using the <code>huggingface-cli</code> command with two variations, but it did not work.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">huggingface-cli</span> upload fashion-second-hand-front-only . . <span class="at">--repo-type</span> dataset</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">huggingface-cli</span> upload-large-folder fashion-second-hand-front-only <span class="at">--repo-type</span> dataset . <span class="at">--num-workers</span><span class="op">=</span>8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">huggingface-cli</span> upload fashion-second-hand-front-only . . <span class="at">--repo-type</span> dataset</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">huggingface-cli</span> upload-large-folder fashion-second-hand-front-only <span class="at">--repo-type</span> dataset . <span class="at">--num-workers</span><span class="op">=</span>8</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Both of these commands crashed and were relatively slow. I suspect it has to do with the large number of files (30,000) in the dataset.</p>
 
 
@@ -538,13 +543,14 @@ Important
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
