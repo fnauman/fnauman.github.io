@@ -3,7 +3,7 @@ project:
 
 website:
   title: "Farrukh Nauman"
-  site-url: https://fnauman.github.io
+  site-url: https://fnauman.com
   description: "Machine Learning Consulting, AI Research, and Technical Blog"
   navbar: 
     title: false # "Farrukh Nauman"
