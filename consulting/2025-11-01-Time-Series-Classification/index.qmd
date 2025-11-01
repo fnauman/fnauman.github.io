@@ -77,7 +77,7 @@ y_pred = classifier.predict(X_test_features)
 ## Contact
 
 **Farrukh Nauman** | AI Consultant  
-Time-Series Forecasting, Physics-Informed ML & Production ML | PhD
+Time Series Classification, Forecasting, Physics-Informed ML | PhD
 
 📧 farrukhnordicworks@gmail.com  
 🔗 [LinkedIn: fnauman](https://linkedin.com/in/fnauman)  
