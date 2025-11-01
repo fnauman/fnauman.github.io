@@ -102,11 +102,12 @@ $code-color: #e1e1e1;
 }
 
 .btn-primary {
-  color: $body-color !important;
+  color: white !important;
   background-color: $primary !important;
   border-color: $primary !important;
-  
+
   &:hover {
+    color: white !important;
     background-color: darken($primary, 10%) !important;
     border-color: darken($primary, 10%) !important;
   }
