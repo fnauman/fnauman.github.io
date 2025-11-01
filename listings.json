@@ -1,16 +1,17 @@
 [
   {
-    "listing": "/consulting.html",
-    "items": [
-      "/consulting/2025-04-13-AI-fashion/index.html"
-    ]
-  },
-  {
     "listing": "/randomposts.html",
     "items": [
       "/randomposts/2025-02-05-hf-inference/index.html",
       "/randomposts/2025-01-31-hf-data-upload/index.html",
       "/randomposts/2025-01-26-react-template/index.html"
+    ]
+  },
+  {
+    "listing": "/consulting.html",
+    "items": [
+      "/consulting/2025-11-01-Time-Series-Classification/index.html",
+      "/consulting/2025-04-13-AI-fashion/index.html"
     ]
   },
   {

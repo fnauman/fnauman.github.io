@@ -154,48 +154,6 @@
     "text": "AWARDS & ACHIEVEMENTS\n\nHorton fellowship from Laboratory for Laser Energetics - full research funding award. 2010-2015\nSusumu Okubo Prize for highest performance on graduate comprehensive exam and excellence in coursework. 2011"
   },
   {
-    "objectID": "consulting.html",
-    "href": "consulting.html",
-    "title": "Consulting",
-    "section": "",
-    "text": "Below you’ll find a selection of projects that showcase my expertise in Generative AI, LLMs, Computer Vision, and AI strategy. Each project demonstrates how I’ve helped organizations translate business needs into scalable AI architectures with measurable impact.\n\n\n\n\n\n\nNoteSpecialized AI Consulting Services\n\n\n\n\nGenerative AI & LLMs: Custom solutions for synthetic data generation and smart assistants.\nComputer Vision: Automated process verification systems that reduce manual inspection costs.\nRetrieval Augmented Generation (RAG): Smart knowledge management and document QA systems.\nAI Strategy & Technical Advisory: Guidance from feasibility assessment to deployment.\n\nSchedule a consultation Email me"
-  },
-  {
-    "objectID": "consulting.html#ai-solutions-for-your-business-challenges",
-    "href": "consulting.html#ai-solutions-for-your-business-challenges",
-    "title": "Consulting",
-    "section": "",
-    "text": "Below you’ll find a selection of projects that showcase my expertise in Generative AI, LLMs, Computer Vision, and AI strategy. Each project demonstrates how I’ve helped organizations translate business needs into scalable AI architectures with measurable impact.\n\n\n\n\n\n\nNoteSpecialized AI Consulting Services\n\n\n\n\nGenerative AI & LLMs: Custom solutions for synthetic data generation and smart assistants.\nComputer Vision: Automated process verification systems that reduce manual inspection costs.\nRetrieval Augmented Generation (RAG): Smart knowledge management and document QA systems.\nAI Strategy & Technical Advisory: Guidance from feasibility assessment to deployment.\n\nSchedule a consultation Email me"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Farrukh Nauman",
-    "section": "",
-    "text": "I help organizations leverage cutting-edge AI for measurable business impact. As an AI Solutions Consultant specializing in Large Language Models (LLMs), Generative AI, and Computer Vision, I deliver custom solutions that translate business needs into scalable AI architectures. My expertise includes:\n\n🤖 LLMs: Custom LLM and generative AI systems for synthetic data generation and smart assistants.\n🔍 Computer Vision: Design and deployment of computer vision systems for automated process optimization and inspection.\n📊 Time Series: Development of time series models for classification, anomaly detection and forecasting.\n💼 AI Strategy & Technical Advisory: Strategic guidance from feasibility to deployment with a focus on ROI and implementation.\n\nWith a proven track record in developing end-to-end computer vision systems, synthetic data frameworks, and custom LLM solutions, I help businesses overcome technical challenges and achieve significant efficiency gains.\n\n\n\n\n\n\nNote🤝 Available for Consulting\n\n\n\n\n\n\n\n\n\n\nEmail me\n\n\n\n\n\n\n\n\nMLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management\n\n\n\nDeveloping custom LLM solutions for automated research report generation and analysis.\n\n\n\nComputer vision systems for farming applications.\n\n\nView full consulting →\n\n\n\n\n\n\n\nInference on HuggingFace - February 05, 2025\nUploading datasets to Hugging Face - January 26, 2025\nFrom Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps - January 26, 2025\nIntelligence as a Complex System: Lessons from Physics - June 15, 2024\nAutomating second-hand fashion - December 16, 2023\nLarge Language Models: A Compact Guide - November 20, 2023\n\nView all posts →"
-  },
-  {
-    "objectID": "index.html#consulting",
-    "href": "index.html#consulting",
-    "title": "Farrukh Nauman",
-    "section": "",
-    "text": "MLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management\n\n\n\nDeveloping custom LLM solutions for automated research report generation and analysis.\n\n\n\nComputer vision systems for farming applications.\n\n\nView full consulting →"
-  },
-  {
-    "objectID": "index.html#recent-updates",
-    "href": "index.html#recent-updates",
-    "title": "Farrukh Nauman",
-    "section": "",
-    "text": "Inference on HuggingFace - February 05, 2025\nUploading datasets to Hugging Face - January 26, 2025\nFrom Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps - January 26, 2025\nIntelligence as a Complex System: Lessons from Physics - June 15, 2024\nAutomating second-hand fashion - December 16, 2023\nLarge Language Models: A Compact Guide - November 20, 2023\n\nView all posts →"
-  },
-  {
-    "objectID": "randomposts.html",
-    "href": "randomposts.html",
-    "title": "TIL/Random Notes",
-    "section": "",
-    "text": "This is a collection of random thoughts and things I’ve learned. For longer-form,regularly updated posts, visit the Blog page.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nInference on HuggingFace\n\n\n\nshort-note\n\nhuggingface\n\ninference\n\ntext-to-image\n\nflux\n\n\n\nPlaying with the Inference Providers on HuggingFace\n\n\n\n\n\nFeb 5, 2025\n\n\nFarrukh Nauman\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\nUploading datasets to Hugging Face\n\n\n\nshort-note\n\nhuggingface\n\ndatasets\n\n\n\nHugging Face Datasets\n\n\n\n\n\nJan 26, 2025\n\n\nFarrukh Nauman\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\nFrom Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps\n\n\n\nshort-note\n\nwebapps\n\nreact\n\n\n\nLearn how to set up a modern web development environment: React, Node.js, and Vite.\n\n\n\n\n\nJan 26, 2025\n\n\nFarrukh Nauman\n\n5 min\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "consulting/2025-04-13-AI-fashion/index.html",
     "href": "consulting/2025-04-13-AI-fashion/index.html",
     "title": "AI for second-hand fashion",
@@ -236,6 +194,97 @@
     "title": "AI for second-hand fashion",
     "section": "5. Next Steps",
     "text": "5. Next Steps\nRead more here.\n\nNeed to automate your quality inspection processes using AI? → Book a consultation"
+  },
+  {
+    "objectID": "randomposts.html",
+    "href": "randomposts.html",
+    "title": "TIL/Random Notes",
+    "section": "",
+    "text": "This is a collection of random thoughts and things I’ve learned. For longer-form,regularly updated posts, visit the Blog page.\n\n\n\n\n\n\n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\nInference on HuggingFace\n\n\n\nshort-note\n\nhuggingface\n\ninference\n\ntext-to-image\n\nflux\n\n\n\nPlaying with the Inference Providers on HuggingFace\n\n\n\n\n\nFeb 5, 2025\n\n\nFarrukh Nauman\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\nUploading datasets to Hugging Face\n\n\n\nshort-note\n\nhuggingface\n\ndatasets\n\n\n\nHugging Face Datasets\n\n\n\n\n\nJan 26, 2025\n\n\nFarrukh Nauman\n\n2 min\n\n\n\n\n\n\n\n\n\n\n\nFrom Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps\n\n\n\nshort-note\n\nwebapps\n\nreact\n\n\n\nLearn how to set up a modern web development environment: React, Node.js, and Vite.\n\n\n\n\n\nJan 26, 2025\n\n\nFarrukh Nauman\n\n5 min\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Farrukh Nauman",
+    "section": "",
+    "text": "I help organizations leverage cutting-edge AI for measurable business impact.\n\n🤖 LLMs: Custom LLM and generative AI systems for synthetic data generation and smart assistants.\n🔍 Computer Vision: Design and deployment of computer vision systems for automated process optimization and inspection.\n📊 Time Series: Development of time series models for classification, anomaly detection and forecasting.\n💼 AI Strategy & Technical Advisory: Strategic guidance from feasibility to deployment with a focus on ROI and implementation.\n\nWith a proven track record in developing end-to-end computer vision systems, synthetic data frameworks, and custom LLM solutions, I help businesses overcome technical challenges and achieve significant efficiency gains.\n\n\n\n\n\n\nNote🤝 Available for Consulting\n\n\n\n\n\n\n\nNeed help with AI? Email me \n\n\n\n\n\n\n\nTime Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation\n\n\n\nMLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management\n\n\nView full consulting →\n\n\n\n\n\n\n\nInference on HuggingFace - February 05, 2025\nUploading datasets to Hugging Face - January 26, 2025\nFrom Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps - January 26, 2025\nIntelligence as a Complex System: Lessons from Physics - June 15, 2024\nAutomating second-hand fashion - December 16, 2023\nLarge Language Models: A Compact Guide - November 20, 2023\n\nView all posts →"
+  },
+  {
+    "objectID": "index.html#consulting",
+    "href": "index.html#consulting",
+    "title": "Farrukh Nauman",
+    "section": "",
+    "text": "Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation\n\n\n\nMLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management\n\n\nView full consulting →"
+  },
+  {
+    "objectID": "index.html#recent-updates",
+    "href": "index.html#recent-updates",
+    "title": "Farrukh Nauman",
+    "section": "",
+    "text": "Inference on HuggingFace - February 05, 2025\nUploading datasets to Hugging Face - January 26, 2025\nFrom Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps - January 26, 2025\nIntelligence as a Complex System: Lessons from Physics - June 15, 2024\nAutomating second-hand fashion - December 16, 2023\nLarge Language Models: A Compact Guide - November 20, 2023\n\nView all posts →"
+  },
+  {
+    "objectID": "consulting.html",
+    "href": "consulting.html",
+    "title": "Consulting",
+    "section": "",
+    "text": "Below you’ll find a selection of projects that showcase my expertise in Generative AI, LLMs, Computer Vision, and AI strategy. Each project demonstrates how I’ve helped organizations translate business needs into scalable AI architectures with measurable impact.\n\n\n\n\n\n\nNoteSpecialized AI Consulting Services\n\n\n\n\nGenerative AI & LLMs: Custom solutions for synthetic data generation and smart assistants.\nComputer Vision: Automated process verification systems that reduce manual inspection costs.\nRetrieval Augmented Generation (RAG): Smart knowledge management and document QA systems.\nAI Strategy & Technical Advisory: Guidance from feasibility assessment to deployment.\n\nSchedule a consultation Email me"
+  },
+  {
+    "objectID": "consulting.html#ai-solutions-for-your-business-challenges",
+    "href": "consulting.html#ai-solutions-for-your-business-challenges",
+    "title": "Consulting",
+    "section": "",
+    "text": "Below you’ll find a selection of projects that showcase my expertise in Generative AI, LLMs, Computer Vision, and AI strategy. Each project demonstrates how I’ve helped organizations translate business needs into scalable AI architectures with measurable impact.\n\n\n\n\n\n\nNoteSpecialized AI Consulting Services\n\n\n\n\nGenerative AI & LLMs: Custom solutions for synthetic data generation and smart assistants.\nComputer Vision: Automated process verification systems that reduce manual inspection costs.\nRetrieval Augmented Generation (RAG): Smart knowledge management and document QA systems.\nAI Strategy & Technical Advisory: Guidance from feasibility assessment to deployment.\n\nSchedule a consultation Email me"
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html",
+    "title": "Time Series Classification for Production",
+    "section": "",
+    "text": "OUTCOME: State-of-the-art accuracy with 10-100× faster inference than deep learning through modern feature engineering and careful algorithm selection."
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html#why-this-matters",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html#why-this-matters",
+    "title": "Time Series Classification for Production",
+    "section": "Why this matters",
+    "text": "Why this matters\nMany real‑world systems need accurate, low‑latency models on constrained hardware (edge, IoT, embedded). Deep learning models can be heavy to train and serve; feature‑based methods deliver strong accuracy with simpler, faster inference."
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html#approach-in-brief",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html#approach-in-brief",
+    "title": "Time Series Classification for Production",
+    "section": "Approach in brief",
+    "text": "Approach in brief\n\nUnderstand constraints (latency, resources, data)\nPick the right classifier (ex: ROCKET variants with Ridge) for the job\nOptimize features and classifier for your use case"
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html#rocket-family---example-of-efficient-and-accurate-classifiers",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html#rocket-family---example-of-efficient-and-accurate-classifiers",
+    "title": "Time Series Classification for Production",
+    "section": "ROCKET family - example of efficient and accurate classifiers",
+    "text": "ROCKET family - example of efficient and accurate classifiers\n\nThousands of simple, randomly‑parameterized convolutions over the series\nPool to compact features; train a lightweight linear classifier\nResults: competitive accuracy on many benchmarks and often 10–100× faster inference than deep architectures; MiniROCKET is deterministic and reproducible\n\n\nVariants at a glance\n\nMiniROCKET — Deterministic kernels and PPV pooling. Best for edge/IoT and reproducibility.\nMultiROCKET — Multiple pooling stats; raw + differenced signals. Best for complex multivariate data when accuracy matters.\nROCKET — Random kernels with simple pooling. Solid, fast baseline.\n\n\n\nSimple pipeline\nfrom rocket_and_friends.src.mini_rocket import MiniROCKET\nfrom sklearn.linear_model import RidgeClassifierCV\nimport numpy as np\n\n# Simple, production-ready pipeline\ntransformer = MiniROCKET(num_features=10_000, random_state=42)\ntransformer.fit(X_train)\n\nX_train_features = transformer.transform(X_train)\nX_test_features = transformer.transform(X_test)\n\nclassifier = RidgeClassifierCV(alphas=np.logspace(-3, 3, 7))\nclassifier.fit(X_train_features, y_train)\ny_pred = classifier.predict(X_test_features)"
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html#real-world-use-cases",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html#real-world-use-cases",
+    "title": "Time Series Classification for Production",
+    "section": "Real-world use cases",
+    "text": "Real-world use cases\n\nEdge anomaly detection: Sub‑100 ms latency on embedded hardware; consistent behavior across a fleet.\nIoT sensors: Efficient CPU‑only processing that preserves battery life.\nIndustrial monitoring: High‑quality multichannel vibration classification with interpretable features."
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html#how-i-can-help",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html#how-i-can-help",
+    "title": "Time Series Classification for Production",
+    "section": "How I can help",
+    "text": "How I can help\n\nAlgorithm selection and adaptation\nCustom optimization for your data and constraints\nProduction deployment and MLOps integration\nTraining and knowledge transfer"
+  },
+  {
+    "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html#contact",
+    "href": "consulting/2025-11-01-Time-Series-Classification/index.html#contact",
+    "title": "Time Series Classification for Production",
+    "section": "Contact",
+    "text": "Contact\nFarrukh Nauman | AI Consultant\nTime-Series Forecasting, Physics-Informed ML & Production ML | PhD\n📧 farrukhnordicworks@gmail.com\n🔗 LinkedIn: fnauman\n💻 GitHub: fnauman\n\n\n\n\n\n\n\nNoteLearn More\n\n\n\nCurious how these techniques could improve your time series applications? Let’s discuss your constraints and goals."
   },
   {
     "objectID": "posts/2023-11-20-llms-summary/index.html",

@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.24">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2025-11-01">
+<meta name="description" content="Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation">
 
-<title>AI Pilot Checklist – Farrukh Nauman</title>
+<title>Time Series Classification for Production – Farrukh Nauman</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,31 +22,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2e6efedc327c2ed15767b0e0fdc80ea5.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-e7e180893c302b8c263843c04cfff346.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2e6efedc327c2ed15767b0e0fdc80ea5.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-857bf41cf6c6fd3d81dcff85dfa1c936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5974fafaa78df73e29b0e498382124b0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-4571e413af9019dfdcc70175faf53a1f.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-5974fafaa78df73e29b0e498382124b0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-857bf41cf6c6fd3d81dcff85dfa1c936.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-829dcb9a0d330d9244f5089f59e1eff2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -83,15 +120,17 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="AI Pilot Checklist – Farrukh Nauman">
-<meta property="og:description" content="AI consulting for EU/Nordic ops and data leaders: visual inspection, LLM assistants, 3–4 week pilots, measurable ROI.">
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Time Series Classification for Production – Farrukh Nauman">
+<meta property="og:description" content="Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation">
+<meta property="og:image" content="https://fnauman.com/consulting/2025-11-01-Time-Series-Classification/rocket_features.png">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta name="twitter:title" content="AI Pilot Checklist – Farrukh Nauman">
-<meta name="twitter:description" content="AI consulting for EU/Nordic ops and data leaders: visual inspection, LLM assistants, 3–4 week pilots, measurable ROI.">
+<meta name="twitter:title" content="Time Series Classification for Production – Farrukh Nauman">
+<meta name="twitter:description" content="Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation">
+<meta name="twitter:image" content="https://fnauman.com/consulting/2025-11-01-Time-Series-Classification/rocket_features.png">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -259,11 +298,11 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -273,19 +312,19 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./consulting.html"> 
+    <a class="nav-link" href="../../consulting.html"> 
 <span class="menu-text">Consulting</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../../posts.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./cv.html"> 
+    <a class="nav-link" href="../../cv.html"> 
 <span class="menu-text">CV</span></a>
   </li>  
 </ul>
@@ -319,62 +358,171 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Time Series Classification for Production</h1>
+                  <div>
+        <div class="description">
+          Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Time Series</div>
+                <div class="quarto-category">Production ML</div>
+                <div class="quarto-category">Feature Engineering</div>
+                <div class="quarto-category">Algorithm Adaptation</div>
+                <div class="quarto-category">PyTorch</div>
+                <div class="quarto-category">Scikit-Learn</div>
+                <div class="quarto-category">Real-time ML</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">November 1, 2025</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">November 1, 2025</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#why-this-matters" id="toc-why-this-matters" class="nav-link active" data-scroll-target="#why-this-matters">Why this matters</a></li>
+  <li><a href="#approach-in-brief" id="toc-approach-in-brief" class="nav-link" data-scroll-target="#approach-in-brief">Approach in brief</a></li>
+  <li><a href="#rocket-family---example-of-efficient-and-accurate-classifiers" id="toc-rocket-family---example-of-efficient-and-accurate-classifiers" class="nav-link" data-scroll-target="#rocket-family---example-of-efficient-and-accurate-classifiers">ROCKET family - example of efficient and accurate classifiers</a>
+  <ul class="collapse">
+  <li><a href="#variants-at-a-glance" id="toc-variants-at-a-glance" class="nav-link" data-scroll-target="#variants-at-a-glance">Variants at a glance</a></li>
+  <li><a href="#simple-pipeline" id="toc-simple-pipeline" class="nav-link" data-scroll-target="#simple-pipeline">Simple pipeline</a></li>
+  </ul></li>
+  <li><a href="#real-world-use-cases" id="toc-real-world-use-cases" class="nav-link" data-scroll-target="#real-world-use-cases">Real-world use cases</a></li>
+  <li><a href="#how-i-can-help" id="toc-how-i-can-help" class="nav-link" data-scroll-target="#how-i-can-help">How I can help</a></li>
+  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">AI Pilot Checklist</h1>
+
+
+
+
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
 </div>
-
-
-
-<div class="quarto-title-meta column-page">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Use this 1‑page checklist to de‑risk your first AI pilot.</p>
-<section id="goals-success" class="level2">
-<h2 class="anchored" data-anchor-id="goals-success">Goals &amp; Success</h2>
+<div class="callout-body-container">
+<p><strong>OUTCOME</strong>: State-of-the-art accuracy with 10-100× faster inference than deep learning through modern feature engineering and careful algorithm selection.</p>
+</div>
+</div>
+</div>
+<section id="why-this-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters">Why this matters</h2>
+<p>Many real‑world systems need accurate, low‑latency models on constrained hardware (edge, IoT, embedded). Deep learning models can be heavy to train and serve; feature‑based methods deliver strong accuracy with simpler, faster inference.</p>
+</section>
+<section id="approach-in-brief" class="level2">
+<h2 class="anchored" data-anchor-id="approach-in-brief">Approach in brief</h2>
 <ul>
-<li>Business outcome defined (e.g., −20–40% processing time)</li>
-<li>Quantified success metrics and exit criteria</li>
+<li>Understand constraints (latency, resources, data)</li>
+<li>Pick the right classifier (ex: ROCKET variants with Ridge) for the job</li>
+<li>Optimize features and classifier for your use case</li>
 </ul>
 </section>
-<section id="data-access" class="level2">
-<h2 class="anchored" data-anchor-id="data-access">Data &amp; Access</h2>
+<section id="rocket-family---example-of-efficient-and-accurate-classifiers" class="level2">
+<h2 class="anchored" data-anchor-id="rocket-family---example-of-efficient-and-accurate-classifiers">ROCKET family - example of efficient and accurate classifiers</h2>
 <ul>
-<li>Source systems and sample data identified</li>
-<li>Access, privacy, and GDPR constraints confirmed</li>
+<li>Thousands of simple, randomly‑parameterized convolutions over the series</li>
+<li>Pool to compact features; train a lightweight linear classifier</li>
+<li>Results: competitive accuracy on many benchmarks and often 10–100× faster inference than deep architectures; MiniROCKET is deterministic and reproducible</li>
+</ul>
+<section id="variants-at-a-glance" class="level3">
+<h3 class="anchored" data-anchor-id="variants-at-a-glance">Variants at a glance</h3>
+<ul>
+<li><strong>MiniROCKET</strong> — Deterministic kernels and PPV pooling. Best for edge/IoT and reproducibility.</li>
+<li><strong>MultiROCKET</strong> — Multiple pooling stats; raw + differenced signals. Best for complex multivariate data when accuracy matters.</li>
+<li><strong>ROCKET</strong> — Random kernels with simple pooling. Solid, fast baseline.</li>
 </ul>
 </section>
-<section id="scope-timeline" class="level2">
-<h2 class="anchored" data-anchor-id="scope-timeline">Scope &amp; Timeline</h2>
+<section id="simple-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="simple-pipeline">Simple pipeline</h3>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> rocket_and_friends.src.mini_rocket <span class="im">import</span> MiniROCKET</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> RidgeClassifierCV</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple, production-ready pipeline</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>transformer <span class="op">=</span> MiniROCKET(num_features<span class="op">=</span><span class="dv">10_000</span>, random_state<span class="op">=</span><span class="dv">42</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>transformer.fit(X_train)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>X_train_features <span class="op">=</span> transformer.transform(X_train)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>X_test_features <span class="op">=</span> transformer.transform(X_test)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>classifier <span class="op">=</span> RidgeClassifierCV(alphas<span class="op">=</span>np.logspace(<span class="op">-</span><span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">7</span>))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>classifier.fit(X_train_features, y_train)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> classifier.predict(X_test_features)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="real-world-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="real-world-use-cases">Real-world use cases</h2>
 <ul>
-<li>Pilot scope (1 use case, 1 site/team)</li>
-<li>3–4 week build window with weekly demos</li>
+<li><strong>Edge anomaly detection</strong>: Sub‑100 ms latency on embedded hardware; consistent behavior across a fleet.</li>
+<li><strong>IoT sensors</strong>: Efficient CPU‑only processing that preserves battery life.</li>
+<li><strong>Industrial monitoring</strong>: High‑quality multichannel vibration classification with interpretable features.</li>
 </ul>
 </section>
-<section id="stakeholders" class="level2">
-<h2 class="anchored" data-anchor-id="stakeholders">Stakeholders</h2>
+<section id="how-i-can-help" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-can-help">How I can help</h2>
 <ul>
-<li>Business owner, technical owner, and end‑users named</li>
-<li>Deployment environment and handover plan agreed</li>
+<li>Algorithm selection and adaptation</li>
+<li>Custom optimization for your data and constraints</li>
+<li>Production deployment and MLOps integration</li>
+<li>Training and knowledge transfer</li>
 </ul>
-<p><a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0xjpTUuITjAslR7WIdraRXZtoKunaB6T2a4CDnuELUAxjFiVx0LMelvbUOQcORHkONM6wbW-oV?gv=true" class="btn btn-primary">Book a 20‑min discovery call</a></p>
+<hr>
+</section>
+<section id="contact" class="level2">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<p><strong>Farrukh Nauman</strong> | AI Consultant<br>
+Time-Series Forecasting, Physics-Informed ML &amp; Production ML | PhD</p>
+<p>📧 farrukhnordicworks@gmail.com<br>
+🔗 <a href="https://linkedin.com/in/fnauman">LinkedIn: fnauman</a><br>
+💻 <a href="https://github.com/fnauman">GitHub: fnauman</a></p>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Learn More
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Curious how these techniques could improve your time series applications? Let’s discuss your constraints and goals.</p>
+</div>
+</div>
 
 
 </section>
@@ -466,7 +614,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/fnauman\.github\.io");
+        var filterRegex = new RegExp("https:\/\/fnauman\.com");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
