@@ -48,7 +48,7 @@ format:
 ::: {.g-col-12 .g-col-md-9}
 # Welcome! 👋
 
-I help organizations leverage cutting-edge AI for measurable business impact. As an AI Solutions Consultant specializing in Large Language Models (LLMs), Generative AI, and Computer Vision, I deliver custom solutions that translate business needs into scalable AI architectures. My expertise includes:
+I help organizations leverage cutting-edge AI for measurable business impact. 
 
 - 🤖 **LLMs**: Custom LLM and generative AI systems for synthetic data generation and smart assistants.
 - 🔍 **Computer Vision**: Design and deployment of computer vision systems for automated process optimization and inspection.
@@ -59,10 +59,10 @@ With a proven track record in developing end-to-end computer vision systems, syn
 
 ::: {.callout-note appearance="simple"}
 ## 🤝 Available for Consulting
-::: {.d-flex .gap-2 .mt-3}
+<!-- ::: {.d-flex .gap-2 .mt-3}
 <!-- [Schedule a consultation]{.btn .btn-primary} -->
 <!-- Google Calendar Appointment Scheduling begin -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<!-- <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
 <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 <script>
 (function() {
@@ -76,13 +76,15 @@ With a proven track record in developing end-to-end computer vision systems, syn
     });
   });
 })();
-</script>
+</script> -->
 <!-- end Google Calendar Appointment Scheduling -->
+Need help with AI?
 [Email me](mailto:farrukhnordicworks@gmail.com){.btn .btn-outline-primary}
-:::
+<!-- ::: -->
 :::
 
-## Consulting {.mt-4}
+
+## Consulting {.mt-5}
 
 ```{python}
 #| echo: false
@@ -159,17 +161,6 @@ for item in consulting_items:
     
     # Create link to consulting item
     print(f"[{description}]({item['path']})\n")
-    print(":::\n")
-
-# If we have fewer than 3 items, fill with placeholders
-for i in range(3 - len(consulting_items)):
-    print(f"::: {{.g-col-12 .g-col-md-4}}\n")
-    if i == 0:
-        print("### LLM Research Assistant\n")
-        print("[Developing custom LLM solutions for automated research report generation and analysis.](consulting.qmd)\n")
-    elif i == 1:
-        print("### Object Detection in Farming\n")
-        print("[Computer vision systems for farming applications.](consulting.qmd)\n")
     print(":::\n")
 
 print(":::\n")

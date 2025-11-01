@@ -1,0 +1,92 @@
+---
+title: "Time Series Classification for Production"
+description: "Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation"
+date: 2025-11-01
+date-modified: last-modified
+categories: [Time Series, Production ML, Feature Engineering, Algorithm Adaptation, PyTorch, Scikit-Learn, Real-time ML]
+image: rocket_features.png
+draft: false
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "Time Series Classification: Research to Production"
+  description: "How modern feature-based approaches deliver state-of-the-art accuracy with 10-100× faster inference than deep learning for real-world applications."
+---
+
+::: {.callout-important appearance="minimal"}
+**OUTCOME**: State-of-the-art accuracy with 10-100× faster inference than deep learning through modern feature engineering and careful algorithm selection.
+:::
+
+## Why this matters
+
+Many real‑world systems need accurate, low‑latency models on constrained hardware (edge, IoT, embedded). Deep learning models can be heavy to train and serve; feature‑based methods deliver strong accuracy with simpler, faster inference.
+
+## Approach in brief
+
+- Understand constraints (latency, resources, data)
+- Pick the right classifier (ex: ROCKET variants with Ridge) for the job
+- Optimize features and classifier for your use case
+
+## ROCKET family - example of efficient and accurate classifiers
+
+- Thousands of simple, randomly‑parameterized convolutions over the series
+- Pool to compact features; train a lightweight linear classifier
+- Results: competitive accuracy on many benchmarks and often 10–100× faster inference than deep architectures; MiniROCKET is deterministic and reproducible
+
+### Variants at a glance
+
+- **MiniROCKET** — Deterministic kernels and PPV pooling. Best for edge/IoT and reproducibility.
+- **MultiROCKET** — Multiple pooling stats; raw + differenced signals. Best for complex multivariate data when accuracy matters.
+- **ROCKET** — Random kernels with simple pooling. Solid, fast baseline.
+
+### Simple pipeline
+
+```python
+from rocket_and_friends.src.mini_rocket import MiniROCKET
+from sklearn.linear_model import RidgeClassifierCV
+import numpy as np
+
+# Simple, production-ready pipeline
+transformer = MiniROCKET(num_features=10_000, random_state=42)
+transformer.fit(X_train)
+
+X_train_features = transformer.transform(X_train)
+X_test_features = transformer.transform(X_test)
+
+classifier = RidgeClassifierCV(alphas=np.logspace(-3, 3, 7))
+classifier.fit(X_train_features, y_train)
+y_pred = classifier.predict(X_test_features)
+```
+
+## Real-world use cases
+
+- **Edge anomaly detection**: Sub‑100 ms latency on embedded hardware; consistent behavior across a fleet.
+- **IoT sensors**: Efficient CPU‑only processing that preserves battery life.
+- **Industrial monitoring**: High‑quality multichannel vibration classification with interpretable features.
+
+## How I can help
+
+- Algorithm selection and adaptation
+- Custom optimization for your data and constraints
+- Production deployment and MLOps integration
+- Training and knowledge transfer
+
+---
+
+## Contact
+
+**Farrukh Nauman** | AI Consultant  
+Time-Series Forecasting, Physics-Informed ML & Production ML | PhD
+
+📧 farrukhnordicworks@gmail.com  
+🔗 [LinkedIn: fnauman](https://linkedin.com/in/fnauman)  
+💻 [GitHub: fnauman](https://github.com/fnauman)
+
+---
+
+:::: {.callout-note}
+## Learn More
+
+Curious how these techniques could improve your time series applications? Let's discuss your constraints and goals.
+::::
