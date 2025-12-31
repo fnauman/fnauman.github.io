@@ -4,7 +4,6 @@ description: "Time Series Classification, Feature Engineering, Production ML, Ed
 date: 2025-11-01
 date-modified: last-modified
 categories: [Time Series, Production ML, Feature Engineering, Algorithm Adaptation, PyTorch, Scikit-Learn, Real-time ML]
-image: rocket_features.png
 draft: false
 twitter:
   creator: "@naumanf_"

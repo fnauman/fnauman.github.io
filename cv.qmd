@@ -17,7 +17,7 @@ format:
 
 <!-- **AI & Machine Learning Consultant | LLMs, Generative AI & Computer Vision Solutions | PhD** -->
 
-(+46) 0702984959 | [Email](mailto:farrukhnordicworks@gmail.com) | [LinkedIn](https://linkedin.com/in/fnauman) | [Github](https://github.com/fnauman) | [Homepage](https://fnauman.github.io) | [PDF](assets/cv.pdf)
+(+46) 0702984959 | [Email](mailto:farrukhnordicworks@gmail.com) | [LinkedIn](https://linkedin.com/in/fnauman) | [Github](https://github.com/fnauman) | [Homepage](https://fnauman.com) | [PDF](assets/cv.pdf)
 
 ---
 
@@ -56,7 +56,7 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
 **AI Researcher & Consultant**  
 *Jul 2021 - Aug 2025* | Linköping, Sweden
 
-**Project Lead: Sustainable Fashion AI Automation (2022-2025: 24 months)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://example.com/vinnova) (Project Lead, ~9M SEK) and [CISUTAC](https://example.com/cisutac) (AI Lead, ~2M SEK).
+**Project Lead: Sustainable Fashion AI Automation (2022-2025: 24 months)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK).
 
 - **Challenge**: Manual quality inspection created major bottlenecks in circular fashion supply chain, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%.
 - **Solution**: Designed and implemented end-to-end computer vision system for automated attribute detection.
@@ -67,8 +67,8 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
   * **Deployment**: Pilot deployment and validation.
 - **Impact**: 40% reduction in processing time, 50%+ reduction in data collection costs through synthetic data.
 - **Technologies**: PyTorch, Vision Transformers, CLIP, Gradio, Docker, Flask, Synthetic Data Generation, Inpainting.
-- **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://example.com/eu-sustainability) (2023) and Vinnova Innovation week (2022).
-- **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://example.com/dataset), [Roadmap for industry adoption](https://example.com/roadmap).
+- **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/) (2023) and Vinnova Innovation week (2022).
+- **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://zenodo.org/records/13788681), [Roadmap for industry adoption](https://fnauman.com/second-hand-fashion/).
 
 **Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: 4 months)**:
 

@@ -3,7 +3,7 @@ title: "Automating second-hand fashion"
 description: "How can AI be used to accelerate the transition to a circular economy?"
 author:
   - name: Farrukh Nauman
-    url: https://fnauman.github.io/
+    url: https://fnauman.com/
     orcid: 0000-0003-2940-8432
     affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
     affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
@@ -23,7 +23,7 @@ og:
 ---
 
 ::: {.callout-note}
-**Update February 2025**: For more detailed and up-to-date information, please visit [fnauman.github.io/second-hand-fashion](https://fnauman.github.io/second-hand-fashion/).
+**Update February 2025**: For more detailed and up-to-date information, please visit [fnauman.com/second-hand-fashion](https://fnauman.com/second-hand-fashion/).
 :::
 
 # Automating Second-Hand Fashion
@@ -73,7 +73,7 @@ In the Vinnova project that I am leading from RISE, we are developing a novel da
 - Dataset v1, 3000 clothing items: [Zenodo link](https://zenodo.org/records/8386668).
 
 ::: {.callout-important}
-**Update February 2025**: v3 with **31,638** items was released on September 19th, 2024 [here](https://zenodo.org/records/13788681). For up to date information, please visit [fnauman.github.io/second-hand-fashion](https://fnauman.github.io/second-hand-fashion/).
+**Update February 2025**: v3 with **31,638** items was released on September 19th, 2024 [here](https://zenodo.org/records/13788681). For up to date information, please visit [fnauman.com/second-hand-fashion](https://fnauman.com/second-hand-fashion/).
 :::
 
 
