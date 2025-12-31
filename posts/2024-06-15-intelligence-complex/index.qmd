@@ -3,7 +3,7 @@ title: "Intelligence as a Complex System: Lessons from Physics"
 description: "Understanding Intelligence Through the Lens of Physics"
 author:
   - name: Farrukh Nauman
-    url: https://fnauman.github.io/
+    url: https://fnauman.com/
 date: "2024-06-15"
 date-modified: last-modified
 categories: [Artificial Intelligence, Complex Systems, Natural Language Processing, Large Language Models]

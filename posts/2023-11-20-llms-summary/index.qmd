@@ -3,7 +3,7 @@ title: "Large Language Models: A Compact Guide"
 description: "What are Large Language Models? What are their limitations and common use cases?"
 author:
   - name: Farrukh Nauman
-    url: https://fnauman.github.io/
+    url: https://fnauman.com/
     orcid: 0000-0003-2940-8432
     # affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
     # affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
