@@ -1,9 +1,8 @@
 ---
-title: "CV: Farrukh Nauman" 
-subtitle: "AI  & Machine Learning Consultant | LLMs, Time Series & Computer Vision | PhD"
-image: assets/officialpic.JPG
+title: "Farrukh Nauman" 
+subtitle: "Principal AI Consultant / Team Lead | AI Engineer | PhD"
 resources: 
-  - assets/cv.pdf
+  - assets/FarrukhNauman_brokers.pdf
 toc: false
 format: 
   html: 
@@ -17,67 +16,76 @@ format:
 
 <!-- **AI & Machine Learning Consultant | LLMs, Generative AI & Computer Vision Solutions | PhD** -->
 
-(+46) 0702984959 | [Email](mailto:farrukhnordicworks@gmail.com) | [LinkedIn](https://linkedin.com/in/fnauman) | [Github](https://github.com/fnauman) | [Homepage](https://fnauman.com) | [PDF](assets/cv.pdf)
+::: {.text-center}
+[farrukh.nauman@inertialrange.com](mailto:farrukh.nauman@inertialrange.com) |
+(+46) 0702984959 |
+[fnauman.com](https://fnauman.com) |
+[inertialrange.com](https://inertialrange.com)  
+LinkedIn: [fnauman](https://www.linkedin.com/in/fnauman/) |
+Github: [fnauman](https://github.com/fnauman) | 
+[PDF](assets/FarrukhNauman_brokers.pdf)
+:::
 
 ---
 
-## VALUE PROPOSITION
+## Value Proposition
 
-AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating complex AI capabilities into tangible business value. Proven ability to deliver significant operational improvements:
+AI team lead and principal consultant bridging AI strategy and hands-on delivery across GenAI, analytics automation, and predictive maintenance. Track record of measurable business impact:
 
-* 40% reduction in manual inspection costs for textile quality assessment.
-* 50%+ reduction in data collection costs through synthetic data generation.
-* 90% lower hardware costs for industrial IoT implementations.
+- 40% reduction in processing time for textile quality assessment.
+- 50%+ reduction in data collection costs through synthetic data generation.
+- 90% lower hardware costs for industrial IoT implementations.
 
-## CONSULTING OFFERS
+## Leadership Highlights
 
-* **Proof-of-Concept (Fixed Price/4-weeks)** - dataset audit, model prototype, ROI roadmap.
-* **Hourly/Daily Rate Projects** - flexible engagement for ongoing development and implementation.
-* **Fractional AI Lead (Retainer)** - steer data teams, drive AI initiatives, governance (1-2 days/week).
-* **AI Workshops** - hands-on training in generative AI, vision and LLMs.
+- Interim Team Lead for Data Science & Advanced Analytics at a global industrial manufacturer, steering roadmap and adoption of production-grade ML and GenAI.
+- Led applied AI initiatives at RISE: [Vinnova](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK), delivering pilot-ready systems and public artifacts.
+- Established and led an AI mentorship program for Master's thesis students, resulting in 4 industry-applicable projects.
+- Strengths: stakeholder alignment, requirements-to-roadmap translation, delivery focus, and pragmatic AI governance.
 
-## SKILLS & TECH STACK
+## Skills & Tech Stack
 
 | Area | Skills |
 |------|--------|
 | **AI & ML** | **LLMs**: OpenAI, Gemini, HF Transformers, RAG, Fine-tuning, Synthetic Data, OCR, Vector DBs;<br>**GenAI, Vision**: Text-to-Image, Inpainting, Object Detection, Classification, Segmentation, Edge AI;<br>**Core ML**: Predictive Modeling, Anomaly Detection, Time Series;<br>**Libs/Frameworks**: PyTorch (Expert, 6 yrs), Transformers, Diffusers, LangChain, Weights & Biases |
 | **MLOps & Cloud** | Azure ML, Docker, CI/CD, Model Monitoring/Serving, Experiment Tracking, Git, REST APIs |
 | **Programming** | Python (Expert, 8+ yrs), C/C++ (Proficient, 8 yrs), SQL, High Performance Computing (8 years) |
-| **Business** | Stakeholder Management, Requirements Gathering, Project Scoping, Solution Architecture, Technical Leadership, ROI Analysis, Client Communication |
+| **Leadership & Delivery** | Stakeholder Management, Requirements Gathering, Roadmapping, Solution Architecture, Technical Leadership, Governance, ROI Analysis, Client Communication |
 | **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
 
-## EXPERIENCE
+## Experience
 
 ### InertialRange Labs AB
-**AI Consultant**  
-*Aug 2025 - Present* | Linköping, Sweden
+**Principal AI Consultant**  *Sep 2025 -* | Linköping, Sweden
+ 
+**Engagement: Interim Team Lead – Data Science & Advanced Analytics (Sep 2025 - Feb 2026: _6 months_):**  
+Client: Global Industrial Manufacturer (Material Handling & Logistics)
+
+- **AI Strategy & Leadership**: Steering the technical roadmap to integrate Generative AI and Deep Learning into standard operational analytics, effectively bridging the gap between traditional Data Engineering and modern AI.
+- **Generative AI for Analytics**: Architecting LLM-driven agents to automate complex data querying and reporting tasks, reducing "time-to-insight" for non-technical stakeholders.
+- **Predictive Maintenance (Time Series)**: Building in-house competence for Time Series Classification models on high-frequency sensor telemetry to predict equipment faults.
+- **Tech Stack**: Azure Databricks, PyTorch, LLM Agents (LangChain), Time-Series, Model Monitoring/Serving, Experiment Tracking, Git.
 
 ### RISE Research Institutes of Sweden AB
 **AI Researcher & Consultant**  
 *Jul 2021 - Aug 2025* | Linköping, Sweden
 
-**Project Lead: Sustainable Fashion AI Automation (2022-2025: 24 months)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK).
+**Project Lead: Sustainable Fashion AI Automation (2022-2025: *24 months*)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK).
 
 - **Challenge**: Manual quality inspection created major bottlenecks in circular fashion supply chain, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%.
-- **Solution**: Designed and implemented end-to-end computer vision system for automated attribute detection.
-- **Approach**:
-
-  * **Data**: Custom annotation & collection setup; Cleaning, enrichment.
-  * **Model**: Training & optimization; Synthetic data generation.
-  * **Deployment**: Pilot deployment and validation.
+- **Delivery**: Led end-to-end delivery of an automated attribute detection system spanning data collection/annotation pipeline, dataset curation, model training/optimization, synthetic data generation, and pilot deployment/validation.
 - **Impact**: 40% reduction in processing time, 50%+ reduction in data collection costs through synthetic data.
-- **Technologies**: PyTorch, Vision Transformers, CLIP, Gradio, Docker, Flask, Synthetic Data Generation, Inpainting.
 - **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/) (2023) and Vinnova Innovation week (2022).
-- **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://zenodo.org/records/13788681), [Roadmap for industry adoption](https://fnauman.com/second-hand-fashion/).
+- **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://zenodo.org/records/13788681), [Roadmap for industry adoption](https://fnauman.github.io/second-hand-fashion/posts/2025-04-08-roadmap-to-full-automation/).
 
-**Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: 4 months)**:
+**Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: *4 months*)**:
 
 - **Challenge**: Clients needed to integrate LLMs into their networking platform for textile recycling in Europe.
 - **Solution**: Designed a custom LLM chatbot and retrieval system for both structured and unstructured data.
 - **Impact**: Enabled a smart search and retrieval system for connecting textile actors in Europe.
 - **Technologies**: Retrieval Augmented Generation, LangChain, Evaluations, Prompt Engineering, Synthetic Data.
 
-**Project: Low Energy IoT Solutions for Industrial Clients (2022: 4 months)**:
+**Project: Low Energy IoT Solutions for Industrial Clients (2022: *4 months*)**:
 
 - **Challenge**: Clients needed to process sensor data at the edge with limited energy, preventing real-time analysis.
 - **Solution**: Identified energy-efficient AI algorithms (miniROCKET algorithm) for edge devices that is faster than deep learning methods by over 2000x.
@@ -100,14 +108,14 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
 **Data Scientist & Data Engineer**  
 *Dec 2019 - Jun 2021* | Gothenburg, Sweden
 
-**Project: Early Warning System for Student Performance (2020: 6 months)**:
+**Project: Early Warning System for Student Performance (2020: *6 months*)**:
 
 - **Challenge**: Helsingborg school district lacked ability to identify at-risk students early, resulting in up to 40% failure rate in some schools in 9th grade.
 - **Solution**: Developed predictive analytics system identifying absence, poor grades in English and Math as the key indicators in 6th grade that predict 9th grade performance, with school-level feature analysis for targeted funding.
 - **Impact**: Enabled early intervention for 10% of the student population, and provided data-driven policy recommendations impacting 3,000+ students.
 - **Technologies**: Azure DevOps, Azure Functions, Data Factory, Python, SQL, Power BI.
 
-**Project: Mathematics Assessment Optimization (2021: 4 months)**:
+**Project: Mathematics Assessment Optimization (2021: *4 months*)**:
 
 - **Challenge**: New digital mathematics test showed inconsistencies with traditional grading schemes, causing confusion and potential inequities.
 - **Solution**: Conducted comprehensive data analysis of test results across 8 schools, identifying specific misalignments between grading schemes.
@@ -124,7 +132,7 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
 - **Research Assistant/PhD Student, Univ. of Rochester**: New York, USA  (*2009–2015*)
   Data analysis, predictive modeling 
 
-## EDUCATION & CERTIFICATIONS
+## Education & Certifications
 
 ### Microsoft Certified
 **Azure Data Engineer Certificate**  
@@ -135,7 +143,7 @@ AI consultant specializing in Gen AI, LLMs, and Computer Vision, translating com
 *Oct 2015* | Rochester, New York (USA)  
 Focus: Complex Systems Modeling, Data Analysis, Computational Fluid Dynamics, High Performance Computing, C/C++
 
-## AWARDS & ACHIEVEMENTS
+## Awards & Achievements
 
-* **Horton fellowship** from Laboratory for Laser Energetics - full research funding award. *2010-2015*
-* **Susumu Okubo Prize** for highest performance on graduate comprehensive exam and excellence in coursework. *2011*
+- Horton fellowship from Laboratory for Laser Energetics - full research funding award. *2010-2015*
+- Susumu Okubo Prize for highest performance on graduate comprehensive exam and excellence in coursework. *2011*

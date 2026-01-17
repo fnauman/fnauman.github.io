@@ -3,28 +3,8 @@ title: "Farrukh Nauman"
 subtitle: "AI  & Machine Learning Consultant | LLMs, Time Series & Computer Vision | PhD"
 image: assets/officialpic.JPG
 resources: 
-  - assets/cv.pdf
+  - assets/FarrukhNauman_brokers.pdf
 toc: false
-# about: 
-#   template: trestles
-#   image-shape: round
-#   image-width: 10em
-#   links:
-#     - text: GitHub
-#       icon: github
-#       href: https://github.com/fnauman
-#     - text: Twitter
-#       icon: twitter
-#       href: https://twitter.com/naumanf_
-#     - text: LinkedIn
-#       icon: linkedin
-#       href: https://www.linkedin.com/in/fnauman/
-#     - text: Email
-#       icon: envelope
-#       href: mailto:farrukhnordicworks@gmail.com
-#     - text: CV
-#       icon: file-earmark-pdf
-#       href: assets/cv.pdf
 format: 
   html: 
     page-layout: full
@@ -39,8 +19,8 @@ format:
 [![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=24px title="GitHub" .social-icon}](https://github.com/fnauman)
 [![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=24px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
 [![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=24px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
-[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukhnordicworks@gmail.com)
-[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/cv.pdf)
+[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukh.nauman@inertialrange.com)
+[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/FarrukhNauman_brokers.pdf)
 :::
 :::
 
@@ -79,7 +59,7 @@ With a proven track record in developing end-to-end computer vision systems, syn
 </script> -->
 <!-- end Google Calendar Appointment Scheduling -->
 Need help with AI?
-[Email me](mailto:farrukhnordicworks@gmail.com){.btn .btn-outline-primary}
+[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary}
 <!-- ::: -->
 :::
 

@@ -23,6 +23,6 @@ Below you'll find a selection of projects that showcase my expertise in Generati
 - **Retrieval Augmented Generation (RAG)**: Smart knowledge management and document QA systems.
 - **AI Strategy & Technical Advisory**: Guidance from feasibility assessment to deployment.
 
-[Schedule a consultation](https://calendar.google.com/calendar/appointments/schedules/AcZssZ0xjpTUuITjAslR7WIdraRXZtoKunaB6T2a4CDnuELUAxjFiVx0LMelvbUOQcORHkONM6wbW-oV?gv=true){.btn .btn-primary} 
-[Email me](mailto:farrukhnordicworks@gmail.com){.btn .btn-outline-primary}
+[Schedule a consultation](https://calendar.app.google/sH8s13r8keotW6jf9){.btn .btn-primary} 
+[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary}
 :::
