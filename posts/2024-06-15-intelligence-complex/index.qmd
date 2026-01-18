@@ -11,7 +11,7 @@ keywords: [Artificial Intelligence, Complex Systems, Natural Language Processing
 citation: true
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:
-  creator: "@naumanf_"
+  creator: "@fnauman"
   card-style: summary_large_image
 og:
   title: "Intelligence as a Complex System: Lessons from Physics"

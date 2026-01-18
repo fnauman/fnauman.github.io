@@ -22,32 +22,32 @@ website:
     right:
       - icon: github
         href: https://github.com/fnauman
-      - icon: twitter
-        href: https://twitter.com/naumanf_
+      - icon: x
+        href: https://x.com/fnauman
       - icon: linkedin
         href: https://www.linkedin.com/in/fnauman/
       - icon: envelope
         aria-label: email
-        href: "mailto:farrukhnordicworks@gmail.com"  
+        href: "mailto:farrukh.nauman@inertialrange.com"  
   
   page-footer:
-    left: "Copyright 2025, Farrukh Nauman"
+    left: "Copyright 2026, Farrukh Nauman"
     right: 
       - icon: github
         href: https://github.com/fnauman
-      - icon: twitter
-        href: https://twitter.com/naumanf_
+      - icon: x
+        href: https://x.com/fnauman
       - icon: linkedin
         href: https://www.linkedin.com/in/fnauman/
       - icon: envelope
         aria-label: email
-        href: "mailto:farrukhnordicworks@gmail.com"  
+        href: "mailto:farrukh.nauman@inertialrange.com"  
   
   google-analytics: G-9BN5NTZ1J1
   open-graph: true
   twitter-card: 
-    creator: "@naumanf_" 
-    site: "@naumanf_"
+    creator: "@fnauman" 
+    site: "@fnauman"
 
 format:
   html:

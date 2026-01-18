@@ -9,7 +9,7 @@ categories: [MLOps, Object Detection, Web App Development, Computer Vision, Synt
 image: background_removed_rotated_front_2023_08_16_10_42_41_rgb.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:
-  creator: "@naumanf_"
+  creator: "@fnauman"
   card-style: summary_large_image
 og:
   title: "AI for Second-Hand Fashion: AI's Role in a Circular Economy"
@@ -50,5 +50,5 @@ Manual quality inspection created major bottlenecks in circular fashion supply c
 ## 5. Next Steps
 Read more [here](https://fnauman.com/second-hand-fashion/).
 
-> *Need to automate your quality inspection processes using AI?* → **[Book a consultation](mailto:farrukhnordicworks@gmail.com)**
+> *Need to automate your quality inspection processes using AI?* → **[Book a consultation](mailto:farrukh.nauman@inertialrange.com)**
 

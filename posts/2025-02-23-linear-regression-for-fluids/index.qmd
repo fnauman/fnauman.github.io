@@ -11,7 +11,7 @@ keywords: [Physics, Computational Fluid Dynamics, Machine Learning, Artificial I
 citation: true
 draft: true
 twitter:
-  creator: "@naumanf_"
+  creator: "@fnauman"
   card-style: summary_large_image
 og:
   title: "Linear Regression for Fluids"

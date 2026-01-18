@@ -6,7 +6,7 @@ date-modified: last-modified
 categories: [Time Series, Production ML, Feature Engineering, Algorithm Adaptation, PyTorch, Scikit-Learn, Real-time ML]
 draft: false
 twitter:
-  creator: "@naumanf_"
+  creator: "@fnauman"
   card-style: summary_large_image
 og:
   title: "Time Series Classification: Research to Production"
@@ -78,7 +78,7 @@ y_pred = classifier.predict(X_test_features)
 **Farrukh Nauman** | AI Consultant  
 Time Series Classification, Forecasting, Physics-Informed ML | PhD
 
-📧 farrukhnordicworks@gmail.com  
+📧 farrukh.nauman@inertialrange.com
 🔗 [LinkedIn: fnauman](https://linkedin.com/in/fnauman)  
 💻 [GitHub: fnauman](https://github.com/fnauman)
 
