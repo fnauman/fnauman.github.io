@@ -27,6 +27,7 @@ Github: [fnauman](https://github.com/fnauman) |
 ## Value Proposition
 
 Principal consultant and interim team lead bridging strategy and hands-on delivery in production-scale data environments (telemetry/time series, vision, and LLM workflow automation). Selected outcomes from applied R&D / pilot deployments:
+
 - 40% faster textile quality assessment workflow (pilot).
 - 50%+ reduction in data collection/labeling effort via synthetic data (pilot).
 - p to 90% lower edge hardware cost enabled by low-energy ML approach (prototype).
