@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "Principal AI Consultant / Team Lead | AI Engineer | PhD"
+subtitle: "Principal / Tech Lead | AI Engineer | Industrial AI (Telemetry, Analytics, LLMs) | PhD"
 resources: 
   - assets/FarrukhNauman_brokers.pdf
 toc: false
@@ -11,10 +11,6 @@ format:
 
 ---
 
-
-<!-- # Farrukh Nauman -->
-
-<!-- **AI & Machine Learning Consultant | LLMs, Generative AI & Computer Vision Solutions | PhD** -->
 
 ::: {.text-center}
 [farrukh.nauman@inertialrange.com](mailto:farrukh.nauman@inertialrange.com) |
@@ -30,26 +26,25 @@ Github: [fnauman](https://github.com/fnauman) |
 
 ## Value Proposition
 
-AI team lead and principal consultant bridging AI strategy and hands-on delivery across GenAI, analytics automation, and predictive maintenance. Track record of measurable business impact:
-
-- 40% reduction in processing time for textile quality assessment.
-- 50%+ reduction in data collection costs through synthetic data generation.
-- 90% lower hardware costs for industrial IoT implementations.
+Principal consultant and interim team lead bridging strategy and hands-on delivery in production-scale data environments (telemetry/time series, vision, and LLM workflow automation). Selected outcomes from applied R&D / pilot deployments:
+- 40% faster textile quality assessment workflow (pilot).
+- 50%+ reduction in data collection/labeling effort via synthetic data (pilot).
+- p to 90% lower edge hardware cost enabled by low-energy ML approach (prototype).
 
 ## Leadership Highlights
 
-- Interim Team Lead for Data Science & Advanced Analytics at a global industrial manufacturer, steering roadmap and adoption of production-grade ML and GenAI.
-- Led applied AI initiatives at RISE: [Vinnova](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK), delivering pilot-ready systems and public artifacts.
+- Interim Team Lead for Data Science & Advanced Analytics (4-7 person) at a global industrial telemetry, roadmap ownership and stakeholder management.
+- Led applied AI initiatives at RISE: [Vinnova](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK), delivering pilot-ready systems and public artifacts. 
+- Scaled delivery practices: evaluation-first approach, privacy-aware workflows, requirements → success criteria → handover.
 - Established and led an AI mentorship program for Master's thesis students, resulting in 4 industry-applicable projects.
-- Strengths: stakeholder alignment, requirements-to-roadmap translation, delivery focus, and pragmatic AI governance.
 
 ## Skills & Tech Stack
 
 | Area | Skills |
 |------|--------|
-| **AI & ML** | **LLMs**: OpenAI, Gemini, HF Transformers, RAG, Fine-tuning, Synthetic Data, OCR, Vector DBs;<br>**GenAI, Vision**: Text-to-Image, Inpainting, Object Detection, Classification, Segmentation, Edge AI;<br>**Core ML**: Predictive Modeling, Anomaly Detection, Time Series;<br>**Libs/Frameworks**: PyTorch (Expert, 6 yrs), Transformers, Diffusers, LangChain, Weights & Biases |
-| **MLOps & Cloud** | Azure ML, Docker, CI/CD, Model Monitoring/Serving, Experiment Tracking, Git, REST APIs |
-| **Programming** | Python (Expert, 8+ yrs), C/C++ (Proficient, 8 yrs), SQL, High Performance Computing (8 years) |
+| **AI & ML** | **LLMs**: Text-to-SQL, RAG, Fine-tuning, Evaluation Harnesses, Synthetic Data, Logging & Reliability Analysis;<br>**Vision**: Object Detection, Classification, Segmentation, Inspection workflows, Edge AI;<br>**Time Series**: Forecasting, Anomaly Detection, Activity Recognition, Predictive Maintenance; |
+| **MLOps & Cloud** | ASnowflake, Databricks/Spark, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
+| **Programming** | Python (Expert), C/C++, SQL, High Performance Computing, LangChain, OpenAI SDK |
 | **Leadership & Delivery** | Stakeholder Management, Requirements Gathering, Roadmapping, Solution Architecture, Technical Leadership, Governance, ROI Analysis, Client Communication |
 | **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
 
@@ -61,9 +56,10 @@ AI team lead and principal consultant bridging AI strategy and hands-on delivery
 **Engagement: Interim Team Lead – Data Science & Advanced Analytics (Sep 2025 - Feb 2026: _6 months_):**  
 Client: Global Industrial Manufacturer (Material Handling & Logistics)
 
-- **AI Strategy & Leadership**: Steering the technical roadmap to integrate Generative AI and Deep Learning into standard operational analytics, effectively bridging the gap between traditional Data Engineering and modern AI.
-- **Generative AI for Analytics**: Architecting LLM-driven agents to automate complex data querying and reporting tasks, reducing "time-to-insight" for non-technical stakeholders.
-- **Predictive Maintenance (Time Series)**: Building in-house competence for Time Series Classification models on high-frequency sensor telemetry to predict equipment faults.
+- Lead a **4–7** person DS/analytics team; own roadmap, stakeholder steering, and technical direction across telemetry analytics, ML, and GenAI automation.
+- Coordinate transition planning/execution for **Databricks → Snowflake** while maintaining daily Spark/BI workloads over **23** TB telemetry data.
+- Established in-house direction for **machine activity recognition from CAN/telemetry (PoC)**: privacy-safe labeling workflow, baselines, evaluation harness, and benchmarking vs external PoC (faster inference with comparable accuracy on internal tests).
+- Prototyped **Text-to-SQL** workflow automation (PoC): synthetic evaluation dataset generation + instrumentation/logging to analyze failure modes and improve reliability.
 - **Tech Stack**: Azure Databricks, PyTorch, LLM Agents (LangChain), Time-Series, Model Monitoring/Serving, Experiment Tracking, Git.
 
 ### RISE Research Institutes of Sweden AB
@@ -72,16 +68,16 @@ Client: Global Industrial Manufacturer (Material Handling & Logistics)
 
 **Project Lead: Sustainable Fashion AI Automation (2022-2025: *24 months*)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK).
 
-- **Challenge**: Manual quality inspection created major bottlenecks in circular fashion supply chain, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%.
+- **Challenge**: Manual quality inspection created bottlenecks in circular fashion supply chains due to inconsistent assessments and high labor cost.
 - **Delivery**: Led end-to-end delivery of an automated attribute detection system spanning data collection/annotation pipeline, dataset curation, model training/optimization, synthetic data generation, and pilot deployment/validation.
-- **Impact**: 40% reduction in processing time, 50%+ reduction in data collection costs through synthetic data.
+- **Pilot Outcomes**: 40% faster processing and 50%+ reduction in data collection effort via synthetic data.
 - **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/) (2023) and Vinnova Innovation week (2022).
 - **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://zenodo.org/records/13788681), [Roadmap for industry adoption](https://fnauman.github.io/second-hand-fashion/posts/2025-04-08-roadmap-to-full-automation/).
 
 **Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: *4 months*)**:
 
 - **Challenge**: Clients needed to integrate LLMs into their networking platform for textile recycling in Europe.
-- **Solution**: Designed a custom LLM chatbot and retrieval system for both structured and unstructured data.
+- **Solution**: Designed a evaluation driven RAG solution for both structured and unstructured data.
 - **Impact**: Enabled a smart search and retrieval system for connecting textile actors in Europe.
 - **Technologies**: Retrieval Augmented Generation, LangChain, Evaluations, Prompt Engineering, Synthetic Data.
 
