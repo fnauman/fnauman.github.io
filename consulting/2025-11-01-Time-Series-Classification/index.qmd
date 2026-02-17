@@ -6,7 +6,7 @@ date-modified: last-modified
 categories: [Time Series, Production ML, Feature Engineering, Algorithm Adaptation, PyTorch, Scikit-Learn, Real-time ML]
 draft: false
 twitter:
-  creator: "@fnauman"
+  creator: "@naumanf_"
   card-style: summary_large_image
 og:
   title: "Time Series Classification: Research to Production"

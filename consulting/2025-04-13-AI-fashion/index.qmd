@@ -9,7 +9,7 @@ categories: [MLOps, Object Detection, Web App Development, Computer Vision, Synt
 image: background_removed_rotated_front_2023_08_16_10_42_41_rgb.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
 twitter:
-  creator: "@fnauman"
+  creator: "@naumanf_"
   card-style: summary_large_image
 og:
   title: "AI for Second-Hand Fashion: AI's Role in a Circular Economy"
