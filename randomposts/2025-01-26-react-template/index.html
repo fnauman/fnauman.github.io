@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.12">
+<meta name="generator" content="quarto-1.9.29">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,6 +12,9 @@
 
 <title>From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps – Farrukh Nauman</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -70,19 +73,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6ddef307775a22bda3ba1ecbbadf2984.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-9dcb99a8270eeb6c9b6c730f2a477626.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-6ddef307775a22bda3ba1ecbbadf2984.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0a78b434e389dc432db89d281373959.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-5b1898e7b7c3c5be9da0df249ab4c7b4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5260f73106182b382782190f8d684c76.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-5b1898e7b7c3c5be9da0df249ab4c7b4.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-7c1edfab4eeefc326a287b0b3e7fa1a5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-1964bf9f5e2ee0bbdddc96df61469db9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-7c1edfab4eeefc326a287b0b3e7fa1a5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -427,15 +429,17 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <h4 class="anchored" data-anchor-id="step-1-node.js-and-the-power-of-nvm">Step 1: Node.js and the Power of <code>nvm</code></h4>
 <p>Before diving into Vite, we need Node.js, the runtime environment that allows us to run JavaScript outside of a browser. However, different projects might require different Node.js versions. Here’s where Node Version Manager (nvm) comes to the rescue.</p>
 <ul>
-<li><strong>Installing <code>nvm</code>:</strong> <code>bash     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash</code></li>
-<li><strong>Installing Node.js (LTS):</strong> <code>bash     nvm install --lts</code></li>
+<li><p><strong>Installing <code>nvm</code>:</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh <span class="kw">|</span> <span class="fu">bash</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
+<li><p><strong>Installing Node.js (LTS):</strong></p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">nvm</span> install <span class="at">--lts</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div></li>
 </ul>
 <p><code>nvm</code> allows you to seamlessly switch between Node.js versions using a simple <code>.nvmrc</code> file in your project root, ensuring compatibility across your projects.</p>
 </section>
 <section id="step-2-initializing-the-react-template-with-vite" class="level4">
 <h4 class="anchored" data-anchor-id="step-2-initializing-the-react-template-with-vite">Step 2: Initializing the React Template with Vite</h4>
 <p>With Node.js in place, creating a React template is a breeze:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> create vite@latest my-react-app</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> create vite@latest my-react-app</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This command prompts you to choose a framework (React, Vue, Svelte, etc.) and whether to use JavaScript or TypeScript. I opted for React and JavaScript. You can also use the shorthand: <code>npm create vite@latest my-react-app -- --template react</code>.</p>
 </section>
 <section id="step-3-understanding-npm-vs.-npx" class="level4">
@@ -484,7 +488,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <section id="step-7-running-your-app" class="level4">
 <h4 class="anchored" data-anchor-id="step-7-running-your-app">Step 7: Running Your App</h4>
 <p>Finally, to see your app in action, use:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> run dev</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This starts the Vite development server, typically at <code>localhost:5173</code> (unlike <code>create-react-app</code>’s default <code>localhost:3000</code>).</p>
 </section>
 </section>
