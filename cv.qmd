@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "Principal / Tech Lead | AI Engineer | Industrial AI (Telemetry, Analytics, LLMs) | PhD"
+subtitle: "Principal AI Consultant | Agentic Decision Systems | Time Series & LLMs | PhD"
 resources: 
   - assets/FarrukhNauman_brokers.pdf
 toc: false
@@ -44,7 +44,7 @@ Principal consultant and interim team lead bridging strategy and hands-on delive
 | Area | Skills |
 |------|--------|
 | **AI & ML** | **LLMs**: Text-to-SQL, RAG, Fine-tuning, Evaluation Harnesses, Synthetic Data, Logging & Reliability Analysis;<br>**Vision**: Object Detection, Classification, Segmentation, Inspection workflows, Edge AI;<br>**Time Series**: Forecasting, Anomaly Detection, Activity Recognition, Predictive Maintenance; |
-| **MLOps & Cloud** | ASnowflake, Databricks/Spark, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
+| **MLOps & Cloud** | Snowflake, Databricks/Spark, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
 | **Programming** | Python (Expert), C/C++, SQL, High Performance Computing, LangChain, OpenAI SDK |
 | **Leadership & Delivery** | Stakeholder Management, Requirements Gathering, Roadmapping, Solution Architecture, Technical Leadership, Governance, ROI Analysis, Client Communication |
 | **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
