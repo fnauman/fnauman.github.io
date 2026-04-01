@@ -1,0 +1,219 @@
+---
+title: "How I Validated a Large Data Platform Migration in a Week with an AI Coding Agent"
+subtitle: "Building a cross-platform validation workflow and team dashboard with Cortex Code CLI"
+description: "How I used an AI coding agent to build a cross-platform validation workflow and dashboard for a large Databricks-to-Snowflake migration."
+author:
+  - name: Farrukh Nauman
+    url: https://fnauman.com/
+date: "2026-04-01"
+date-modified: last-modified
+categories: [Artificial Intelligence, Data Engineering, Coding Agents]
+keywords: [data migration, data validation, Databricks, Snowflake, Cortex Code, dashboards]
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "How I Validated a Large Data Platform Migration in a Week with an AI Coding Agent"
+  description: "How I used an AI coding agent to build a cross-platform validation workflow and dashboard for a large Databricks-to-Snowflake migration."
+---
+
+*Building a production-grade cross-platform validation workflow — from zero to a live team dashboard — with Cortex Code CLI as my pair programmer.*
+
+## The problem
+
+I was in the middle of a large migration from Databricks to Snowflake. The data ranged from small reference tables to high-volume event tables. Some pipelines ran daily, others weekly. Some tables were close mirrors. Others had intentionally different models on the source and target platforms.
+
+The question that kept coming up was simple: **"Is the Snowflake data correct?"**
+
+Nobody had a reliable answer. Engineers could spot-check a table, run a `COUNT(*)`, or compare a date range manually, but there was no systematic validation layer, no historical record, and no dashboard the team could trust.
+
+I needed a system that could:
+
+- Compare row counts, schemas, key distributions, and date ranges across both platforms
+- Cover dozens of tables across multiple pipelines
+- Distinguish expected differences from actual defects
+- Check upstream task health before validating downstream data
+- Run on a schedule and retain historical results
+- Present the results in a dashboard people could use without setting up a local environment
+
+And I needed it quickly. This was infrastructure work that had to happen alongside feature development, not a neatly scoped sprint item.
+
+## Cortex Code
+
+[Cortex Code CLI](https://docs.snowflake.com/en/user-guide/cortex-code/cortex-code-cli) is Snowflake's CLI-based AI coding agent. It works in the terminal, can inspect files, run shell commands, and execute Snowflake SQL directly. That makes it unusually good at multi-step engineering work: exploring a codebase, writing code, testing it, querying the warehouse, fixing what breaks, and moving on without losing context.
+
+Across about seven working sessions, I went from "we need a way to validate these tables" to a deployed validation workflow with historical storage and live dashboards.
+
+## Sessions 1–2: Discovery and the first scripts
+
+The first task was simply understanding the migration surface area. I pointed Cortex Code at the repository containing the migration notebooks and asked it to map out the tables, pipelines, and dependencies.
+
+It worked through notebook files and SQL systematically, producing an inventory of tables, key columns, date columns, and naming differences between the source and target systems. This was the kind of tedious but necessary discovery work that normally disappears into half a day of clicking through notebooks and scripts.
+
+From there, I created per-pipeline validation scripts. Each script needed to query both platforms. Snowflake was straightforward. Databricks took a detour: the agent tried the Databricks CLI first, discovered that the path I wanted was not available there, and pivoted to the Statement Execution REST API instead.
+
+**The Databricks cold-start problem** showed up immediately. The SQL warehouse was often stopped, which meant the first query could spend several minutes waiting for compute to spin up. The agent built polling logic around the `PENDING` state so validation runs could start reliably without manual babysitting.
+
+## Session 3: The unified validator
+
+Several smaller scripts quickly became awkward to maintain. The agent consolidated them into a single validator covering several dozen tables across multiple pipelines.
+
+The validator runs four checks per table:
+
+| Check | What it does |
+|-------|-------------|
+| **Row Count** | `COUNT(*)` on both platforms |
+| **Schema** | Column names and types, with a compatibility mapping across platforms |
+| **Distinct Keys** | `COUNT(DISTINCT key)` for configured key columns |
+| **Date Range** | `MIN/MAX` of the configured date column for time-partitioned tables |
+
+Each check returns one of five statuses: `PASS`, `DIFF`, `ERROR`, `SKIP`, or `KNOWN_GAP`.
+
+### Why `KNOWN_GAP` matters
+
+This turned out to be one of the most important design choices. Without it, the dashboard would have been a wall of red that nobody trusted. Some differences were expected and documented, such as shorter retention windows on the target platform or deliberate model differences between source and target.
+
+A table configuration looked roughly like this:
+
+```python
+{
+    "table": "TARGET_TABLE_NAME",
+    "target_table": "TARGET_SCHEMA.TARGET_TABLE_NAME",
+    "source_table": "source_schema.source_table_name",
+    "target_keys": ["PRIMARY_KEY"],
+    "source_keys": ["primaryKey"],
+    "target_date_col": "EVENT_DATE",
+    "source_date_col": "eventDate",
+    "known_gap": "Target retains a shorter rolling history window than the source system",
+    "pipeline": "pipeline_name"
+}
+```
+
+Every table needed some version of this mapping: key columns, date columns, identifier normalization, known gaps, and pipeline association. The agent built these configurations incrementally by reading notebooks and SQL and assembling the comparison rules table by table.
+
+Other details it handled cleanly:
+
+- **Identifier normalization**: some tables required case normalization or platform-specific naming adjustments
+- **Authentication**: the environment used token-based authentication rather than simple username/password flows
+- **Error isolation**: if one table failed because of a timeout, bad query, or missing object, the rest of the run still completed and recorded the failure explicitly
+
+### Storing validation history
+
+The results needed to live somewhere queryable. The agent designed a Snowflake schema with three core tables:
+
+- **RUNS** — one row per validation run
+- **CHECKS** — one row per check per table
+- **TASK_CONTEXT** — upstream task health captured at validation time
+
+This was more than a few `CREATE TABLE` statements. It also had to store structured details cleanly, which meant handling Snowflake-specific patterns such as `PARSE_JSON` and `VARIANT` columns. When the first insertion approach failed, the agent diagnosed the issue and switched to a pattern that worked reliably.
+
+## Session 4: The dashboards
+
+Raw tables are good for debugging. Dashboards are what teams actually use.
+
+We ended up with both a local development dashboard and a Snowflake-in-Snowflake (SiS) dashboard that anyone with access could open without installing anything.
+
+The dashboard ended up with five useful views:
+
+1. **Overview** — latest run summary, pass/fail counts, pipeline breakdowns, and trends over time
+2. **Table Detail** — check history for an individual table
+3. **Task Health** — upstream execution status so data issues are not confused with orchestration failures
+4. **Known Gaps** — documented expected differences with explanations
+5. **Table Inventory** — side-by-side metadata for the broader migration estate
+
+Deploying the SiS app was a good example of where the agent's platform knowledge helped. It created the deployment configuration, set up the Python dependencies, pushed the Streamlit app, and verified that the deployed URL loaded correctly.
+
+The local dashboard used `snowflake.connector` with token-based auth. The SiS version used `get_active_session()`. Both shared the same query logic and page structure, with only the connection layer differing.
+
+## Session 5: Going live and finding real problems
+
+Once the validator and dashboard were working, the next step was automation.
+
+The first automated runs immediately justified the effort:
+
+- **One table had more than double the expected rows on the target platform.** That was a real data quality defect, not an expected discrepancy.
+- **Several tables were lagging the expected refresh window.** That pattern only became obvious once results were visible across tables and across runs.
+- **Upstream task health checks prevented false alarms.** Without them, a failed upstream task would have looked like a data mismatch rather than an operational issue.
+
+These were not theoretical wins. The system surfaced genuine problems quickly.
+
+## Sessions 6–7: Table inventory for the full estate
+
+Validation covered the migrated tables, but the broader landscape was larger. There were additional tables on both platforms, some very large, some only present on one side, and some still mid-migration.
+
+The agent built a second inventory layer with:
+
+- a broader table map covering the full known estate
+- metadata collection from both platforms
+- CLI flags for inventory-only and platform-specific runs
+- a new dashboard page with side-by-side comparison, filters, and historical snapshots
+
+The Databricks cold-start problem reappeared here because inventorying a large number of tables meant many API calls across a long-running session. The polling logic absorbed that complexity.
+
+A subtle bug also showed up: one query path was generating fully qualified names in a format the source environment did not support. The error handling kept the run alive but masked the root cause as missing values. The agent ran a manual query, identified the naming issue, fixed the affected query paths, and reran the inventory successfully in the same session.
+
+## What made this work
+
+Looking back, a few things mattered most.
+
+### 1. Tight integration with the target platform
+
+The agent could execute Snowflake SQL directly, inspect results, and use them to decide what to do next. That made discovery, validation, and debugging much faster than a workflow split across an IDE, a SQL client, and a browser.
+
+### 2. Cross-platform orchestration
+
+The system had to interact with two different cloud platforms, each with its own auth model, execution path, and failure modes. The agent handled both sides and adapted when the first integration approach hit a dead end.
+
+### 3. Continuity across sessions
+
+This project spanned multiple days. `AGENTS.md` gave the agent a stable project contract: what had already been built, what conventions to follow, and what the next milestones were. That meant I could resume work without re-explaining the architecture every time.
+
+### 4. Small CLI playbooks for non-obvious tools
+
+Two tiny helper files mattered almost as much as `AGENTS.md`: `databricks_CLI.md` and `azure_CLI.md`.
+
+`databricks_CLI.md` captured the exact terminal pattern for running SQL through the Databricks Statement Execution API via the CLI, using `databricks api post /api/2.0/sql/statements --profile ... --json ...`. That sounds like a small detail, but it removes a lot of ambiguity. The documented request shape includes fields like `warehouse_id`, `statement`, and optional `wait_timeout`, and the response is not just a result set; it includes a `statement_id`, execution `status`, and result metadata. For longer-running queries, the documented flow often requires polling `GET /api/2.0/sql/statements/{statement_id}`, and larger results can come back in chunks via `next_chunk_internal_link` rather than as a single inline payload. Once those mechanics are written down, the agent can stop guessing and start executing reliably. The file also included working patterns for routine tasks like listing tables, row counts, and simple aggregate checks.
+
+`azure_CLI.md` served the same purpose on the workflow side. Creating a PR in Azure DevOps with `az repos pr create` is more context-heavy than the equivalent GitHub CLI flow: organization, project, repository, source branch, and target branch all need to be correct unless defaults are already configured. The Azure CLI docs also show a long tail of options for reviewers, draft mode, linked work items, and completion behavior. Creating board items via `az boards work-item create` has its own sharp edges: you need the correct work-item type, the right organization and project context, and sometimes extra fields like area paths, iteration paths, or custom `field=value` pairs. A short file with working command templates and gotchas saves an agent from burning cycles on avoidable CLI mistakes.
+
+The broader lesson is that agents do much better when you give them *tool protocols*, not just project goals. `AGENTS.md` explained the project. `databricks_CLI.md` and `azure_CLI.md` explained how to operate the environment. That combination made the agent meaningfully more reliable.
+
+### 5. Full-stack execution in one tool
+
+In a single session, the agent could write Python, run it, query Snowflake, debug failures, build Streamlit pages, deploy the app, and verify the result. That reduction in context switching mattered as much as raw code generation speed.
+
+### 6. Handling the boring work
+
+The hardest part of the project was not an algorithm. It was the repetitive table-by-table configuration work needed to compare two imperfectly aligned platforms. That is exactly the kind of work an agent can do methodically without losing patience.
+
+## Limitations and honest observations
+
+This was productive, but not magic.
+
+- **Cross-platform auth remains awkward**: a validator that needs to talk to both platforms is easiest to run from an environment where both credentials are already available
+- **Large tables are still expensive**: for very large datasets, metadata checks and aggregate comparisons are often the practical limit
+- **Agent-written code still needs review**: working code is not the same thing as well-designed long-term production code
+
+## The numbers
+
+| Metric | Value |
+|--------|-------|
+| Tables under active validation | Dozens |
+| Tables inventoried across both platforms | 100+ |
+| Pipelines covered | Multiple |
+| Validation checks per run | Hundreds |
+| Largest table profiled | Tens of billions of rows, > 1TB in size |
+| Lines of Python written | A few thousand |
+| Dashboard pages | 5 |
+| Sessions to build everything | About 4 days across 7 sessions |
+| Meaningful issues found early | Multiple |
+
+## Takeaway
+
+None of the individual checks in this system are particularly clever. A row count comparison is simple. A schema diff is simple. A date-range check is simple.
+
+The value comes from doing those things **systematically, across many tables, on a schedule, with historical tracking and a dashboard people actually use**.
+
+That kind of work often goes undone because each piece looks small in isolation while the total integration effort is real. A coding agent changes that equation. Not because it eliminates engineering judgment, but because it compresses the distance between intent and execution.
+
+For data engineers working across warehouses, pipelines, and quality checks, that can be a meaningful force multiplier.
