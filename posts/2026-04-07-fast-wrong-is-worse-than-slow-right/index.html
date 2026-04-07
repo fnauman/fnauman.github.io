@@ -7,11 +7,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Farrukh Nauman">
-<meta name="dcterms.date" content="2023-12-16">
-<meta name="keywords" content="circular economy, sustainable fashion">
-<meta name="description" content="How can AI be used to accelerate the transition to a circular economy?">
+<meta name="dcterms.date" content="2026-04-07">
+<meta name="keywords" content="data pipeline optimization, incremental processing, data correctness, Snowflake, benchmark design, AI coding agents, query optimization, Codex CLI, Cortex Code">
+<meta name="description" content="The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.">
 
-<title>Automating second-hand fashion – Farrukh Nauman</title>
+<title>Fast Wrong Is Worse Than Slow Right – Farrukh Nauman</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,6 +26,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -90,16 +125,14 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Automating second-hand fashion – Farrukh Nauman">
-<meta property="og:description" content="How can AI be used to accelerate the transition to a circular economy?">
-<meta property="og:image" content="https://fnauman.com/posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta property="og:title" content="Fast Wrong Is Worse Than Slow Right – Farrukh Nauman">
+<meta property="og:description" content="The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta name="twitter:title" content="Automating second-hand fashion – Farrukh Nauman">
-<meta name="twitter:description" content="How can AI be used to accelerate the transition to a circular economy?">
-<meta name="twitter:image" content="https://fnauman.com/posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta name="twitter:title" content="Fast Wrong Is Worse Than Slow Right – Farrukh Nauman">
+<meta name="twitter:description" content="The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
 <body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -330,42 +363,36 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-page-left">
-      <h1 class="title">Automating second-hand fashion</h1>
+      <h1 class="title">Fast Wrong Is Worse Than Slow Right</h1>
+            <p class="subtitle lead">How I redesigned a years-old daily full-recompute pipeline into a validated incremental one</p>
                   <div>
         <div class="description">
-          How can AI be used to accelerate the transition to a circular economy?
+          The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">Artificial Intelligence</div>
-                <div class="quarto-category">Sustainable Fashion</div>
+                <div class="quarto-category">Data Engineering</div>
+                <div class="quarto-category">Performance Optimization</div>
+                <div class="quarto-category">Snowflake</div>
+                <div class="quarto-category">Coding Agents</div>
               </div>
                   </div>
   </div>
     
-  <div class="quarto-title-meta-author column-page-left">
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-heading">Affiliation</div>
-    
-      <div class="quarto-title-meta-contents">
-      <p class="author"><a href="https://fnauman.com/">Farrukh Nauman</a> <a href="https://orcid.org/0000-0003-2940-8432" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-    </div>
-    <div class="quarto-title-meta-contents">
-          <p class="affiliation">
-              <a href="https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion">
-              Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
-              </a>
-            </p>
-        </div>
-    </div>
-
+  
   <div class="quarto-title-meta column-page-left">
 
-        
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://fnauman.com/">Farrukh Nauman</a> </p>
+            </div>
+    </div>
+      
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 16, 2023</p>
+        <p class="date">April 7, 2026</p>
       </div>
     </div>
     
@@ -382,7 +409,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <div>
     <div class="keywords">
       <div class="block-title">Keywords</div>
-      <p>circular economy, sustainable fashion</p>
+      <p>data pipeline optimization, incremental processing, data correctness, Snowflake, benchmark design, AI coding agents, query optimization, Codex CLI, Cortex Code</p>
     </div>
   </div>
   
@@ -394,14 +421,17 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#automating-second-hand-fashion" id="toc-automating-second-hand-fashion" class="nav-link active" data-scroll-target="#automating-second-hand-fashion">Automating Second-Hand Fashion</a>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#how-i-worked-the-problem" id="toc-how-i-worked-the-problem" class="nav-link" data-scroll-target="#how-i-worked-the-problem">How I Worked the Problem</a></li>
+  <li><a href="#the-tempting-optimization" id="toc-the-tempting-optimization" class="nav-link" data-scroll-target="#the-tempting-optimization">The Tempting Optimization</a></li>
+  <li><a href="#the-bug-that-scales-with-data" id="toc-the-bug-that-scales-with-data" class="nav-link" data-scroll-target="#the-bug-that-scales-with-data">The Bug That Scales With Data</a></li>
+  <li><a href="#the-real-fix-shared-incremental-with-merge" id="toc-the-real-fix-shared-incremental-with-merge" class="nav-link" data-scroll-target="#the-real-fix-shared-incremental-with-merge">The Real Fix: Shared-Incremental with MERGE</a></li>
+  <li><a href="#what-the-final-numbers-looked-like" id="toc-what-the-final-numbers-looked-like" class="nav-link" data-scroll-target="#what-the-final-numbers-looked-like">What the Final Numbers Looked Like</a>
   <ul class="collapse">
-  <li><a href="#ai-in-the-fashion-industry" id="toc-ai-in-the-fashion-industry" class="nav-link" data-scroll-target="#ai-in-the-fashion-industry">AI in the Fashion Industry</a></li>
-  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
-  <li><a href="#ai-powered-sorting" id="toc-ai-powered-sorting" class="nav-link" data-scroll-target="#ai-powered-sorting">AI-Powered Sorting</a></li>
-  <li><a href="#challenges-and-opportunities" id="toc-challenges-and-opportunities" class="nav-link" data-scroll-target="#challenges-and-opportunities">Challenges and Opportunities</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#why-except-validation-not-checksums" id="toc-why-except-validation-not-checksums" class="nav-link" data-scroll-target="#why-except-validation-not-checksums">Why EXCEPT Validation, Not Checksums</a></li>
   </ul></li>
+  <li><a href="#what-this-says-about-ai-agent-work" id="toc-what-this-says-about-ai-agent-work" class="nav-link" data-scroll-target="#what-this-says-about-ai-agent-work">What This Says About AI-Agent Work</a></li>
+  <li><a href="#takeaway" id="toc-takeaway" class="nav-link" data-scroll-target="#takeaway">Takeaway</a></li>
   </ul>
 </nav>
     </div>
@@ -413,108 +443,196 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Update February 2025</strong>: For more detailed and up-to-date information, please visit <a href="https://fnauman.com/second-hand-fashion/">fnauman.com/second-hand-fashion</a>.</p>
-</div>
-</div>
-<section id="automating-second-hand-fashion" class="level1">
-<h1>Automating Second-Hand Fashion</h1>
-<!-- ## Introduction -->
-<p>Textile industry is one of the biggest contributors to global pollution and green house emissions. Some statistics from the Nordic council of ministers <a href="https://pub.norden.org/temanord2023-502/#122166">report 2023</a>:</p>
-<ul>
-<li>It accounts for up to 10% of global green house gas emssions <a href="https://www.mckinsey.com/industries/retail/our-insights/fashion-on-climate">McKinsey 2020</a>.</li>
-<li>The water use of the textile industry exceeds 215 trillion liters per year.</li>
-<li>In Nordic countries, the annual consumption textiles per capita is between 13.5 and 16 kgs.</li>
-<li>Synthetic fiber production, which are harder to recycle than natural fibers, has increased from less than 20% of the global fiber production to 60% today.</li>
-<li>Less than 1% of textiles are recycled every year.</li>
-<li>Many garments are only used 7-8 times before being discarded. If each garment could be worn twice as much, the emissions from the textile industry would be reduced by nearly half.</li>
-</ul>
-<p>These alarming trends and statistics have forced the European Union to propose Extended Producer Responsibility (EPR) for textiles. The EPR is a policy approach that makes the producer responsible for the entire life cycle of the product, including the management of the product after its end-of-life. The EPR is expected to be implemented in the EU by 2025. See <a href="https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3635">here</a> for more details.</p>
-<section id="ai-in-the-fashion-industry" class="level2">
-<h2 class="anchored" data-anchor-id="ai-in-the-fashion-industry">AI in the Fashion Industry</h2>
-<p>AI has been used in many applications in the fashion industry including product recommendation, visual search, virtual try-on, and trend forecasting. Second-hand fashion, on the other hand, remains almost exclusively manual. The sorting and grading of second-hand clothing is a labor-intensive process that requires a lot of time and effort. The lack of automation in this sector is a major bottleneck in the transition to a circular economy.</p>
-<p>I am fortunate to be involved in two large projects aiming to automate the second-hand fashion industry. The first project is <a href="https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion">AI for Resource-Efficient Circular Fashion</a> funded by the Swedish Innovation Agency, Vinnova. The second project is funded by the EU: <a href="https://www.cisutac.eu/">Increasing Circularity and Sustainability in Textiles and Clothing in Europe</a>.</p>
+<p><em>The fastest optimization I tested was also the most dangerous. It cut runtime dramatically, made the benchmark tables look easy, and would have silently corrupted production data. That project sharpened one lesson: fast wrong is worse than slow right.</em></p>
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from tens of billions of source rows. On a large Snowpark-optimized warehouse, the job took roughly an hour and a half and consumed a few thousand Snowflake credits a year.</p>
+<p>The reason nobody had “just optimized it” earlier was simple: the pipeline was expensive, but it was <em>trusted</em>. Downstream teams used the output for operational work. A bad optimization would not just waste compute; it would break a system people already depended on.</p>
+<p>At benchmark scale, the waste was obvious. Almost all runtime was spent on two full scans over the same huge source. Not the writes. Not the output tables. Not the window functions. The expensive part was structural.</p>
 </section>
-<section id="sorting" class="level2">
-<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
-<p>Sorting is a multi-step process that involves the following steps:</p>
-<ul>
-<li>Pre-sorting: Separate shoes, household textiles like bedsheets and curtains, and other non-fashion items from the fashion items.</li>
-<li><strong>Sorting fashion clothes</strong> [THIS PROJECT]: Predict various attributes of the clothing items and sort them for:
-<ul>
-<li>Reuse: Items that are in good condition and can be sold as-is. Reuse is the most sustainable option and has further sub-categories:
-<ul>
-<li>Sell in Sweden.</li>
-<li>Sell outside Sweden or export.</li>
-</ul></li>
-<li>Repair: Items in need of repairs, but are otherwise reusable.</li>
-<li>Recycle: Items made of recyclable materials like 100% cotton.</li>
-<li>Landfill: Items that are in extremely poor condition and cannot be reused or recycled.</li>
-</ul></li>
-<li>Fine sorting: This is the sorting that is most relevant to second-hand retailers that sell in-store and online. Their goal is to take the chunk of reusable clothing items and then decide which items to sell at what price and in what location. We do not address this in our project directly although our sorting model can be used to support this process.</li>
-</ul>
-<p>In addition to this, clothes must be handled manually when they first arrive at the facility in large containers. Currently, no known technology exists that can fully automate this step although exciting advances in the field of robotics are being made.</p>
+<section id="how-i-worked-the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-worked-the-problem">How I Worked the Problem</h2>
+<p>I treated this as an architecture and validation problem, not a one-off timing exercise.</p>
+<p>I built a benchmark harness that varied three things:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 15%">
+<col style="width: 39%">
+<col style="width: 44%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Axis</th>
+<th>What I tested</th>
+<th>Why it mattered</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Data scale</strong></td>
+<td>Tens of millions through low single-digit billions of rows</td>
+<td>Small data hides correctness bugs and scaling behavior.</td>
+</tr>
+<tr class="even">
+<td><strong>Warehouse size</strong></td>
+<td>Small through large</td>
+<td>Large warehouses can mask algorithmic waste by brute-force parallelism.</td>
+</tr>
+<tr class="odd">
+<td><strong>Correctness</strong></td>
+<td>Row-level <code>EXCEPT</code> validation against a known-good baseline</td>
+<td>Aggregate counts can match while the actual rows are wrong.</td>
+</tr>
+</tbody>
+</table>
+<p>I also used two coding agents in parallel, but with strict role separation. I used <strong>Codex CLI</strong> for planning, benchmark design, and architectural reasoning around query shape, invariants, and failure modes. I used <strong>Cortex Code</strong> for execution inside the Snowflake workflow: implementing the Snowpark changes, building the benchmark notebook, and iterating on the validation queries. The contract between all of us was the same: benchmark tables plus row-level validation, not vibes.</p>
+<p>That operating pattern matters. On hard optimization work, agents are most useful when they compress the distance between hypothesis and evidence, not when you let them free-associate their way into production.</p>
 </section>
-<section id="ai-powered-sorting" class="level2">
-<h2 class="anchored" data-anchor-id="ai-powered-sorting">AI-Powered Sorting</h2>
-<p>The first major challenge that any project aiming to automate the second-hand fashion industry faces is the lack of data. Existing “foundation AI models” are largely biased towards first-hand fashion since that is the kind of data that is readily available on the internet. For instance, these models are incapable of recognizing the wear and tear of second-hand clothing since first-hand fashion images are usually of pristine quality.</p>
-<p>In the Vinnova project that I am leading from RISE, we are developing a novel dataset with 30,000 used clothing items in partnership with <a href="https://wargoninnovation.se/en/">Wargön Innovation</a>. The first version of the dataset has already been released:</p>
-<ul>
-<li>Dataset v1, 3000 clothing items: <a href="https://zenodo.org/records/8386668">Zenodo link</a>.</li>
-</ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Update February 2025</strong>: v3 with <strong>31,638</strong> items was released on September 19th, 2024 <a href="https://zenodo.org/records/13788681">here</a>. For up to date information, please visit <a href="https://fnauman.com/second-hand-fashion/">fnauman.com/second-hand-fashion</a>.</p>
-</div>
-</div>
-<p>The dataset has been released under a permissive CC-BY 4.0 license that allows commercial use given that the authors are properly cited.</p>
-<p>Furthermore, we are developing AI models to recognize damage on clothes and to grade them according to their quality. The scope of ongoing projects is not full automation, but to instead provide a “decision support tool”. A decision support tool is supposed to assist the human operator in making the final decision by judging the cloth condition, assessing the brand quality and how it compares with other brands in the market, and finally, estimating the best use case for the item.</p>
+<section id="the-tempting-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="the-tempting-optimization">The Tempting Optimization</h2>
+<p>The obvious idea was an incremental design:</p>
+<ol type="1">
+<li>Seed a persistent activity table from historical data once.</li>
+<li>On the daily run, scan only new rows since a watermark.</li>
+<li>Append those new aggregates to the activity layer.</li>
+<li>Recompute the smaller downstream outputs from the cached activity table instead of rescanning the full source.</li>
+</ol>
+<p>This “Dual-Incremental” design looked fantastic in benchmark tables:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Dataset</th>
+<th>Full Recompute</th>
+<th>Dual-Incremental Daily</th>
+<th>Speedup</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Mid-scale</td>
+<td>136 seconds</td>
+<td>17 seconds</td>
+<td><strong>8x</strong></td>
+</tr>
+<tr class="even">
+<td>Large-scale</td>
+<td>350 seconds</td>
+<td>28 seconds</td>
+<td><strong>12.6x</strong></td>
+</tr>
+</tbody>
+</table>
+<p>If I had done the usual optimization theater, I would have shipped it.</p>
+<p>Then I ran the correctness validation.</p>
 </section>
-<section id="challenges-and-opportunities" class="level2">
-<h2 class="anchored" data-anchor-id="challenges-and-opportunities">Challenges and Opportunities</h2>
-<p>We have identified the following challenges and opportunities in the second-hand fashion industry:</p>
-<ul>
-<li><strong>Data</strong>: While our dataset of 30,000 clothing items is the largest of its kind, it is still not large enough to train a deep learning model of the “foundation model” kind. Instead, we must resort to using existing foundation models and finetune them with this data. What makes this particularly challenging is that for first-hand fashion, training a model on, for example, pink T-shirts and black pants is sufficient, but for second-hand fashion, one must be able to distinguish between a pink T-shirt that is in good condition and one that is in poor condition. In other words, we need a dataset large enough to contain different degrees of damage to clothes. One major problem with lack of data will be addressed by the introduction of the digital product passport that aims to preserve the data about a product throughout its life cycle.</li>
-<li><strong>Annotations</strong>: Similar to the subjectivity of language annotations, the annotations of second-hand clothing items are often specific to the annotators and the scope of the facility they are working for. For instance, Wargön Innovation works with the Swedish Red Cross and does not directly price the clothing items. In contrast, other sorting facilities like Myrorna and Björkåfrihet price the items to be sold in their own stores. This means that the annotations are not only subjective, but also specific to the business model of the sorting facility.</li>
-<li><strong>Robotics</strong>: The second-hand fashion industry is still almost exclusively manual. With the recent advances in robotics, there is an exciting opportunity to fully automate the entire sorting process from the pre-sorting step to the fine sorting step.</li>
-</ul>
+<section id="the-bug-that-scales-with-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-bug-that-scales-with-data">The Bug That Scales With Data</h2>
+<p>The failure mode was subtle.</p>
+<p>Some activities straddled the watermark: part of the history had already been processed in the initial seed, and new rows for the same activity arrived later. An append-only design cannot repair the old aggregate. It creates a second partial activity row instead of recomputing the one correct row from full history.</p>
+<p>That produced phantom rows, missing rows on some filter paths, and wrong aggregates built from partial state.</p>
+<p>On small data, everything looked clean. At larger scales, row-level validation started surfacing structural diffs: first a few, then a few dozen. That was enough. The architecture was wrong.</p>
+<p>The important point is that the fastest design was not “needs a little tuning.” It was fundamentally invalid.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow exponentially. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players.</p>
-<!-- ## References -->
+<section id="the-real-fix-shared-incremental-with-merge" class="level2">
+<h2 class="anchored" data-anchor-id="the-real-fix-shared-incremental-with-merge">The Real Fix: Shared-Incremental with MERGE</h2>
+<p>The working design was incremental, but not append-based.</p>
+<p>The final approach used one shared activity table and <code>MERGE</code> semantics:</p>
+<ul>
+<li>identify activity keys touched by new data</li>
+<li>re-read the full history for those keys</li>
+<li>recompute the aggregate from scratch</li>
+<li><code>MERGE</code> the corrected result back into the persistent table</li>
+</ul>
+<p>This moved the incremental boundary to the right level: not at arbitrary row fragments, but at the entity whose aggregate must remain correct.</p>
+<p>A second pass was still needed for <code>LAG</code>-based logic, because updating one row can change the next row in the same device partition. Hard optimization work is usually hidden in these dependency edges, not in the headline idea.</p>
+</section>
+<section id="what-the-final-numbers-looked-like" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-final-numbers-looked-like">What the Final Numbers Looked Like</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 40%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Approach</th>
+<th>Correctness</th>
+<th>Outcome</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Dual-Incremental</td>
+<td>Failed row-level validation at large scale</td>
+<td>Fastest, but unusable</td>
+</tr>
+<tr class="even">
+<td>Shared-Incremental + <code>MERGE</code></td>
+<td>Zero structural diffs in completed validation runs</td>
+<td><strong>Roughly 5-8x faster than baseline</strong></td>
+</tr>
+<tr class="odd">
+<td>Full recompute</td>
+<td>Correct</td>
+<td>Baseline</td>
+</tr>
+</tbody>
+</table>
+<p>In production terms, that meant:</p>
+<ul>
+<li>daily runtime dropped from about 90 minutes to the low tens of minutes</li>
+<li>compute cost dropped by well over 80%</li>
+<li>the one-time seed cost paid back in days, not months</li>
+</ul>
+<p>The broken design was faster. The correct design was still transformative.</p>
+<section id="why-except-validation-not-checksums" class="level3">
+<h3 class="anchored" data-anchor-id="why-except-validation-not-checksums">Why EXCEPT Validation, Not Checksums</h3>
+<p>This was the real lever: not a Snowpark trick, but benchmark discipline.</p>
+<p>Small data hid the bug. Large warehouses hid the algorithmic cost. Aggregate checks would have let the broken design through. Row-level validation killed it before it got near production.</p>
+<p>The validation queries were simple:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sql code-with-copy"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> candidate</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">EXCEPT</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> ground_truth;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> ground_truth</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">EXCEPT</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> candidate;</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Simple is fine. The important part was running them systematically, across scales, across warehouse sizes, and against a known-good baseline.</p>
+</section>
+</section>
+<section id="what-this-says-about-ai-agent-work" class="level2">
+<h2 class="anchored" data-anchor-id="what-this-says-about-ai-agent-work">What This Says About AI-Agent Work</h2>
+<p>The agents mattered, but not because they replaced judgment.</p>
+<p>They let me explore architectures, implement benchmark harnesses, generate validation queries, and debug long-running Snowpark iterations much faster than I could have by hand. More importantly, they let me separate planning from execution in a way that matched the tools. I have been impressed by Snowflake’s Cortex Code ability to seamlessly orchestrate workflows on Snowflake, read logs, give updates, and even setup cron jobs for status checks for long running jobs. GPT-5.4 Pro (inside Codex CLI) was instrumental in crafting the shared incremental approach and debugging the dual incremental approach.</p>
+<p>That is the mode I increasingly use on hard production problems:</p>
+<ul>
+<li>parallel agents with distinct responsibilities</li>
+<li>explicit validation gates</li>
+<li>benchmark tables as the source of truth</li>
+<li>human judgment on architectural calls and go/no-go decisions</li>
+</ul>
+<p>The agents accelerated the work. The evidence standard stayed high.</p>
+</section>
+<section id="takeaway" class="level2">
+<h2 class="anchored" data-anchor-id="takeaway">Takeaway</h2>
+<p>The right question was not “how do I make this pipeline faster?” It was “what part of the current design is fundamentally wasting work, and how do I change that without breaking correctness?”</p>
+<p>That is the optimization work that actually matters. Not shaving seconds off a bad architecture. Not shipping the prettiest benchmark. Changing query shape, proving correctness, and killing attractive wrong ideas before they escape.</p>
+<p>Fast wrong is worse than slow right. The useful pattern was: redesign the work, benchmark across scales, validate row by row, and only then talk about speedup.</p>
 
 
 </section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2026,
   author = {Nauman, Farrukh},
-  title = {Automating Second-Hand Fashion},
-  date = {2023-12-16},
-  url = {https://fnauman.com/posts/2023-12-16-second-hand-fashion/},
+  title = {Fast {Wrong} {Is} {Worse} {Than} {Slow} {Right}},
+  date = {2026-04-07},
+  url = {https://fnauman.com/posts/2026-04-07-fast-wrong-is-worse-than-slow-right/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2023" class="csl-entry quarto-appendix-citeas" role="listitem">
-Nauman, Farrukh. 2023. <span>“Automating Second-Hand Fashion.”</span>
-December 16. <a href="https://fnauman.com/posts/2023-12-16-second-hand-fashion/">https://fnauman.com/posts/2023-12-16-second-hand-fashion/</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Nauman, Farrukh. 2026. <span>“Fast Wrong Is Worse Than Slow
+Right.”</span> April 7. <a href="https://fnauman.com/posts/2026-04-07-fast-wrong-is-worse-than-slow-right/">https://fnauman.com/posts/2026-04-07-fast-wrong-is-worse-than-slow-right/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {

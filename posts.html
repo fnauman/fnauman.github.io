@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Technical writing on data platform migrations, coding agents, time series ML, and applied AI.">
 
-<title>Blog &amp; Technical Notes – Farrukh Nauman</title>
+<title>Writing – Farrukh Nauman</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -46,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-7c1edfab4eeefc326a287b0b3e7fa1a5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-1964bf9f5e2ee0bbdddc96df61469db9.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-7c1edfab4eeefc326a287b0b3e7fa1a5.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6c5d6112c74bfaf11af88fe1c07a8c32.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-ef227b96fcc8c47cd5f78734477ee70f.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-6c5d6112c74bfaf11af88fe1c07a8c32.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -79,20 +80,48 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-featured-posts-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-image','listing-date','listing-title','listing-categories','listing-description','listing-author','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-description','listing-date','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-date","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-featured-posts-listing'] = new List('listing-featured-posts-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-all-posts-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-categories','listing-description','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-all-posts-listing'] = new List('listing-all-posts-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -146,19 +175,17 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="styles.css">
-<meta property="og:title" content="Blog &amp; Technical Notes – Farrukh Nauman">
-<meta property="og:description" content="Machine Learning Consulting, AI Research, and Technical Blog">
-<meta property="og:image" content="https://fnauman.com/posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta property="og:title" content="Writing – Farrukh Nauman">
+<meta property="og:description" content="Technical writing on data platform migrations, coding agents, time series ML, and applied AI.">
 <meta property="og:site_name" content="Farrukh Nauman">
-<meta name="twitter:title" content="Blog &amp; Technical Notes – Farrukh Nauman">
-<meta name="twitter:description" content="Machine Learning Consulting, AI Research, and Technical Blog">
-<meta name="twitter:image" content="https://fnauman.com/posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg">
+<meta name="twitter:title" content="Writing – Farrukh Nauman">
+<meta name="twitter:description" content="Technical writing on data platform migrations, coding agents, time series ML, and applied AI.">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -338,15 +365,19 @@ window.Quarto = {
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./consulting.html"> 
-<span class="menu-text">Consulting</span></a>
+<span class="menu-text">Selected Work</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link active" href="./posts.html" aria-current="page"> 
-<span class="menu-text">Blog</span></a>
+<span class="menu-text">Writing</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./cv.html"> 
 <span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Work With Me</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -356,7 +387,7 @@ window.Quarto = {
 <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://x.com/fnauman"> <i class="bi bi-x" role="img">
+    <a class="nav-link" href="https://x.com/naumanf_"> <i class="bi bi-x" role="img">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -379,24 +410,28 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(8)</span></div><div class="category" data-category="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ==">Artificial Intelligence <span class="quarto-category-count">(5)</span></div><div class="category" data-category="Q29kaW5nJTIwQWdlbnRz">Coding Agents <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Q29tcGxleCUyMFN5c3RlbXM=">Complex Systems <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMEVuZ2luZWVyaW5n">Data Engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGF0YXNldHM=">datasets <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Zmx1eA==">flux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="aHVnZ2luZ2ZhY2U=">huggingface <span class="quarto-category-count">(2)</span></div><div class="category" data-category="aW5mZXJlbmNl">inference <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TGFyZ2UlMjBMYW5ndWFnZSUyME1vZGVscw==">Large Language Models <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TmF0dXJhbCUyMExhbmd1YWdlJTIwUHJvY2Vzc2luZw==">Natural Language Processing <span class="quarto-category-count">(2)</span></div><div class="category" data-category="cmVhY3Q=">react <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2hvcnQtbm90ZQ==">short-note <span class="quarto-category-count">(3)</span></div><div class="category" data-category="U29mdHdhcmUlMjBFbmdpbmVlcmluZw==">Software Engineering <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3VzdGFpbmFibGUlMjBGYXNoaW9u">Sustainable Fashion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dGV4dC10by1pbWFnZQ==">text-to-image <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d2ViYXBwcw==">webapps <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog &amp; Technical Notes</h1>
+<h1 class="title">Writing</h1>
+<p class="subtitle lead">Case studies, technical essays, and notes from applied AI work</p>
+</div>
+
+<div>
+  <div class="description">
+    Technical writing on data platform migrations, coding agents, time series ML, and applied AI.
+  </div>
 </div>
 
 
-
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     
   
@@ -408,28 +443,47 @@ window.Quarto = {
 </header>
 
 
-<p><code>short-note</code> category represents random thoughts and things I’ve learned. The rest of the posts are longer-form posts.</p>
+<section id="featured-writing" class="level2">
+<h2 class="anchored" data-anchor-id="featured-writing">Featured writing</h2>
+<p>Flagship case studies and technical essays sit here. Short notes stay in the archive.</p>
+<div id="listing-featured-posts-listing" class="mt-4 quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-2">
+<div class="g-col-1" data-index="0" data-categories="RGF0YSUyMEVuZ2luZWVyaW5nJTJDUGVyZm9ybWFuY2UlMjBPcHRpbWl6YXRpb24lMkNTbm93Zmxha2UlMkNDb2RpbmclMjBBZ2VudHM=" data-listing-date-sort="1775512800000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1106">
+<a href="./posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Fast Wrong Is Worse Than Slow Right
+</h5>
+<div class="listing-categories">
 
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEVuZ2luZWVyaW5n'); return false;">Data Engineering</div>
 
+<div class="listing-category" onclick="window.quartoListingCategory('UGVyZm9ybWFuY2UlMjBPcHRpbWl6YXRpb24='); return false;">Performance Optimization</div>
 
+<div class="listing-category" onclick="window.quartoListingCategory('U25vd2ZsYWtl'); return false;">Snowflake</div>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
+<div class="listing-category" onclick="window.quartoListingCategory('Q29kaW5nJTIwQWdlbnRz'); return false;">Coding Agents</div>
+
 </div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0RhdGElMjBFbmdpbmVlcmluZyUyQ0NvZGluZyUyMEFnZW50cw==" data-listing-date-sort="1774994400000" data-listing-file-modified-sort="1775062888050" data-listing-date-modified-sort="1775062888000" data-listing-reading-time-sort="11" data-listing-word-count-sort="2066">
+<div class="card-text listing-description delink">
+<p>The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.</p>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Apr 7, 2026
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0RhdGElMjBFbmdpbmVlcmluZyUyQ0NvZGluZyUyMEFnZW50cw==" data-listing-date-sort="1774994400000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="11" data-listing-word-count-sort="2066">
 <a href="./posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 How I Validated a Large Data Platform Migration in a Week with an AI Coding Agent
 </h5>
-<div class="listing-reading-time card-text text-muted">11 min</div>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ=='); return false;">Artificial Intelligence</div>
@@ -442,10 +496,7 @@ How I Validated a Large Data Platform Migration in a Week with an AI Coding Agen
 <div class="card-text listing-description delink">
 <p>How I used an AI coding agent to build a cross-platform validation workflow and dashboard for a large Databricks-to-Snowflake migration.</p>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Apr 1, 2026
 </div>
@@ -453,15 +504,76 @@ Apr 1, 2026
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ1NvZnR3YXJlJTIwRW5naW5lZXJpbmclMkNDb2RpbmclMjBBZ2VudHM=" data-listing-date-sort="1773010800000" data-listing-file-modified-sort="1773077733052" data-listing-date-modified-sort="1773077733000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1859">
-<a href="./posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Don’t Port the Syntax. Port the Evidence.
-</h5>
-<div class="listing-reading-time card-text text-muted">10 min</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<hr>
+</section>
+<section id="archive" class="level2">
+<h2 class="anchored" data-anchor-id="archive">Archive</h2>
+<div id="listing-all-posts-listing" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="RGF0YSUyMEVuZ2luZWVyaW5nJTJDUGVyZm9ybWFuY2UlMjBPcHRpbWl6YXRpb24lMkNTbm93Zmxha2UlMkNDb2RpbmclMjBBZ2VudHM=" data-listing-date-sort="1775512800000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1106">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html" class="no-external">Fast Wrong Is Worse Than Slow Right</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEVuZ2luZWVyaW5n'); return false;">Data Engineering</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('UGVyZm9ybWFuY2UlMjBPcHRpbWl6YXRpb24='); return false;">Performance Optimization</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U25vd2ZsYWtl'); return false;">Snowflake</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29kaW5nJTIwQWdlbnRz'); return false;">Coding Agents</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html" class="no-external">
+<p>The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html" class="no-external">
+<div class="listing-date">
+Apr 7, 2026
+</div>
+<div class="listing-reading-time">6 min</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0RhdGElMjBFbmdpbmVlcmluZyUyQ0NvZGluZyUyMEFnZW50cw==" data-listing-date-sort="1774994400000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="11" data-listing-word-count-sort="2066">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html" class="no-external">How I Validated a Large Data Platform Migration in a Week with an AI Coding Agent</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ=='); return false;">Artificial Intelligence</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMEVuZ2luZWVyaW5n'); return false;">Data Engineering</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Q29kaW5nJTIwQWdlbnRz'); return false;">Coding Agents</div>
+
+</div>
+<div class="delink listing-description"><a href="./posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html" class="no-external">
+<p>How I used an AI coding agent to build a cross-platform validation workflow and dashboard for a large Databricks-to-Snowflake migration.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html" class="no-external">
+<div class="listing-date">
+Apr 1, 2026
+</div>
+<div class="listing-reading-time">11 min</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ1NvZnR3YXJlJTIwRW5naW5lZXJpbmclMkNDb2RpbmclMjBBZ2VudHM=" data-listing-date-sort="1773010800000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="10" data-listing-word-count-sort="1859">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html" class="no-external">Don’t Port the Syntax. Port the Evidence.</a>
+</h3>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ=='); return false;">Artificial Intelligence</div>
@@ -471,29 +583,24 @@ Don’t Port the Syntax. Port the Evidence.
 <div class="listing-category" onclick="window.quartoListingCategory('Q29kaW5nJTIwQWdlbnRz'); return false;">Coding Agents</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html" class="no-external">
 <p>A practitioner’s guide to large code migrations and clean-room-style rewrites with coding agents, focused on evidence, behavioral oracles, and verification discipline.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="metadata">
+<a href="./posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html" class="no-external">
 <div class="listing-date">
 Mar 9, 2026
 </div>
+<div class="listing-reading-time">10 min</div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDaW5mZXJlbmNlJTJDdGV4dC10by1pbWFnZSUyQ2ZsdXg=" data-listing-date-sort="1738710000000" data-listing-file-modified-sort="1764404205664" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="213">
-<a href="./randomposts/2025-02-05-hf-inference/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="randomposts/2025-02-05-hf-inference/cheetah.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Inference on HuggingFace
-</h5>
-<div class="listing-reading-time card-text text-muted">2 min</div>
+<div class="quarto-post image-right" data-index="3" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDaW5mZXJlbmNlJTJDdGV4dC10by1pbWFnZSUyQ2ZsdXg=" data-listing-date-sort="1738710000000" data-listing-file-modified-sort="1775581589733" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="213">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./randomposts/2025-02-05-hf-inference/index.html" class="no-external">Inference on HuggingFace</a>
+</h3>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('c2hvcnQtbm90ZQ=='); return false;">short-note</div>
@@ -507,61 +614,24 @@ Inference on HuggingFace
 <div class="listing-category" onclick="window.quartoListingCategory('Zmx1eA=='); return false;">flux</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./randomposts/2025-02-05-hf-inference/index.html" class="no-external">
 <p>Playing with the Inference Providers on HuggingFace</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="metadata">
+<a href="./randomposts/2025-02-05-hf-inference/index.html" class="no-external">
 <div class="listing-date">
 Feb 5, 2025
 </div>
+<div class="listing-reading-time">2 min</div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDZGF0YXNldHM=" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1764404205663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
-<a href="./randomposts/2025-01-31-hf-data-upload/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="randomposts/2025-01-31-hf-data-upload/data_sample.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Uploading datasets to Hugging Face
-</h5>
-<div class="listing-reading-time card-text text-muted">2 min</div>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2hvcnQtbm90ZQ=='); return false;">short-note</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('aHVnZ2luZ2ZhY2U='); return false;">huggingface</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNldHM='); return false;">datasets</div>
-
-</div>
-<div class="card-text listing-description delink">
-<p>Hugging Face Datasets</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
-<div class="listing-date">
-Jan 26, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="c2hvcnQtbm90ZSUyQ3dlYmFwcHMlMkNyZWFjdA==" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1764404205663" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895">
-<a href="./randomposts/2025-01-26-react-template/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps
-</h5>
-<div class="listing-reading-time card-text text-muted">5 min</div>
+<div class="quarto-post image-right" data-index="4" data-categories="c2hvcnQtbm90ZSUyQ3dlYmFwcHMlMkNyZWFjdA==" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1775581589733" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-word-count-sort="895">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./randomposts/2025-01-26-react-template/index.html" class="no-external">From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps</a>
+</h3>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('c2hvcnQtbm90ZQ=='); return false;">short-note</div>
@@ -571,29 +641,51 @@ From Python to React: Using Claude Artifacts and ChatGPT Canvas to Build Apps
 <div class="listing-category" onclick="window.quartoListingCategory('cmVhY3Q='); return false;">react</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./randomposts/2025-01-26-react-template/index.html" class="no-external">
 <p>Learn how to set up a modern web development environment: React, Node.js, and Vite.</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="metadata">
+<a href="./randomposts/2025-01-26-react-template/index.html" class="no-external">
 <div class="listing-date">
 Jan 26, 2025
 </div>
+<div class="listing-reading-time">5 min</div>
+</a>
 </div>
 </div>
-</div></a>
+<div class="quarto-post image-right" data-index="5" data-categories="c2hvcnQtbm90ZSUyQ2h1Z2dpbmdmYWNlJTJDZGF0YXNldHM=" data-listing-date-sort="1737846000000" data-listing-file-modified-sort="1775581589733" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="332">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./randomposts/2025-01-31-hf-data-upload/index.html" class="no-external">Uploading datasets to Hugging Face</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2hvcnQtbm90ZQ=='); return false;">short-note</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('aHVnZ2luZ2ZhY2U='); return false;">huggingface</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('ZGF0YXNldHM='); return false;">datasets</div>
+
 </div>
-<div class="g-col-1" data-index="5" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0NvbXBsZXglMjBTeXN0ZW1zJTJDTmF0dXJhbCUyMExhbmd1YWdlJTIwUHJvY2Vzc2luZyUyQ0xhcmdlJTIwTGFuZ3VhZ2UlMjBNb2RlbHM=" data-listing-date-sort="1718402400000" data-listing-file-modified-sort="1771338947351" data-listing-date-modified-sort="1771338947000" data-listing-reading-time-sort="5" data-listing-word-count-sort="940">
-<a href="./posts/2024-06-15-intelligence-complex/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Intelligence as a Complex System: Lessons from Physics
-</h5>
-<div class="listing-reading-time card-text text-muted">5 min</div>
+<div class="delink listing-description"><a href="./randomposts/2025-01-31-hf-data-upload/index.html" class="no-external">
+<p>Hugging Face Datasets</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./randomposts/2025-01-31-hf-data-upload/index.html" class="no-external">
+<div class="listing-date">
+Jan 26, 2025
+</div>
+<div class="listing-reading-time">2 min</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ0NvbXBsZXglMjBTeXN0ZW1zJTJDTmF0dXJhbCUyMExhbmd1YWdlJTIwUHJvY2Vzc2luZyUyQ0xhcmdlJTIwTGFuZ3VhZ2UlMjBNb2RlbHM=" data-listing-date-sort="1718402400000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="5" data-listing-word-count-sort="940">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2024-06-15-intelligence-complex/index.html" class="no-external">Intelligence as a Complex System: Lessons from Physics</a>
+</h3>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ=='); return false;">Artificial Intelligence</div>
@@ -605,31 +697,24 @@ Intelligence as a Complex System: Lessons from Physics
 <div class="listing-category" onclick="window.quartoListingCategory('TGFyZ2UlMjBMYW5ndWFnZSUyME1vZGVscw=='); return false;">Large Language Models</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./posts/2024-06-15-intelligence-complex/index.html" class="no-external">
 <p>Understanding Intelligence Through the Lens of Physics</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="metadata">
+<a href="./posts/2024-06-15-intelligence-complex/index.html" class="no-external">
 <div class="listing-date">
 Jun 15, 2024
 </div>
+<div class="listing-reading-time">5 min</div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ1N1c3RhaW5hYmxlJTIwRmFzaGlvbg==" data-listing-date-sort="1702681200000" data-listing-file-modified-sort="1771338948610" data-listing-date-modified-sort="1771338948000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1188">
-<a href="./posts/2023-12-16-second-hand-fashion/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="./posts/2023-12-16-second-hand-fashion/front_2023_05_11_07_43_41.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Automating second-hand fashion
-</h5>
-<div class="listing-reading-time card-text text-muted">6 min</div>
+<div class="quarto-post image-right" data-index="7" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ1N1c3RhaW5hYmxlJTIwRmFzaGlvbg==" data-listing-date-sort="1702681200000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1188">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-12-16-second-hand-fashion/index.html" class="no-external">Automating second-hand fashion</a>
+</h3>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ=='); return false;">Artificial Intelligence</div>
@@ -637,29 +722,24 @@ Automating second-hand fashion
 <div class="listing-category" onclick="window.quartoListingCategory('U3VzdGFpbmFibGUlMjBGYXNoaW9u'); return false;">Sustainable Fashion</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./posts/2023-12-16-second-hand-fashion/index.html" class="no-external">
 <p>How can AI be used to accelerate the transition to a circular economy?</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="metadata">
+<a href="./posts/2023-12-16-second-hand-fashion/index.html" class="no-external">
 <div class="listing-date">
 Dec 16, 2023
 </div>
+<div class="listing-reading-time">6 min</div>
+</a>
 </div>
 </div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="7" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ05hdHVyYWwlMjBMYW5ndWFnZSUyMFByb2Nlc3NpbmclMkNMYXJnZSUyMExhbmd1YWdlJTIwTW9kZWxz" data-listing-date-sort="1700434800000" data-listing-file-modified-sort="1771338951460" data-listing-date-modified-sort="1771338951000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2921">
-<a href="./posts/2023-11-20-llms-summary/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img loading='lazy' src="assets/placeholder-portfolio.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Large Language Models: A Compact Guide
-</h5>
-<div class="listing-reading-time card-text text-muted">15 min</div>
+<div class="quarto-post image-right" data-index="8" data-categories="QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZSUyQ05hdHVyYWwlMjBMYW5ndWFnZSUyMFByb2Nlc3NpbmclMkNMYXJnZSUyMExhbmd1YWdlJTIwTW9kZWxz" data-listing-date-sort="1700434800000" data-listing-file-modified-sort="1775581589732" data-listing-date-modified-sort="1775581589000" data-listing-reading-time-sort="15" data-listing-word-count-sort="2921">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/2023-11-20-llms-summary/index.html" class="no-external">Large Language Models: A Compact Guide</a>
+</h3>
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('QXJ0aWZpY2lhbCUyMEludGVsbGlnZW5jZQ=='); return false;">Artificial Intelligence</div>
@@ -669,23 +749,30 @@ Large Language Models: A Compact Guide
 <div class="listing-category" onclick="window.quartoListingCategory('TGFyZ2UlMjBMYW5ndWFnZSUyME1vZGVscw=='); return false;">Large Language Models</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="delink listing-description"><a href="./posts/2023-11-20-llms-summary/index.html" class="no-external">
 <p>What are Large Language Models? What are their limitations and common use cases?</p>
+</a></div>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Farrukh Nauman
-</div>
+<div class="metadata">
+<a href="./posts/2023-11-20-llms-summary/index.html" class="no-external">
 <div class="listing-date">
 Nov 20, 2023
 </div>
+<div class="listing-reading-time">15 min</div>
+</a>
 </div>
-</div>
-</div></a>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div>
+<hr>
+<p><em>Posts tagged <code>short-note</code> are quick notes and things I learned. The rest are longer-form essays and case studies.</em></p>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -1117,7 +1204,7 @@ Nov 20, 2023
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="https://x.com/fnauman">
+    <a class="nav-link" href="https://x.com/naumanf_">
       <i class="bi bi-x" role="img">
 </i> 
     </a>

@@ -1,63 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://fnauman.com/randomposts.html</loc>
-    <lastmod>2025-11-29T08:16:45.663Z</lastmod>
+    <loc>https://fnauman.com/randomposts/2025-02-05-hf-inference/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.733Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.com/randomposts/2025-01-26-react-template/index.html</loc>
-    <lastmod>2025-11-29T08:16:45.663Z</lastmod>
+    <lastmod>2026-04-07T17:06:29.733Z</lastmod>
   </url>
   <url>
-    <loc>https://fnauman.com/randomposts/2025-02-05-hf-inference/index.html</loc>
-    <lastmod>2025-11-29T08:16:45.664Z</lastmod>
+    <loc>https://fnauman.com/posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
   </url>
   <url>
-    <loc>https://fnauman.com/posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html</loc>
-    <lastmod>2026-04-01T17:01:28.050Z</lastmod>
+    <loc>https://fnauman.com/posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.com/posts/2024-06-15-intelligence-complex/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.com/posts/2023-11-20-llms-summary/index.html</loc>
-    <lastmod>2026-02-17T14:35:51.460Z</lastmod>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.com/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.com/cv.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.com/consulting/2025-11-01-Time-Series-Classification/index.html</loc>
     <lastmod>2026-02-17T14:35:52.739Z</lastmod>
   </url>
   <url>
-    <loc>https://fnauman.com/index.html</loc>
-    <lastmod>2026-01-17T17:59:52.074Z</lastmod>
+    <loc>https://fnauman.com/consulting.html</loc>
+    <lastmod>2026-04-07T17:06:29.731Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.com/consulting/2025-04-13-AI-fashion/index.html</loc>
     <lastmod>2026-02-17T14:35:54.046Z</lastmod>
   </url>
   <url>
-    <loc>https://fnauman.com/cv.html</loc>
-    <lastmod>2026-03-09T17:04:00.035Z</lastmod>
+    <loc>https://fnauman.com/contact.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
   </url>
   <url>
-    <loc>https://fnauman.com/posts/2023-12-16-second-hand-fashion/index.html</loc>
-    <lastmod>2026-02-17T14:35:48.610Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.com/posts/2024-06-15-intelligence-complex/index.html</loc>
-    <lastmod>2026-02-17T14:35:47.351Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.com/posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html</loc>
-    <lastmod>2026-03-09T17:35:33.052Z</lastmod>
+    <loc>https://fnauman.com/drafts/optimization_blog.html</loc>
+    <lastmod>2026-04-07T16:27:02.509Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.com/posts.html</loc>
-    <lastmod>2025-11-29T08:16:45.662Z</lastmod>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.com/posts/2023-12-16-second-hand-fashion/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.com/posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html</loc>
+    <lastmod>2026-04-07T17:06:29.732Z</lastmod>
+  </url>
+  <url>
+    <loc>https://fnauman.com/randomposts.html</loc>
+    <lastmod>2026-04-07T17:06:29.733Z</lastmod>
   </url>
   <url>
     <loc>https://fnauman.com/randomposts/2025-01-31-hf-data-upload/index.html</loc>
-    <lastmod>2025-11-29T08:16:45.663Z</lastmod>
-  </url>
-  <url>
-    <loc>https://fnauman.com/consulting.html</loc>
-    <lastmod>2026-01-17T18:14:31.477Z</lastmod>
+    <lastmod>2026-04-07T17:06:29.733Z</lastmod>
   </url>
 </urlset>
