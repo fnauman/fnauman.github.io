@@ -1,5 +1,4 @@
 /*-- scss:defaults --*/
-// Use Cosmo theme as base
 $primary: #2780e3;
 $secondary: #373a3c;
 $success: #3fb618;
@@ -7,52 +6,53 @@ $info: #9954bb;
 $warning: #ff7518;
 $danger: #ff0039;
 
-// Fonts
-$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
-$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-monospace: "Source Code Pro", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 
-// Base document colors
 $body-bg: #fff;
 $body-color: $secondary;
 $link-color: $primary;
-$headings-color: $primary;
+$headings-color: #1a1a2e;
 
-// Card styling
-$card-border-color: rgba($primary, 0.125);
+$card-border-color: rgba(0, 0, 0, 0.08);
 $card-cap-bg: rgba($primary, 0.03);
 
 /*-- scss:rules --*/
 
-/*-- scss:defaults --*/
-// Keep your existing defaults from the paste.txt
+// ─── Base ───
 
-/*-- scss:rules --*/
-// Keep your existing rules, then add:
+body {
+  line-height: 1.6;
+}
 
-// Social icons in light mode
+.home-page #title-block-header {
+  display: none;
+}
+
+// ─── Navbar ───
+
+.navbar {
+  padding-top: 0.3rem !important;
+  padding-bottom: 0.3rem !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+// ─── Social icons ───
+
 .social-icon {
-  opacity: 0.8;
+  opacity: 0.7;
+  transition: opacity 0.2s;
   &:hover {
     opacity: 1;
   }
 }
 
-// Consultancy card and buttons
-.card {
-  &.border-primary {
-    border-color: $primary !important;
-    
-    .card-body {
-      color: $body-color !important;
-    }
-  }
-}
+// ─── Buttons ───
 
 .btn-primary {
   color: white !important;
   background-color: $primary !important;
   border-color: $primary !important;
-  
   &:hover {
     background-color: darken($primary, 10%) !important;
     border-color: darken($primary, 10%) !important;
@@ -63,299 +63,395 @@ $card-cap-bg: rgba($primary, 0.03);
   color: $primary !important;
   border-color: $primary !important;
   background-color: transparent !important;
-  
   &:hover {
     color: white !important;
     background-color: $primary !important;
   }
 }
 
-// Aggressive spacing reduction
-body {
-  line-height: 1.4;  // Tighter line height
-}
-
-// Minimal navbar
-.navbar {
-  padding-top: 0.2rem !important;
-  padding-bottom: 0.2rem !important;
-  margin-bottom: 0.5rem !important;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
-}
-
-// Compact about section
-.about-entity {
-  padding: 0 !important;
-  margin-bottom: 1rem !important;
-  .about-image {
-    margin-bottom: 0.5rem !important;
-  }
-  .about-links {
-    margin-top: 0.25rem !important;
-    margin-bottom: 0 !important;
-  }
-  .about-link {
-    padding: 0.2rem 0.5rem !important;
+.btn-outline-secondary {
+  color: $secondary !important;
+  border-color: rgba(0, 0, 0, 0.15) !important;
+  background-color: transparent !important;
+  &:hover {
+    color: white !important;
+    background-color: $secondary !important;
+    border-color: $secondary !important;
   }
 }
 
-// Tighter content spacing
-.content {
-  padding-top: 0 !important;
-}
+// ─── Hero section ───
 
-// More compact headings
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0.5rem !important;
-  margin-bottom: 0.5rem !important;
-}
+.hero-section {
+  padding: 2.25rem 0 2rem;
 
-// Compact lists
-ul {
-  padding-left: 1.2rem !important;
-  margin-top: 0.25rem !important;
-  margin-bottom: 0.25rem !important;
-  li {
-    margin-bottom: 0.15rem !important;
-    line-height: 1.4 !important;
+  h2.hero-headline {
+    font-size: 1.7rem;
+    line-height: 1.24;
+    color: $headings-color;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    max-width: 24ch;
+  }
+
+  p {
+    font-size: 0.98rem;
+    color: lighten($secondary, 18%);
+    line-height: 1.55;
+    max-width: 58ch;
+  }
+
+  .btn {
+    min-width: 9.5rem;
   }
 }
 
-// Tighter grid spacing
+// ─── Proof bar ───
+
+.proof-bar {
+  background: linear-gradient(135deg, rgba($primary, 0.03), rgba($primary, 0.06));
+  border-radius: 14px;
+  padding: 1.75rem 1.25rem;
+  border: 1px solid rgba($primary, 0.09);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+
+  .proof-item {
+    padding: 0.65rem;
+
+    strong {
+      display: block;
+      font-size: 1.35rem;
+      color: $primary;
+      margin-bottom: 0.35rem;
+    }
+
+    font-size: 0.9rem;
+    color: lighten($secondary, 16%);
+    line-height: 1.35;
+  }
+}
+
+// ─── Section headings ───
+
+h2.section-heading {
+  font-size: 1.55rem;
+  color: $headings-color;
+  font-weight: 650;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba($primary, 0.15);
+}
+
+// ─── Service cards (What I help with) ───
+
+.service-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 1.6rem;
+  background: #fff;
+  transition: box-shadow 0.2s, transform 0.2s;
+  height: 100%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+
+  &:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    color: $primary;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.65rem;
+  }
+
+  strong {
+    color: $headings-color;
+  }
+}
+
+// ─── Work cards (Featured work) ───
+
+.work-card {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 14px;
+  padding: 1.5rem;
+  background: #fff;
+  transition: box-shadow 0.2s;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  }
+
+  h3 {
+    font-size: 1.05rem;
+    color: $headings-color;
+    margin-top: 0;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: lighten($secondary, 10%);
+    margin-bottom: 1rem;
+  }
+
+  .btn {
+    margin-top: auto;
+  }
+}
+
+// ─── Writing cards ───
+
+.writing-card {
+  border-left: 3px solid $primary;
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.5rem;
+  background: rgba($primary, 0.015);
+  border-radius: 0 6px 6px 0;
+
+  h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    line-height: 1.35;
+
+    a {
+      color: $headings-color;
+      text-decoration: none;
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  p {
+    font-size: 0.88rem;
+    color: lighten($secondary, 15%);
+    line-height: 1.45;
+    margin-bottom: 0.25rem;
+  }
+
+  em {
+    font-size: 0.82rem;
+    color: lighten($secondary, 25%);
+  }
+}
+
+// ─── Featured writing listings ───
+
+.quarto-listing-grid {
+  gap: 1.25rem;
+
+  .quarto-grid-link {
+    text-decoration: none;
+  }
+
+  .quarto-grid-item {
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      &::after {
+        content: "Read article";
+        display: inline-flex;
+        width: fit-content;
+        margin-top: 1.1rem;
+        padding: 0.45rem 0.8rem;
+        border: 1px solid rgba($primary, 0.25);
+        border-radius: 999px;
+        color: $primary;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+    }
+
+    .listing-title {
+      font-size: 1.2rem;
+      line-height: 1.3;
+      margin-bottom: 0.7rem;
+    }
+
+    .listing-description {
+      font-size: 0.95rem;
+      color: lighten($secondary, 12%);
+      line-height: 1.55;
+    }
+
+    .listing-date {
+      font-size: 0.85rem;
+      color: lighten($secondary, 20%);
+      margin-top: auto;
+      order: -1;
+      margin-bottom: 0.7rem;
+    }
+
+    .listing-categories {
+      margin-top: 1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .listing-category {
+      cursor: default;
+    }
+  }
+}
+
+// ─── Final CTA ───
+
+.final-cta {
+  background: linear-gradient(135deg, rgba($primary, 0.04), rgba($primary, 0.08));
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba($primary, 0.08);
+
+  h3 {
+    font-size: 1.3rem;
+    color: $headings-color;
+    margin-top: 0;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: lighten($secondary, 15%);
+  }
+}
+
+// ─── Grid and layout ───
+
 .grid {
-  gap: 0.75rem !important;
-  align-items: start !important;
-  margin-top: 1rem !important;
+  gap: 1rem;
+  align-items: start;
 }
 
-// Remove excess padding from grid columns
-.g-col-12 {
-  padding: 0.5rem !important;
-}
+// ─── Blog listing styles ───
 
-// Make content sections more compact
-.column-page {
-  padding-top: 0 !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-}
-
-// Compact cards
-.card {
-  margin-bottom: 0.5rem !important;
-  .card-body {
-    padding: 0.75rem !important;
+.listing-title {
+  color: $primary !important;
+  text-decoration: none;
+  &:hover {
+    color: darken($primary, 15%) !important;
   }
 }
 
-// Custom styling
-.navbar {
-  margin-bottom: 1rem; // Reduce space below navbar
+.listing-author {
+  font-size: 0.95rem;
+  color: $primary;
+  font-weight: 500;
 }
 
-.about-links {
-  margin-top: 0.5em; // Reduce margin
+.listing-date,
+.listing-reading-time {
+  font-size: 0.9rem;
+  color: lighten($secondary, 15%);
 }
 
-.grid {
-  gap: 1rem; // Slightly reduce grid gap
+.quarto-listing-default .listing-item {
+  padding: 1rem 0;
 }
+
+.quarto-listing-default .listing-item:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.quarto-listing-default .quarto-post {
+  padding: 1.15rem 0;
+}
+
+.quarto-listing-default .listing-title {
+  line-height: 1.25;
+}
+
+.quarto-listing-default .listing-description {
+  font-size: 0.96rem;
+  line-height: 1.55;
+}
+
+// ─── General card hover ───
 
 .card {
   transition: transform 0.2s;
   &:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
   }
 }
 
-// Project cards
-.project-card {
-  height: 100%;
-  border: 1px solid $card-border-color;
-  border-radius: 0.25rem;
-  padding: 1rem;
-  background-color: #fff;
-  transition: all 0.2s ease-in-out;
-  
-  &:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,.1);
-  }
-}
+// ─── Compact about section (for CV/other pages) ───
 
-// Post listings
-.post-preview {
-  margin-bottom: 1.5rem;
-  
-  h3 {
-    margin-bottom: 0.25rem;
-  }
-  
-  .post-meta {
-    color: $secondary;
-    font-size: 0.875rem;
-  }
-}
-
-// Emoji styling
-.emoji {
-  font-size: 1.2em;
-  vertical-align: middle;
-}
-
-// Add some spacing
-.mt-4 {
-  margin-top: 2rem !important;
-}
-
-.mb-4 {
-  margin-bottom: 2rem !important;
-}
-
-// Make content more compact
-.quarto-about-jolla {
-  padding-top: 1rem; // Reduce top padding
-  .about-image {
-    margin-bottom: 0.5rem; // Reduce space below image
-  }
-}
-
-// Improve bullet point alignment
-ul {
-  padding-left: 1.5rem; // Reduce left padding
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  li {
-    margin-bottom: 0.25rem; // Add small space between list items
-  }
-}
-
-// Make headings more compact
-h1, h2, h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-// Recent Updates section
-.grid {
-  margin-top: 1rem !important;
-  gap: 2rem !important;
-  
-  h3 {
-    margin-top: 0 !important;
-    margin-bottom: 1rem !important;
-    color: $primary !important;
-  }
-  
-  ul {
-    list-style-type: none !important;
-    padding-left: 0 !important;
-    margin-top: 0 !important;
-    
-    li {
-      margin-bottom: 0.75rem !important;
-      
-      a {
-        color: $secondary !important;
-        text-decoration: none !important;
-        font-size: 0.95rem !important;
-        
-        &:hover {
-          color: $primary !important;
-          text-decoration: underline !important;
-        }
-      }
-    }
-  }
-  
-  p {
-    margin-top: 1rem !important;
-    
-    a {
-      color: $primary !important;
-      text-decoration: none !important;
-      font-size: 0.9rem !important;
-      
-      &:hover {
-        text-decoration: underline !important;
-      }
-    }
-  }
-}
-
-// Compact about section spacing
 .about-entity {
   padding: 0 !important;
-  margin-bottom: 2rem !important;
-  
-  .about-image {
-    margin-bottom: 1rem !important;
-  }
-  
+  margin-bottom: 1.5rem !important;
   .about-links {
     margin-top: 0.5rem !important;
-    margin-bottom: 0 !important;
   }
 }
 
-// Recent Posts section styling
-.recent-posts {
-  margin-top: 1rem !important;
-  
-  h2 {
-    margin-top: 0 !important;
+// ─── Responsive adjustments ───
+
+@media (max-width: 768px) {
+  .list.grid.quarto-listing-cols-2 {
+    grid-template-columns: 1fr !important;
   }
-  
-  h3 {
-    font-size: 1.1rem !important;
-    margin-top: 1rem !important;
-  }
-  
-  ul {
-    list-style-type: none !important;
-    padding-left: 0 !important;
-    
-    li {
-      margin-bottom: 0.5rem !important;
-      
-      a {
-        color: $primary !important;
-        text-decoration: none !important;
-        
-        &:hover {
-          text-decoration: underline !important;
-        }
-      }
+
+  .hero-section {
+    padding: 1rem 0 1.5rem;
+
+    h2.hero-headline {
+      font-size: 1.45rem;
+      max-width: none;
+    }
+
+    p {
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      min-width: 0;
     }
   }
-}
 
-// Blog listing styles
-.listing-author {
-  font-size: 1rem;
-  color: $primary;  
-  font-weight: 500;
-}
+  .proof-bar .proof-item {
+    margin-bottom: 0.5rem;
 
-.listing-date, .listing-reading-time {
-  font-size: 0.95rem;
-  color: $secondary;
-  opacity: 0.9;
-}
-
-.listing-title {
-  color: $primary !important;  
-  text-decoration: none;
-  
-  &:hover {
-    color: darken($primary, 15%) !important;
-    text-decoration: none;
+    strong {
+      font-size: 1.1rem;
+    }
   }
-}
 
-.quarto-listing-default .listing-item {
-  padding: 1em 0;
-}
+  .service-card,
+  .work-card,
+  .quarto-listing-grid .quarto-grid-item {
+    margin-bottom: 0.75rem;
+  }
 
-.quarto-listing-default .listing-item:not(:last-child) {
-  border-bottom: 1px solid rgba($primary, 0.1);
+  .final-cta {
+    padding: 1.5rem 1rem;
+
+    h3 {
+      font-size: 1.1rem;
+    }
+  }
 }

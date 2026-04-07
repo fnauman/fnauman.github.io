@@ -8,7 +8,8 @@ author:
 date: "2026-04-01"
 date-modified: last-modified
 categories: [Artificial Intelligence, Data Engineering, Coding Agents]
-keywords: [data migration, data validation, Databricks, Snowflake, Cortex Code, dashboards]
+keywords: [data migration, data validation, Databricks, Snowflake, dashboards, Codex CLI, Cortex Code]
+featured: true
 twitter:
   creator: "@naumanf_"
   card-style: summary_large_image

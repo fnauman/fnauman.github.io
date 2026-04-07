@@ -3,7 +3,8 @@ title: "Uploading datasets to Hugging Face"
 description: "Hugging Face Datasets"
 date: "2025-01-26"
 categories: [short-note, huggingface, datasets]
-# draft: false
+draft: false
+featured: false
 ---
 
 Uploading datasets to [**huggingface**](https://huggingface.co/) turned out to be harder than I initially thought. 

@@ -11,6 +11,7 @@ categories: [Artificial Intelligence, Software Engineering, Coding Agents]
 keywords: [coding agents, code migration, clean-room rewrite, software verification, AGENTS.md]
 citation: true
 draft: false
+featured: true
 twitter:
   creator: "@naumanf_"
   card-style: summary_large_image

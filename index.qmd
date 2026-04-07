@@ -1,195 +1,204 @@
 ---
-title: "Farrukh Nauman" 
-subtitle: "AI  & Machine Learning Consultant | LLMs, Time Series & Computer Vision | PhD"
+title: "Farrukh Nauman | Enterprise Data Platforms, Coding Agents, and Time Series ML"
+description: "I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents."
 image: assets/officialpic.JPG
-resources: 
+resources:
   - assets/FarrukhNauman_brokers.pdf
+title-block: false
+body-classes: home-page
+listing:
+  - id: featured-writing-listing
+    contents: posts
+    type: grid
+    sort: "date desc"
+    max-items: 2
+    include:
+      featured: true
+    fields: [title, description, date, categories]
+    grid-columns: 2
 toc: false
-format: 
-  html: 
+format:
+  html:
     page-layout: full
 ---
 
+<!-- ───────────────── HERO ───────────────── -->
+
+::: {.hero-section}
+
 ::: {.grid}
 
-::: {.g-col-12 .g-col-md-3 .text-center}
-![](assets/officialpic.JPG){.rounded-circle width=200px}
+::: {.g-col-12 .g-col-md-3 .text-center .order-2 .order-md-1}
+![](assets/officialpic.JPG){.rounded-circle width=180px}
 
 ::: {.d-flex .justify-content-center .gap-3 .mt-3}
-[![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=24px title="GitHub" .social-icon}](https://github.com/fnauman)
-[![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=24px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
-[![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=24px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
-[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=24px title="Email" .social-icon}](mailto:farrukh.nauman@inertialrange.com)
-[![CV](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/file-pdf.svg){width=24px title="Download CV" .social-icon}](assets/FarrukhNauman_brokers.pdf)
+[![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=22px title="GitHub" .social-icon}](https://github.com/fnauman)
+[![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=22px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
+[![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=22px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
+[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=22px title="Email" .social-icon}](mailto:farrukh.nauman@inertialrange.com)
 :::
 :::
 
+::: {.g-col-12 .g-col-md-9 .order-1 .order-md-2}
 
-::: {.g-col-12 .g-col-md-9}
-# Welcome! 👋
+## I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents. {.hero-headline}
 
-I help organizations leverage cutting-edge AI for measurable business impact. 
+Principal consultant with deep experience across enterprise data platforms, time series / telemetry ML, and hands-on AI delivery in messy real-world environments.
 
-- 🤖 **LLMs**: Custom LLM and generative AI systems for synthetic data generation and smart assistants.
-- 🔍 **Computer Vision**: Design and deployment of computer vision systems for automated process optimization and inspection.
-- 📊 **Time Series**: Development of time series models for classification, anomaly detection and forecasting.
-- 💼 **AI Strategy & Technical Advisory**: Strategic guidance from feasibility to deployment with a focus on ROI and implementation.
+::: {.d-flex .gap-3 .mt-4 .flex-wrap}
+[See case studies](consulting.qmd){.btn .btn-primary}
+[Get in touch](contact.qmd){.btn .btn-outline-primary}
+:::
 
-With a proven track record in developing end-to-end computer vision systems, synthetic data frameworks, and custom LLM solutions, I help businesses overcome technical challenges and achieve significant efficiency gains.
+:::
 
-::: {.callout-note appearance="simple"}
-## 🤝 Available for Consulting
-<!-- ::: {.d-flex .gap-2 .mt-3}
-<!-- [Schedule a consultation]{.btn .btn-primary} -->
-<!-- Google Calendar Appointment Scheduling begin -->
-<!-- <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
-<script>
-(function() {
-  var target = document.currentScript;
-  window.addEventListener('load', function() {
-    calendar.schedulingButton.load({
-      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0xjpTUuITjAslR7WIdraRXZtoKunaB6T2a4CDnuELUAxjFiVx0LMelvbUOQcORHkONM6wbW-oV?gv=true',
-      color: '#039BE5',
-      label: 'Book an appointment',
-      target,
-    });
-  });
-})();
-</script> -->
-<!-- end Google Calendar Appointment Scheduling -->
-Need help with AI?
-[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary}
-<!-- ::: -->
+:::
+
 :::
 
 
-## Consulting {.mt-5}
+<!-- ───────────────── PROOF BAR ───────────────── -->
 
-```{python}
-#| echo: false
-#| output: asis
-from pathlib import Path
-import yaml
-from datetime import datetime, date
-
-def get_post_info(file_path):
-    with open(file_path, 'r') as f:
-        content = f.read().split('---')
-        if len(content) > 1:
-            try:
-                front_matter = yaml.safe_load(content[1])
-                
-                # Skip draft posts
-                if front_matter.get('draft', False) == True:
-                    return None
-                    
-                date_str = front_matter.get('date', '2000-01-01')
-                # Ensure date is always a datetime.date object
-                if isinstance(date_str, date):
-                    post_date = date_str
-                else:
-                    try:
-                        post_date = datetime.strptime(str(date_str), '%Y-%m-%d').date()
-                    except (ValueError, TypeError): # Handle invalid format or type
-                        post_date = datetime.strptime('2000-01-01', '%Y-%m-%d').date()
-
-                return {
-                    'title': front_matter.get('title', 'Untitled'),
-                    'date': post_date, # Store as date object
-                    'path': str(file_path),
-                    'description': front_matter.get('description', ''),
-                    'image': front_matter.get('image', None)
-                }
-            except Exception as e: # Catch potential YAML errors or others
-                print(f"Error processing {file_path}: {e}") # Add some logging
-                return None
-    return None
-
-# Get consulting items
-consulting_items = []
-for item_dir in Path('consulting').glob('*'):
-    if item_dir.is_dir():
-        index_file = item_dir / 'index.qmd'
-        if index_file.exists():
-            info = get_post_info(index_file)
-            if info:
-                # Add the directory path for image reference
-                if info.get('image'):
-                    info['image_path'] = str(item_dir / info['image'])
-                consulting_items.append(info)
-
-# Sort by date and get latest 3
-consulting_items.sort(key=lambda x: x['date'], reverse=True)
-consulting_items = consulting_items[:3]
-
-# Print as grid
-print("::: {.grid}\n")
-
-for item in consulting_items:
-    print(f"::: {{.g-col-12 .g-col-md-4}}\n")
-    print(f"### {item['title']}\n")
-    
-    # Get first sentence or part of description if available
-    description = item['description']
-    if description:
-        # Limit to first 150 characters if too long
-        if len(description) > 150:
-            description = description[:150] + "..."
-    else:
-        description = "AI consulting project"
-    
-    # Create link to consulting item
-    print(f"[{description}]({item['path']})\n")
-    print(":::\n")
-
-print(":::\n")
-print("\n[View full consulting →](consulting.qmd)")
-```
-
-## Recent Updates
+::: {.proof-bar .mt-5}
 
 ::: {.grid}
 
-::: {.g-col-12}
-### Blog 📝
+::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
+**~1 week**
+Cross-platform migration validator from zero to live dashboard
+:::
 
-```{python}
-#| echo: false
-#| output: asis
-from pathlib import Path
-import yaml
-from datetime import datetime, date
+::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
+**5–10x faster**
+SQL pipeline optimization with row-level correctness validation
+:::
 
-# Reuse the get_post_info function defined above
-# Get blog posts
-blog_posts = []
-for post in Path('posts').rglob('*.qmd'):
-    info = get_post_info(post)
-    if info:
-        blog_posts.append(info)
+::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
+**40% faster**
+AI-driven quality assessment pilot for circular fashion
+:::
 
-# Get TIL posts
-til_posts = []
-for post in Path('randomposts').rglob('*.qmd'):
-    info = get_post_info(post)
-    if info:
-        til_posts.append(info)
+::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
+**Team Lead**
+Interim lead & project manager for DS and advanced analytics
+:::
 
-# Combine both types of posts
-all_posts = blog_posts + til_posts
+:::
 
-# Sort by date and get latest 6
-all_posts.sort(key=lambda x: x['date'], reverse=True)
-all_posts = all_posts[:6]
+:::
 
-# Print as markdown
-for post in all_posts:
-    date_str = post['date'].strftime('%B %d, %Y') # Format date object for printing
-    print(f"- [{post['title']}]({post['path']}) - {date_str}\n")
 
-print(f"\n[View all posts →](posts.qmd)")
-```
+<!-- ───────────────── WHAT I HELP WITH ───────────────── -->
+
+## What I help with {.section-heading .mt-5}
+
+::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Migration Assurance
+
+**The problem:** You are migrating between data platforms and nobody can answer "is the target data correct?" with confidence. Spot-checks and row counts are not enough.
+
+**What I do:** Build systematic cross-platform validation — automated comparison of schemas, row counts, key distributions, and date ranges across dozens of tables. I design the framework, deploy dashboards the team can trust, and surface real defects early.
+
+**Example outcomes:** Validated dozens of tables across Databricks and Snowflake in under a week. Surfaced a row-count discrepancy of more than 2x on the first automated run.
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Warehouse Cost & Performance
+
+**The problem:** Your warehouse bill is growing faster than your data. Pipelines run on brute-force full scans. Nobody has profiled the actual bottlenecks or tested whether an incremental approach is both faster *and* correct.
+
+**What I do:** Profile pipeline execution step by step, benchmark alternatives at multiple data scales and warehouse sizes, and validate correctness with row-level comparisons — not just aggregate checksums.
+
+**Example deliverables:** Profiling reports, benchmark harnesses across warehouse sizes, correctness-validation checks, and rollout plans for incremental pipeline changes.
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Analytics Automation with Coding Agents
+
+**The problem:** Your analytics team spends too much time on manual notebook runs, repetitive SQL, and copy-paste workflows. You have heard about coding agents but need someone who has shipped real work with them, not just demos.
+
+**What I do:** Design and implement coding-agent workflows for migration, validation, and pipeline modernization. I write the harness, the test discipline, and the operating constraints that make agents reliable in production.
+
+**Example outcomes:** Used a coding agent to build a full validation workflow — discovery, per-pipeline scripts, unified validator, historical storage, and live dashboards — across seven working sessions.
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Time Series / Telemetry ML
+
+**The problem:** You have sensor, telemetry, or time series data and need production ML — activity recognition, anomaly detection, forecasting, or classification — but your team's ML experience is limited or focused elsewhere.
+
+**What I do:** Design and deliver time series ML systems from evaluation harness to production deployment. I specialize in approaches that are fast enough for edge and IoT (ROCKET family, lightweight models) while maintaining accuracy.
+
+**Example outcomes:** Delivered a time series classification system with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Established in-house activity recognition from CAN/telemetry data.
+:::
+
+:::
+
+
+<!-- ───────────────── FEATURED WORK ───────────────── -->
+
+## Featured work {.section-heading .mt-5}
+
+::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### SQL Pipeline Optimization
+
+Redesigned a years-old daily full-recompute pipeline into a validated incremental one — 5–10x faster with row-level correctness proof. The fastest approach tested was wrong; multi-scale benchmarks and parallel AI-agent workflows found the working design.
+
+[Read the case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Cross-Platform Migration Validation
+
+Built a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.
+
+[Read the case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Time Series Classification for Production
+
+Delivered a time series classification system for industrial telemetry: state-of-the-art accuracy with 10-100x faster inference than deep learning, designed for edge and IoT deployment.
+
+[Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Automated Inspection for Circular Fashion
+
+End-to-end AI system for second-hand garment quality assessment: object detection, synthetic data generation, and pilot deployment. 40% faster processing, 50%+ reduction in data collection effort.
+
+[Read more](consulting/2025-04-13-AI-fashion/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+:::
+
+
+<!-- ───────────────── FEATURED WRITING ───────────────── -->
+
+## Writing {.section-heading .mt-5}
+
+::: {#featured-writing-listing .mt-4}
+:::
+
+[All writing](posts.qmd){.btn .btn-outline-secondary .mt-3}
+
+
+<!-- ───────────────── FINAL CTA ───────────────── -->
+
+::: {.final-cta .mt-5 .text-center}
+
+### Working on a migration, cost blowup, or analytics automation problem?
+
+Let's talk.
+
+::: {.d-flex .justify-content-center .gap-3 .mt-3}
+[Get in touch](contact.qmd){.btn .btn-primary .btn-lg}
+[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary .btn-lg}
 :::
 
 :::

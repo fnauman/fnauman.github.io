@@ -1,17 +1,47 @@
 ---
-title: "Blog & Technical Notes"
-resources: 
-  - assets/placeholder-portfolio.png
-listing: 
-  contents: 
-    - posts # all Quarto docs in the `posts` directory will be included on your listing page
-    - randomposts # all Quarto docs in the `randomposts` directory will be included on your listing page
-  type: grid # or `default` or `table`; each type has its own set of yaml options to include
-  sort: "date desc" # can also sort on more than one field
-  categories: true # allows you to sort posts by assigned categories 
-  fields: [image, date, title, categories, description, author, reading-time]
-  filter-ui: [title, date, categories]
-  image-placeholder: assets/placeholder-portfolio.png
+title: "Writing"
+subtitle: "Case studies, technical essays, and notes from applied AI work"
+description: "Technical writing on data platform migrations, coding agents, time series ML, and applied AI."
+listing:
+  - id: featured-posts-listing
+    contents: posts
+    type: grid
+    sort: "date desc"
+    max-items: 2
+    include:
+      featured: true
+    fields: [title, description, date, categories]
+    grid-columns: 2
+  - id: all-posts-listing
+    contents:
+      - posts
+      - randomposts
+    type: default
+    sort: "date desc"
+    categories: false
+    fields: [date, title, categories, description, reading-time]
+    filter-ui: false
+    sort-ui: false
+toc: false
+format:
+  html:
+    page-layout: article
 ---
 
-`short-note` category represents random thoughts and things I've learned. The rest of the posts are longer-form posts.
+## Featured writing
+
+Flagship case studies and technical essays sit here. Short notes stay in the archive.
+
+::: {#featured-posts-listing .mt-4}
+:::
+
+---
+
+## Archive
+
+::: {#all-posts-listing}
+:::
+
+---
+
+*Posts tagged `short-note` are quick notes and things I learned. The rest are longer-form essays and case studies.*

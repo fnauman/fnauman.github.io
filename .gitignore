@@ -10,3 +10,6 @@ vendor
 /.quarto/
 
 **/*.quarto_ipynb
+
+# Local-only drafts that should never be committed to the public site repo
+drafts/

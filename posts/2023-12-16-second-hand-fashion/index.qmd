@@ -14,6 +14,7 @@ keywords: [circular economy, sustainable fashion]
 citation: true
 image: front_2023_05_11_07_43_41.jpg
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+featured: false
 twitter:
   creator: "@naumanf_"
   card-style: summary_large_image

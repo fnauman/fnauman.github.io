@@ -4,7 +4,8 @@ description: "Learn how to set up a modern web development environment: React, N
 date: "2025-01-26"
 categories: [short-note, webapps, react]
 # image: "react-vite-logo.png" # Changed to a more relevant image
-# draft: false
+draft: false
+featured: false
 ---
 
 
