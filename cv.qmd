@@ -30,7 +30,7 @@ Principal consultant and interim team lead bridging strategy and hands-on delive
 
 - 40% faster textile quality assessment workflow (pilot).
 - 50%+ reduction in data collection/labeling effort via synthetic data (pilot).
-- p to 90% lower edge hardware cost enabled by low-energy ML approach (prototype).
+- Up to 90% lower edge hardware cost enabled by low-energy ML approach (prototype).
 
 ## Leadership Highlights
 
