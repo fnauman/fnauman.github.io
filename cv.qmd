@@ -44,8 +44,9 @@ Principal consultant and interim team lead bridging strategy and hands-on delive
 | Area | Skills |
 |------|--------|
 | **AI & ML** | **LLMs**: Text-to-SQL, RAG, Fine-tuning, Evaluation Harnesses, Synthetic Data, Logging & Reliability Analysis;<br>**Vision**: Object Detection, Classification, Segmentation, Inspection workflows, Edge AI;<br>**Time Series**: Forecasting, Anomaly Detection, Activity Recognition, Predictive Maintenance; |
-| **MLOps & Cloud** | Snowflake, Databricks/Spark, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
-| **Programming** | Python (Expert), C/C++, SQL, High Performance Computing, LangChain, OpenAI SDK |
+| **MLOps & Cloud** | Snowflake, Snowpark, Databricks/Spark, Streamlit, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
+| **Programming** | Python (Expert), SQL, C/C++, High Performance Computing, LangChain, OpenAI SDK |
+| **AI Coding Agents** | Cortex Code, Codex CLI, Claude Code; agent-assisted migration, validation, and pipeline optimization workflows |
 | **Leadership & Delivery** | Stakeholder Management, Requirements Gathering, Roadmapping, Solution Architecture, Technical Leadership, Governance, ROI Analysis, Client Communication |
 | **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
 
@@ -54,14 +55,17 @@ Principal consultant and interim team lead bridging strategy and hands-on delive
 ### InertialRange Labs AB
 **Principal AI Consultant**  *Sep 2025 -* | Linköping, Sweden
  
-**Engagement: Interim Team Lead – Data Science & Advanced Analytics (Sep 2025 - Feb 2026: _6 months_):**  
+**Engagement: Interim Team Lead – Data Science & Advanced Analytics (Sep 2025 - Present):**
 Client: Global Industrial Manufacturer (Material Handling & Logistics)
 
 - Lead a **4–7** person DS/analytics team; own roadmap, stakeholder steering, and technical direction across telemetry analytics, ML, and GenAI automation.
 - Coordinate transition planning/execution for **Databricks → Snowflake** while maintaining daily Spark/BI workloads over **23** TB telemetry data.
+- Built a **cross-platform migration validation** system using AI coding agents: automated schema comparison, row-count reconciliation, key-distribution checks, and date-range verification across dozens of tables — from zero to live dashboard in ~1 week.
+- Redesigned a critical daily pipeline from full recompute to validated incremental processing: **5–10x speedup** with row-level correctness proof. Killed a faster but fundamentally broken optimization using multi-scale benchmarks and `EXCEPT`-based validation.
 - Established in-house direction for **machine activity recognition from CAN/telemetry (PoC)**: privacy-safe labeling workflow, baselines, evaluation harness, and benchmarking vs external PoC (faster inference with comparable accuracy on internal tests).
 - Prototyped **Text-to-SQL** workflow automation (PoC): synthetic evaluation dataset generation + instrumentation/logging to analyze failure modes and improve reliability.
-- **Tech Stack**: Azure Databricks, PyTorch, LLM Agents (LangChain), Time-Series, Model Monitoring/Serving, Experiment Tracking, Git.
+- Developed a practitioner framework for **large code migrations with coding agents**: evidence-preservation methodology, behavioral oracles, and `AGENTS.md`-based quality contracts.
+- **Tech Stack**: Snowflake, Azure Databricks, Snowpark, PyTorch, AI Coding Agents (Cortex Code, Codex CLI), LLM Agents (LangChain), Streamlit, Time-Series, Model Monitoring/Serving, Experiment Tracking, Git.
 
 ### RISE Research Institutes of Sweden AB
 **AI Researcher & Consultant**  

@@ -1,0 +1,35 @@
+---
+title: "Work With Me"
+subtitle: "Enterprise data platforms, warehouse optimization, analytics automation, time series ML"
+description: "Get in touch about migration assurance, warehouse cost and performance work, analytics automation with coding agents, or time series ML."
+toc: false
+format:
+  html:
+    page-layout: article
+---
+
+I work with enterprise data teams on problems where the gap between "we have data" and "we trust the data" is costing real money — migrations that stall, warehouses that overspend, analytics workflows that depend on manual notebook runs, or telemetry pipelines that need ML but lack the in-house depth.
+
+## What a typical engagement looks like
+
+**Advisory** — A few sessions to scope a problem, review architecture, or pressure-test a migration plan. Good for teams that have the people but need a second opinion from someone who has done it before.
+
+**Embedded principal** — I join your team for weeks or months as an interim lead or senior IC. I own deliverables, coordinate with stakeholders, and ship production work. This is how most of my enterprise engagements run.
+
+**Hands-on implementation** — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, time series models. I write code, not slide decks.
+
+## Good fit
+
+- You are migrating between data platforms and need systematic validation, not spot-checks.
+- Your warehouse costs are growing faster than your data and you need someone to profile, benchmark, and fix it.
+- You want to use coding agents for real engineering work (not demos) and need someone who has shipped with them.
+- You have telemetry, sensor, or time series data and need production ML — not a research paper.
+- You need an interim team lead who can own a roadmap, manage stakeholders, and still write code.
+
+## Get in touch
+
+[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-primary .btn-lg}
+
+If you reach out, include a short note on the migration, cost, automation, or telemetry problem you are working on.
+
+Or connect on [LinkedIn](https://www.linkedin.com/in/fnauman/).

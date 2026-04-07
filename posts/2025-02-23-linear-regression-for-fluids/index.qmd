@@ -10,6 +10,7 @@ categories: [Physics, Computational Fluid Dynamics, Aritifical Intelligence]
 keywords: [Physics, Computational Fluid Dynamics, Machine Learning, Artificial Intelligence]
 citation: true
 draft: true
+featured: false
 twitter:
   creator: "@naumanf_"
   card-style: summary_large_image

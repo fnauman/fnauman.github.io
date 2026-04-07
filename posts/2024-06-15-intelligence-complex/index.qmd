@@ -10,6 +10,7 @@ categories: [Artificial Intelligence, Complex Systems, Natural Language Processi
 keywords: [Artificial Intelligence, Complex Systems, Natural Language Processing, Deep Learning, Large Language Models]
 citation: true
 draft: false # setting this to `true` will prevent your post from appearing on your listing page until you're ready!
+featured: false
 twitter:
   creator: "@naumanf_"
   card-style: summary_large_image

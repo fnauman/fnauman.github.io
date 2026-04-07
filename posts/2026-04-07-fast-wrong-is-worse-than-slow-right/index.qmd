@@ -1,0 +1,151 @@
+---
+title: "Fast Wrong Is Worse Than Slow Right"
+subtitle: "How I redesigned a years-old daily full-recompute pipeline into a validated incremental one"
+description: "The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows."
+author:
+  - name: Farrukh Nauman
+    url: https://fnauman.com/
+date: "2026-04-07"
+date-modified: last-modified
+categories: [Data Engineering, Performance Optimization, Snowflake, Coding Agents]
+keywords: [data pipeline optimization, incremental processing, data correctness, Snowflake, benchmark design, AI coding agents, query optimization, Codex CLI, Cortex Code]
+featured: true
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "Fast Wrong Is Worse Than Slow Right"
+  description: "The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows."
+---
+
+*The fastest optimization I tested was also the most dangerous. It cut runtime dramatically, made the benchmark tables look easy, and would have silently corrupted production data. That project sharpened one lesson: fast wrong is worse than slow right.*
+
+## The Problem
+
+A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from tens of billions of source rows. On a large Snowpark-optimized warehouse, the job took roughly an hour and a half and consumed a few thousand Snowflake credits a year.
+
+The reason nobody had "just optimized it" earlier was simple: the pipeline was expensive, but it was *trusted*. Downstream teams used the output for operational work. A bad optimization would not just waste compute; it would break a system people already depended on.
+
+At benchmark scale, the waste was obvious. Almost all runtime was spent on two full scans over the same huge source. Not the writes. Not the output tables. Not the window functions. The expensive part was structural.
+
+## How I Worked the Problem
+
+I treated this as an architecture and validation problem, not a one-off timing exercise.
+
+I built a benchmark harness that varied three things:
+
+| Axis | What I tested | Why it mattered |
+|------|---------------|-----------------|
+| **Data scale** | Tens of millions through low single-digit billions of rows | Small data hides correctness bugs and scaling behavior. |
+| **Warehouse size** | Small through large | Large warehouses can mask algorithmic waste by brute-force parallelism. |
+| **Correctness** | Row-level `EXCEPT` validation against a known-good baseline | Aggregate counts can match while the actual rows are wrong. |
+
+I also used two coding agents in parallel, but with strict role separation. I used **Codex CLI** for planning, benchmark design, and architectural reasoning around query shape, invariants, and failure modes. I used **Cortex Code** for execution inside the Snowflake workflow: implementing the Snowpark changes, building the benchmark notebook, and iterating on the validation queries. The contract between all of us was the same: benchmark tables plus row-level validation, not vibes.
+
+That operating pattern matters. On hard optimization work, agents are most useful when they compress the distance between hypothesis and evidence, not when you let them free-associate their way into production.
+
+## The Tempting Optimization
+
+The obvious idea was an incremental design:
+
+1. Seed a persistent activity table from historical data once.
+2. On the daily run, scan only new rows since a watermark.
+3. Append those new aggregates to the activity layer.
+4. Recompute the smaller downstream outputs from the cached activity table instead of rescanning the full source.
+
+This "Dual-Incremental" design looked fantastic in benchmark tables:
+
+| Dataset | Full Recompute | Dual-Incremental Daily | Speedup |
+|---------|---------------|------------------------|---------|
+| Mid-scale | 136 seconds | 17 seconds | **8x** |
+| Large-scale | 350 seconds | 28 seconds | **12.6x** |
+
+If I had done the usual optimization theater, I would have shipped it.
+
+Then I ran the correctness validation.
+
+## The Bug That Scales With Data
+
+The failure mode was subtle.
+
+Some activities straddled the watermark: part of the history had already been processed in the initial seed, and new rows for the same activity arrived later. An append-only design cannot repair the old aggregate. It creates a second partial activity row instead of recomputing the one correct row from full history.
+
+That produced phantom rows, missing rows on some filter paths, and wrong aggregates built from partial state.
+
+On small data, everything looked clean. At larger scales, row-level validation started surfacing structural diffs: first a few, then a few dozen. That was enough. The architecture was wrong.
+
+The important point is that the fastest design was not "needs a little tuning." It was fundamentally invalid.
+
+## The Real Fix: Shared-Incremental with MERGE
+
+The working design was incremental, but not append-based.
+
+The final approach used one shared activity table and `MERGE` semantics:
+
+- identify activity keys touched by new data
+- re-read the full history for those keys
+- recompute the aggregate from scratch
+- `MERGE` the corrected result back into the persistent table
+
+This moved the incremental boundary to the right level: not at arbitrary row fragments, but at the entity whose aggregate must remain correct.
+
+A second pass was still needed for `LAG`-based logic, because updating one row can change the next row in the same device partition. Hard optimization work is usually hidden in these dependency edges, not in the headline idea.
+
+## What the Final Numbers Looked Like
+
+| Approach | Correctness | Outcome |
+|----------|-------------|---------|
+| Dual-Incremental | Failed row-level validation at large scale | Fastest, but unusable |
+| Shared-Incremental + `MERGE` | Zero structural diffs in completed validation runs | **Roughly 5-8x faster than baseline** |
+| Full recompute | Correct | Baseline |
+
+In production terms, that meant:
+
+- daily runtime dropped from about 90 minutes to the low tens of minutes
+- compute cost dropped by well over 80%
+- the one-time seed cost paid back in days, not months
+
+The broken design was faster. The correct design was still transformative.
+
+### Why EXCEPT Validation, Not Checksums
+
+This was the real lever: not a Snowpark trick, but benchmark discipline.
+
+Small data hid the bug. Large warehouses hid the algorithmic cost. Aggregate checks would have let the broken design through. Row-level validation killed it before it got near production.
+
+The validation queries were simple:
+
+```sql
+SELECT * FROM candidate
+EXCEPT
+SELECT * FROM ground_truth;
+
+SELECT * FROM ground_truth
+EXCEPT
+SELECT * FROM candidate;
+```
+
+Simple is fine. The important part was running them systematically, across scales, across warehouse sizes, and against a known-good baseline.
+
+## What This Says About AI-Agent Work
+
+The agents mattered, but not because they replaced judgment.
+
+They let me explore architectures, implement benchmark harnesses, generate validation queries, and debug long-running Snowpark iterations much faster than I could have by hand. More importantly, they let me separate planning from execution in a way that matched the tools. I have been impressed by Snowflake's Cortex Code ability to seamlessly orchestrate workflows on Snowflake, read logs, give updates, and even setup cron jobs for status checks for long running jobs. GPT-5.4 Pro (inside Codex CLI) was instrumental in crafting the shared incremental approach and debugging the dual incremental approach.
+
+That is the mode I increasingly use on hard production problems:
+
+- parallel agents with distinct responsibilities
+- explicit validation gates
+- benchmark tables as the source of truth
+- human judgment on architectural calls and go/no-go decisions
+
+The agents accelerated the work. The evidence standard stayed high.
+
+## Takeaway
+
+The right question was not "how do I make this pipeline faster?" It was "what part of the current design is fundamentally wasting work, and how do I change that without breaking correctness?"
+
+That is the optimization work that actually matters. Not shaving seconds off a bad architecture. Not shipping the prettiest benchmark. Changing query shape, proving correctness, and killing attractive wrong ideas before they escape.
+
+Fast wrong is worse than slow right. The useful pattern was: redesign the work, benchmark across scales, validate row by row, and only then talk about speedup.

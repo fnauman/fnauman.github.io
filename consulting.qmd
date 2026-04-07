@@ -1,28 +1,106 @@
 ---
-title: "Consulting"
-listing: 
-  contents: consulting # all Quarto docs in the `portfolio` directory will be included on your listing page
-  type: default # or `grid` or `table`; each type has its own set of yaml options to include
-  sort: "date desc" # can also sort on more than one field
-  categories: true # allows you to sort posts by assigned categories 
-  fields: [image, date, title, categories, description, author, reading-time]
-  filter-ui: [title, date]
-  image-height: 150px # Control the height of the listing image
-  image-placeholder: assets/placeholder-portfolio.png
+title: "Selected Work"
+subtitle: "Enterprise data platforms, warehouse optimization, analytics automation, and time series ML"
+description: "Problems I solve, how I work, and selected examples from enterprise data consulting engagements."
+toc: false
+format:
+  html:
+    page-layout: article
 ---
 
-## AI Solutions for Your Business Challenges
+## Problems I solve
 
-Below you'll find a selection of projects that showcase my expertise in Generative AI, LLMs, Computer Vision, and AI strategy. Each project demonstrates how I've helped organizations translate business needs into scalable AI architectures with measurable impact.
+### Migration assurance and cross-platform validation
 
-::: {.callout-note appearance="minimal"}
-## Specialized AI Consulting Services
+You are moving between data platforms — Databricks to Snowflake, on-prem to cloud, or consolidating across warehouses. The migration is underway, but nobody can systematically answer whether the target data is correct. I build automated cross-platform validation: schema comparison, row-count reconciliation, key-distribution checks, and date-range verification across dozens of tables. Results go into historical storage and a dashboard the team can use daily.
 
-- **Generative AI & LLMs**: Custom solutions for synthetic data generation and smart assistants.
-- **Computer Vision**: Automated process verification systems that reduce manual inspection costs.
-- **Retrieval Augmented Generation (RAG)**: Smart knowledge management and document QA systems.
-- **AI Strategy & Technical Advisory**: Guidance from feasibility assessment to deployment.
+### Warehouse cost and performance optimization
 
-[Schedule a consultation](https://calendar.app.google/sH8s13r8keotW6jf9){.btn .btn-primary} 
+Your warehouse bill is growing faster than your data. Pipelines run full scans when they could be incremental. Nobody has profiled the actual bottleneck or tested whether a faster approach is also *correct*. I profile execution step by step, benchmark alternatives at multiple data scales and warehouse sizes, and validate correctness with row-level comparisons — not just aggregate checksums. The goal is a production-ready optimization with proof that it does not break the data.
+
+### Analytics automation with coding agents
+
+Your analytics team spends too much time on repetitive notebook runs, manual SQL, and copy-paste workflows. You want to use coding agents but need someone who has shipped real engineering work with them — not just prompting demos. I design coding-agent workflows for migration, validation, and pipeline modernization, including the test discipline and operating constraints that make agents reliable.
+
+### Time series and telemetry ML
+
+You have sensor, telemetry, or time series data and need production ML — activity recognition, anomaly detection, forecasting, or classification. I specialize in approaches that are fast enough for edge and IoT deployment (ROCKET family, lightweight models) while maintaining state-of-the-art accuracy. I work from evaluation harness to production, not just research prototypes.
+
+### Multimodal inspection and quality assessment
+
+You need automated visual inspection or quality assessment — garment grading, defect detection, or similar classification-from-images problems. I have delivered end-to-end systems including data collection pipelines, synthetic data generation, model training, and pilot deployment in industrial settings.
+
+
+## How I work
+
+**Advisory** — A few sessions to scope a problem, review architecture, or pressure-test a plan. Good for teams that have the people but need a second opinion from someone who has done it.
+
+**Embedded principal / interim lead** — I join your team for weeks or months. I own deliverables, coordinate with stakeholders, manage a roadmap, and ship production work alongside your people.
+
+**Hands-on implementation** — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, time series models, inspection pipelines. I write code, not slide decks.
+
+**Evaluation-first delivery** — Every engagement starts with a clear success criterion and a way to measure it. I do not optimize until I can prove correctness. I do not ship until I can show evidence.
+
+
+## Selected examples
+
+::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### SQL Pipeline Optimization
+
+Redesigned a critical daily full-recompute pipeline into a validated incremental one — 5–10x faster with row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.
+
+[Read the case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Cross-Platform Migration Validation
+
+Built a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.
+
+[Read the full case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Code Migration Methodology
+
+Developed a practitioner's framework for large code migrations and clean-room-style rewrites with coding agents. Covers evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails — drawn from multiple 10k+ line migrations.
+
+[Read the essay](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Time Series Classification for Production
+
+Delivered a time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Designed for edge and IoT deployment where latency and power matter.
+
+[Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Automated Inspection for Circular Fashion
+
+End-to-end AI system for second-hand garment quality assessment: object detection, synthetic data generation, and pilot deployment. Led two EU-funded initiatives delivering 40% faster processing and 50%+ reduction in data collection effort.
+
+[Read more](consulting/2025-04-13-AI-fashion/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+:::
+
+
+## Engagement fit
+
+You should reach out if:
+
+- You are a **data platform or data engineering leader** dealing with a migration, cost problem, or analytics modernization.
+- You are a **technical sponsor or architect** who needs a senior practitioner to lead or unblock a workstream.
+- You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
+- You have a **time series, telemetry, or inspection problem** that needs production ML, not a research paper.
+
+I typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT — but the methods transfer.
+
+::: {.mt-4}
+[Work with me](contact.qmd){.btn .btn-primary}
 [Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary}
 :::
