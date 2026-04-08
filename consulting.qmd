@@ -1,6 +1,6 @@
 ---
 title: "Selected Work"
-subtitle: "Enterprise data platforms, warehouse optimization, analytics automation, and time series ML"
+subtitle: "Enterprise data platforms, warehouse optimization, AI agents, and time series"
 description: "Problems I solve, how I work, and selected examples from enterprise data consulting engagements."
 toc: false
 format:

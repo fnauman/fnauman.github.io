@@ -5,8 +5,6 @@ project:
     - "posts/**/*.qmd"
     - "consulting/**/*.qmd"
     - "randomposts/**/*.qmd"
-    - "!benchmark_usage_metrics_2.md"
-    - "!optimization_tutorial.md"
 
 website:
   title: "Farrukh Nauman"

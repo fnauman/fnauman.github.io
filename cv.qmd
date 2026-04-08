@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "Principal AI Consultant | Agentic Decision Systems | Time Series & LLMs | PhD"
+subtitle: "Principal AI Consultant | Enterprise Data Platforms · Agentic Decision Systems · Time Series | PhD"
 resources: 
   - assets/FarrukhNauman_brokers.pdf
 toc: false
@@ -24,30 +24,25 @@ Github: [fnauman](https://github.com/fnauman) |
 
 ---
 
-## Value Proposition
+## Summary
 
-Principal consultant and interim team lead bridging strategy and hands-on delivery in production-scale data environments (telemetry/time series, vision, and LLM workflow automation). Selected outcomes from applied R&D / pilot deployments:
+Principal consultant helping enterprise data teams de-risk platform migrations, cut warehouse cost, and automate analytics workflows with coding agents. I lead and ship in production-scale environments — owning roadmaps, managing stakeholders, and writing code, not slide decks. Selected results:
 
-- 40% faster textile quality assessment workflow (pilot).
-- 50%+ reduction in data collection/labeling effort via synthetic data (pilot).
-- Up to 90% lower edge hardware cost enabled by low-energy ML approach (prototype).
-
-## Leadership Highlights
-
-- Interim Team Lead for Data Science & Advanced Analytics (4-7 person) at a global industrial telemetry, roadmap ownership and stakeholder management.
-- Led applied AI initiatives at RISE: [Vinnova](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK), delivering pilot-ready systems and public artifacts. 
-- Scaled delivery practices: evaluation-first approach, privacy-aware workflows, requirements → success criteria → handover.
-- Established and led an AI mentorship program for Master's thesis students, resulting in 4 industry-applicable projects.
+- **5–10x faster** pipeline with row-level correctness proof after killing a broken optimization.
+- **~1 week** from zero to live cross-platform migration validation dashboard.
+- **40% faster** quality-assessment workflow via end-to-end AI pilot.
+- **Interim team lead** for a 4–7 person DS & analytics team at a global industrial manufacturer.
 
 ## Skills & Tech Stack
 
 | Area | Skills |
 |------|--------|
-| **AI & ML** | **LLMs**: Text-to-SQL, RAG, Fine-tuning, Evaluation Harnesses, Synthetic Data, Logging & Reliability Analysis;<br>**Vision**: Object Detection, Classification, Segmentation, Inspection workflows, Edge AI;<br>**Time Series**: Forecasting, Anomaly Detection, Activity Recognition, Predictive Maintenance; |
-| **MLOps & Cloud** | Snowflake, Snowpark, Databricks/Spark, Streamlit, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
+| **Data Platforms** | Snowflake, Snowpark, Databricks/Spark, Azure Data Factory, cross-platform migration validation, incremental pipeline design, warehouse cost profiling |
+| **AI Coding Agents** | Cortex Code, Codex CLI, Claude Code; agent-assisted migration, validation, and pipeline optimization; `AGENTS.md`-based quality contracts |
+| **Time Series & Telemetry ML** | Activity Recognition, Anomaly Detection, Forecasting, Predictive Maintenance, ROCKET family, edge/IoT deployment |
+| **ML & AI** | LLMs (Text-to-SQL, RAG, evaluation harnesses, synthetic data); Vision (detection, classification, inspection); Experiment Tracking, Model Monitoring |
 | **Programming** | Python (Expert), SQL, C/C++, High Performance Computing, LangChain, OpenAI SDK |
-| **AI Coding Agents** | Cortex Code, Codex CLI, Claude Code; agent-assisted migration, validation, and pipeline optimization workflows |
-| **Leadership & Delivery** | Stakeholder Management, Requirements Gathering, Roadmapping, Solution Architecture, Technical Leadership, Governance, ROI Analysis, Client Communication |
+| **Leadership & Delivery** | Stakeholder Management, Roadmapping, Solution Architecture, Evaluation-First Delivery, Governance, Client Communication |
 | **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
 
 ## Experience
@@ -78,13 +73,6 @@ Client: Global Industrial Manufacturer (Material Handling & Logistics)
 - **Pilot Outcomes**: 40% faster processing and 50%+ reduction in data collection effort via synthetic data.
 - **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/) (2023) and Vinnova Innovation week (2022).
 - **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://zenodo.org/records/13788681), [Roadmap for industry adoption](https://fnauman.github.io/second-hand-fashion/posts/2025-04-08-roadmap-to-full-automation/).
-
-**Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: *4 months*)**:
-
-- **Challenge**: Clients needed to integrate LLMs into their networking platform for textile recycling in Europe.
-- **Solution**: Designed a evaluation driven RAG solution for both structured and unstructured data.
-- **Impact**: Enabled a smart search and retrieval system for connecting textile actors in Europe.
-- **Technologies**: Retrieval Augmented Generation, LangChain, Evaluations, Prompt Engineering, Synthetic Data.
 
 **Project: Low Energy IoT Solutions for Industrial Clients (2022: *4 months*)**:
 

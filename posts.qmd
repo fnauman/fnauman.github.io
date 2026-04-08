@@ -3,15 +3,6 @@ title: "Writing"
 subtitle: "Case studies, technical essays, and notes from applied AI work"
 description: "Technical writing on data platform migrations, coding agents, time series ML, and applied AI."
 listing:
-  - id: featured-posts-listing
-    contents: posts
-    type: grid
-    sort: "date desc"
-    max-items: 2
-    include:
-      featured: true
-    fields: [title, description, date, categories]
-    grid-columns: 2
   - id: all-posts-listing
     contents:
       - posts
@@ -27,17 +18,6 @@ format:
   html:
     page-layout: article
 ---
-
-## Featured writing
-
-Flagship case studies and technical essays sit here. Short notes stay in the archive.
-
-::: {#featured-posts-listing .mt-4}
-:::
-
----
-
-## Archive
 
 ::: {#all-posts-listing}
 :::

@@ -1,7 +1,7 @@
 ---
 title: "Work With Me"
-subtitle: "Enterprise data platforms, warehouse optimization, analytics automation, time series ML"
-description: "Get in touch about migration assurance, warehouse cost and performance work, analytics automation with coding agents, or time series ML."
+subtitle: "Enterprise data platforms, warehouse optimization, AI agents, time series"
+description: "Get in touch about migration assurance, warehouse cost and performance work, analytics automation with AI agents, or time series."
 toc: false
 format:
   html:
@@ -29,7 +29,10 @@ I work with enterprise data teams on problems where the gap between "we have dat
 ## Get in touch
 
 [Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-primary .btn-lg}
+[Connect on LinkedIn](https://www.linkedin.com/in/fnauman/){.btn .btn-outline-primary .btn-lg}
 
-If you reach out, include a short note on the migration, cost, automation, or telemetry problem you are working on.
+I usually reply within 1–2 business days. If you reach out, a line or two on what you are working on helps me prepare a useful first response:
 
-Or connect on [LinkedIn](https://www.linkedin.com/in/fnauman/).
+::: {.intake-topics .mt-3}
+`migration` · `warehouse cost` · `analytics automation` · `AI agents` · `time series` · `interim leadership` · `something else`
+:::

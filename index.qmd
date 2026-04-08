@@ -1,21 +1,12 @@
 ---
-title: "Farrukh Nauman | Enterprise Data Platforms, Coding Agents, and Time Series ML"
+title: "Farrukh Nauman"
+subtitle: "Enterprise Data Platforms, Coding Agents, and Time Series ML"
 description: "I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents."
 image: assets/officialpic.JPG
 resources:
   - assets/FarrukhNauman_brokers.pdf
 title-block: false
 body-classes: home-page
-listing:
-  - id: featured-writing-listing
-    contents: posts
-    type: grid
-    sort: "date desc"
-    max-items: 2
-    include:
-      featured: true
-    fields: [title, description, date, categories]
-    grid-columns: 2
 toc: false
 format:
   html:
@@ -178,14 +169,27 @@ End-to-end AI system for second-hand garment quality assessment: object detectio
 :::
 
 
-<!-- ───────────────── FEATURED WRITING ───────────────── -->
+<!-- ───────────────── WHO I WORK BEST WITH ───────────────── -->
 
-## Writing {.section-heading .mt-5}
+## Who I work best with {.section-heading .mt-5}
 
-::: {#featured-writing-listing .mt-4}
+::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-4 .fit-card}
+**Data platform & engineering leaders** migrating between warehouses who need systematic validation — not spot-checks and hope.
 :::
 
-[All writing](posts.qmd){.btn .btn-outline-secondary .mt-3}
+::: {.g-col-12 .g-col-md-4 .fit-card}
+**Technical sponsors & architects** who need a senior practitioner to lead or unblock a workstream — someone who owns deliverables, not slide decks.
+:::
+
+::: {.g-col-12 .g-col-md-4 .fit-card}
+**Teams with telemetry or time series data** that need production ML — activity recognition, anomaly detection, or forecasting — not a research paper.
+:::
+
+:::
+
+[More writing on the blog →](posts.qmd){.btn .btn-outline-secondary .mt-4}
 
 
 <!-- ───────────────── FINAL CTA ───────────────── -->
