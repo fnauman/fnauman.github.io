@@ -1,15 +1,14 @@
 ---
 title: "Farrukh Nauman"
-subtitle: "Enterprise Data Platforms, Coding Agents, and Time Series ML"
 description: "I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents."
 image: assets/officialpic.JPG
 resources:
   - assets/FarrukhNauman_brokers.pdf
-title-block: false
 body-classes: home-page
 toc: false
 format:
   html:
+    title-block: false
     page-layout: full
 ---
 
@@ -22,17 +21,21 @@ format:
 ::: {.g-col-12 .g-col-md-3 .text-center .order-2 .order-md-1}
 ![](assets/officialpic.JPG){.rounded-circle width=180px}
 
-::: {.d-flex .justify-content-center .gap-3 .mt-3}
-[![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=22px title="GitHub" .social-icon}](https://github.com/fnauman)
-[![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=22px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
-[![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=22px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
-[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=22px title="Email" .social-icon}](mailto:farrukh.nauman@inertialrange.com)
+::: {.hero-social .d-flex .justify-content-center .gap-3 .mt-3}
+<a href="https://github.com/fnauman" aria-label="GitHub"><i class="bi bi-github"></i></a>
+<a href="https://twitter.com/naumanf_" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+<a href="https://www.linkedin.com/in/fnauman/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+<a href="mailto:farrukh.nauman@inertialrange.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-9 .order-1 .order-md-2}
 
-## I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents. {.hero-headline}
+<h1 class="hero-name">Farrukh Nauman</h1>
+
+<p class="hero-subhead">Enterprise Data Platforms, Coding Agents, and Time Series ML</p>
+
+<p class="hero-headline">I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents.</p>
 
 Principal consultant with deep experience across enterprise data platforms, time series / telemetry ML, and hands-on AI delivery in messy real-world environments.
 
@@ -65,8 +68,8 @@ SQL pipeline optimization with row-level correctness validation
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**40% faster**
-AI-driven quality assessment pilot for circular fashion
+**10-100x faster**
+Time series classification for industrial telemetry and edge deployment
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
@@ -156,14 +159,6 @@ Built a production-grade validation system for a large Databricks-to-Snowflake m
 Delivered a time series classification system for industrial telemetry: state-of-the-art accuracy with 10-100x faster inference than deep learning, designed for edge and IoT deployment.
 
 [Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
-:::
-
-::: {.g-col-12 .g-col-md-6 .work-card}
-### Automated Inspection for Circular Fashion
-
-End-to-end AI system for second-hand garment quality assessment: object detection, synthetic data generation, and pilot deployment. 40% faster processing, 50%+ reduction in data collection effort.
-
-[Read more](consulting/2025-04-13-AI-fashion/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
 :::
