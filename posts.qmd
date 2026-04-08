@@ -1,21 +1,10 @@
 ---
 title: "Writing"
-subtitle: "Case studies, technical essays, and notes from applied AI work"
-description: "Technical writing on data platform migrations, coding agents, time series ML, and applied AI."
+subtitle: "Case studies and technical essays from applied AI delivery"
+description: "Technical writing on data platform migrations, coding agents, warehouse optimization, and time series ML."
 listing:
-  - id: featured-posts-listing
-    contents: posts
-    type: grid
-    sort: "date desc"
-    max-items: 2
-    include:
-      featured: true
-    fields: [title, description, date, categories]
-    grid-columns: 2
   - id: all-posts-listing
-    contents:
-      - posts
-      - randomposts
+    contents: posts
     type: default
     sort: "date desc"
     categories: false
@@ -28,20 +17,9 @@ format:
     page-layout: article
 ---
 
-## Featured writing
+Longer-form case studies and technical essays from enterprise data, coding-agent, and applied ML work live here.
 
-Flagship case studies and technical essays sit here. Short notes stay in the archive.
-
-::: {#featured-posts-listing .mt-4}
-:::
-
----
-
-## Archive
+Shorter notes and experiments live in [TIL / Random Notes](randomposts.qmd).
 
 ::: {#all-posts-listing}
 :::
-
----
-
-*Posts tagged `short-note` are quick notes and things I learned. The rest are longer-form essays and case studies.*

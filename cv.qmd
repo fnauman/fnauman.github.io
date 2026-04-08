@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman" 
-subtitle: "Principal AI Consultant | Agentic Decision Systems | Time Series & LLMs | PhD"
+subtitle: "Principal Consultant | Enterprise Data Platforms · Coding Agents · Time Series ML | PhD"
 resources: 
   - assets/FarrukhNauman_brokers.pdf
 toc: false
@@ -24,31 +24,22 @@ Github: [fnauman](https://github.com/fnauman) |
 
 ---
 
-## Value Proposition
+## Summary
 
-Principal consultant and interim team lead bridging strategy and hands-on delivery in production-scale data environments (telemetry/time series, vision, and LLM workflow automation). Selected outcomes from applied R&D / pilot deployments:
+Principal consultant helping enterprise data teams de-risk platform migrations, cut warehouse cost, and automate analytics workflows with coding agents. I lead and ship in production-scale environments — owning roadmaps, managing stakeholders, and writing code, not slide decks. Selected results:
 
-- 40% faster textile quality assessment workflow (pilot).
-- 50%+ reduction in data collection/labeling effort via synthetic data (pilot).
-- Up to 90% lower edge hardware cost enabled by low-energy ML approach (prototype).
+- **5–10x faster** pipeline with row-level correctness proof after killing a broken optimization.
+- **~1 week** from zero to live cross-platform migration validation dashboard.
+- **10-100x faster** telemetry classification inference than deep learning baselines for industrial deployment.
+- **Interim team lead** for a 4–7 person DS & analytics team at a global industrial manufacturer.
 
-## Leadership Highlights
+## Current focus
 
-- Interim Team Lead for Data Science & Advanced Analytics (4-7 person) at a global industrial telemetry, roadmap ownership and stakeholder management.
-- Led applied AI initiatives at RISE: [Vinnova](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK), delivering pilot-ready systems and public artifacts. 
-- Scaled delivery practices: evaluation-first approach, privacy-aware workflows, requirements → success criteria → handover.
-- Established and led an AI mentorship program for Master's thesis students, resulting in 4 industry-applicable projects.
-
-## Skills & Tech Stack
-
-| Area | Skills |
-|------|--------|
-| **AI & ML** | **LLMs**: Text-to-SQL, RAG, Fine-tuning, Evaluation Harnesses, Synthetic Data, Logging & Reliability Analysis;<br>**Vision**: Object Detection, Classification, Segmentation, Inspection workflows, Edge AI;<br>**Time Series**: Forecasting, Anomaly Detection, Activity Recognition, Predictive Maintenance; |
-| **MLOps & Cloud** | Snowflake, Snowpark, Databricks/Spark, Streamlit, Docker, CI/CD, Model Monitoring, Experiment Tracking, Azure ML |
-| **Programming** | Python (Expert), SQL, C/C++, High Performance Computing, LangChain, OpenAI SDK |
-| **AI Coding Agents** | Cortex Code, Codex CLI, Claude Code; agent-assisted migration, validation, and pipeline optimization workflows |
-| **Leadership & Delivery** | Stakeholder Management, Requirements Gathering, Roadmapping, Solution Architecture, Technical Leadership, Governance, ROI Analysis, Client Communication |
-| **Languages** | English (Fluent), Swedish (SFI C2), Urdu (Native) |
+- Cross-platform migration validation and warehouse modernization in Snowflake / Databricks environments.
+- Coding-agent workflows for migration, validation, analytics automation, and large code changes.
+- Time series / telemetry ML for industrial production and edge deployment.
+- Interim technical leadership: roadmap ownership, stakeholder steering, delivery discipline, and hands-on implementation.
+- Core stack: Python, SQL, Snowflake, Databricks/Spark, Azure Data Factory, Streamlit, PyTorch, LangChain, OpenAI SDK.
 
 ## Experience
 
@@ -71,39 +62,10 @@ Client: Global Industrial Manufacturer (Material Handling & Logistics)
 **AI Researcher & Consultant**  
 *Jul 2021 - Aug 2025* | Linköping, Sweden
 
-**Project Lead: Sustainable Fashion AI Automation (2022-2025: *24 months*)**: Leading two major initiatives in sustainable fashion: [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) (Project Lead, ~9M SEK) and [CISUTAC](https://www.cisutac.eu/) (AI Lead, ~2M SEK).
-
-- **Challenge**: Manual quality inspection created bottlenecks in circular fashion supply chains due to inconsistent assessments and high labor cost.
-- **Delivery**: Led end-to-end delivery of an automated attribute detection system spanning data collection/annotation pipeline, dataset curation, model training/optimization, synthetic data generation, and pilot deployment/validation.
-- **Pilot Outcomes**: 40% faster processing and 50%+ reduction in data collection effort via synthetic data.
-- **Recognition**: 1 of only 5 projects presented at [EU sustainable AI](https://swedish-presidency.consilium.europa.eu/en/events/event-on-sustainable-artificial-intelligence-ai-2-35/) (2023) and Vinnova Innovation week (2022).
-- **Deliverables**: Pilot-ready AI system, [Annotated public dataset](https://zenodo.org/records/13788681), [Roadmap for industry adoption](https://fnauman.github.io/second-hand-fashion/posts/2025-04-08-roadmap-to-full-automation/).
-
-**Project: LLM Implementation for Regional Textile Recycling Network (2024-2025: *4 months*)**:
-
-- **Challenge**: Clients needed to integrate LLMs into their networking platform for textile recycling in Europe.
-- **Solution**: Designed a evaluation driven RAG solution for both structured and unstructured data.
-- **Impact**: Enabled a smart search and retrieval system for connecting textile actors in Europe.
-- **Technologies**: Retrieval Augmented Generation, LangChain, Evaluations, Prompt Engineering, Synthetic Data.
-
-**Project: Low Energy IoT Solutions for Industrial Clients (2022: *4 months*)**:
-
-- **Challenge**: Clients needed to process sensor data at the edge with limited energy, preventing real-time analysis.
-- **Solution**: Identified energy-efficient AI algorithms (miniROCKET algorithm) for edge devices that is faster than deep learning methods by over 2000x.
-- **Impact**: Enabled real-time sensor data analysis with 90% lower hardware costs.
-- **Technologies**: Edge AI, Time Series Classification, Anomaly Detection, Low-Energy Computing.
-
-**AI Mentorship Program (2023-2024)**: Established and led mentorship program for Master's thesis students in AI, resulting in 4 industry-applicable projects.
-
-- **Projects**: Damage Detection in Fashion, Generative AI for Fashion, Time Series Forecasting for Fashion Trends, Image Embeddings for Second-Hand Fashion.
-- **Activities**: Provided hands-on training in deep learning and AI for advanced industrial AI application.
-
-**Other Projects**:
-
-- **Aero EDIH (2024)**: Consulted with startups on data/model strategies for on-device drone deployment for vehicle/person detection and runway debris identification. **Tasks**: Object Detection, Edge AI, Diffusion Models.
-- **Ramverk (2024)**: Prepared roadmap for air traffic control automation, including reinforcement learning state-of-the-art models and data collection proposal. **Tasks**: Reinforcement Learning, Data Collection.
-- **GreenerFlow (2023)**: Factor analysis for traffic congestion in metropolitan areas, led consortium formation for a larger project. **Tasks**: Time Series Analysis, Multi-modal Data.
-- **SHOW - Hard Brake Detection (2022)**: Developed time series anomaly detection models to identify hard brakes in autonomous buses. **Tasks**: Time Series Classification, Anomaly Detection.
+- Led applied AI consulting and project delivery across inspection, edge ML, time series, and industrial automation programs.
+- **Sustainable Fashion AI Automation (2022-2025)**: Project lead for [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) and AI lead in [CISUTAC](https://www.cisutac.eu/), delivering an automated quality-assessment workflow with 40% faster processing and 50%+ reduction in data collection effort via synthetic data.
+- **Low-Energy IoT Solutions (2022)**: Identified miniROCKET-based time series methods for industrial edge deployment, enabling real-time analysis with roughly 90% lower hardware cost than heavier alternatives.
+- Established and led an AI mentorship program for Master's thesis students and supported additional client work in drone edge AI, air-traffic automation planning, traffic analysis, and anomaly detection.
 
 ### 2MNordic IT Consulting AB
 **Data Scientist & Data Engineer**  

@@ -1,6 +1,6 @@
 ---
 title: "Selected Work"
-subtitle: "Enterprise data platforms, warehouse optimization, analytics automation, and time series ML"
+subtitle: "Enterprise data platforms, warehouse optimization, AI agents, and time series"
 description: "Problems I solve, how I work, and selected examples from enterprise data consulting engagements."
 toc: false
 format:
@@ -26,10 +26,6 @@ Your analytics team spends too much time on repetitive notebook runs, manual SQL
 
 You have sensor, telemetry, or time series data and need production ML — activity recognition, anomaly detection, forecasting, or classification. I specialize in approaches that are fast enough for edge and IoT deployment (ROCKET family, lightweight models) while maintaining state-of-the-art accuracy. I work from evaluation harness to production, not just research prototypes.
 
-### Multimodal inspection and quality assessment
-
-You need automated visual inspection or quality assessment — garment grading, defect detection, or similar classification-from-images problems. I have delivered end-to-end systems including data collection pipelines, synthetic data generation, model training, and pilot deployment in industrial settings.
-
 
 ## How I work
 
@@ -37,7 +33,7 @@ You need automated visual inspection or quality assessment — garment grading, 
 
 **Embedded principal / interim lead** — I join your team for weeks or months. I own deliverables, coordinate with stakeholders, manage a roadmap, and ship production work alongside your people.
 
-**Hands-on implementation** — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, time series models, inspection pipelines. I write code, not slide decks.
+**Hands-on implementation** — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, and time series models. I write code, not slide decks.
 
 **Evaluation-first delivery** — Every engagement starts with a clear success criterion and a way to measure it. I do not optimize until I can prove correctness. I do not ship until I can show evidence.
 
@@ -78,14 +74,6 @@ Delivered a time series classification system for industrial telemetry with stat
 [Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
-::: {.g-col-12 .g-col-md-6 .work-card}
-### Automated Inspection for Circular Fashion
-
-End-to-end AI system for second-hand garment quality assessment: object detection, synthetic data generation, and pilot deployment. Led two EU-funded initiatives delivering 40% faster processing and 50%+ reduction in data collection effort.
-
-[Read more](consulting/2025-04-13-AI-fashion/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
-:::
-
 :::
 
 
@@ -96,7 +84,7 @@ You should reach out if:
 - You are a **data platform or data engineering leader** dealing with a migration, cost problem, or analytics modernization.
 - You are a **technical sponsor or architect** who needs a senior practitioner to lead or unblock a workstream.
 - You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
-- You have a **time series, telemetry, or inspection problem** that needs production ML, not a research paper.
+- You have a **time series or telemetry problem** that needs production ML, not a research paper.
 
 I typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT — but the methods transfer.
 

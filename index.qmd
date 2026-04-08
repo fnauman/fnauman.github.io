@@ -1,24 +1,14 @@
 ---
-title: "Farrukh Nauman | Enterprise Data Platforms, Coding Agents, and Time Series ML"
+title: "Farrukh Nauman"
 description: "I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents."
 image: assets/officialpic.JPG
 resources:
   - assets/FarrukhNauman_brokers.pdf
-title-block: false
 body-classes: home-page
-listing:
-  - id: featured-writing-listing
-    contents: posts
-    type: grid
-    sort: "date desc"
-    max-items: 2
-    include:
-      featured: true
-    fields: [title, description, date, categories]
-    grid-columns: 2
 toc: false
 format:
   html:
+    title-block: false
     page-layout: full
 ---
 
@@ -31,17 +21,21 @@ format:
 ::: {.g-col-12 .g-col-md-3 .text-center .order-2 .order-md-1}
 ![](assets/officialpic.JPG){.rounded-circle width=180px}
 
-::: {.d-flex .justify-content-center .gap-3 .mt-3}
-[![GitHub](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/github.svg){width=22px title="GitHub" .social-icon}](https://github.com/fnauman)
-[![Twitter](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/twitter.svg){width=22px title="Twitter" .social-icon}](https://twitter.com/naumanf_)
-[![LinkedIn](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/brands/linkedin.svg){width=22px title="LinkedIn" .social-icon}](https://www.linkedin.com/in/fnauman/)
-[![Email](https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/regular/envelope.svg){width=22px title="Email" .social-icon}](mailto:farrukh.nauman@inertialrange.com)
+::: {.hero-social .d-flex .justify-content-center .gap-3 .mt-3}
+<a href="https://github.com/fnauman" aria-label="GitHub"><i class="bi bi-github"></i></a>
+<a href="https://twitter.com/naumanf_" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+<a href="https://www.linkedin.com/in/fnauman/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+<a href="mailto:farrukh.nauman@inertialrange.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
 :::
 :::
 
 ::: {.g-col-12 .g-col-md-9 .order-1 .order-md-2}
 
-## I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents. {.hero-headline}
+<h1 class="hero-name">Farrukh Nauman</h1>
+
+<p class="hero-subhead">Enterprise Data Platforms, Coding Agents, and Time Series ML</p>
+
+<p class="hero-headline">I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents.</p>
 
 Principal consultant with deep experience across enterprise data platforms, time series / telemetry ML, and hands-on AI delivery in messy real-world environments.
 
@@ -74,8 +68,8 @@ SQL pipeline optimization with row-level correctness validation
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**40% faster**
-AI-driven quality assessment pilot for circular fashion
+**10-100x faster**
+Time series classification for industrial telemetry and edge deployment
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
@@ -167,25 +161,30 @@ Delivered a time series classification system for industrial telemetry: state-of
 [Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
-::: {.g-col-12 .g-col-md-6 .work-card}
-### Automated Inspection for Circular Fashion
+:::
 
-End-to-end AI system for second-hand garment quality assessment: object detection, synthetic data generation, and pilot deployment. 40% faster processing, 50%+ reduction in data collection effort.
 
-[Read more](consulting/2025-04-13-AI-fashion/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+<!-- ───────────────── WHO I WORK BEST WITH ───────────────── -->
+
+## Who I work best with {.section-heading .mt-5}
+
+::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-4 .fit-card}
+**Data platform & engineering leaders** migrating between warehouses who need systematic validation — not spot-checks and hope.
+:::
+
+::: {.g-col-12 .g-col-md-4 .fit-card}
+**Technical sponsors & architects** who need a senior practitioner to lead or unblock a workstream — someone who owns deliverables, not slide decks.
+:::
+
+::: {.g-col-12 .g-col-md-4 .fit-card}
+**Teams with telemetry or time series data** that need production ML — activity recognition, anomaly detection, or forecasting — not a research paper.
 :::
 
 :::
 
-
-<!-- ───────────────── FEATURED WRITING ───────────────── -->
-
-## Writing {.section-heading .mt-5}
-
-::: {#featured-writing-listing .mt-4}
-:::
-
-[All writing](posts.qmd){.btn .btn-outline-secondary .mt-3}
+[More writing on the blog →](posts.qmd){.btn .btn-outline-secondary .mt-4}
 
 
 <!-- ───────────────── FINAL CTA ───────────────── -->
