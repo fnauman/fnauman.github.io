@@ -23,7 +23,3 @@ Shorter notes and experiments live in [TIL / Random Notes](randomposts.qmd).
 
 ::: {#all-posts-listing}
 :::
-
----
-
-*For shorter notes and experiments, see [TIL / Random Notes](randomposts.qmd).*

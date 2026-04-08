@@ -127,7 +127,7 @@ a {
     font-size: 0.95rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: darken($body-color, 28%);
+    color: rgba($body-color, 0.68);
     margin-bottom: 1rem;
   }
 
@@ -142,7 +142,7 @@ a {
 
   p {
     font-size: 0.98rem;
-    color: darken($body-color, 18%);
+    color: rgba($body-color, 0.82);
     line-height: 1.55;
     max-width: 58ch;
   }
@@ -154,7 +154,7 @@ a {
 
 .hero-social {
   a {
-    color: darken($body-color, 12%);
+    color: rgba($body-color, 0.85);
     font-size: 1.15rem;
     text-decoration: none;
   }
@@ -184,7 +184,7 @@ a {
     }
 
     font-size: 0.9rem;
-    color: darken($body-color, 12%);
+    color: rgba($body-color, 0.82);
     line-height: 1.35;
   }
 }
@@ -263,7 +263,7 @@ h2.section-heading {
   p {
     font-size: 0.95rem;
     line-height: 1.5;
-    color: darken($body-color, 10%);
+    color: rgba($body-color, 0.85);
     margin-bottom: 1rem;
   }
 
@@ -297,14 +297,14 @@ h2.section-heading {
 
   p {
     font-size: 0.88rem;
-    color: darken($body-color, 15%);
+    color: rgba($body-color, 0.75);
     line-height: 1.45;
     margin-bottom: 0.25rem;
   }
 
   em {
     font-size: 0.82rem;
-    color: darken($body-color, 25%);
+    color: rgba($body-color, 0.6);
   }
 }
 
@@ -352,13 +352,13 @@ h2.section-heading {
 
     .listing-description {
       font-size: 0.95rem;
-      color: darken($body-color, 10%);
+      color: rgba($body-color, 0.85);
       line-height: 1.55;
     }
 
     .listing-date {
       font-size: 0.85rem;
-      color: darken($body-color, 22%);
+      color: rgba($body-color, 0.65);
       margin-top: auto;
       order: -1;
       margin-bottom: 0.7rem;
@@ -392,7 +392,7 @@ h2.section-heading {
   }
 
   font-size: 0.95rem;
-  color: darken($body-color, 10%);
+  color: rgba($body-color, 0.85);
   line-height: 1.5;
 }
 
@@ -421,14 +421,14 @@ h2.section-heading {
 
   p {
     font-size: 0.88rem;
-    color: darken($body-color, 15%);
+    color: rgba($body-color, 0.75);
     line-height: 1.45;
     margin-bottom: 0.25rem;
   }
 
   em {
     font-size: 0.82rem;
-    color: darken($body-color, 25%);
+    color: rgba($body-color, 0.6);
   }
 }
 
@@ -445,7 +445,7 @@ h2.section-heading {
   }
 
   font-size: 0.95rem;
-  color: darken($body-color, 10%);
+  color: rgba($body-color, 0.85);
 }
 
 // ─── Final CTA ───
@@ -466,7 +466,7 @@ h2.section-heading {
 
   p {
     font-size: 1.1rem;
-    color: darken($body-color, 10%);
+    color: rgba($body-color, 0.85);
   }
 }
 
