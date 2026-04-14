@@ -2,7 +2,7 @@
 title: "Farrukh Nauman" 
 subtitle: "Principal Consultant | Enterprise Data Platforms · Coding Agents · Time Series ML | PhD"
 resources: 
-  - assets/FarrukhNauman_brokers.pdf
+  - assets/FarrukhNauman_default.pdf
 toc: false
 format: 
   html: 
@@ -19,7 +19,7 @@ format:
 [inertialrange.com](https://inertialrange.com)  
 LinkedIn: [fnauman](https://www.linkedin.com/in/fnauman/) |
 Github: [fnauman](https://github.com/fnauman) | 
-[PDF](assets/FarrukhNauman_brokers.pdf)
+[PDF](assets/FarrukhNauman_default.pdf)
 :::
 
 ---

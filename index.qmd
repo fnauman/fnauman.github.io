@@ -3,7 +3,7 @@ title: "Farrukh Nauman"
 description: "I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents."
 image: assets/officialpic.JPG
 resources:
-  - assets/FarrukhNauman_brokers.pdf
+  - assets/FarrukhNauman_default.pdf
 body-classes: home-page
 toc: false
 format:
