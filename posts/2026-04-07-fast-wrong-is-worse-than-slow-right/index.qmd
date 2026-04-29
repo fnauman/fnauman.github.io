@@ -20,6 +20,10 @@ og:
 
 *The fastest optimization I tested was also the most dangerous. It cut runtime dramatically, made the benchmark tables look easy, and would have silently corrupted production data. That project sharpened one lesson: fast wrong is worse than slow right.*
 
+::: {.callout-note appearance="minimal"}
+**Disclaimer**: This case study is anonymized and generalized. It does not disclose client names, proprietary data, source code, credentials, internal architecture diagrams, or business-sensitive details. The focus is on transferable engineering patterns and lessons learned.
+:::
+
 ## The Problem
 
 A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from tens of billions of source rows. On a large Snowpark-optimized warehouse, the job took roughly an hour and a half and consumed a few thousand Snowflake credits a year.

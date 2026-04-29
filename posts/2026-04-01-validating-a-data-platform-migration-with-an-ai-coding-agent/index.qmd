@@ -20,6 +20,10 @@ og:
 
 *Building a production-grade cross-platform validation workflow — from zero to a live team dashboard — with Cortex Code CLI as my pair programmer.*
 
+::: {.callout-note appearance="minimal"}
+**Disclaimer**: This case study is anonymized and generalized. It does not disclose client names, proprietary data, source code, credentials, internal architecture diagrams, or business-sensitive details. The focus is on transferable engineering patterns and lessons learned.
+:::
+
 ## The problem
 
 I was in the middle of a large migration from Databricks to Snowflake. The data ranged from small reference tables to high-volume event tables. Some pipelines ran daily, others weekly. Some tables were close mirrors. Others had intentionally different models on the source and target platforms.

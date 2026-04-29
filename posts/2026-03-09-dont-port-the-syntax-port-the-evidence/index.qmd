@@ -52,6 +52,10 @@ geometry: margin=1in
 
 *Over the last six months, I have used coding agents on multiple migrations and reimplementations in the 10k+ line range. The strongest lesson is that these projects are not mainly translation problems. They are evidence-preservation problems.*
 
+::: {.callout-note appearance="minimal"}
+**Disclaimer**: This case study is anonymized and generalized. It does not disclose client names, proprietary data, source code, credentials, internal architecture diagrams, or business-sensitive details. The focus is on transferable engineering patterns and lessons learned.
+:::
+
 That is true whether you are moving JAX to PyTorch, React to Svelte, C or Fortran to Python, or rebuilding a vision or time-series algorithm against an existing API and test suite. The cost of producing plausible code has fallen sharply. The cost of proving that the code is correct has not.
 
 That gap is where most projects go sideways.
