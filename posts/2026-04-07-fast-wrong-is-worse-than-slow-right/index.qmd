@@ -61,8 +61,8 @@ This "Dual-Incremental" design looked fantastic in benchmark tables:
 
 | Dataset | Full Recompute | Dual-Incremental Daily | Speedup |
 |---------|---------------|------------------------|---------|
-| Mid-scale | 136 seconds | 17 seconds | **8x** |
-| Large-scale | 350 seconds | 28 seconds | **12.6x** |
+| Mid-scale | 85 seconds | 17 seconds | **5x** |
+| Large-scale | 360 seconds | 30 seconds | **12x** |
 
 If I had done the usual optimization theater, I would have shipped it.
 
@@ -100,13 +100,13 @@ A second pass was still needed for `LAG`-based logic, because updating one row c
 | Approach | Correctness | Outcome |
 |----------|-------------|---------|
 | Dual-Incremental | Failed row-level validation at large scale | Fastest, but unusable |
-| Shared-Incremental + `MERGE` | Zero structural diffs in completed validation runs | **Roughly 5-8x faster than baseline** |
+| Shared-Incremental + `MERGE` | Zero structural diffs in completed validation runs | **Roughly 4-6x faster than baseline** |
 | Full recompute | Correct | Baseline |
 
 In production terms, that meant:
 
-- daily runtime dropped from about 90 minutes to the low tens of minutes
-- compute cost dropped by well over 80%
+- daily runtime dropped from over 100 minutes to less than 20 minutes
+- compute cost dropped by well over 50%
 - the one-time seed cost paid back in days, not months
 
 The broken design was faster. The correct design was still transformative.
