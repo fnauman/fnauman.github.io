@@ -399,7 +399,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">April 7, 2026</p>
+        <p class="date-modified">April 29, 2026</p>
       </div>
     </div>
       
@@ -444,6 +444,16 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 
 <p><em>The fastest optimization I tested was also the most dangerous. It cut runtime dramatically, made the benchmark tables look easy, and would have silently corrupted production data. That project sharpened one lesson: fast wrong is worse than slow right.</em></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Disclaimer</strong>: This case study is anonymized and generalized. It does not disclose client names, proprietary data, source code, credentials, internal architecture diagrams, or business-sensitive details. The focus is on transferable engineering patterns and lessons learned.</p>
+</div>
+</div>
+</div>
 <section id="the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
 <p>A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from tens of billions of source rows. On a large Snowpark-optimized warehouse, the job took roughly an hour and a half and consumed a few thousand Snowflake credits a year.</p>
