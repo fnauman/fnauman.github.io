@@ -520,15 +520,15 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <tbody>
 <tr class="odd">
 <td>Mid-scale</td>
-<td>136 seconds</td>
+<td>85 seconds</td>
 <td>17 seconds</td>
-<td><strong>8x</strong></td>
+<td><strong>5x</strong></td>
 </tr>
 <tr class="even">
 <td>Large-scale</td>
-<td>350 seconds</td>
-<td>28 seconds</td>
-<td><strong>12.6x</strong></td>
+<td>360 seconds</td>
+<td>30 seconds</td>
+<td><strong>12x</strong></td>
 </tr>
 </tbody>
 </table>
@@ -580,7 +580,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <tr class="even">
 <td>Shared-Incremental + <code>MERGE</code></td>
 <td>Zero structural diffs in completed validation runs</td>
-<td><strong>Roughly 5-8x faster than baseline</strong></td>
+<td><strong>Roughly 4-6x faster than baseline</strong></td>
 </tr>
 <tr class="odd">
 <td>Full recompute</td>
@@ -591,8 +591,8 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </table>
 <p>In production terms, that meant:</p>
 <ul>
-<li>daily runtime dropped from about 90 minutes to the low tens of minutes</li>
-<li>compute cost dropped by well over 80%</li>
+<li>daily runtime dropped from over 100 minutes to less than 20 minutes</li>
+<li>compute cost dropped by well over 50%</li>
 <li>the one-time seed cost paid back in days, not months</li>
 </ul>
 <p>The broken design was faster. The correct design was still transformative.</p>
