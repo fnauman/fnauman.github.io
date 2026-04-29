@@ -28,35 +28,36 @@ Github: [fnauman](https://github.com/fnauman) |
 
 Principal consultant helping enterprise data teams de-risk platform migrations, cut warehouse cost, and automate analytics workflows with coding agents. I lead and ship in production-scale environments — owning roadmaps, managing stakeholders, and writing code, not slide decks. Selected results:
 
-- **5–10x faster** pipeline with row-level correctness proof after killing a broken optimization.
-- **~1 week** from zero to live cross-platform migration validation dashboard.
-- **10-100x faster** telemetry classification inference than deep learning baselines for industrial deployment.
-- **Interim team lead** for a 4–7 person DS & analytics team at a global industrial manufacturer.
+- **~1 week**: Cross-platform migration validator from zero to live dashboard (Databricks → Snowflake).
+- **5–10x faster, 50%+ cheaper**: SQL pipeline optimization with row-level correctness validation.
+- **10-100x faster**: Time series classification for industrial telemetry and edge deployment.
+- **Team Lead**: Interim lead & project manager for 4–7 person DS and advanced analytics team.
 
 ## Current focus
 
-- Cross-platform migration validation and warehouse modernization in Snowflake / Databricks environments.
+- Cross-platform migration validation and warehouse modernization (Snowflake / Databricks).
 - Coding-agent workflows for migration, validation, analytics automation, and large code changes.
 - Time series / telemetry ML for industrial production and edge deployment.
-- Interim technical leadership: roadmap ownership, stakeholder steering, delivery discipline, and hands-on implementation.
+- Interim technical leadership: roadmap ownership, stakeholder steering, delivery discipline.
 - Core stack: Python, SQL, Snowflake, Databricks/Spark, Azure Data Factory, Streamlit, PyTorch, LangChain, OpenAI SDK.
 
 ## Experience
 
 ### InertialRange Labs AB
-**Principal AI Consultant**  *Sep 2025 -* | Linköping, Sweden
+**Principal AI Consultant**  *Sep 2025 - Jun 2026* | Linköping, Sweden
  
 **Engagement: Interim Team Lead – Data Science & Advanced Analytics (Sep 2025 - Present):**
-Client: Global Industrial Manufacturer (Material Handling & Logistics)
+Client: Global Industrial Manufacturer (under NDA)
 
 - Lead a **4–7** person DS/analytics team; own roadmap, stakeholder steering, and technical direction across telemetry analytics, ML, and GenAI automation.
-- Coordinate transition planning/execution for **Databricks → Snowflake** while maintaining daily Spark/BI workloads over **23** TB telemetry data.
-- Built a **cross-platform migration validation** system using AI coding agents: automated schema comparison, row-count reconciliation, key-distribution checks, and date-range verification across dozens of tables — from zero to live dashboard in ~1 week.
-- Redesigned a critical daily pipeline from full recompute to validated incremental processing: **5–10x speedup** with row-level correctness proof. Killed a faster but fundamentally broken optimization using multi-scale benchmarks and `EXCEPT`-based validation.
-- Established in-house direction for **machine activity recognition from CAN/telemetry (PoC)**: privacy-safe labeling workflow, baselines, evaluation harness, and benchmarking vs external PoC (faster inference with comparable accuracy on internal tests).
-- Prototyped **Text-to-SQL** workflow automation (PoC): synthetic evaluation dataset generation + instrumentation/logging to analyze failure modes and improve reliability.
-- Developed a practitioner framework for **large code migrations with coding agents**: evidence-preservation methodology, behavioral oracles, and `AGENTS.md`-based quality contracts.
-- **Tech Stack**: Snowflake, Azure Databricks, Snowpark, PyTorch, AI Coding Agents (Cortex Code, Codex CLI), LLM Agents (LangChain), Streamlit, Time-Series, Model Monitoring/Serving, Experiment Tracking, Git.
+- Coordinate transition planning/execution for **Databricks → Snowflake** while maintaining daily Spark/BI workloads over **10 TB** telemetry data.
+- Built a **cross-platform migration validation** system using AI coding agents: automated comparison of schemas, row counts, key distributions, and date ranges across dozens of tables — from zero to live dashboard in ~1 week. ([Case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd))
+- Connected **Databricks and Snowflake CLIs** through an autonomous coding agent (Codex CLI / Cortex Code CLI) to orchestrate migration, validation, and reconciliation pipelines end-to-end — shrinking multi-day manual runbooks into hands-off workflows.
+- Redesigned a critical daily pipeline from full recompute to validated incremental processing: **5–10x speedup** with row-level correctness proof, projected to cut compute costs by **50%+**. Killed a faster but fundamentally broken optimization using multi-scale benchmarks and `EXCEPT`-based validation. ([Case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd))
+- Open-sourced **`[ts-agents](https://github.com/fnauman/ts-agents)` (PoC)**: a framework for autonomous time series agents; applied it to machine activity recognition from equipment telemetry, demonstrating that classifier-heavy activity recognition workflows can be replaced by agent-driven analysis.
+- Prototyped **Text-to-SQL** workflow automation (PoC): synthetic evaluation dataset generation + instrumentation/logging to analyze failure modes.
+- Developed a practitioner framework for **large code migrations with coding agents**: evidence-preservation methodology, behavioral oracles, and `AGENTS.md`-based quality contracts. ([Essay](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd))
+- **Tech**: Snowflake, Databricks, Snowpark, PyTorch, AI Coding Agents, LLM Agents (LangChain), Streamlit, Time-Series ML, Model Monitoring.
 
 ### RISE Research Institutes of Sweden AB
 **AI Researcher & Consultant**  

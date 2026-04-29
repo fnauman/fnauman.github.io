@@ -125,7 +125,7 @@ Interim lead & project manager for DS and advanced analytics
 
 **What I do:** Design and deliver time series ML systems from evaluation harness to production deployment. I specialize in approaches that are fast enough for edge and IoT (ROCKET family, lightweight models) while maintaining accuracy.
 
-**Example outcomes:** Delivered a time series classification system with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Established in-house activity recognition from CAN/telemetry data.
+**Example outcomes:** Delivered a time series classification system with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Established in-house activity recognition from equipment telemetry data.
 :::
 
 :::
