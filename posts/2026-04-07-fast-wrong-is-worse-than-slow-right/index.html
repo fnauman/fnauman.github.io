@@ -399,7 +399,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">April 29, 2026</p>
+        <p class="date-modified">April 30, 2026</p>
       </div>
     </div>
       
@@ -456,7 +456,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </div>
 <section id="the-problem" class="level2">
 <h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
-<p>A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from tens of billions of source rows. On a large Snowpark-optimized warehouse, the job took roughly an hour and a half and consumed a few thousand Snowflake credits a year.</p>
+<p>A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from very large source data. The job was expensive enough that optimization mattered, but trusted enough that any redesign needed strong correctness guarantees.</p>
 <p>The reason nobody had “just optimized it” earlier was simple: the pipeline was expensive, but it was <em>trusted</em>. Downstream teams used the output for operational work. A bad optimization would not just waste compute; it would break a system people already depended on.</p>
 <p>At benchmark scale, the waste was obvious. Almost all runtime was spent on two full scans over the same huge source. Not the writes. Not the output tables. Not the window functions. The expensive part was structural.</p>
 </section>
@@ -591,9 +591,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </table>
 <p>In production terms, that meant:</p>
 <ul>
-<li>daily runtime dropped from over 100 minutes to less than 20 minutes</li>
-<li>compute cost dropped by well over 50%</li>
-<li>the one-time seed cost paid back in days, not months</li>
+<li>daily runtime dropped by a large multiple</li>
+<li>compute cost fell materially</li>
+<li>the one-time seed cost paid back quickly</li>
 </ul>
 <p>The broken design was faster. The correct design was still transformative.</p>
 <section id="why-except-validation-not-checksums" class="level3">

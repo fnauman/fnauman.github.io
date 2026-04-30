@@ -398,7 +398,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">April 29, 2026</p>
+        <p class="date-modified">April 30, 2026</p>
       </div>
     </div>
       
@@ -469,7 +469,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <h2 class="anchored" data-anchor-id="the-problem">The problem</h2>
 <p>I was in the middle of a large migration from Databricks to Snowflake. The data ranged from small reference tables to high-volume event tables. Some pipelines ran daily, others weekly. Some tables were close mirrors. Others had intentionally different models on the source and target platforms.</p>
 <p>The question that kept coming up was simple: <strong>“Is the Snowflake data correct?”</strong></p>
-<p>Nobody had a reliable answer. Engineers could spot-check a table, run a <code>COUNT(*)</code>, or compare a date range manually, but there was no systematic validation layer, no historical record, and no dashboard the team could trust.</p>
+<p>There was no single systematic validation layer that could answer this across the migration estate. Engineers could spot-check a table, run a <code>COUNT(*)</code>, or compare a date range manually, but there was no historical record and no dashboard the team could trust.</p>
 <p>I needed a system that could:</p>
 <ul>
 <li>Compare row counts, schemas, key distributions, and date ranges across both platforms</li>
@@ -582,7 +582,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <p>Once the validator and dashboard were working, the next step was automation.</p>
 <p>The first automated runs immediately justified the effort:</p>
 <ul>
-<li><strong>One table had more than double the expected rows on the target platform.</strong> That was a real data quality defect, not an expected discrepancy.</li>
+<li><strong>The first automated runs surfaced concrete row-count mismatches that manual spot checks had not made visible.</strong> These were real data quality defects, not expected discrepancies.</li>
 <li><strong>Several tables were lagging the expected refresh window.</strong> That pattern only became obvious once results were visible across tables and across runs.</li>
 <li><strong>Upstream task health checks prevented false alarms.</strong> Without them, a failed upstream task would have looked like a data mismatch rather than an operational issue.</li>
 </ul>
@@ -669,7 +669,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </tr>
 <tr class="odd">
 <td>Largest table profiled</td>
-<td>Tens of billions of rows, &gt; 1TB in size</td>
+<td>Very large event table</td>
 </tr>
 <tr class="even">
 <td>Lines of Python written</td>
