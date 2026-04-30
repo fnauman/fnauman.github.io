@@ -30,7 +30,7 @@ I was in the middle of a large migration from Databricks to Snowflake. The data 
 
 The question that kept coming up was simple: **"Is the Snowflake data correct?"**
 
-Nobody had a reliable answer. Engineers could spot-check a table, run a `COUNT(*)`, or compare a date range manually, but there was no systematic validation layer, no historical record, and no dashboard the team could trust.
+There was no single systematic validation layer that could answer this across the migration estate. Engineers could spot-check a table, run a `COUNT(*)`, or compare a date range manually, but there was no historical record and no dashboard the team could trust.
 
 I needed a system that could:
 
@@ -136,7 +136,7 @@ Once the validator and dashboard were working, the next step was automation.
 
 The first automated runs immediately justified the effort:
 
-- **One table had more than double the expected rows on the target platform.** That was a real data quality defect, not an expected discrepancy.
+- **The first automated runs surfaced concrete row-count mismatches that manual spot checks had not made visible.** These were real data quality defects, not expected discrepancies.
 - **Several tables were lagging the expected refresh window.** That pattern only became obvious once results were visible across tables and across runs.
 - **Upstream task health checks prevented false alarms.** Without them, a failed upstream task would have looked like a data mismatch rather than an operational issue.
 
@@ -207,7 +207,7 @@ This was productive, but not magic.
 | Tables inventoried across both platforms | 100+ |
 | Pipelines covered | Multiple |
 | Validation checks per run | Hundreds |
-| Largest table profiled | Tens of billions of rows, > 1TB in size |
+| Largest table profiled | Very large event table |
 | Lines of Python written | A few thousand |
 | Dashboard pages | 5 |
 | Sessions to build everything | About 4 days across 7 sessions |

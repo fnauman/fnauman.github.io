@@ -26,7 +26,7 @@ og:
 
 ## The Problem
 
-A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from tens of billions of source rows. On a large Snowpark-optimized warehouse, the job took roughly an hour and a half and consumed a few thousand Snowflake credits a year.
+A critical daily analytics pipeline had been running for years. Every morning, it recomputed several downstream tables from very large source data. The job was expensive enough that optimization mattered, but trusted enough that any redesign needed strong correctness guarantees.
 
 The reason nobody had "just optimized it" earlier was simple: the pipeline was expensive, but it was *trusted*. Downstream teams used the output for operational work. A bad optimization would not just waste compute; it would break a system people already depended on.
 
@@ -105,9 +105,9 @@ A second pass was still needed for `LAG`-based logic, because updating one row c
 
 In production terms, that meant:
 
-- daily runtime dropped from over 100 minutes to less than 20 minutes
-- compute cost dropped by well over 50%
-- the one-time seed cost paid back in days, not months
+- daily runtime dropped by a large multiple
+- compute cost fell materially
+- the one-time seed cost paid back quickly
 
 The broken design was faster. The correct design was still transformative.
 
