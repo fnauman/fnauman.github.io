@@ -76,7 +76,7 @@ Parity tests are where the migration is actually proven. The shape is always the
 2. The driver runs deterministic inputs through the algorithm under test and writes its inputs, intermediates, and outputs to text logs with versioned schemas.
 3. The new implementation runs the same inputs and is asserted equal to those logs at machine precision.
 
-Three things make this layer trustworthy.
+The details that make parity actually trustworthy are easy to skip because they look like pedantry. They are not.
 
 **Float64 by default, machine precision tolerances by default.** I run parity at `rtol=1e-14, atol=1e-15` for double-precision codes. Anything looser is a documented decision tied to a specific harness and a specific reason — a particular reduction order, a known-divergent boundary cell, an algorithm that fans out across architectures. The default never moves silently. Every time someone proposes loosening a tolerance, the right reflex is to ask: is the diff truly numerical noise, or is one of the implementations wrong in a way that is small for this input?
 
@@ -108,7 +108,7 @@ Any mismatch is a hard fail. The test prints all three hashes so the contributor
 
 I also hash log schemas — the ordered list of column names — and store the schema hash in both the harness manifest and the log header. That catches a different drift: a contributor adds a column or reorders them, the test still finds the file, and silent column mis-alignment turns results into garbage. With a schema hash, the parser refuses to read a log whose columns are not the ones it was written to expect.
 
-This pattern — *configuration as cryptographic checksum* — does almost all the structural work in the suite. It costs almost nothing to add, and it eliminates an entire class of "passed in CI, broken in production" failures that you would otherwise spend weeks debugging.
+This pattern *configuration as cryptographic checksum* does almost all the structural work in the suite. It costs almost nothing to add, and it eliminates an entire class of "passed in CI, broken in production" failures that you would otherwise spend weeks debugging.
 
 ## End-to-end tests: stages, not endpoints
 
@@ -132,7 +132,7 @@ End-to-end tests are also where you catch *configuration coverage gaps*. A profi
 
 Performance tests and gradient tests are the layer most teams reach for first and benefit from least, because they are useless if correctness is not pinned down. Once correctness *is* pinned down, they are valuable for a precise reason: they prevent the next round of changes from silently regressing properties you cared about.
 
-I keep performance benchmarks as opt-in (`RUN_PERF_TESTS=1`) so they do not gate ordinary pull requests, but I record a baseline snapshot in the repository — date, hardware, framework versions, grid sizes, milliseconds per stage — and refer to it whenever someone proposes a "harmless refactor." A refactor that quietly halves throughput is the kind of regression that can survive code review, but it cannot survive a benchmark that prints the slowdown next to the baseline.
+I keep performance benchmarks as opt-in (`RUN_PERF_TESTS=1`) so they do not gate ordinary pull requests, but I record a baseline snapshot in the repository: date, hardware, framework versions, grid sizes, milliseconds per stage, and refer to it whenever someone proposes a "harmless refactor". A refactor that quietly halves throughput is the kind of regression that can survive code review, but it cannot survive a benchmark that prints the slowdown next to the baseline.
 
 For differentiability, the discipline is similar. If the new code claims to support automatic differentiation, that claim has tests: gradient sanity on full pipeline steps, framework-level gradient checks on isolated kernels, and agreement between the in-place "fast" path and the functional differentiable path on identical inputs. Without those, the differentiable path tends to bit-rot in two pull requests.
 
@@ -220,7 +220,7 @@ The shape of the tree matters less than the invariants it enforces:
 
 ## A migration-testing checklist
 
-When I review a migration's test suite, these are the questions I want the suite to be able to answer without me reading the code.
+When I review a migration's test suite, these are the questions I want answered without me reading the code. I do not always get them. The ones that are missing tend to predict where the next bug lives.
 
 1. Which build configurations are supported, and where is that list?
 2. For each configuration, which algorithms have parity tests against captured reference data?
@@ -241,7 +241,7 @@ Tests in a migration are doing two jobs at once. They are checking that the code
 
 A practical heuristic: assume someone will edit a config six months from now and forget to regenerate the matching reference data. Assume someone will reorder a log column "for clarity." Assume someone will turn off a feature and trust that zero coefficients are equivalent to absence. Now design the suite so that each of those mistakes fails loudly the next time CI runs, with a message that names the file and the hash that disagree.
 
-That is what an oracle looks like once you actually have to maintain it. Not a number you compare against, but a structured set of artifacts whose internal consistency is itself a test. Get that right and the rest of the migration is mostly typing.
+That is what an oracle looks like once you actually have to maintain it. Not a number you compare against, but a structured set of artifacts whose internal consistency is itself a test. Get that right and the rest of the migration is mostly typing. It is also, in my experience, the part that takes the longest to get right the first time.
 
 ## Further reading
 
