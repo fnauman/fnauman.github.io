@@ -161,6 +161,14 @@ Delivered a time series classification system for industrial telemetry: state-of
 [Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Migration Testing: What Counts as Evidence
+
+A practitioner's reference for migration test suites: five layers (unit, parity, manifest integrity, end-to-end, performance), why every reference artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation. The follow-up to ["Don't Port the Syntax. Port the Evidence."](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd)
+
+[Read the essay](posts/2026-05-02-what-counts-as-evidence/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
 :::
 
 
