@@ -44,6 +44,8 @@ Principal consultant with deep experience across enterprise data platforms, time
 [Get in touch](contact.qmd){.btn .btn-outline-primary}
 :::
 
+<p class="hero-cv-link mt-3"><a href="cv.qmd">Choose the CV closest to your assignment</a></p>
+
 :::
 
 :::

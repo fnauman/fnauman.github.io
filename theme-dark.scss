@@ -164,6 +164,21 @@ a {
   }
 }
 
+.hero-cv-link {
+  font-size: 0.9rem !important;
+  margin-bottom: 0;
+
+  a {
+    color: $primary;
+    font-weight: 600;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 // ─── Proof bar ───
 
 .proof-bar {
@@ -270,6 +285,98 @@ h2.section-heading {
   .btn {
     margin-top: auto;
   }
+}
+
+// ─── CV selector hub ───
+
+.cv-page {
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.cv-intro,
+.cv-guidance {
+  max-width: 760px;
+  font-size: 1.02rem;
+  color: rgba($body-color, 0.85);
+  line-height: 1.6;
+
+  strong {
+    color: $headings-color;
+  }
+}
+
+.cv-card {
+  border: 1px solid rgba($primary, 0.12);
+  border-radius: 14px;
+  padding: 1.5rem;
+  background: $card-bg;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  h3 {
+    font-size: 1.12rem;
+    color: $headings-color;
+    margin-top: 0.65rem;
+    margin-bottom: 0.75rem;
+    font-weight: 650;
+    line-height: 1.28;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: rgba($body-color, 0.85);
+    line-height: 1.5;
+    margin-bottom: 0.9rem;
+  }
+}
+
+.cv-card-primary {
+  border-color: rgba($primary, 0.24);
+  background: linear-gradient(135deg, rgba($primary, 0.09), $card-bg 72%);
+}
+
+.cv-label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.22rem 0.55rem;
+  border: 1px solid rgba($primary, 0.22);
+  border-radius: 999px;
+  color: $primary;
+  background: rgba($primary, 0.1);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cv-proof-list {
+  margin-bottom: 1.25rem;
+
+  ul {
+    padding-left: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  li {
+    font-size: 0.9rem;
+    color: rgba($body-color, 0.78);
+    line-height: 1.45;
+    margin-bottom: 0.35rem;
+  }
+}
+
+.cv-action {
+  margin-top: auto;
+}
+
+.cv-download {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 // ─── Writing cards ───
@@ -590,6 +697,7 @@ blockquote {
 
   .service-card,
   .work-card,
+  .cv-card,
   .fit-card,
   .writing-link-card,
   .quarto-listing-grid .quarto-grid-item {

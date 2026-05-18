@@ -1,113 +1,110 @@
 ---
-title: "Farrukh Nauman" 
-subtitle: "Principal Consultant | Enterprise Data Platforms · Coding Agents · Time Series ML | PhD"
-resources: 
+title: "CV"
+subtitle: "Role-specific versions for different assignment needs"
+description: "Role-specific CV downloads for enterprise data platforms, analytics, AI automation leadership, and agentic AI systems."
+resources:
   - assets/FarrukhNauman_default.pdf
+  - assets/FarrukhNauman_data_scientist.pdf
+  - assets/FarrukhNauman_lead.pdf
+  - assets/FarrukhNauman_agentic.pdf
 toc: false
-format: 
-  html: 
+format:
+  html:
     page-layout: full
     toc: false
-
 ---
 
+::: {.cv-page}
 
-::: {.text-center}
-[farrukh.nauman@inertialrange.com](mailto:farrukh.nauman@inertialrange.com) |
-(+46) 0702984959 |
-[fnauman.com](https://fnauman.com) |
-[inertialrange.com](https://inertialrange.com)  
-LinkedIn: [fnauman](https://www.linkedin.com/in/fnauman/) |
-Github: [fnauman](https://github.com/fnauman) | 
-[PDF](assets/FarrukhNauman_default.pdf)
+::: {.cv-intro}
+I keep a few CV versions for different assignment types. They describe the same career, but emphasize different evidence depending on whether you need enterprise data delivery, senior data science, AI adoption leadership, or agentic AI systems.
+
+If you are unsure which one to use, start with the **Principal Consultant** version.
 :::
 
----
+::: {.grid .mt-4}
 
-## Summary
+::: {.g-col-12 .g-col-lg-6 .cv-card .cv-card-primary}
+<span class="cv-label">General profile</span>
 
-Principal consultant helping enterprise data teams de-risk platform migrations, cut warehouse cost, and automate analytics workflows with coding agents. I lead and ship in production-scale environments — owning roadmaps, managing stakeholders, and writing code, not slide decks. Selected results:
+### Principal Consultant / Enterprise Data & AI Platforms
 
-- **~1 week**: Cross-platform migration validator from zero to live dashboard (Databricks → Snowflake).
-- **5–10x faster, 50%+ cheaper**: SQL pipeline optimization with row-level correctness validation.
-- **10-100x faster**: Time series classification for industrial telemetry and edge deployment.
-- **Team Lead**: Interim lead & project manager for 4–7 person DS and advanced analytics team.
+Best for platform migrations, warehouse cost and performance, analytics automation, coding agents, time series ML, and interim technical leadership.
 
-## Current focus
+::: {.cv-proof-list}
+- Cross-platform migration validation from zero to live dashboard in about one week.
+- SQL pipeline optimization with 5-10x speedup and row-level correctness proof.
+- Interim lead for a 4-7 person DS and advanced analytics team.
+:::
 
-- Cross-platform migration validation and warehouse modernization (Snowflake / Databricks).
-- Coding-agent workflows for migration, validation, analytics automation, and large code changes.
-- Time series / telemetry ML for industrial production and edge deployment.
-- Interim technical leadership: roadmap ownership, stakeholder steering, delivery discipline.
-- Core stack: Python, SQL, Snowflake, Databricks/Spark, Azure Data Factory, Streamlit, PyTorch, LangChain, OpenAI SDK.
+<div class="cv-action"><a class="btn btn-primary cv-download" href="assets/FarrukhNauman_default.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+:::
 
-## Experience
+::: {.g-col-12 .g-col-lg-6 .cv-card}
+<span class="cv-label">Data science profile</span>
 
-### InertialRange Labs AB
-**Principal AI Consultant** (Aug 2025 - Present) | Linköping, Sweden 
- 
-**Engagement: Interim Team Lead – Data Science & Advanced Analytics (Sep 2025 - Jun 2026):**
-Enterprise Data Platform Engagement
+### Senior Data Scientist / Data Science & Quality
 
-- Lead a **4–7** person DS/analytics team; own roadmap, stakeholder steering, and technical direction across telemetry analytics, ML, and GenAI automation.
-- Coordinate transition planning/execution for **Databricks → Snowflake** while maintaining daily Spark/BI workloads with several terabytes of sensor data.
-- Built a **cross-platform migration validation** system using AI coding agents: automated comparison of schemas, row counts, key distributions, and date ranges across dozens of tables — from zero to live dashboard in ~1 week. ([Case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd))
-- Connected **Databricks and Snowflake CLIs** through an autonomous coding agent (Codex CLI / Cortex Code CLI) to orchestrate migration, validation, and reconciliation pipelines end-to-end — shrinking multi-day manual runbooks into hands-off workflows.
-- Redesigned a critical daily pipeline from full recompute to validated incremental processing: **5–10x speedup** with row-level correctness proof, projected to cut compute costs by **50%+**. Killed a faster but fundamentally broken optimization using multi-scale benchmarks and `EXCEPT`-based validation. ([Case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd))
-- Open-sourced **`[ts-agents](https://github.com/fnauman/ts-agents)` (PoC)**: a framework for autonomous time series agents; applied it to machine activity recognition from sensor data, demonstrating that classifier-heavy activity recognition workflows can be replaced by agent-driven analysis.
-- Prototyped **Text-to-SQL** workflow automation (PoC): synthetic evaluation dataset generation + instrumentation/logging to analyze failure modes.
-- Developed a practitioner framework for **large code migrations with coding agents**: evidence-preservation methodology, behavioral oracles, and `AGENTS.md`-based quality contracts. ([Essay](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd))
-- **Tech**: Snowflake, Databricks, Snowpark, PyTorch, AI Coding Agents, LLM Agents (LangChain), Streamlit, Time-Series ML, Model Monitoring.
+Best for applied data science, Python/SQL modeling, data quality validation, stakeholder-facing analysis, statistical decision support, and senior IC data science roles.
 
-### RISE Research Institutes of Sweden AB
-**AI Researcher & Consultant**  
-*Jul 2021 - Aug 2025* | Linköping, Sweden
+::: {.cv-proof-list}
+- Data-quality checks across schemas, row counts, key distributions, and date ranges.
+- Python/SQL data science and reporting for public-sector decision support.
+- Agent-assisted data science workflows without weakening correctness.
+:::
 
-- Led applied AI consulting and project delivery across inspection, edge ML, time series, and industrial automation programs.
-- **Sustainable Fashion AI Automation (2022-2025)**: Project lead for [Vinnova: AI for Circular Fashion](https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion) and AI lead in [CISUTAC](https://www.cisutac.eu/), delivering an automated quality-assessment workflow with 40% faster processing and 50%+ reduction in data collection effort via synthetic data.
-- **Low-Energy IoT Solutions (2022)**: Identified miniROCKET-based time series methods for industrial edge deployment, enabling real-time analysis with roughly 90% lower hardware cost than heavier alternatives.
-- Established and led an AI mentorship program for Master's thesis students and supported additional client work in drone edge AI, air-traffic automation planning, traffic analysis, and anomaly detection.
+<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_data_scientist.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+:::
 
-### 2MNordic IT Consulting AB
-**Data Scientist & Data Engineer**  
-*Dec 2019 - Jun 2021* | Gothenburg, Sweden
+::: {.g-col-12 .g-col-lg-6 .cv-card}
+<span class="cv-label">Leadership profile</span>
 
-**Project: Early Warning System for Student Performance (2020: *6 months*)**:
+### AI Automation Lead / AI Change Consultant
 
-- **Challenge**: Helsingborg school district lacked ability to identify at-risk students early, resulting in up to 40% failure rate in some schools in 9th grade.
-- **Solution**: Developed predictive analytics system identifying absence, poor grades in English and Math as the key indicators in 6th grade that predict 9th grade performance, with school-level feature analysis for targeted funding.
-- **Impact**: Enabled early intervention for 10% of the student population, and provided data-driven policy recommendations impacting 3,000+ students.
-- **Technologies**: Azure DevOps, Azure Functions, Data Factory, Python, SQL, Power BI.
+Best for AI opportunity discovery, business/IT/data stakeholder alignment, controlled GenAI rollout, roadmap ownership, ROI framing, and capability building.
 
-**Project: Mathematics Assessment Optimization (2021: *4 months*)**:
+::: {.cv-proof-list}
+- Roadmap ownership and stakeholder steering across business, data, and platform teams.
+- AI automation discovery from high-friction workflows to controlled implementation.
+- Project lead experience across an approximately 11M SEK Vinnova/EU portfolio.
+:::
 
-- **Challenge**: New digital mathematics test showed inconsistencies with traditional grading schemes, causing confusion and potential inequities.
-- **Solution**: Conducted comprehensive data analysis of test results across 8 schools, identifying specific misalignments between grading schemes.
-- **Impact**: Findings led to significant improvement in assessment accuracy and informed critical education policy adjustments affecting district-wide mathematics curriculum.
-- **Technologies**: Scikit-learn, Statistical Analysis, Python, Data Visualization, Azure Notebooks.
+<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_lead.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+:::
 
-### Previous Research Positions
-*2009–2019*
+::: {.g-col-12 .g-col-lg-6 .cv-card}
+<span class="cv-label">Agentic AI profile</span>
 
-- **Research Fellow, Chalmers University of Technology**: Gothenburg, Sweden  (*2018–2019*)
-  Complex systems modeling, large-scale data analysis 
-- **Research Scientist, Niels Bohr Institute**: Copenhagen, Denmark  (*2015–2018*)
-  Simulation, forecasting, computational modeling 
-- **Research Assistant/PhD Student, Univ. of Rochester**: New York, USA  (*2009–2015*)
-  Data analysis, predictive modeling 
+### Applied AI / Agentic Systems Consultant
 
-## Education & Certifications
+Best for coding agents, Text-to-SQL, tool contracts, evals, run manifests, CLI-orchestrated workflows, and Snowflake/Databricks automation.
 
-### Microsoft Certified
-**Azure Data Engineer Certificate**  
-*2020*
+::: {.cv-proof-list}
+- Agent-driven migration validator wired to Databricks and Snowflake CLIs.
+- Text-to-SQL work against production ERP data with schema grounding and result-level evaluation.
+- Open-source `ts-agents` framework with strict JSON tool contracts and sandboxed execution.
+:::
 
-### University of Rochester
-**PhD in Physics and Astronomy**  
-*Oct 2015* | Rochester, New York (USA)  
-Focus: Complex Systems Modeling, Data Analysis, Computational Fluid Dynamics, High Performance Computing, C/C++
+<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_agentic.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+:::
 
-## Awards & Achievements
+:::
 
-- Horton fellowship from Laboratory for Laser Energetics - full research funding award. *2010-2015*
-- Susumu Okubo Prize for highest performance on graduate comprehensive exam and excellence in coursework. *2011*
+::: {.cv-guidance .mt-4}
+All versions share the same chronology, employers, education, and core achievements. The difference is the emphasis: each PDF foregrounds the evidence most relevant to a specific buyer or assignment brief.
+:::
+
+::: {.final-cta .mt-5 .text-center}
+
+### Want the right version for a specific assignment?
+
+Send me the role description or broker brief and I can point you to the closest match.
+
+::: {.d-flex .justify-content-center .gap-3 .mt-3 .flex-wrap}
+[Get in touch](contact.qmd){.btn .btn-primary .btn-lg}
+[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary .btn-lg}
+:::
+
+:::
+
+:::
