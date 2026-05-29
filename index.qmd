@@ -23,7 +23,7 @@ format:
 
 ::: {.hero-social .d-flex .justify-content-center .gap-3 .mt-3}
 <a href="https://github.com/fnauman" aria-label="GitHub"><i class="bi bi-github"></i></a>
-<a href="https://twitter.com/naumanf_" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+<a href="https://x.com/naumanf_" aria-label="X"><i class="bi bi-twitter-x"></i></a>
 <a href="https://www.linkedin.com/in/fnauman/" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
 <a href="mailto:farrukh.nauman@inertialrange.com" aria-label="Email"><i class="bi bi-envelope"></i></a>
 :::
@@ -65,8 +65,8 @@ Cross-platform migration validator from zero to live dashboard
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**50%+ cheaper**
-SQL pipeline redesigned to incremental — 5–10x faster with row-level correctness proof
+**50%+ compute savings**
+SQL pipeline redesigned to incremental, 5-10x faster with row-level correctness proof
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
@@ -152,7 +152,7 @@ Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### SQL Pipeline Optimization
 
-Redesigned a years-old daily full-recompute pipeline into a validated incremental one — 5–10x faster with row-level correctness proof. The fastest approach tested was wrong; multi-scale benchmarks and parallel AI-agent workflows found the working design.
+Redesigned a years-old daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. The fastest approach tested was wrong; multi-scale benchmarks and parallel AI-agent workflows found the working design.
 
 [Read the case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
@@ -215,9 +215,9 @@ A practitioner's reference for migration test suites: five layers (unit, parity,
 
 ::: {.final-cta .mt-5 .text-center}
 
-### Working on a migration, cost blowup, or analytics automation problem?
+### Need AI-agent workflows that hold up in production?
 
-Let's talk.
+Let's talk about the data-platform, warehouse, or analytics work behind it.
 
 ::: {.d-flex .justify-content-center .gap-3 .mt-3}
 [Get in touch](contact.qmd){.btn .btn-primary .btn-lg}

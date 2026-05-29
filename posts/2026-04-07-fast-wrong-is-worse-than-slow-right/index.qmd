@@ -1,7 +1,7 @@
 ---
 title: "Fast Wrong Is Worse Than Slow Right"
 subtitle: "How I redesigned a years-old daily full-recompute pipeline into a validated incremental one"
-description: "The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows."
+description: "The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks and row-level validation to deliver 50%+ compute savings and 5-10x faster daily runs."
 author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
@@ -15,7 +15,7 @@ twitter:
   card-style: summary_large_image
 og:
   title: "Fast Wrong Is Worse Than Slow Right"
-  description: "The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows."
+  description: "The fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks and row-level validation to deliver 50%+ compute savings and 5-10x faster daily runs."
 ---
 
 *The fastest optimization I tested was also the most dangerous. It cut runtime dramatically, made the benchmark tables look easy, and would have silently corrupted production data. That project sharpened one lesson: fast wrong is worse than slow right.*
@@ -100,13 +100,13 @@ A second pass was still needed for `LAG`-based logic, because updating one row c
 | Approach | Correctness | Outcome |
 |----------|-------------|---------|
 | Dual-Incremental | Failed row-level validation at large scale | Fastest, but unusable |
-| Shared-Incremental + `MERGE` | Zero structural diffs in completed validation runs | **Roughly 4-6x faster than baseline** |
+| Shared-Incremental + `MERGE` | Zero structural diffs in completed validation runs | **50%+ compute savings; 5-10x faster than baseline** |
 | Full recompute | Correct | Baseline |
 
 In production terms, that meant:
 
-- daily runtime dropped by a large multiple
-- compute cost fell materially
+- daily runtime dropped by 5-10x
+- compute usage fell by more than 50%
 - the one-time seed cost paid back quickly
 
 The broken design was faster. The correct design was still transformative.

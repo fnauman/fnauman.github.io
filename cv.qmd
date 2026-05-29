@@ -32,7 +32,7 @@ Best for platform migrations, warehouse cost and performance, analytics automati
 
 ::: {.cv-proof-list}
 - Cross-platform migration validation from zero to live dashboard in about one week.
-- SQL pipeline optimization with 5-10x speedup and row-level correctness proof.
+- SQL pipeline optimization with 5-10x speedup, 50%+ compute savings, and row-level correctness proof.
 - Interim lead for a 4-7 person DS and advanced analytics team.
 :::
 

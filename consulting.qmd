@@ -53,7 +53,7 @@ format:
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### SQL Pipeline Optimization
 
-Redesigned a critical daily full-recompute pipeline into a validated incremental one — 5–10x faster with row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.
+Redesigned a critical daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.
 
 [Read the case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::

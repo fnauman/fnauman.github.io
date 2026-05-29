@@ -35,6 +35,13 @@ body {
   padding-top: 0.3rem !important;
   padding-bottom: 0.3rem !important;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  .navbar-nav .nav-link i.bi,
+  .navbar-nav .nav-link .bi {
+    font-size: 1.15rem;
+    line-height: 1;
+    vertical-align: -0.08em;
+  }
 }
 
 // ─── Social icons ───

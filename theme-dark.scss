@@ -51,6 +51,13 @@ a {
   padding-top: 0.3rem !important;
   padding-bottom: 0.3rem !important;
 
+  .navbar-nav .nav-link i.bi,
+  .navbar-nav .nav-link .bi {
+    font-size: 1.15rem;
+    line-height: 1;
+    vertical-align: -0.08em;
+  }
+
   .navbar-nav .nav-link {
     color: $body-color !important;
     opacity: 0.75;

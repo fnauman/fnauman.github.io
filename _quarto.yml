@@ -2,6 +2,7 @@ project:
   type: website
   render:
     - "*.qmd"
+    - "!drafts/**"
     - "posts/**/*.qmd"
     - "consulting/**/*.qmd"
     - "randomposts/**/*.qmd"
@@ -27,7 +28,7 @@ website:
     right:
       - icon: github
         href: https://github.com/fnauman
-      - icon: x
+      - icon: twitter-x
         href: https://x.com/naumanf_
       - icon: linkedin
         href: https://www.linkedin.com/in/fnauman/
@@ -40,7 +41,7 @@ website:
     right: 
       - icon: github
         href: https://github.com/fnauman
-      - icon: x
+      - icon: twitter-x
         href: https://x.com/naumanf_
       - icon: linkedin
         href: https://www.linkedin.com/in/fnauman/
