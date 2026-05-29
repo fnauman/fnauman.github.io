@@ -242,182 +242,14 @@
     "href": "posts.html",
     "title": "Writing",
     "section": "",
-    "text": "Longer-form case studies and technical essays from enterprise data, coding-agent, and applied ML work live here.\nShorter notes and experiments live in TIL / Random Notes.\n\n\n\n\n\nWhat Counts as Evidence.\n\n\n\nSoftware Engineering\n\nCoding Agents\n\nTesting\n\n\n\nA practitioner’s reference for migration testing. Five layers of tests, why every artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation.\n\n\n\n\n\nMay 2, 2026\n\n18 min\n\n\n\n\n\n\nFast Wrong Is Worse Than Slow Right\n\n\n\nData Engineering\n\nPerformance Optimization\n\nSnowflake\n\nCoding Agents\n\n\n\nThe fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks, row-level validation, and parallel AI-agent workflows.\n\n\n\n\n\nApr 7, 2026\n\n6 min\n\n\n\n\n\n\nHow I Validated a Large Data Platform Migration in a Week with an AI Coding Agent\n\n\n\nArtificial Intelligence\n\nData Engineering\n\nCoding Agents\n\n\n\nHow I used an AI coding agent to build a cross-platform validation workflow and dashboard for a large Databricks-to-Snowflake migration.\n\n\n\n\n\nApr 1, 2026\n\n11 min\n\n\n\n\n\n\nDon’t Port the Syntax. Port the Evidence.\n\n\n\nArtificial Intelligence\n\nSoftware Engineering\n\nCoding Agents\n\n\n\nA practitioner’s guide to large code migrations and clean-room-style rewrites with coding agents, focused on evidence, behavioral oracles, and verification discipline.\n\n\n\n\n\nMar 9, 2026\n\n10 min\n\n\n\n\n\n\nIntelligence as a Complex System: Lessons from Physics\n\n\n\nArtificial Intelligence\n\nComplex Systems\n\nNatural Language Processing\n\nLarge Language Models\n\n\n\nUnderstanding Intelligence Through the Lens of Physics\n\n\n\n\n\nJun 15, 2024\n\n5 min\n\n\n\n\n\n\nAutomating second-hand fashion\n\n\n\nArtificial Intelligence\n\nSustainable Fashion\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\n\n\nDec 16, 2023\n\n6 min\n\n\n\n\n\n\nLarge Language Models: A Compact Guide\n\n\n\nArtificial Intelligence\n\nNatural Language Processing\n\nLarge Language Models\n\n\n\nWhat are Large Language Models? What are their limitations and common use cases?\n\n\n\n\n\nNov 20, 2023\n\n15 min\n\n\n\n\nNo matching items"
+    "text": "Longer-form case studies and technical essays from enterprise data, coding-agent, and applied ML work live here.\nShorter notes and experiments live in TIL / Random Notes.\n\n\n\n\n\nWhat Counts as Evidence.\n\n\n\nSoftware Engineering\n\nCoding Agents\n\nTesting\n\n\n\nA practitioner’s reference for migration testing. Five layers of tests, why every artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation.\n\n\n\n\n\nMay 2, 2026\n\n18 min\n\n\n\n\n\n\nFast Wrong Is Worse Than Slow Right\n\n\n\nData Engineering\n\nPerformance Optimization\n\nSnowflake\n\nCoding Agents\n\n\n\nThe fastest optimization I tested was wrong. The working redesign used multi-scale benchmarks and row-level validation to deliver 50%+ compute savings and 5-10x faster daily runs.\n\n\n\n\n\nApr 7, 2026\n\n6 min\n\n\n\n\n\n\nHow I Validated a Large Data Platform Migration in a Week with an AI Coding Agent\n\n\n\nArtificial Intelligence\n\nData Engineering\n\nCoding Agents\n\n\n\nHow I used an AI coding agent to build a cross-platform validation workflow and dashboard for a large Databricks-to-Snowflake migration.\n\n\n\n\n\nApr 1, 2026\n\n11 min\n\n\n\n\n\n\nDon’t Port the Syntax. Port the Evidence.\n\n\n\nArtificial Intelligence\n\nSoftware Engineering\n\nCoding Agents\n\n\n\nA practitioner’s guide to large code migrations and clean-room-style rewrites with coding agents, focused on evidence, behavioral oracles, and verification discipline.\n\n\n\n\n\nMar 9, 2026\n\n10 min\n\n\n\n\n\n\nIntelligence as a Complex System: Lessons from Physics\n\n\n\nArtificial Intelligence\n\nComplex Systems\n\nNatural Language Processing\n\nLarge Language Models\n\n\n\nUnderstanding Intelligence Through the Lens of Physics\n\n\n\n\n\nJun 15, 2024\n\n5 min\n\n\n\n\n\n\nAutomating second-hand fashion\n\n\n\nArtificial Intelligence\n\nSustainable Fashion\n\n\n\nHow can AI be used to accelerate the transition to a circular economy?\n\n\n\n\n\nDec 16, 2023\n\n6 min\n\n\n\n\n\n\nLarge Language Models: A Compact Guide\n\n\n\nArtificial Intelligence\n\nNatural Language Processing\n\nLarge Language Models\n\n\n\nWhat are Large Language Models? What are their limitations and common use cases?\n\n\n\n\n\nNov 20, 2023\n\n15 min\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "drafts/optimization_blog.html",
-    "href": "drafts/optimization_blog.html",
-    "title": "Fast Wrong Is Worse Than Slow Right",
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "CV",
     "section": "",
-    "text": "The most dangerous optimization I tested was also the fastest. On paper, it looked great. It avoided full recomputes, cut runtime dramatically, and made the benchmark tables look easy. It was also wrong—and that changed everything about how I approached the problem."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-problem",
-    "href": "drafts/optimization_blog.html#the-problem",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Problem",
-    "text": "The Problem\nA critical daily analytics pipeline had been running for years. Every morning, it recomputed four downstream tables from a ~30 billion row source. The job took about 90 minutes on a large Snowpark-optimized warehouse and consumed roughly 4,500 Snowflake credits annually. At 3 billion rows of test data, 98% of the runtime was spent on two full table scans—not the output writes, not the aggregations, not the window functions. Just scanning the same massive dataset twice.\nThe pipeline was expensive, but it was correct. That matters when downstream teams depend on your output for operational decisions."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-temptation-incremental-processing",
-    "href": "drafts/optimization_blog.html#the-temptation-incremental-processing",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Temptation: Incremental Processing",
-    "text": "The Temptation: Incremental Processing\nIf the bottleneck is scanning 30 billion rows, why scan them every day? Most of that data hasn’t changed. Only new rows arriving since yesterday are actually new.\nThe idea was straightforward: build an incremental system with two phases. Phase A would run once to seed a persistent activity table from historical data. Phase B would run daily—scan only new rows since a watermark, aggregate them, append to the cache, and recompute the four small output tables from the cached activity layer (~6 million rows, not 30 billion).\nI built this “Dual-Incremental” approach with separate tables for the normal and filtered processing paths. The benchmarks were stunning:\n\n\n\nDataset\nFull Recompute\nDual-Incremental Daily\nSpeedup\n\n\n\n\n300M rows\n136 seconds\n17 seconds\n8x\n\n\n3B rows\n350 seconds\n28 seconds\n12.6x\n\n\n\nAt production scale, this would cut a 90-minute job to roughly 7 minutes. The annual credit savings would be substantial. I was ready to write the deployment plan.\nThen I ran the correctness validation."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#why-i-didnt-trust-the-first-benchmark",
-    "href": "drafts/optimization_blog.html#why-i-didnt-trust-the-first-benchmark",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "Why I Didn’t Trust the First Benchmark",
-    "text": "Why I Didn’t Trust the First Benchmark\nHere’s what a typical “optimization test” looks like in practice:\n\nTake a small dataset from production\nRun the old code once → 50 seconds\nRun the new code once → 15 seconds\nConclude: “3x faster!” → Open PR → Merge → Move on\n\nThis is exactly what I refused to do. The Dual-Incremental approach would have passed that test with flying colors—and would have corrupted production data for months before anyone noticed.\nInstead, I built a multi-dimensional benchmark that tested along three axes:\n\n\n\n\n\n\n\n\nAxis\nWhat I Tested\nWhy It Matters\n\n\n\n\nData Scale\n30M → 300M → 3B rows (1/1000x to 1/10x production)\nSmall data hides bugs. The Dual-Incremental bug showed 0 errors at 30M rows but 29 phantom + 8 missing rows at 3B.\n\n\nWarehouse Size\nSmall through Large including 2 variants of Medium\nLarge warehouses parallelize scans so effectively they hide algorithmic costs. On a small warehouse, the incremental advantage was 4.0x; on large, only 1.2x.\n\n\nCorrectness\nRow-level EXCEPT validation on every single run\nAggregate checksums can match while individual rows are wrong. Row-level diffs caught the structural errors that checksums missed.\n\n\n\nThat meant 36 benchmark combinations (24 completed—3B timed out on smaller warehouses), producing timing entries and validation records all stored in database tables for reproducible analysis.\nThe bug that killed the Dual-Incremental approach only appeared at scale. At 30 million rows—fast for iteration—everything looked clean. At 300 million, 3 phantom rows per warehouse. At 3 billion, 29 phantom rows. Extrapolating to production: hundreds of incorrect rows."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-bug-that-scales-with-data",
-    "href": "drafts/optimization_blog.html#the-bug-that-scales-with-data",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Bug That Scales With Data",
-    "text": "The Bug That Scales With Data\nConsider an activity (device X, activity #123) that has telemetry rows both before and after the watermark cutoff. During Phase A, the pipeline aggregates rows A and B from historical data. During Phase B, it discovers new rows C and D for the same activity.\nThe problem: the append-based architecture creates a second activity row from rows C and D. It cannot go back and update the Phase A row. The correct result should be a single row aggregating all four rows. Instead, we get phantom rows in weekly and monthly tables, missing keys when split data fails filter conditions, and wrong aggregate values computed on partial data.\nThis “split-activity” bug doesn’t appear at small scale. At 30 million rows—fast to iterate on—everything looked clean. At 300 million rows, there were 3 phantom rows per warehouse. At 3 billion rows, 29 phantom rows and 8 missing rows. At production scale with ~580 million activities, this would produce hundreds of incorrect rows.\nThe fastest optimization I had found was unusable. The bug was fundamental to the append architecture, not a tuning issue. No amount of watermark tweaking could fix it."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-real-fix-shared-incremental-with-merge",
-    "href": "drafts/optimization_blog.html#the-real-fix-shared-incremental-with-merge",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Real Fix: Shared-Incremental with MERGE",
-    "text": "The Real Fix: Shared-Incremental with MERGE\nTwo key insights led to the working solution.\nFirst: Use MERGE instead of APPEND. When new data arrives for an existing activity, we need to re-read the activity’s full history from the source, recompute the aggregation from scratch, and update the existing row. SQL MERGE handles exactly this: match on the activity key, update columns when matched, insert when not matched.\nSecond: One shared table instead of two. Both processing paths were scanning the same source rows—the only difference was a derived column calculation. By storing the raw value once and deriving at output time, we halved the Phase A scan cost.\nThe Shared-Incremental approach identifies which activity keys were touched by new data, re-reads their complete history, recomputes aggregations, and MERGEs updates back into the activity table. LAG window functions require a second MERGE pass because updating one row can change the LAG value for the next row in the same device partition."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-benchmark-that-saved-us",
-    "href": "drafts/optimization_blog.html#the-benchmark-that-saved-us",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Benchmark That Saved Us",
-    "text": "The Benchmark That Saved Us\nHere’s what the numbers looked like after I built proper ground-truth validation:\n\n\n\n\n\n\n\n\n\nApproach\nExtra Keys\nMissing Keys\nVerdict\n\n\n\n\nDual-Incremental\n29 (at 3B scale)\n8 (at 3B scale)\nINCORRECT\n\n\nShared-Incremental\n0\n0\nCorrect\n\n\n\nThe Shared-Incremental approach was not as fast as the broken design—roughly 5–8x faster than baseline instead of 12.6x—but it was correct. Zero structural validation errors across all 24 completed benchmark runs.\n\nProduction Impact\n\n\n\n\n\n\n\n\n\nMetric\nBaseline (Full Recompute)\nShared-Incremental\nImprovement\n\n\n\n\nDaily runtime\n~92 minutes\n~12–19 minutes (est.)\n5–8x faster\n\n\nDaily credits\n~12.3\n~1.6–2.5\n80–87% savings\n\n\nAnnual credits\n~4,475\n~580–920\n~3,500–3,900 saved\n\n\nOne-time seed cost\n—\n~30–45 minutes\nPaid back in 2–3 days\n\n\n\nThe speedup increases with data size because Phase B cost is bounded by touched activities, not total row count. The bottleneck wasn’t Snowpark syntax. It was query shape."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-benchmark-design-that-saved-us",
-    "href": "drafts/optimization_blog.html#the-benchmark-design-that-saved-us",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Benchmark Design That Saved Us",
-    "text": "The Benchmark Design That Saved Us\nThe validation methodology is what made the difference between shipping a 12.6x speedup that corrupts data and a 5–8x speedup that preserves correctness.\nI tested across three data scales, four warehouse sizes, and three architectural approaches. Every run included row-level EXCEPT validation against ground-truth tables. I disabled result caching. I recorded timings to database tables for reproducible analysis.\nSmall data hides bugs. Small data also hides scaling problems. At 30 million rows, all approaches looked similar because fixed overhead dominated. At 3 billion rows, the real computation costs separated. Large warehouses hide problems too—on the biggest warehouse, the full scan was so parallelized that the incremental advantage looked smaller than it actually was.\n\nWhy EXCEPT Validation, Not Checksums\nAggregate checksums can match while individual rows are wrong. A checksum of 1,000,000 rows that sum to 42 tells you nothing about whether those are the right 1,000,000 rows.\nRow-level EXCEPT queries compare every column of every row between the candidate output and the known-correct ground truth:\n-- Rows in candidate but not in ground truth (phantoms)\nSELECT * FROM candidate EXCEPT SELECT * FROM ground_truth\n\n-- Rows in ground truth but not in candidate (missing)\nSELECT * FROM ground_truth EXCEPT SELECT * FROM candidate\nThis caught the structural errors that aggregate checks would have missed entirely."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#the-real-lesson",
-    "href": "drafts/optimization_blog.html#the-real-lesson",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "The Real Lesson",
-    "text": "The Real Lesson\nThe question stopped being “how do I make this pipeline faster?” and became “what part of the current design is fundamentally wasting work, and how do I change that without breaking correctness?”\nFast wrong is worse than slow right. The useful pattern was: fix the query shape, benchmark across multiple scales, validate with row-level EXCEPT, and only then talk about speedup.\nThe one-line cache_result() fix gave a quick 20% improvement with zero risk. The architectural redesign took more work but delivered 5–8x speedup with correctness intact. The tempting incremental approach that looked fastest in benchmarks would have silently corrupted production data for months.\nThat’s the optimization work that actually matters—not just making things fast, but proving they’re right before they go live."
-  },
-  {
-    "objectID": "drafts/optimization_blog.html#how-i-built-this",
-    "href": "drafts/optimization_blog.html#how-i-built-this",
-    "title": "Fast Wrong Is Worse Than Slow Right",
-    "section": "How I Built This",
-    "text": "How I Built This\nThis optimization wasn’t a solo coding effort. I worked with two AI coding agents in parallel, using each for what it does best.\nFor planning and architectural decisions, I used GPT 5.4 Pro inside Codex CLI. It excelled at reasoning through the tradeoffs between different incremental approaches, identifying the split-activity bug conceptually before we saw it in the data, and helping design the MERGE-based correction strategy.\nFor implementation and iterative debugging, I used Opus 4.6 inside Cortex Code CLI. It handled the heavy lifting: writing the Snowpark dataframes, building the parameterized benchmark notebook, constructing the EXCEPT validation queries, and iterating through the 36 benchmark combinations. When a validation query returned unexpected diffs, it traced through the logic and fixed the root cause without losing context across a long session.\nThe pattern that worked: GPT 5.4 Pro for “what should we do?” and Opus 4.6 for “let’s make it happen.” I was the decision-maker—choosing which approach to pursue, interpreting the benchmark results, and calling off the Dual-Incremental approach when the data showed it was wrong. The agents compressed the distance between deciding and executing."
-  },
-  {
-    "objectID": "contact.html",
-    "href": "contact.html",
-    "title": "Work With Me",
-    "section": "",
-    "text": "I work with enterprise data teams on problems where the gap between “we have data” and “we trust the data” is costing real money — migrations that stall, warehouses that overspend, analytics workflows that depend on manual notebook runs, or telemetry pipelines that need ML but lack the in-house depth."
-  },
-  {
-    "objectID": "contact.html#what-a-typical-engagement-looks-like",
-    "href": "contact.html#what-a-typical-engagement-looks-like",
-    "title": "Work With Me",
-    "section": "What a typical engagement looks like",
-    "text": "What a typical engagement looks like\nAdvisory — A few sessions to scope a problem, review architecture, or pressure-test a migration plan. Good for teams that have the people but need a second opinion from someone who has done it before.\nEmbedded principal — I join your team for weeks or months as an interim lead or senior IC. I own deliverables, coordinate with stakeholders, and ship production work. This is how most of my enterprise engagements run.\nHands-on implementation — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, time series models. I write code, not slide decks."
-  },
-  {
-    "objectID": "contact.html#good-fit",
-    "href": "contact.html#good-fit",
-    "title": "Work With Me",
-    "section": "Good fit",
-    "text": "Good fit\n\nYou are migrating between data platforms and need systematic validation, not spot-checks.\nYour warehouse costs are growing faster than your data and you need someone to profile, benchmark, and fix it.\nYou want to use coding agents for real engineering work (not demos) and need someone who has shipped with them.\nYou are driving AI adoption and need someone to run discovery, align stakeholders, and take PoCs to production.\nYou have telemetry, sensor, or time series data and need production ML — not a research paper.\nYou need an interim team lead who can own a roadmap, manage stakeholders, and still write code."
-  },
-  {
-    "objectID": "contact.html#get-in-touch",
-    "href": "contact.html#get-in-touch",
-    "title": "Work With Me",
-    "section": "Get in touch",
-    "text": "Get in touch\nEmail me Connect on LinkedIn\nI usually reply within 1–2 business days. If you reach out, a line or two on what you are working on helps me prepare a useful first response:\n\nAI agents · AI enablement · migration · warehouse cost · analytics automation · time series · interim leadership · something else"
-  },
-  {
-    "objectID": "consulting/2025-04-13-AI-fashion/index.html",
-    "href": "consulting/2025-04-13-AI-fashion/index.html",
-    "title": "AI for second-hand fashion",
-    "section": "",
-    "text": "OUTCOME: 40% reduction in manual processing time with 50%+ decrease in data collection costs through innovative synthetic data techniques."
-  },
-  {
-    "objectID": "consulting/2025-04-13-AI-fashion/index.html#business-context",
-    "href": "consulting/2025-04-13-AI-fashion/index.html#business-context",
-    "title": "AI for second-hand fashion",
-    "section": "1. Business Context",
-    "text": "1. Business Context\nManual quality inspection created major bottlenecks in circular fashion supply chains, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%. The industry needed automation to scale sustainable fashion initiatives."
-  },
-  {
-    "objectID": "consulting/2025-04-13-AI-fashion/index.html#solution-snapshot-24-months",
-    "href": "consulting/2025-04-13-AI-fashion/index.html#solution-snapshot-24-months",
-    "title": "AI for second-hand fashion",
-    "section": "2. Solution Snapshot (24 Months)",
-    "text": "2. Solution Snapshot (24 Months)\n\n\n\nComponent\nWhat We Built\nTechnologies\n\n\n\n\nData Infrastructure\nCustom dual-camera capture system with specialized annotation platform\nFlask APIs, Streamlit UI, RESTful backend\n\n\nDataset Enhancement\nQuality control & balancing for 30,000+ images; metadata enrichment\nCustom processing apps, Pytorch\n\n\nCV Model Architecture\nState-of-the-art attribute detection with 92% accuracy on primary categories\nConvNeXt, Vision Transformers (ViT) & CLIP variants\n\n\nSynthetic Data Pipeline\nInpainting framework to generate realistic damage patterns for object detection\nPrompt engineering, Automated mask generation\n\n\nDeployment System\nWeb-based interface for real-time attribute detection\nGradio"
-  },
-  {
-    "objectID": "consulting/2025-04-13-AI-fashion/index.html#impact",
-    "href": "consulting/2025-04-13-AI-fashion/index.html#impact",
-    "title": "AI for second-hand fashion",
-    "section": "3. Impact",
-    "text": "3. Impact\n\n40% reduction in manual inspection processing time.\n50%+ decrease in data collection costs through synthetic data generation.\n92% accuracy on primary damage categories despite challenging long-tailed data.\nCreated one of a kind public dataset for fashion attribute detection research.\nSelected as 1 of only 5 projects presented at EU sustainable AI summit (2023)."
-  },
-  {
-    "objectID": "consulting/2025-04-13-AI-fashion/index.html#my-role",
-    "href": "consulting/2025-04-13-AI-fashion/index.html#my-role",
-    "title": "AI for second-hand fashion",
-    "section": "4. My Role",
-    "text": "4. My Role\n\nLed end-to-end project management for €1M AI initiatives across two major programs (AI for Circular Fashion, CISUTAC).\nDesigned technical architecture and coordinated cross-functional implementation.\nPersonally implemented key components of synthetic data generation pipeline.\nDelivered presentations at Vinnova Innovation Week (2022) and EU sustainable AI (2023)."
-  },
-  {
-    "objectID": "consulting/2025-04-13-AI-fashion/index.html#next-steps",
-    "href": "consulting/2025-04-13-AI-fashion/index.html#next-steps",
-    "title": "AI for second-hand fashion",
-    "section": "5. Next Steps",
-    "text": "5. Next Steps\nRead more here.\n\nNeed to automate your quality inspection processes using AI? → Book a consultation"
-  },
-  {
-    "objectID": "consulting.html",
-    "href": "consulting.html",
-    "title": "Selected Work",
-    "section": "",
-    "text": "AI engineering & agentic systems — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.\n\n\nMigration assurance — Automated cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.\n\n\nWarehouse cost & performance — Profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster and still right.\n\n\nAI enablement & change — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.\n\n\nTime series & telemetry ML — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy."
-  },
-  {
-    "objectID": "consulting.html#problems-i-solve",
-    "href": "consulting.html#problems-i-solve",
-    "title": "Selected Work",
-    "section": "",
-    "text": "AI engineering & agentic systems — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.\n\n\nMigration assurance — Automated cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.\n\n\nWarehouse cost & performance — Profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster and still right.\n\n\nAI enablement & change — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.\n\n\nTime series & telemetry ML — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy."
-  },
-  {
-    "objectID": "consulting.html#how-i-work",
-    "href": "consulting.html#how-i-work",
-    "title": "Selected Work",
-    "section": "How I work",
-    "text": "How I work\nAdvisory — A few sessions to scope, review architecture, or pressure-test a plan.\nEmbedded principal / interim lead — Weeks to months on your team; I own deliverables and ship alongside your people.\nHands-on implementation — I build the thing and write the code, not slide decks.\nEvaluation-first delivery — A clear success criterion up front: I prove correctness before I optimize, and show evidence before I ship."
-  },
-  {
-    "objectID": "consulting.html#selected-examples",
-    "href": "consulting.html#selected-examples",
-    "title": "Selected Work",
-    "section": "Selected examples",
-    "text": "Selected examples\n\n\nSQL Pipeline Optimization\nRedesigned a critical daily full-recompute pipeline into a validated incremental one — 5–10x faster with row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.\nRead the case study\n\n\nCross-Platform Migration Validation\nBuilt a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.\nRead the full case study\n\n\nCode Migration Methodology\nDeveloped a practitioner’s framework for large code migrations and clean-room-style rewrites with coding agents. Covers evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails — drawn from multiple 10k+ line migrations.\nRead the essay\n\n\nTime Series Classification for Production\nDelivered a time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Designed for edge and IoT deployment where latency and power matter.\nRead more"
-  },
-  {
-    "objectID": "consulting.html#engagement-fit",
-    "href": "consulting.html#engagement-fit",
-    "title": "Selected Work",
-    "section": "Engagement fit",
-    "text": "Engagement fit\nYou should reach out if:\n\nYou are a data platform or data engineering leader dealing with a migration, cost problem, or analytics modernization.\nYou are driving AI adoption and need someone to run discovery, align stakeholders, and take PoCs to production — not just advise.\nYou are a technical sponsor or architect who needs a senior practitioner to lead or unblock a workstream.\nYou need an interim team lead who can own a roadmap, manage stakeholders, and still write code.\nYou have a time series or telemetry problem that needs production ML, not a research paper.\n\nI typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT — but the methods transfer.\n\nWork with me Email me"
+    "text": "Three role-specific versions, each tuned to a different kind of assignment: hands-on data-platform delivery, AI engineering with agents, or AI adoption and change leadership. Same career, three angles — pick the one closest to your brief.\nIf you are unsure which one to use, start with the Principal Consultant version.\n\n\n\nGeneral profile\n\nPrincipal Consultant / Enterprise Data & AI Platforms\nBest for platform migrations, warehouse cost and performance, analytics automation, coding agents, time series ML, and interim technical leadership.\n\n\nCross-platform migration validation from zero to live dashboard in about one week.\nSQL pipeline optimization with 5-10x speedup, 50%+ compute savings, and row-level correctness proof.\nInterim lead for a 4-7 person DS and advanced analytics team.\n\n\n\n Download CV\n\n\n\n\nAI engineering profile\n\nAI Engineer / Agentic Systems\nBest for LLM and coding agents, Text-to-SQL, tool & API contracts, evals, run manifests, CLI-orchestrated workflows, and Snowflake/Databricks automation.\n\n\nAgent-driven migration validator wired to Databricks and Snowflake CLIs.\nText-to-SQL work against production ERP data with schema grounding and result-level evaluation.\nOpen-source ts-agents framework with strict JSON tool contracts and sandboxed execution.\n\n\n\n Download CV\n\n\n\n\nLeadership profile\n\nAI Automation Lead / AI Change Consultant\nBest for AI opportunity discovery, business/IT/data stakeholder alignment, controlled GenAI rollout, roadmap ownership, ROI framing, and capability building.\n\n\nRoadmap ownership and stakeholder steering across business, data, and platform teams.\nAI automation discovery from high-friction workflows to controlled implementation.\nProject lead experience across an approximately 11M SEK Vinnova/EU portfolio.\n\n\n\n Download CV\n\n\n\n\n\nAll three share the same chronology, employers, and education. Each foregrounds the evidence most relevant to a specific brief — the same career, read through the lens that matters to your assignment.\n\n\nWant the right version for a specific assignment?\nSend me the role description or broker brief and I can point you to the closest match.\n\nGet in touch Email me"
   },
   {
     "objectID": "consulting/2025-11-01-Time-Series-Classification/index.html",
@@ -469,11 +301,109 @@
     "text": "Contact\nFarrukh Nauman | AI Consultant\nTime Series Classification, Forecasting, Physics-Informed ML | PhD\n📧 farrukh.nauman@inertialrange.com 🔗 LinkedIn: fnauman\n💻 GitHub: fnauman\n\n\n\n\n\n\n\nNoteLearn More\n\n\n\nCurious how these techniques could improve your time series applications? Let’s discuss your constraints and goals."
   },
   {
-    "objectID": "cv.html",
-    "href": "cv.html",
-    "title": "CV",
+    "objectID": "consulting.html",
+    "href": "consulting.html",
+    "title": "Selected Work",
     "section": "",
-    "text": "Three role-specific versions, each tuned to a different kind of assignment: hands-on data-platform delivery, AI engineering with agents, or AI adoption and change leadership. Same career, three angles — pick the one closest to your brief.\nIf you are unsure which one to use, start with the Principal Consultant version.\n\n\n\nGeneral profile\n\nPrincipal Consultant / Enterprise Data & AI Platforms\nBest for platform migrations, warehouse cost and performance, analytics automation, coding agents, time series ML, and interim technical leadership.\n\n\nCross-platform migration validation from zero to live dashboard in about one week.\nSQL pipeline optimization with 5-10x speedup and row-level correctness proof.\nInterim lead for a 4-7 person DS and advanced analytics team.\n\n\n\n Download CV\n\n\n\n\nAI engineering profile\n\nAI Engineer / Agentic Systems\nBest for LLM and coding agents, Text-to-SQL, tool & API contracts, evals, run manifests, CLI-orchestrated workflows, and Snowflake/Databricks automation.\n\n\nAgent-driven migration validator wired to Databricks and Snowflake CLIs.\nText-to-SQL work against production ERP data with schema grounding and result-level evaluation.\nOpen-source ts-agents framework with strict JSON tool contracts and sandboxed execution.\n\n\n\n Download CV\n\n\n\n\nLeadership profile\n\nAI Automation Lead / AI Change Consultant\nBest for AI opportunity discovery, business/IT/data stakeholder alignment, controlled GenAI rollout, roadmap ownership, ROI framing, and capability building.\n\n\nRoadmap ownership and stakeholder steering across business, data, and platform teams.\nAI automation discovery from high-friction workflows to controlled implementation.\nProject lead experience across an approximately 11M SEK Vinnova/EU portfolio.\n\n\n\n Download CV\n\n\n\n\n\nAll three share the same chronology, employers, and education. Each foregrounds the evidence most relevant to a specific brief — the same career, read through the lens that matters to your assignment.\n\n\nWant the right version for a specific assignment?\nSend me the role description or broker brief and I can point you to the closest match.\n\nGet in touch Email me"
+    "text": "AI engineering & agentic systems — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.\n\n\nMigration assurance — Automated cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.\n\n\nWarehouse cost & performance — Profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster and still right.\n\n\nAI enablement & change — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.\n\n\nTime series & telemetry ML — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy."
+  },
+  {
+    "objectID": "consulting.html#problems-i-solve",
+    "href": "consulting.html#problems-i-solve",
+    "title": "Selected Work",
+    "section": "",
+    "text": "AI engineering & agentic systems — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.\n\n\nMigration assurance — Automated cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.\n\n\nWarehouse cost & performance — Profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster and still right.\n\n\nAI enablement & change — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.\n\n\nTime series & telemetry ML — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy."
+  },
+  {
+    "objectID": "consulting.html#how-i-work",
+    "href": "consulting.html#how-i-work",
+    "title": "Selected Work",
+    "section": "How I work",
+    "text": "How I work\nAdvisory — A few sessions to scope, review architecture, or pressure-test a plan.\nEmbedded principal / interim lead — Weeks to months on your team; I own deliverables and ship alongside your people.\nHands-on implementation — I build the thing and write the code, not slide decks.\nEvaluation-first delivery — A clear success criterion up front: I prove correctness before I optimize, and show evidence before I ship."
+  },
+  {
+    "objectID": "consulting.html#selected-examples",
+    "href": "consulting.html#selected-examples",
+    "title": "Selected Work",
+    "section": "Selected examples",
+    "text": "Selected examples\n\n\nSQL Pipeline Optimization\nRedesigned a critical daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.\nRead the case study\n\n\nCross-Platform Migration Validation\nBuilt a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.\nRead the full case study\n\n\nCode Migration Methodology\nDeveloped a practitioner’s framework for large code migrations and clean-room-style rewrites with coding agents. Covers evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails — drawn from multiple 10k+ line migrations.\nRead the essay\n\n\nTime Series Classification for Production\nDelivered a time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Designed for edge and IoT deployment where latency and power matter.\nRead more"
+  },
+  {
+    "objectID": "consulting.html#engagement-fit",
+    "href": "consulting.html#engagement-fit",
+    "title": "Selected Work",
+    "section": "Engagement fit",
+    "text": "Engagement fit\nYou should reach out if:\n\nYou are a data platform or data engineering leader dealing with a migration, cost problem, or analytics modernization.\nYou are driving AI adoption and need someone to run discovery, align stakeholders, and take PoCs to production — not just advise.\nYou are a technical sponsor or architect who needs a senior practitioner to lead or unblock a workstream.\nYou need an interim team lead who can own a roadmap, manage stakeholders, and still write code.\nYou have a time series or telemetry problem that needs production ML, not a research paper.\n\nI typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT — but the methods transfer.\n\nWork with me Email me"
+  },
+  {
+    "objectID": "consulting/2025-04-13-AI-fashion/index.html",
+    "href": "consulting/2025-04-13-AI-fashion/index.html",
+    "title": "AI for second-hand fashion",
+    "section": "",
+    "text": "OUTCOME: 40% reduction in manual processing time with 50%+ decrease in data collection costs through innovative synthetic data techniques."
+  },
+  {
+    "objectID": "consulting/2025-04-13-AI-fashion/index.html#business-context",
+    "href": "consulting/2025-04-13-AI-fashion/index.html#business-context",
+    "title": "AI for second-hand fashion",
+    "section": "1. Business Context",
+    "text": "1. Business Context\nManual quality inspection created major bottlenecks in circular fashion supply chains, with 30% inconsistency in assessments and excessive labor costs driving up prices by 25%. The industry needed automation to scale sustainable fashion initiatives."
+  },
+  {
+    "objectID": "consulting/2025-04-13-AI-fashion/index.html#solution-snapshot-24-months",
+    "href": "consulting/2025-04-13-AI-fashion/index.html#solution-snapshot-24-months",
+    "title": "AI for second-hand fashion",
+    "section": "2. Solution Snapshot (24 Months)",
+    "text": "2. Solution Snapshot (24 Months)\n\n\n\nComponent\nWhat We Built\nTechnologies\n\n\n\n\nData Infrastructure\nCustom dual-camera capture system with specialized annotation platform\nFlask APIs, Streamlit UI, RESTful backend\n\n\nDataset Enhancement\nQuality control & balancing for 30,000+ images; metadata enrichment\nCustom processing apps, Pytorch\n\n\nCV Model Architecture\nState-of-the-art attribute detection with 92% accuracy on primary categories\nConvNeXt, Vision Transformers (ViT) & CLIP variants\n\n\nSynthetic Data Pipeline\nInpainting framework to generate realistic damage patterns for object detection\nPrompt engineering, Automated mask generation\n\n\nDeployment System\nWeb-based interface for real-time attribute detection\nGradio"
+  },
+  {
+    "objectID": "consulting/2025-04-13-AI-fashion/index.html#impact",
+    "href": "consulting/2025-04-13-AI-fashion/index.html#impact",
+    "title": "AI for second-hand fashion",
+    "section": "3. Impact",
+    "text": "3. Impact\n\n40% reduction in manual inspection processing time.\n50%+ decrease in data collection costs through synthetic data generation.\n92% accuracy on primary damage categories despite challenging long-tailed data.\nCreated one of a kind public dataset for fashion attribute detection research.\nSelected as 1 of only 5 projects presented at EU sustainable AI summit (2023)."
+  },
+  {
+    "objectID": "consulting/2025-04-13-AI-fashion/index.html#my-role",
+    "href": "consulting/2025-04-13-AI-fashion/index.html#my-role",
+    "title": "AI for second-hand fashion",
+    "section": "4. My Role",
+    "text": "4. My Role\n\nLed end-to-end project management for €1M AI initiatives across two major programs (AI for Circular Fashion, CISUTAC).\nDesigned technical architecture and coordinated cross-functional implementation.\nPersonally implemented key components of synthetic data generation pipeline.\nDelivered presentations at Vinnova Innovation Week (2022) and EU sustainable AI (2023)."
+  },
+  {
+    "objectID": "consulting/2025-04-13-AI-fashion/index.html#next-steps",
+    "href": "consulting/2025-04-13-AI-fashion/index.html#next-steps",
+    "title": "AI for second-hand fashion",
+    "section": "5. Next Steps",
+    "text": "5. Next Steps\nRead more here.\n\nNeed to automate your quality inspection processes using AI? → Book a consultation"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Work With Me",
+    "section": "",
+    "text": "I work with enterprise data teams on problems where the gap between “we have data” and “we trust the data” is costing real money — migrations that stall, warehouses that overspend, analytics workflows that depend on manual notebook runs, or telemetry pipelines that need ML but lack the in-house depth."
+  },
+  {
+    "objectID": "contact.html#what-a-typical-engagement-looks-like",
+    "href": "contact.html#what-a-typical-engagement-looks-like",
+    "title": "Work With Me",
+    "section": "What a typical engagement looks like",
+    "text": "What a typical engagement looks like\nAdvisory — A few sessions to scope a problem, review architecture, or pressure-test a migration plan. Good for teams that have the people but need a second opinion from someone who has done it before.\nEmbedded principal — I join your team for weeks or months as an interim lead or senior IC. I own deliverables, coordinate with stakeholders, and ship production work. This is how most of my enterprise engagements run.\nHands-on implementation — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, time series models. I write code, not slide decks."
+  },
+  {
+    "objectID": "contact.html#good-fit",
+    "href": "contact.html#good-fit",
+    "title": "Work With Me",
+    "section": "Good fit",
+    "text": "Good fit\n\nYou are migrating between data platforms and need systematic validation, not spot-checks.\nYour warehouse costs are growing faster than your data and you need someone to profile, benchmark, and fix it.\nYou want to use coding agents for real engineering work (not demos) and need someone who has shipped with them.\nYou are driving AI adoption and need someone to run discovery, align stakeholders, and take PoCs to production.\nYou have telemetry, sensor, or time series data and need production ML — not a research paper.\nYou need an interim team lead who can own a roadmap, manage stakeholders, and still write code."
+  },
+  {
+    "objectID": "contact.html#get-in-touch",
+    "href": "contact.html#get-in-touch",
+    "title": "Work With Me",
+    "section": "Get in touch",
+    "text": "Get in touch\nEmail me Connect on LinkedIn\nI usually reply within 1–2 business days. If you reach out, a line or two on what you are working on helps me prepare a useful first response:\n\nAI agents · AI enablement · migration · warehouse cost · analytics automation · time series · interim leadership · something else"
   },
   {
     "objectID": "index.html",
@@ -494,14 +424,14 @@
     "href": "index.html#featured-work",
     "title": "Farrukh Nauman",
     "section": "Featured work",
-    "text": "Featured work\n\n\nSQL Pipeline Optimization\nRedesigned a years-old daily full-recompute pipeline into a validated incremental one — 5–10x faster with row-level correctness proof. The fastest approach tested was wrong; multi-scale benchmarks and parallel AI-agent workflows found the working design.\nRead the case study\n\n\nCross-Platform Migration Validation\nBuilt a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.\nRead the case study\n\n\nTime Series Classification for Production\nDelivered a time series classification system for industrial telemetry: state-of-the-art accuracy with 10-100x faster inference than deep learning, designed for edge and IoT deployment.\nRead more\n\n\nMigration Testing: What Counts as Evidence\nA practitioner’s reference for migration test suites: five layers (unit, parity, manifest integrity, end-to-end, performance), why every reference artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation. The follow-up to “Don’t Port the Syntax. Port the Evidence.”\nRead the essay"
+    "text": "Featured work\n\n\nSQL Pipeline Optimization\nRedesigned a years-old daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. The fastest approach tested was wrong; multi-scale benchmarks and parallel AI-agent workflows found the working design.\nRead the case study\n\n\nCross-Platform Migration Validation\nBuilt a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.\nRead the case study\n\n\nTime Series Classification for Production\nDelivered a time series classification system for industrial telemetry: state-of-the-art accuracy with 10-100x faster inference than deep learning, designed for edge and IoT deployment.\nRead more\n\n\nMigration Testing: What Counts as Evidence\nA practitioner’s reference for migration test suites: five layers (unit, parity, manifest integrity, end-to-end, performance), why every reference artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation. The follow-up to “Don’t Port the Syntax. Port the Evidence.”\nRead the essay"
   },
   {
     "objectID": "index.html#who-i-work-best-with",
     "href": "index.html#who-i-work-best-with",
     "title": "Farrukh Nauman",
     "section": "Who I work best with",
-    "text": "Who I work best with\n\n\nData platform & engineering leaders migrating between warehouses who need systematic validation — not spot-checks and hope.\n\n\nLeaders driving AI adoption stuck between demos and production who need someone to run discovery, align stakeholders, and ship real workflows.\n\n\nTechnical sponsors & architects who need a senior practitioner to lead or unblock a workstream — someone who owns deliverables, not slide decks.\n\n\nTeams with telemetry or time series data that need production ML — activity recognition, anomaly detection, or forecasting — not a research paper.\n\n\nMore writing on the blog →\n\n\nWorking on a migration, cost blowup, or analytics automation problem?\nLet’s talk.\n\nGet in touch Email me"
+    "text": "Who I work best with\n\n\nData platform & engineering leaders migrating between warehouses who need systematic validation — not spot-checks and hope.\n\n\nLeaders driving AI adoption stuck between demos and production who need someone to run discovery, align stakeholders, and ship real workflows.\n\n\nTechnical sponsors & architects who need a senior practitioner to lead or unblock a workstream — someone who owns deliverables, not slide decks.\n\n\nTeams with telemetry or time series data that need production ML — activity recognition, anomaly detection, or forecasting — not a research paper.\n\n\nMore writing on the blog →\n\n\nNeed AI-agent workflows that hold up in production?\nLet’s talk about the data-platform, warehouse, or analytics work behind it.\n\nGet in touch Email me"
   },
   {
     "objectID": "posts/2023-11-20-llms-summary/index.html",
@@ -704,7 +634,7 @@
     "href": "posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html#what-the-final-numbers-looked-like",
     "title": "Fast Wrong Is Worse Than Slow Right",
     "section": "What the Final Numbers Looked Like",
-    "text": "What the Final Numbers Looked Like\n\n\n\n\n\n\n\n\nApproach\nCorrectness\nOutcome\n\n\n\n\nDual-Incremental\nFailed row-level validation at large scale\nFastest, but unusable\n\n\nShared-Incremental + MERGE\nZero structural diffs in completed validation runs\nRoughly 4-6x faster than baseline\n\n\nFull recompute\nCorrect\nBaseline\n\n\n\nIn production terms, that meant:\n\ndaily runtime dropped by a large multiple\ncompute cost fell materially\nthe one-time seed cost paid back quickly\n\nThe broken design was faster. The correct design was still transformative.\n\nWhy EXCEPT Validation, Not Checksums\nThis was the real lever: not a Snowpark trick, but benchmark discipline.\nSmall data hid the bug. Large warehouses hid the algorithmic cost. Aggregate checks would have let the broken design through. Row-level validation killed it before it got near production.\nThe validation queries were simple:\nSELECT * FROM candidate\nEXCEPT\nSELECT * FROM ground_truth;\n\nSELECT * FROM ground_truth\nEXCEPT\nSELECT * FROM candidate;\nSimple is fine. The important part was running them systematically, across scales, across warehouse sizes, and against a known-good baseline."
+    "text": "What the Final Numbers Looked Like\n\n\n\n\n\n\n\n\nApproach\nCorrectness\nOutcome\n\n\n\n\nDual-Incremental\nFailed row-level validation at large scale\nFastest, but unusable\n\n\nShared-Incremental + MERGE\nZero structural diffs in completed validation runs\n50%+ compute savings; 5-10x faster than baseline\n\n\nFull recompute\nCorrect\nBaseline\n\n\n\nIn production terms, that meant:\n\ndaily runtime dropped by 5-10x\ncompute usage fell by more than 50%\nthe one-time seed cost paid back quickly\n\nThe broken design was faster. The correct design was still transformative.\n\nWhy EXCEPT Validation, Not Checksums\nThis was the real lever: not a Snowpark trick, but benchmark discipline.\nSmall data hid the bug. Large warehouses hid the algorithmic cost. Aggregate checks would have let the broken design through. Row-level validation killed it before it got near production.\nThe validation queries were simple:\nSELECT * FROM candidate\nEXCEPT\nSELECT * FROM ground_truth;\n\nSELECT * FROM ground_truth\nEXCEPT\nSELECT * FROM candidate;\nSimple is fine. The important part was running them systematically, across scales, across warehouse sizes, and against a known-good baseline."
   },
   {
     "objectID": "posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html#what-this-says-about-ai-agent-work",
