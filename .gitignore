@@ -13,3 +13,15 @@ vendor
 
 # Local-only drafts that should never be committed to the public site repo
 drafts/
+
+# Local-only planning doc — never checked in
+PLAN.md
+
+# CV LaTeX sources + build artifacts — never checked in
+FarrukhNauman_*.tex
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz

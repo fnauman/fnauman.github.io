@@ -1,7 +1,7 @@
 ---
 title: "Selected Work"
-subtitle: "Enterprise data platforms, warehouse optimization, AI agents, and time series"
-description: "Problems I solve, how I work, and selected examples from enterprise data consulting engagements."
+subtitle: "AI agents, enterprise data platforms, warehouse optimization, and AI enablement"
+description: "I help enterprise teams ship AI agents, de-risk data-platform migrations, cut warehouse cost, and lead AI adoption — with proof, not slides."
 toc: false
 format:
   html:
@@ -10,32 +10,40 @@ format:
 
 ## Problems I solve
 
-### Migration assurance and cross-platform validation
+::: {.grid .mt-4}
 
-You are moving between data platforms — Databricks to Snowflake, on-prem to cloud, or consolidating across warehouses. The migration is underway, but nobody can systematically answer whether the target data is correct. I build automated cross-platform validation: schema comparison, row-count reconciliation, key-distribution checks, and date-range verification across dozens of tables. Results go into historical storage and a dashboard the team can use daily.
+::: {.g-col-12 .fit-card}
+**AI engineering & agentic systems** — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.
+:::
 
-### Warehouse cost and performance optimization
+::: {.g-col-12 .g-col-md-6 .fit-card}
+**Migration assurance** — Automated cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.
+:::
 
-Your warehouse bill is growing faster than your data. Pipelines run full scans when they could be incremental. Nobody has profiled the actual bottleneck or tested whether a faster approach is also *correct*. I profile execution step by step, benchmark alternatives at multiple data scales and warehouse sizes, and validate correctness with row-level comparisons — not just aggregate checksums. The goal is a production-ready optimization with proof that it does not break the data.
+::: {.g-col-12 .g-col-md-6 .fit-card}
+**Warehouse cost & performance** — Profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster *and* still right.
+:::
 
-### Analytics automation with coding agents
+::: {.g-col-12 .g-col-md-6 .fit-card}
+**AI enablement & change** — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.
+:::
 
-Your analytics team spends too much time on repetitive notebook runs, manual SQL, and copy-paste workflows. You want to use coding agents but need someone who has shipped real engineering work with them — not just prompting demos. I design coding-agent workflows for migration, validation, and pipeline modernization, including the test discipline and operating constraints that make agents reliable.
+::: {.g-col-12 .g-col-md-6 .fit-card}
+**Time series & telemetry ML** — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy.
+:::
 
-### Time series and telemetry ML
-
-You have sensor, telemetry, or time series data and need production ML — activity recognition, anomaly detection, forecasting, or classification. I specialize in approaches that are fast enough for edge and IoT deployment (ROCKET family, lightweight models) while maintaining state-of-the-art accuracy. I work from evaluation harness to production, not just research prototypes.
+:::
 
 
 ## How I work
 
-**Advisory** — A few sessions to scope a problem, review architecture, or pressure-test a plan. Good for teams that have the people but need a second opinion from someone who has done it.
+**Advisory** — A few sessions to scope, review architecture, or pressure-test a plan.
 
-**Embedded principal / interim lead** — I join your team for weeks or months. I own deliverables, coordinate with stakeholders, manage a roadmap, and ship production work alongside your people.
+**Embedded principal / interim lead** — Weeks to months on your team; I own deliverables and ship alongside your people.
 
-**Hands-on implementation** — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, and time series models. I write code, not slide decks.
+**Hands-on implementation** — I build the thing and write the code, not slide decks.
 
-**Evaluation-first delivery** — Every engagement starts with a clear success criterion and a way to measure it. I do not optimize until I can prove correctness. I do not ship until I can show evidence.
+**Evaluation-first delivery** — A clear success criterion up front: I prove correctness before I optimize, and show evidence before I ship.
 
 
 ## Selected examples
@@ -82,6 +90,7 @@ Delivered a time series classification system for industrial telemetry with stat
 You should reach out if:
 
 - You are a **data platform or data engineering leader** dealing with a migration, cost problem, or analytics modernization.
+- You are **driving AI adoption** and need someone to run discovery, align stakeholders, and take PoCs to production — not just advise.
 - You are a **technical sponsor or architect** who needs a senior practitioner to lead or unblock a workstream.
 - You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
 - You have a **time series or telemetry problem** that needs production ML, not a research paper.

@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman"
-description: "I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents."
+description: "I build AI-agent workflows for enterprise data teams — de-risking platform migrations, cutting warehouse cost, and automating analytics with proof in production, not demos."
 image: assets/officialpic.JPG
 resources:
   - assets/FarrukhNauman_default.pdf
@@ -33,11 +33,11 @@ format:
 
 <h1 class="hero-name">Farrukh Nauman</h1>
 
-<p class="hero-subhead">Enterprise Data Platforms, Coding Agents, and Time Series ML</p>
+<p class="hero-subhead">AI Agents & Agentic Systems · Enterprise Data Platforms · Time Series ML</p>
 
-<p class="hero-headline">I help enterprise data teams de-risk migrations, cut warehouse cost, and automate analytics workflows with coding agents.</p>
+<p class="hero-headline">I build AI-agent workflows that de-risk data-platform migrations, cut warehouse cost, and automate analytics — with proof in production, not demos.</p>
 
-Principal consultant with deep experience across enterprise data platforms, time series / telemetry ML, and hands-on AI delivery in messy real-world environments.
+Principal consultant who builds and ships AI-agent systems in production-scale data environments — platform migration, warehouse cost, analytics automation, and time series / telemetry ML.
 
 ::: {.d-flex .gap-3 .mt-4 .flex-wrap}
 [See case studies](consulting.qmd){.btn .btn-primary}
@@ -65,8 +65,8 @@ Cross-platform migration validator from zero to live dashboard
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**5–10x faster**
-SQL pipeline optimization with row-level correctness validation
+**50%+ cheaper**
+SQL pipeline redesigned to incremental — 5–10x faster with row-level correctness proof
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
@@ -75,8 +75,8 @@ Time series classification for industrial telemetry and edge deployment
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**Team Lead**
-Interim lead & project manager for DS and advanced analytics
+**~11M SEK**
+Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 :::
 
 :::
@@ -89,6 +89,16 @@ Interim lead & project manager for DS and advanced analytics
 ## What I help with {.section-heading .mt-5}
 
 ::: {.grid .mt-4}
+
+::: {.g-col-12 .service-card .service-card-feature}
+### AI Engineering & Agentic Systems
+
+**The problem:** You want to use AI agents for real engineering work — wired into your data platform, your CLIs, and your real schemas — not another chat demo that falls over on production data. You need someone who has shipped agentic systems with the test discipline to make them reliable.
+
+**What I do:** Design and build agentic systems end to end: coding agents wired to Databricks/Snowflake CLIs and APIs, Text-to-SQL over real schemas, tool and API contracts, evals, run manifests, and sandboxed execution. I write the harness and the operating constraints that keep agents trustworthy in production.
+
+**Example outcomes:** Built a full agent-driven validation workflow — discovery, per-pipeline scripts, unified validator, historical storage, and live dashboards. Shipped Text-to-SQL against a production ERP with result-level evaluation. Open-sourced `ts-agents`, a framework with strict JSON tool contracts and sandboxed execution.
+:::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
 ### Migration Assurance
@@ -111,13 +121,13 @@ Interim lead & project manager for DS and advanced analytics
 :::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
-### Analytics Automation with Coding Agents
+### AI Enablement & Change
 
-**The problem:** Your analytics team spends too much time on manual notebook runs, repetitive SQL, and copy-paste workflows. You have heard about coding agents but need someone who has shipped real work with them, not just demos.
+**The problem:** Your teams are experimenting with AI but stuck between interesting demos and production. Nobody owns the path from "we should use this" to "it is in daily use," and stakeholders across business, IT, and data are not aligned.
 
-**What I do:** Design and implement coding-agent workflows for migration, validation, and pipeline modernization. I write the harness, the test discipline, and the operating constraints that make agents reliable in production.
+**What I do:** Run AI opportunity discovery, prioritize high-friction workflows, align business/IT/data stakeholders, lead PoCs through to production, and build internal capability — with governance and ROI framing, not hype.
 
-**Example outcomes:** Used a coding agent to build a full validation workflow — discovery, per-pipeline scripts, unified validator, historical storage, and live dashboards — across seven working sessions.
+**Example outcomes:** Interim lead of a 4–7 person DS & analytics team owning roadmap and stakeholders. Project lead across an ~11M SEK Vinnova/EU AI portfolio. Established an AI mentorship program that built durable in-house capability.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
@@ -180,15 +190,19 @@ A practitioner's reference for migration test suites: five layers (unit, parity,
 
 ::: {.grid .mt-4}
 
-::: {.g-col-12 .g-col-md-4 .fit-card}
+::: {.g-col-12 .g-col-md-6 .fit-card}
 **Data platform & engineering leaders** migrating between warehouses who need systematic validation — not spot-checks and hope.
 :::
 
-::: {.g-col-12 .g-col-md-4 .fit-card}
+::: {.g-col-12 .g-col-md-6 .fit-card}
+**Leaders driving AI adoption** stuck between demos and production who need someone to run discovery, align stakeholders, and ship real workflows.
+:::
+
+::: {.g-col-12 .g-col-md-6 .fit-card}
 **Technical sponsors & architects** who need a senior practitioner to lead or unblock a workstream — someone who owns deliverables, not slide decks.
 :::
 
-::: {.g-col-12 .g-col-md-4 .fit-card}
+::: {.g-col-12 .g-col-md-6 .fit-card}
 **Teams with telemetry or time series data** that need production ML — activity recognition, anomaly detection, or forecasting — not a research paper.
 :::
 

@@ -4,9 +4,8 @@ subtitle: "Role-specific versions for different assignment needs"
 description: "Role-specific CV downloads for enterprise data platforms, analytics, AI automation leadership, and agentic AI systems."
 resources:
   - assets/FarrukhNauman_default.pdf
-  - assets/FarrukhNauman_data_scientist.pdf
-  - assets/FarrukhNauman_lead.pdf
   - assets/FarrukhNauman_agentic.pdf
+  - assets/FarrukhNauman_lead.pdf
 toc: false
 format:
   html:
@@ -17,14 +16,14 @@ format:
 ::: {.cv-page}
 
 ::: {.cv-intro}
-I keep a few CV versions for different assignment types. They describe the same career, but emphasize different evidence depending on whether you need enterprise data delivery, senior data science, AI adoption leadership, or agentic AI systems.
+Three role-specific versions, each tuned to a different kind of assignment: hands-on data-platform delivery, AI engineering with agents, or AI adoption and change leadership. Same career, three angles — pick the one closest to your brief.
 
 If you are unsure which one to use, start with the **Principal Consultant** version.
 :::
 
 ::: {.grid .mt-4}
 
-::: {.g-col-12 .g-col-lg-6 .cv-card .cv-card-primary}
+::: {.g-col-12 .cv-card .cv-card-primary}
 <span class="cv-label">General profile</span>
 
 ### Principal Consultant / Enterprise Data & AI Platforms
@@ -41,19 +40,19 @@ Best for platform migrations, warehouse cost and performance, analytics automati
 :::
 
 ::: {.g-col-12 .g-col-lg-6 .cv-card}
-<span class="cv-label">Data science profile</span>
+<span class="cv-label">AI engineering profile</span>
 
-### Senior Data Scientist / Data Science & Quality
+### AI Engineer / Agentic Systems
 
-Best for applied data science, Python/SQL modeling, data quality validation, stakeholder-facing analysis, statistical decision support, and senior IC data science roles.
+Best for LLM and coding agents, Text-to-SQL, tool & API contracts, evals, run manifests, CLI-orchestrated workflows, and Snowflake/Databricks automation.
 
 ::: {.cv-proof-list}
-- Data-quality checks across schemas, row counts, key distributions, and date ranges.
-- Python/SQL data science and reporting for public-sector decision support.
-- Agent-assisted data science workflows without weakening correctness.
+- Agent-driven migration validator wired to Databricks and Snowflake CLIs.
+- Text-to-SQL work against production ERP data with schema grounding and result-level evaluation.
+- Open-source `ts-agents` framework with strict JSON tool contracts and sandboxed execution.
 :::
 
-<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_data_scientist.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_agentic.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
 :::
 
 ::: {.g-col-12 .g-col-lg-6 .cv-card}
@@ -72,26 +71,10 @@ Best for AI opportunity discovery, business/IT/data stakeholder alignment, contr
 <div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_lead.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
 :::
 
-::: {.g-col-12 .g-col-lg-6 .cv-card}
-<span class="cv-label">Agentic AI profile</span>
-
-### Applied AI / Agentic Systems Consultant
-
-Best for coding agents, Text-to-SQL, tool contracts, evals, run manifests, CLI-orchestrated workflows, and Snowflake/Databricks automation.
-
-::: {.cv-proof-list}
-- Agent-driven migration validator wired to Databricks and Snowflake CLIs.
-- Text-to-SQL work against production ERP data with schema grounding and result-level evaluation.
-- Open-source `ts-agents` framework with strict JSON tool contracts and sandboxed execution.
-:::
-
-<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_agentic.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
-:::
-
 :::
 
 ::: {.cv-guidance .mt-4}
-All versions share the same chronology, employers, education, and core achievements. The difference is the emphasis: each PDF foregrounds the evidence most relevant to a specific buyer or assignment brief.
+All three share the same chronology, employers, and education. Each foregrounds the evidence most relevant to a specific brief — the same career, read through the lens that matters to your assignment.
 :::
 
 ::: {.final-cta .mt-5 .text-center}

@@ -9,7 +9,7 @@ project:
 website:
   title: "Farrukh Nauman"
   site-url: https://fnauman.com
-  description: "Principal consultant specializing in enterprise data-platform migrations, warehouse cost optimization, analytics automation with coding agents, and time series / telemetry ML."
+  description: "Principal AI consultant building AI-agent systems for enterprise data platforms — migration, warehouse cost optimization, analytics automation, and time series / telemetry ML."
   navbar:
     title: false
     left:

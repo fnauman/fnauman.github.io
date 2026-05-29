@@ -250,6 +250,12 @@ h2.section-heading {
   }
 }
 
+.service-card-feature {
+  background: linear-gradient(135deg, rgba($primary, 0.1), $card-bg 70%);
+  border-color: rgba($primary, 0.22);
+  border-left: 4px solid $primary;
+}
+
 // ─── Work cards ───
 
 .work-card {
