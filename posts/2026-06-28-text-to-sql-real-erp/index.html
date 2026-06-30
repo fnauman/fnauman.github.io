@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.29">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Farrukh Nauman">
+<meta name="dcterms.date" content="2026-06-28">
+<meta name="keywords" content="text-to-sql, natural language to sql, LLM evaluation, retrieval, SQL guardrails, semantic layer, Wilson interval, reliability, server-sent events, React, TypeScript, MariaDB">
+<meta name="description" content="On a real ERP, the hard part of text-to-SQL isn’t writing SQL. It’s retrieval, grounding, and knowing when a query that ran cleanly is silently wrong. Field notes, plus the open-source rebuild.">
+
+<title>A Clean Zero Is the Most Dangerous Answer – Farrukh Nauman</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0a78b434e389dc432db89d281373959.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-2824e77f24f4970eecc10569812e94a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9BN5NTZ1J1"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
+</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="A Clean Zero Is the Most Dangerous Answer – Farrukh Nauman">
+<meta property="og:description" content="On a real ERP, the hard part of text-to-SQL isn’t writing SQL. It’s retrieval, grounding, and knowing when a query that ran cleanly is silently wrong. Field notes, plus the open-source rebuild.">
+<meta property="og:site_name" content="Farrukh Nauman">
+<meta name="twitter:title" content="A Clean Zero Is the Most Dangerous Answer – Farrukh Nauman">
+<meta name="twitter:description" content="On a real ERP, the hard part of text-to-SQL isn’t writing SQL. It’s retrieval, grounding, and knowing when a query that ran cleanly is silently wrong. Field notes, plus the open-source rebuild.">
+<meta name="twitter:creator" content="@naumanf_">
+<meta name="twitter:site" content="@naumanf_">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../consulting.html"> 
+<span class="menu-text">Selected Work</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../posts.html"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../cv.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../contact.html"> 
+<span class="menu-text">Work With Me</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fnauman"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/naumanf_"> <i class="bi bi-twitter-x" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/fnauman/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:farrukh.nauman@inertialrange.com"> <i class="bi bi-envelope" role="img" aria-label="email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-page-left">
+      <h1 class="title">A Clean Zero Is the Most Dangerous Answer</h1>
+            <p class="subtitle lead">Lessons from building text-to-SQL against a real, wide production ERP — and the synthetic, full-stack version I open-sourced.</p>
+                  <div>
+        <div class="description">
+          On a real ERP, the hard part of text-to-SQL isn’t writing SQL. It’s retrieval, grounding, and knowing when a query that ran cleanly is silently wrong. Field notes, plus the open-source rebuild.
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Text-to-SQL</div>
+                <div class="quarto-category">LLM Evaluation</div>
+                <div class="quarto-category">Coding Agents</div>
+                <div class="quarto-category">Full-Stack</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta column-page-left">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p><a href="https://fnauman.com/">Farrukh Nauman</a> </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 28, 2026</p>
+      </div>
+    </div>
+    
+      <div>
+      <div class="quarto-title-meta-heading">Modified</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date-modified">June 30, 2026</p>
+      </div>
+    </div>
+      
+    </div>
+    
+
+  <div>
+    <div class="keywords">
+      <div class="block-title">Keywords</div>
+      <p>text-to-sql, natural language to sql, LLM evaluation, retrieval, SQL guardrails, semantic layer, Wilson interval, reliability, server-sent events, React, TypeScript, MariaDB</p>
+    </div>
+  </div>
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem-tutorials-assume-away" id="toc-the-problem-tutorials-assume-away" class="nav-link active" data-scroll-target="#the-problem-tutorials-assume-away">The problem tutorials assume away</a></li>
+  <li><a href="#a-clean-zero-is-the-most-dangerous-answer" id="toc-a-clean-zero-is-the-most-dangerous-answer" class="nav-link" data-scroll-target="#a-clean-zero-is-the-most-dangerous-answer">A clean zero is the most dangerous answer</a></li>
+  <li><a href="#retrieval-has-to-be-enforced-not-advisory" id="toc-retrieval-has-to-be-enforced-not-advisory" class="nav-link" data-scroll-target="#retrieval-has-to-be-enforced-not-advisory">Retrieval has to be enforced, not advisory</a></li>
+  <li><a href="#put-it-in-users-hands-before-the-benchmark-looks-done" id="toc-put-it-in-users-hands-before-the-benchmark-looks-done" class="nav-link" data-scroll-target="#put-it-in-users-hands-before-the-benchmark-looks-done">Put it in users’ hands before the benchmark looks done</a></li>
+  <li><a href="#the-llm-proposes-a-deterministic-layer-disposes" id="toc-the-llm-proposes-a-deterministic-layer-disposes" class="nav-link" data-scroll-target="#the-llm-proposes-a-deterministic-layer-disposes">The LLM proposes; a deterministic layer disposes</a></li>
+  <li><a href="#measure-reliability-not-a-lucky-run" id="toc-measure-reliability-not-a-lucky-run" class="nav-link" data-scroll-target="#measure-reliability-not-a-lucky-run">Measure reliability, not a lucky run</a></li>
+  <li><a href="#ground-the-model-before-it-generates" id="toc-ground-the-model-before-it-generates" class="nav-link" data-scroll-target="#ground-the-model-before-it-generates">Ground the model before it generates</a></li>
+  <li><a href="#why-i-rebuilt-it-synthetic-and-full-stack" id="toc-why-i-rebuilt-it-synthetic-and-full-stack" class="nav-link" data-scroll-target="#why-i-rebuilt-it-synthetic-and-full-stack">Why I rebuilt it synthetic — and full-stack</a></li>
+  <li><a href="#what-id-do-next" id="toc-what-id-do-next" class="nav-link" data-scroll-target="#what-id-do-next">What I’d do next</a></li>
+  <li><a href="#the-repo" id="toc-the-repo" class="nav-link" data-scroll-target="#the-repo">The repo</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+
+
+
+
+
+
+<p><em>A toy text-to-SQL system can stop at “the SQL ran.” The system I needed had to answer a harder question: when the SQL is valid, does the answer still have the right business meaning? These are field notes from building natural-language querying against a real, wide ERP, then rebuilding the project as a synthetic full-stack TypeScript/React app I could open-source safely.</em></p>
+<div class="callout callout-style-simple callout-note no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Disclaimer</strong>: This is anonymized and generalized. It names no client, exposes no proprietary schema, data, or figures, and contains no credentials. The focus is transferable engineering patterns. The companion repo ships a fully synthetic schema with synthetic data.</p>
+</div>
+</div>
+</div>
+<section id="the-problem-tutorials-assume-away" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem-tutorials-assume-away">The problem tutorials assume away</h2>
+<p>Every text-to-SQL tutorial starts from the same comfortable place: a handful of clean tables, a schema small enough to paste into the prompt, and a user who already half-speaks SQL. Dump the schema, parse the model’s output, run it. Done.</p>
+<p>Then you point the same approach at a real ERP and every one of those assumptions breaks at once:</p>
+<ul>
+<li><strong>The schema is too wide to paste.</strong> Hundreds of tables, each dozens of columns wide, many with near-duplicate names. The whole schema doesn’t fit the context window, slows every call down, and confuses the model. Retrieval stops being an optimization and becomes mandatory.</li>
+<li><strong>Real data is full of holes.</strong> Columns that look like exactly the right answer — a “net payable”, a “balance”, a “due date” — turn out to be entirely null or zero in production. A query against them runs perfectly and returns zeros.</li>
+<li><strong>Business words aren’t column names.</strong> People ask about “biggest buyers”, “SKUs that stopped selling”, “document classes”. None of those strings exist in the schema. The mapping from business vocabulary to physical columns is the hard part, and it’s exactly the part tutorials skip.</li>
+<li><strong>The schema has history.</strong> The business had migrated from denormalized text columns to normalized lookup tables — but the old columns are still there, still populated-looking, and now obsolete. The model takes the easy single-table text match and gets stale or empty data.</li>
+</ul>
+<p>The reframe that took me too long to internalize: <strong>the hard problems here are retrieval, grounding, and knowing when an answer is secretly wrong. Writing the SQL is the easy part.</strong></p>
+</section>
+<section id="a-clean-zero-is-the-most-dangerous-answer" class="level2">
+<h2 class="anchored" data-anchor-id="a-clean-zero-is-the-most-dangerous-answer">A clean zero is the most dangerous answer</h2>
+<p>Here is the failure that named this post.</p>
+<p>I asked, “Who are our biggest buyers last month?” Retrieval misfired and handed the model an arbitrary set of tables. It picked a plausibly-named “net payable” column — dead, all zero in this data — and a customer-name column that happened to be all null. It wrote clean, valid SQL. It executed. It returned a perfectly formatted top-10 leaderboard in which every total was <code>0</code> and every name was <code>null</code>. The run was logged <code>success: true</code>.</p>
+<p>Nobody downstream would catch that without going back to the raw data. The SQL was valid. The query ran. The output had the right <em>shape</em>. It was simply wrong.</p>
+<p>Models pick columns by name, so “valid SQL that executed and returned rows” is worth almost nothing as a success signal. I started treating empty, all-zero, all-null, and single-bucket results as a <em>distinct status</em>, not a pass. The evaluation harness grew explicit signal checks — minimum row count, “these columns must be non-zero”, “these must be non-null” — and a <code>low_signal_success</code> outcome. An answer that runs cleanly but trips a signal check is a failure, loudly.</p>
+<p>That one reframe — <em>“it ran” is not “it’s correct”</em> — changed how I built everything downstream.</p>
+</section>
+<section id="retrieval-has-to-be-enforced-not-advisory" class="level2">
+<h2 class="anchored" data-anchor-id="retrieval-has-to-be-enforced-not-advisory">Retrieval has to be enforced, not advisory</h2>
+<p>The biggest-buyers failure had a root cause: retrieval silently fell back to an arbitrary set of tables instead of failing loudly. The model was then handed the wrong context and confabulated around it — confidently.</p>
+<p>My favorite example of this: I asked which products had stopped selling month over month. The model wrote, <em>in its own explanation</em>, “I’m inferring selling activity from the accounting-postings table because the line-item table isn’t available,” joined two unrelated ID columns, executed cleanly, returned zero rows, and was marked a success. It told on itself in plain English. The correct table was simply never retrieved.</p>
+<p>So retrieval scope became a hard constraint, not a hint. The pipeline selects a small relevant subset of tables, and the generated SQL is then <strong>validated against that exact set</strong> — any table reference outside the retrieved scope is rejected before execution. A retrieval miss now surfaces as a loud failure instead of a plausible wrong answer.</p>
+<p>Run the same question a few times and you see why this matters. Before I enforced scope, one product-line question produced four different wrong strategies across four runs: match the name as free text (no rows), use an obsolete denormalized column (no rows), emit SQL with an unbound <code>@variable</code> for the user to fill in (no rows), and guess a join. For an analytics tool, <em>non-determinism on the same business question is itself a trust failure.</em></p>
+</section>
+<section id="put-it-in-users-hands-before-the-benchmark-looks-done" class="level2">
+<h2 class="anchored" data-anchor-id="put-it-in-users-hands-before-the-benchmark-looks-done">Put it in users’ hands before the benchmark looks done</h2>
+<p>Another thing that changed the system was early user feedback. Once a minimal pipeline worked, we put it in front of users instead of waiting for a polished evaluation suite. That surfaced failures I would not have written into synthetic tests on my own.</p>
+<p>The real queries were much messier than I expected. People mixed Urdu and English in the same question. A query like <code>maida sales feb, 26</code> is tiny, but it carries several hidden decisions: <code>maida</code> means refined white flour / zero-fiber flour in that business context, <code>sales</code> needs the right sales grain and metric, and <code>feb, 26</code> should mean February 2026 rather than the 26th day of February or a malformed token.</p>
+<p>Those examples changed the backlog. The semantic layer was not an abstract ontology project; it grew from observed language. Product aliases, bilingual terms, business shorthand, and date fragments needed deterministic handling before SQL generation. Synthetic evaluation was still useful — especially for regression tests and known failure classes — but it was not enough. Benchmarks tell you whether you preserved the behavior you already thought to test. Users show you the vocabulary, ambiguity, and weird shorthand you did not know to model.</p>
+<p>That is the general lesson I would carry to any internal AI tool: ship a minimal safe version early, log the misses, and turn recurring user language into tests and deterministic preprocessing. Do not rely solely on synthetic evaluations, especially when the problem is partly about business vocabulary.</p>
+</section>
+<section id="the-llm-proposes-a-deterministic-layer-disposes" class="level2">
+<h2 class="anchored" data-anchor-id="the-llm-proposes-a-deterministic-layer-disposes">The LLM proposes; a deterministic layer disposes</h2>
+<p>The instinct when a model gets things wrong is to ask it to check its own work. That adds latency, cost, and another stochastic step. I went the other way: carry the prompt context — allowed tables, their columns, the foreign-key graph, the matched business metric, the resolved entity IDs — as a <strong>structured object</strong>, and validate the model’s SQL against that object with plain, deterministic parsing. Zero extra LLM calls.</p>
+<p>What gets checked, mechanically, before anything executes:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Check</th>
+<th>What it stops</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>First keyword is <code>SELECT</code>/<code>WITH</code>, single statement only, keyword/function denylist</td>
+<td>DML/DDL, <code>INTO OUTFILE</code>, locking reads, session variables, timing/exfiltration functions</td>
+</tr>
+<tr class="even">
+<td>Every <code>table.column</code> exists in the retrieved context</td>
+<td>Hallucinated columns</td>
+</tr>
+<tr class="odd">
+<td>Every join equality matches an in-scope foreign key or a declared join hint</td>
+<td>The model inventing a plausible-but-wrong join</td>
+</tr>
+<tr class="even">
+<td>If a business metric matched, the SQL must use its canonical column</td>
+<td>“Right shape, wrong column”</td>
+</tr>
+<tr class="odd">
+<td>Literal entity IDs in filters must come from the resolver’s candidate list</td>
+<td>The model inventing IDs</td>
+</tr>
+</tbody>
+</table>
+<p>One subtlety worth stealing: strip string literals and comments <em>before</em> the safety scan, so <code>WHERE note = 'delete later'</code> isn’t a false positive and a comment-obfuscated payload isn’t a false negative.</p>
+<p>The principle generalizes well beyond SQL: <strong>let the model propose, and put a small, testable, deterministic layer underneath that has the authority to say no.</strong></p>
+</section>
+<section id="measure-reliability-not-a-lucky-run" class="level2">
+<h2 class="anchored" data-anchor-id="measure-reliability-not-a-lucky-run">Measure reliability, not a lucky run</h2>
+<p>Early on, my first scoring oracle reported <strong>16.7% accuracy</strong> and I nearly started “fixing the model.” Then I read the failures. Four of the five were <em>correct answers</em> — they just projected an extra ID column, or aliased the metric <code>total_net_sales</code> instead of <code>total_net_amount</code>. The bug was the oracle, not the model. An evaluation that scores correct SQL as failure for cosmetic reasons turns every downstream measurement into noise.</p>
+<p>The fix was a <strong>value-aware comparator</strong> (Spider-style execution match): it matches columns by their value signature rather than by name, ignores extra projected columns, matches rows by an order-blind bijection, and rounds numerics to the gold answer’s precision. For ranked questions it also checks the primary measure is monotonic in the requested order — catching “didn’t sort / sorted backwards” while tolerating tie reordering.</p>
+<p>The second reliability trap is subtler and more tempting: <strong>a single <code>accuracy: 1.0</code> is a sample, not a guarantee.</strong> Generation is non-deterministic in practice, and the same code on the same small dataset can land anywhere. My synthetic edge-case suite drifted across a wide band from one run to the next. So the harness has a <code>--repeat N</code> mode that reports per-run min/mean/max and, as the honest headline, a <strong>Wilson 95% lower bound</strong> on the pass rate. Six-for-six on one run has a lower bound near 0.6, not 1.0. That number is much harder to fool yourself with — which is the point.</p>
+</section>
+<section id="ground-the-model-before-it-generates" class="level2">
+<h2 class="anchored" data-anchor-id="ground-the-model-before-it-generates">Ground the model before it generates</h2>
+<p>Two more deterministic steps did a lot of quiet work, both <em>before</em> the model is asked for SQL:</p>
+<ul>
+<li><strong>Bounded master-data resolution.</strong> You can’t paste a six-figure item master into the prompt, and you can’t let the model invent entity IDs. So ambiguous entity terms are resolved first, with parameterized <code>LIKE</code> queries over a whitelist of searchable columns, capped and ranked deterministically (exact &gt; prefix &gt; whole-word &gt; substring &gt; token overlap). Only the top handful of candidates reach the prompt, and the guardrail then <em>enforces</em> that any filtered ID came from that list. In the real system this also had to absorb user vocabulary: bilingual terms, shorthand, and product names that were obvious to users but absent from the schema. (Today the public repo’s resolver is item-only; customers, locations, and campaigns are a known gap — more on that below.)</li>
+<li><strong>Temporal normalization.</strong> Date logic is a reliable source of valid-looking errors. A deterministic pass rewrites “March 2026” into an explicit half-open range <code>[2026-03-01, 2026-04-01)</code> in the question text before the model sees it, with guidance to write <code>date &gt;= start AND date &lt; end</code> (index-friendly) rather than wrapping columns in <code>MONTH()</code>/<code>YEAR()</code>. Short fragments like <code>feb, 26</code> are exactly why I prefer normalizing time outside the model: the intended month/year should become explicit before SQL generation.</li>
+</ul>
+<p>And the single highest-value debugging feature cost almost nothing: I made the model emit its <strong>assumptions</strong> as a required field alongside the SQL — what it took “sale” to mean, how it resolved “this month”, which column it treated as the metric, why it skipped a table. Most wrong answers were explained entirely by reading that one line. Surfacing assumptions converts silent wrong answers into reviewable ones.</p>
+</section>
+<section id="why-i-rebuilt-it-synthetic-and-full-stack" class="level2">
+<h2 class="anchored" data-anchor-id="why-i-rebuilt-it-synthetic-and-full-stack">Why I rebuilt it synthetic — and full-stack</h2>
+<p>I wanted to write about this work, but the original system could not be made public safely. A production ERP schema is not publishable: the table and column <em>names themselves</em> are client-specific, and real schemas carry columns no outside reader should ever see — personal data, contact details, free-text notes. Scrubbing a live database is a losing game; you only need to miss once.</p>
+<p>So I didn’t scrub. I rebuilt: a compact, fully synthetic retail schema with deterministic synthetic data, and then re-authored every dataset, test, and doc against it. The synthetic schema is designed to <strong>preserve the traps</strong> rather than sand them off — header-vs-line grain with two different “net amount” columns, ambiguous low-signal money columns, several date columns, and current-master-vs-stale-snapshot columns so the obsolete-column trap is still demonstrable. The lessons survive; the client doesn’t appear.</p>
+<p>I also wanted the public version to be more than a CLI wrapper. Text-to-SQL lives or dies in the interaction between a slow model call, a user waiting for evidence, and the system showing what it is doing. So I built a <strong>full-stack TypeScript/React</strong> query workspace. The UI work changed how I thought about latency.</p>
+<p>The slow part of text-to-SQL is the single blocking LLM call — the overwhelming majority of wall-clock. Executing the resulting query over a bounded result set is milliseconds. So perceived responsiveness is an interaction problem as much as a backend problem. Instead of one blocking response behind a spinner, the same pipeline now <strong>streams its stages over Server-Sent Events</strong> — planning, resolving entities, generating SQL, validating, executing, shaping — and shows the generated SQL the instant the model returns it, with per-section skeletons filling in afterward. The stream protocol is pure and unit-tested, separate from the React hook that consumes it. The adaptive layout is decided deterministically from the <em>shape</em> of the data and rendered through a trusted block registry — no <code>eval</code>, no model output on the first-paint path. Client-side features default-deny and are gated to the synthetic demo data only; the browser never sends SQL, and the read-only guardrails run unchanged on the server.</p>
+</section>
+<section id="what-id-do-next" class="level2">
+<h2 class="anchored" data-anchor-id="what-id-do-next">What I’d do next</h2>
+<p>The honest list, grounded in what the code does <em>not</em> yet do:</p>
+<ol type="1">
+<li><strong>Vector retrieval to complement lexical scoring.</strong> Retrieval today is lexical token-overlap plus a hand-curated semantic layer — every new business term needs a manual entry. Hybrid lexical + embedding retrieval would generalize to unseen phrasing.</li>
+<li><strong>Multi-entity master-data resolution.</strong> Resolution and the ID guardrail are item-only by design; customers, locations, and campaigns each need their own resolver and guardrail columns. The fuzzy-match war stories all point here.</li>
+<li><strong>A semantic planning step before SQL.</strong> Question → structured plan (entities, metric, date column, dimensions, required tables, assumptions) → validate the <em>plan</em> against the schema → only then generate SQL. Catch metric/date/join errors earlier than a post-hoc SQL check.</li>
+<li><strong>A bounded self-correction loop.</strong> Today there’s one retry, and only on a database error — guardrail rejections don’t retry. Feeding the guardrail’s specific complaint back for one re-generation, plus self-consistency voting, should lift reliability.</li>
+<li><strong>A real SQL parser/AST</strong> instead of regex for the column/join checks — more rigorous, fewer edge-case blind spots.</li>
+<li><strong>Bigger benchmarks fed by real usage.</strong> The committed datasets are intentionally small smoke signals; any real reliability claim needs a few dozen execution-verified cases, not six. The highest-value cases should come from early user feedback, not only synthetic brainstorming.</li>
+</ol>
+</section>
+<section id="the-repo" class="level2">
+<h2 class="anchored" data-anchor-id="the-repo">The repo</h2>
+<p>The open-source version lives at <a href="https://github.com/fnauman/txt2sql">github.com/fnauman/txt2sql</a>. It is a compact reference implementation: the enforced-retrieval pipeline, deterministic guardrails, value-aware evaluation harness with the Wilson lower bound, and streaming full-stack app, all against a synthetic schema you can stand up locally in a couple of commands.</p>
+<p>If there’s one thing to take from it: on real data, the model writing SQL was never the bottleneck. The bottleneck is everything around it — and most of that is deterministic, testable, and yours to control.</p>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2026,
+  author = {Nauman, Farrukh},
+  title = {A {Clean} {Zero} {Is} the {Most} {Dangerous} {Answer}},
+  date = {2026-06-28},
+  url = {https://fnauman.com/posts/2026-06-28-text-to-sql-real-erp/},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+Nauman, Farrukh. 2026. <span>“A Clean Zero Is the Most Dangerous
+Answer.”</span> June 28. <a href="https://fnauman.com/posts/2026-06-28-text-to-sql-real-erp/">https://fnauman.com/posts/2026-06-28-text-to-sql-real-erp/</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/fnauman\.com");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Copyright 2026, Farrukh Nauman</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/fnauman">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://x.com/naumanf_">
+      <i class="bi bi-twitter-x" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/fnauman/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:farrukh.nauman@inertialrange.com">
+      <i class="bi bi-envelope" role="img" aria-label="email">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
