@@ -10,7 +10,7 @@ project:
 website:
   title: "Farrukh Nauman"
   site-url: https://fnauman.com
-  description: "Principal AI consultant building AI-agent systems for enterprise data platforms — migration, warehouse cost optimization, analytics automation, and time series / telemetry ML."
+  description: "AI engineer building agentic systems — Text-to-SQL, coding agents, tool contracts, and evaluation harnesses — shipped against production data platforms (Snowflake, Databricks, SQL databases)."
   navbar:
     title: false
     left:

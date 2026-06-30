@@ -1,29 +1,28 @@
 ---
 title: "Work With Me"
-subtitle: "AI agents, enterprise data platforms, warehouse optimization, AI enablement"
-description: "Get in touch about AI engineering and agentic systems, migration assurance, warehouse cost and performance, AI enablement and change, or time series."
+subtitle: "AI engineering and agentic systems for production data platforms"
+description: "Get in touch about AI-agent systems (Text-to-SQL, coding agents, evaluation harnesses), production data platform work, AI enablement, or time series ML."
 toc: false
 format:
   html:
     page-layout: article
 ---
 
-I work with enterprise data teams on problems where the gap between "we have data" and "we trust the data" is costing real money — migrations that stall, warehouses that overspend, analytics workflows that depend on manual notebook runs, or telemetry pipelines that need ML but lack the in-house depth.
+I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production data platforms like Snowflake, Databricks, and SQL databases. I also help teams that need AI-agent workflows for migration validation, warehouse optimization, analytics automation, or time series ML.
 
 ## What a typical engagement looks like
 
-**Advisory** — A few sessions to scope a problem, review architecture, or pressure-test a migration plan. Good for teams that have the people but need a second opinion from someone who has done it before.
+**Advisory** — A few sessions to scope an AI-agent architecture, review your evaluation strategy, or pressure-test a plan. Good for teams that have the people but need a second opinion from someone who has done it before.
 
-**Embedded principal** — I join your team for weeks or months as an interim lead or senior IC. I own deliverables, coordinate with stakeholders, and ship production work. This is how most of my enterprise engagements run.
+**Embedded principal** — I join your team for weeks or months as an interim lead or senior IC. I own deliverables, coordinate with stakeholders, and ship agentic systems in production. This is how most of my enterprise engagements run.
 
-**Hands-on implementation** — I build the thing: validation frameworks, optimization benchmarks, coding-agent workflows, time series models. I write code, not slide decks.
+**Hands-on AI engineering** — I build the thing: agents, guardrails, evals, tool contracts. I write code, not slide decks.
 
 ## Good fit
 
-- You are migrating between data platforms and need systematic validation, not spot-checks.
-- Your warehouse costs are growing faster than your data and you need someone to profile, benchmark, and fix it.
-- You want to use coding agents for real engineering work (not demos) and need someone who has shipped with them.
-- You are driving AI adoption and need someone to run discovery, align stakeholders, and take PoCs to production.
+- You are building AI agents against real data — Text-to-SQL, coding agents, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline.
+- You want AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.
+- You are driving AI adoption and need someone to run discovery, align stakeholders, and take agentic PoCs to production.
 - You have telemetry, sensor, or time series data and need production ML — not a research paper.
 - You need an interim team lead who can own a roadmap, manage stakeholders, and still write code.
 
@@ -35,5 +34,5 @@ I work with enterprise data teams on problems where the gap between "we have dat
 I usually reply within 1–2 business days. If you reach out, a line or two on what you are working on helps me prepare a useful first response:
 
 ::: {.intake-topics .mt-3}
-`AI agents` · `AI enablement` · `migration` · `warehouse cost` · `analytics automation` · `time series` · `interim leadership` · `something else`
+`AI agents` · `Text-to-SQL` · `coding agents` · `AI enablement` · `migration` · `warehouse cost` · `time series` · `interim leadership` · `something else`
 :::

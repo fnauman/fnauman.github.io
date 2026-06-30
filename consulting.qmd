@@ -1,7 +1,7 @@
 ---
 title: "Selected Work"
-subtitle: "AI agents, enterprise data platforms, warehouse optimization, and AI enablement"
-description: "I help enterprise teams ship AI agents, de-risk data-platform migrations, cut warehouse cost, and lead AI adoption — with proof, not slides."
+subtitle: "AI engineering and agentic systems for production data platforms"
+description: "I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production platforms like Snowflake, Databricks, and SQL databases."
 toc: false
 format:
   html:
@@ -17,11 +17,11 @@ format:
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Migration assurance** — Automated cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.
+**Migration assurance** — Agent-driven cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Warehouse cost & performance** — Profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster *and* still right.
+**Warehouse cost & performance** — AI-agent workflows that profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster *and* still right.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
@@ -37,11 +37,11 @@ format:
 
 ## How I work
 
-**Advisory** — A few sessions to scope, review architecture, or pressure-test a plan.
+**Advisory** — A few sessions to scope an AI-agent architecture, review evaluation strategy, or pressure-test a plan.
 
-**Embedded principal / interim lead** — Weeks to months on your team; I own deliverables and ship alongside your people.
+**Embedded principal / interim lead** — Weeks to months on your team; I own deliverables and ship agentic systems alongside your people.
 
-**Hands-on implementation** — I build the thing and write the code, not slide decks.
+**Hands-on AI engineering** — I build the thing and write the code — agents, guardrails, evals, tool contracts — not slide decks.
 
 **Evaluation-first delivery** — A clear success criterion up front: I prove correctness before I optimize, and show evidence before I ship.
 
@@ -49,6 +49,14 @@ format:
 ## Selected examples
 
 ::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Text-to-SQL Against a Real ERP
+
+Built natural-language querying against a wide production ERP with enforced retrieval, deterministic guardrails, value-aware evaluation (Wilson confidence bounds), and a streaming full-stack TypeScript/React app. Rebuilt as a fully synthetic open-source version preserving the real failure modes.
+
+[Read the essay](posts/2026-06-28-text-to-sql-real-erp/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
 
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### SQL Pipeline Optimization
@@ -89,9 +97,10 @@ Delivered a time series classification system for industrial telemetry with stat
 
 You should reach out if:
 
-- You are a **data platform or data engineering leader** dealing with a migration, cost problem, or analytics modernization.
-- You are **driving AI adoption** and need someone to run discovery, align stakeholders, and take PoCs to production — not just advise.
-- You are a **technical sponsor or architect** who needs a senior practitioner to lead or unblock a workstream.
+- You are **building AI agents against real data** — Text-to-SQL, coding agents, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline, not just prompts.
+- You are a **data platform or engineering leader** who wants AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.
+- You are **driving AI adoption** and need someone to run discovery, align stakeholders, and take agentic PoCs to production — not just advise.
+- You are a **technical sponsor or architect** who needs a senior AI engineer to lead or unblock a workstream.
 - You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
 - You have a **time series or telemetry problem** that needs production ML, not a research paper.
 

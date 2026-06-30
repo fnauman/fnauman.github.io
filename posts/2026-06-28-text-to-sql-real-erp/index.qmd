@@ -1,0 +1,132 @@
+---
+title: "A Clean Zero Is the Most Dangerous Answer"
+subtitle: "Lessons from building text-to-SQL against a real, wide production ERP — and the synthetic, full-stack version I open-sourced."
+description: "On a real ERP, the hard part of text-to-SQL isn't writing SQL. It's retrieval, grounding, and knowing when a query that ran cleanly is silently wrong. Field notes, plus the open-source rebuild."
+author:
+  - name: Farrukh Nauman
+    url: https://fnauman.com/
+date: "2026-06-28"
+date-modified: last-modified
+categories: [Text-to-SQL, LLM Evaluation, Coding Agents, Full-Stack]
+keywords: [text-to-sql, natural language to sql, LLM evaluation, retrieval, SQL guardrails, semantic layer, Wilson interval, reliability, server-sent events, React, TypeScript, MariaDB]
+featured: true
+twitter:
+  creator: "@naumanf_"
+  card-style: summary_large_image
+og:
+  title: "A Clean Zero Is the Most Dangerous Answer"
+  description: "On a real ERP, the hard part of text-to-SQL isn't writing SQL. It's retrieval, grounding, and knowing when a query that ran cleanly is silently wrong."
+---
+
+*A toy text-to-SQL system can stop at "the SQL ran." The system I needed had to answer a harder question: when the SQL is valid, does the answer still have the right business meaning? These are field notes from building natural-language querying against a real, wide ERP, then rebuilding the project as a synthetic full-stack TypeScript/React app I could open-source safely.*
+
+::: {.callout-note appearance="minimal"}
+**Disclaimer**: This is anonymized and generalized. It names no client, exposes no proprietary schema, data, or figures, and contains no credentials. The focus is transferable engineering patterns. The companion repo ships a fully synthetic schema with synthetic data.
+:::
+
+## The problem tutorials assume away
+
+Every text-to-SQL tutorial starts from the same comfortable place: a handful of clean tables, a schema small enough to paste into the prompt, and a user who already half-speaks SQL. Dump the schema, parse the model's output, run it. Done.
+
+Then you point the same approach at a real ERP and every one of those assumptions breaks at once:
+
+- **The schema is too wide to paste.** Hundreds of tables, each dozens of columns wide, many with near-duplicate names. The whole schema doesn't fit the context window, slows every call down, and confuses the model. Retrieval stops being an optimization and becomes mandatory.
+- **Real data is full of holes.** Columns that look like exactly the right answer — a "net payable", a "balance", a "due date" — turn out to be entirely null or zero in production. A query against them runs perfectly and returns zeros.
+- **Business words aren't column names.** People ask about "biggest buyers", "SKUs that stopped selling", "document classes". None of those strings exist in the schema. The mapping from business vocabulary to physical columns is the hard part, and it's exactly the part tutorials skip.
+- **The schema has history.** The business had migrated from denormalized text columns to normalized lookup tables — but the old columns are still there, still populated-looking, and now obsolete. The model takes the easy single-table text match and gets stale or empty data.
+
+The reframe that took me too long to internalize: **the hard problems here are retrieval, grounding, and knowing when an answer is secretly wrong. Writing the SQL is the easy part.**
+
+## A clean zero is the most dangerous answer
+
+Here is the failure that named this post.
+
+I asked, "Who are our biggest buyers last month?" Retrieval misfired and handed the model an arbitrary set of tables. It picked a plausibly-named "net payable" column — dead, all zero in this data — and a customer-name column that happened to be all null. It wrote clean, valid SQL. It executed. It returned a perfectly formatted top-10 leaderboard in which every total was `0` and every name was `null`. The run was logged `success: true`.
+
+Nobody downstream would catch that without going back to the raw data. The SQL was valid. The query ran. The output had the right *shape*. It was simply wrong.
+
+Models pick columns by name, so "valid SQL that executed and returned rows" is worth almost nothing as a success signal. I started treating empty, all-zero, all-null, and single-bucket results as a *distinct status*, not a pass. The evaluation harness grew explicit signal checks — minimum row count, "these columns must be non-zero", "these must be non-null" — and a `low_signal_success` outcome. An answer that runs cleanly but trips a signal check is a failure, loudly.
+
+That one reframe — *"it ran" is not "it's correct"* — changed how I built everything downstream.
+
+## Retrieval has to be enforced, not advisory
+
+The biggest-buyers failure had a root cause: retrieval silently fell back to an arbitrary set of tables instead of failing loudly. The model was then handed the wrong context and confabulated around it — confidently.
+
+My favorite example of this: I asked which products had stopped selling month over month. The model wrote, *in its own explanation*, "I'm inferring selling activity from the accounting-postings table because the line-item table isn't available," joined two unrelated ID columns, executed cleanly, returned zero rows, and was marked a success. It told on itself in plain English. The correct table was simply never retrieved.
+
+So retrieval scope became a hard constraint, not a hint. The pipeline selects a small relevant subset of tables, and the generated SQL is then **validated against that exact set** — any table reference outside the retrieved scope is rejected before execution. A retrieval miss now surfaces as a loud failure instead of a plausible wrong answer.
+
+Run the same question a few times and you see why this matters. Before I enforced scope, one product-line question produced four different wrong strategies across four runs: match the name as free text (no rows), use an obsolete denormalized column (no rows), emit SQL with an unbound `@variable` for the user to fill in (no rows), and guess a join. For an analytics tool, *non-determinism on the same business question is itself a trust failure.*
+
+## Put it in users' hands before the benchmark looks done
+
+Another thing that changed the system was early user feedback. Once a minimal pipeline worked, we put it in front of users instead of waiting for a polished evaluation suite. That surfaced failures I would not have written into synthetic tests on my own.
+
+The real queries were much messier than I expected. People mixed Urdu and English in the same question. A query like `maida sales feb, 26` is tiny, but it carries several hidden decisions: `maida` means refined white flour / zero-fiber flour in that business context, `sales` needs the right sales grain and metric, and `feb, 26` should mean February 2026 rather than the 26th day of February or a malformed token.
+
+Those examples changed the backlog. The semantic layer was not an abstract ontology project; it grew from observed language. Product aliases, bilingual terms, business shorthand, and date fragments needed deterministic handling before SQL generation. Synthetic evaluation was still useful — especially for regression tests and known failure classes — but it was not enough. Benchmarks tell you whether you preserved the behavior you already thought to test. Users show you the vocabulary, ambiguity, and weird shorthand you did not know to model.
+
+That is the general lesson I would carry to any internal AI tool: ship a minimal safe version early, log the misses, and turn recurring user language into tests and deterministic preprocessing. Do not rely solely on synthetic evaluations, especially when the problem is partly about business vocabulary.
+
+## The LLM proposes; a deterministic layer disposes
+
+The instinct when a model gets things wrong is to ask it to check its own work. That adds latency, cost, and another stochastic step. I went the other way: carry the prompt context — allowed tables, their columns, the foreign-key graph, the matched business metric, the resolved entity IDs — as a **structured object**, and validate the model's SQL against that object with plain, deterministic parsing. Zero extra LLM calls.
+
+What gets checked, mechanically, before anything executes:
+
+| Check | What it stops |
+|---|---|
+| First keyword is `SELECT`/`WITH`, single statement only, keyword/function denylist | DML/DDL, `INTO OUTFILE`, locking reads, session variables, timing/exfiltration functions |
+| Every `table.column` exists in the retrieved context | Hallucinated columns |
+| Every join equality matches an in-scope foreign key or a declared join hint | The model inventing a plausible-but-wrong join |
+| If a business metric matched, the SQL must use its canonical column | "Right shape, wrong column" |
+| Literal entity IDs in filters must come from the resolver's candidate list | The model inventing IDs |
+
+One subtlety worth stealing: strip string literals and comments *before* the safety scan, so `WHERE note = 'delete later'` isn't a false positive and a comment-obfuscated payload isn't a false negative.
+
+The principle generalizes well beyond SQL: **let the model propose, and put a small, testable, deterministic layer underneath that has the authority to say no.**
+
+## Measure reliability, not a lucky run
+
+Early on, my first scoring oracle reported **16.7% accuracy** and I nearly started "fixing the model." Then I read the failures. Four of the five were *correct answers* — they just projected an extra ID column, or aliased the metric `total_net_sales` instead of `total_net_amount`. The bug was the oracle, not the model. An evaluation that scores correct SQL as failure for cosmetic reasons turns every downstream measurement into noise.
+
+The fix was a **value-aware comparator** (Spider-style execution match): it matches columns by their value signature rather than by name, ignores extra projected columns, matches rows by an order-blind bijection, and rounds numerics to the gold answer's precision. For ranked questions it also checks the primary measure is monotonic in the requested order — catching "didn't sort / sorted backwards" while tolerating tie reordering.
+
+The second reliability trap is subtler and more tempting: **a single `accuracy: 1.0` is a sample, not a guarantee.** Generation is non-deterministic in practice, and the same code on the same small dataset can land anywhere. My synthetic edge-case suite drifted across a wide band from one run to the next. So the harness has a `--repeat N` mode that reports per-run min/mean/max and, as the honest headline, a **Wilson 95% lower bound** on the pass rate. Six-for-six on one run has a lower bound near 0.6, not 1.0. That number is much harder to fool yourself with — which is the point.
+
+## Ground the model before it generates
+
+Two more deterministic steps did a lot of quiet work, both *before* the model is asked for SQL:
+
+- **Bounded master-data resolution.** You can't paste a six-figure item master into the prompt, and you can't let the model invent entity IDs. So ambiguous entity terms are resolved first, with parameterized `LIKE` queries over a whitelist of searchable columns, capped and ranked deterministically (exact > prefix > whole-word > substring > token overlap). Only the top handful of candidates reach the prompt, and the guardrail then *enforces* that any filtered ID came from that list. In the real system this also had to absorb user vocabulary: bilingual terms, shorthand, and product names that were obvious to users but absent from the schema. (Today the public repo's resolver is item-only; customers, locations, and campaigns are a known gap — more on that below.)
+- **Temporal normalization.** Date logic is a reliable source of valid-looking errors. A deterministic pass rewrites "March 2026" into an explicit half-open range `[2026-03-01, 2026-04-01)` in the question text before the model sees it, with guidance to write `date >= start AND date < end` (index-friendly) rather than wrapping columns in `MONTH()`/`YEAR()`. Short fragments like `feb, 26` are exactly why I prefer normalizing time outside the model: the intended month/year should become explicit before SQL generation.
+
+And the single highest-value debugging feature cost almost nothing: I made the model emit its **assumptions** as a required field alongside the SQL — what it took "sale" to mean, how it resolved "this month", which column it treated as the metric, why it skipped a table. Most wrong answers were explained entirely by reading that one line. Surfacing assumptions converts silent wrong answers into reviewable ones.
+
+## Why I rebuilt it synthetic — and full-stack
+
+I wanted to write about this work, but the original system could not be made public safely. A production ERP schema is not publishable: the table and column *names themselves* are client-specific, and real schemas carry columns no outside reader should ever see — personal data, contact details, free-text notes. Scrubbing a live database is a losing game; you only need to miss once.
+
+So I didn't scrub. I rebuilt: a compact, fully synthetic retail schema with deterministic synthetic data, and then re-authored every dataset, test, and doc against it. The synthetic schema is designed to **preserve the traps** rather than sand them off — header-vs-line grain with two different "net amount" columns, ambiguous low-signal money columns, several date columns, and current-master-vs-stale-snapshot columns so the obsolete-column trap is still demonstrable. The lessons survive; the client doesn't appear.
+
+I also wanted the public version to be more than a CLI wrapper. Text-to-SQL lives or dies in the interaction between a slow model call, a user waiting for evidence, and the system showing what it is doing. So I built a **full-stack TypeScript/React** query workspace. The UI work changed how I thought about latency.
+
+The slow part of text-to-SQL is the single blocking LLM call — the overwhelming majority of wall-clock. Executing the resulting query over a bounded result set is milliseconds. So perceived responsiveness is an interaction problem as much as a backend problem. Instead of one blocking response behind a spinner, the same pipeline now **streams its stages over Server-Sent Events** — planning, resolving entities, generating SQL, validating, executing, shaping — and shows the generated SQL the instant the model returns it, with per-section skeletons filling in afterward. The stream protocol is pure and unit-tested, separate from the React hook that consumes it. The adaptive layout is decided deterministically from the *shape* of the data and rendered through a trusted block registry — no `eval`, no model output on the first-paint path. Client-side features default-deny and are gated to the synthetic demo data only; the browser never sends SQL, and the read-only guardrails run unchanged on the server.
+
+## What I'd do next
+
+The honest list, grounded in what the code does *not* yet do:
+
+1. **Vector retrieval to complement lexical scoring.** Retrieval today is lexical token-overlap plus a hand-curated semantic layer — every new business term needs a manual entry. Hybrid lexical + embedding retrieval would generalize to unseen phrasing.
+2. **Multi-entity master-data resolution.** Resolution and the ID guardrail are item-only by design; customers, locations, and campaigns each need their own resolver and guardrail columns. The fuzzy-match war stories all point here.
+3. **A semantic planning step before SQL.** Question → structured plan (entities, metric, date column, dimensions, required tables, assumptions) → validate the *plan* against the schema → only then generate SQL. Catch metric/date/join errors earlier than a post-hoc SQL check.
+4. **A bounded self-correction loop.** Today there's one retry, and only on a database error — guardrail rejections don't retry. Feeding the guardrail's specific complaint back for one re-generation, plus self-consistency voting, should lift reliability.
+5. **A real SQL parser/AST** instead of regex for the column/join checks — more rigorous, fewer edge-case blind spots.
+6. **Bigger benchmarks fed by real usage.** The committed datasets are intentionally small smoke signals; any real reliability claim needs a few dozen execution-verified cases, not six. The highest-value cases should come from early user feedback, not only synthetic brainstorming.
+
+## The repo
+
+The open-source version lives at [github.com/fnauman/txt2sql](https://github.com/fnauman/txt2sql). It is a compact reference implementation: the enforced-retrieval pipeline, deterministic guardrails, value-aware evaluation harness with the Wilson lower bound, and streaming full-stack app, all against a synthetic schema you can stand up locally in a couple of commands.
+
+If there's one thing to take from it: on real data, the model writing SQL was never the bottleneck. The bottleneck is everything around it — and most of that is deterministic, testable, and yours to control.

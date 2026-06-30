@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman"
-description: "I build AI-agent workflows for enterprise data teams — de-risking platform migrations, cutting warehouse cost, and automating analytics with proof in production, not demos."
+description: "AI engineer shipping agentic systems — Text-to-SQL, coding agents, tool contracts, evaluation harnesses — against production data platforms like Snowflake, Databricks, and SQL databases."
 image: assets/officialpic.JPG
 resources:
   - assets/FarrukhNauman_default.pdf
@@ -33,11 +33,11 @@ format:
 
 <h1 class="hero-name">Farrukh Nauman</h1>
 
-<p class="hero-subhead">AI Agents & Agentic Systems · Enterprise Data Platforms · Time Series ML</p>
+<p class="hero-subhead">AI Engineering & Agentic Systems · Production Data Platforms · Time Series ML</p>
 
-<p class="hero-headline">I build AI-agent workflows that de-risk data-platform migrations, cut warehouse cost, and automate analytics — with proof in production, not demos.</p>
+<p class="hero-headline">I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production data platforms like Snowflake, Databricks, and SQL databases.</p>
 
-Principal consultant who builds and ships AI-agent systems in production-scale data environments — platform migration, warehouse cost, analytics automation, and time series / telemetry ML.
+AI engineer and principal consultant. I build agentic systems that work against real schemas and real data: enforced retrieval, deterministic guardrails, result-level evaluation, and the test discipline that makes agents trustworthy in production.
 
 ::: {.d-flex .gap-3 .mt-4 .flex-wrap}
 [See case studies](consulting.qmd){.btn .btn-primary}
@@ -61,12 +61,12 @@ Principal consultant who builds and ships AI-agent systems in production-scale d
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
 **~1 week**
-Cross-platform migration validator from zero to live dashboard
+Agent-driven migration validator from zero to live dashboard
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
 **50%+ compute savings**
-SQL pipeline redesigned to incremental, 5-10x faster with row-level correctness proof
+SQL pipeline redesigned to incremental by an AI-agent workflow — 5-10x faster, row-level correctness proof
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
@@ -105,9 +105,9 @@ Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 
 **The problem:** You are migrating between data platforms and nobody can answer "is the target data correct?" with confidence. Spot-checks and row counts are not enough.
 
-**What I do:** Build systematic cross-platform validation — automated comparison of schemas, row counts, key distributions, and date ranges across dozens of tables. I design the framework, deploy dashboards the team can trust, and surface real defects early.
+**What I do:** Build agent-driven cross-platform validation — automated comparison of schemas, row counts, key distributions, and date ranges across dozens of tables. The coding agent discovers pipelines, writes per-table validators, and deploys dashboards the team can trust.
 
-**Example outcomes:** Validated dozens of tables across Databricks and Snowflake in under a week. Surfaced a row-count discrepancy of more than 2x on the first automated run.
+**Example outcomes:** Validated dozens of tables across Databricks and Snowflake in under a week using a coding agent. Surfaced a row-count discrepancy of more than 2x on the first automated run.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
@@ -115,9 +115,9 @@ Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 
 **The problem:** Your warehouse bill is growing faster than your data. Pipelines run on brute-force full scans. Nobody has profiled the actual bottlenecks or tested whether an incremental approach is both faster *and* correct.
 
-**What I do:** Profile pipeline execution step by step, benchmark alternatives at multiple data scales and warehouse sizes, and validate correctness with row-level comparisons — not just aggregate checksums.
+**What I do:** Use AI-agent workflows to profile pipelines, benchmark alternatives at multiple data scales and warehouse sizes, and validate correctness with row-level comparisons — not just aggregate checksums. The agent parallelizes experiments that would take a human weeks.
 
-**Example deliverables:** Profiling reports, benchmark harnesses across warehouse sizes, correctness-validation checks, and rollout plans for incremental pipeline changes.
+**Example deliverables:** Agent-driven profiling reports, benchmark harnesses across warehouse sizes, correctness-validation checks, and rollout plans for incremental pipeline changes.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
@@ -148,6 +148,14 @@ Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 ## Featured work {.section-heading .mt-5}
 
 ::: {.grid .mt-4}
+
+::: {.g-col-12 .g-col-md-6 .work-card}
+### Text-to-SQL Against a Real ERP
+
+Built natural-language querying against a wide production ERP — enforced retrieval, deterministic guardrails, value-aware evaluation with Wilson confidence bounds, and a streaming full-stack TypeScript/React app. Open-sourced a synthetic rebuild preserving the real traps.
+
+[Read the essay](posts/2026-06-28-text-to-sql-real-erp/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
 
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### SQL Pipeline Optimization
@@ -191,15 +199,15 @@ A practitioner's reference for migration test suites: five layers (unit, parity,
 ::: {.grid .mt-4}
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Data platform & engineering leaders** migrating between warehouses who need systematic validation — not spot-checks and hope.
+**Teams building AI agents against real data** — Text-to-SQL, coding agents, RAG over schemas — who need someone who has shipped agentic systems with evaluation discipline, not just prompts.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Leaders driving AI adoption** stuck between demos and production who need someone to run discovery, align stakeholders, and ship real workflows.
+**Data platform & engineering leaders** who want AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Technical sponsors & architects** who need a senior practitioner to lead or unblock a workstream — someone who owns deliverables, not slide decks.
+**Leaders driving AI adoption** stuck between demos and production who need someone to run discovery, align stakeholders, and ship real agentic workflows.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
@@ -215,9 +223,9 @@ A practitioner's reference for migration test suites: five layers (unit, parity,
 
 ::: {.final-cta .mt-5 .text-center}
 
-### Need AI-agent workflows that hold up in production?
+### Need AI-agent systems that hold up in production?
 
-Let's talk about the data-platform, warehouse, or analytics work behind it.
+Let's talk about the agentic system, data platform, or evaluation problem you're solving.
 
 ::: {.d-flex .justify-content-center .gap-3 .mt-3}
 [Get in touch](contact.qmd){.btn .btn-primary .btn-lg}
