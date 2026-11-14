@@ -42,7 +42,7 @@ I built a benchmark harness that varied three things:
 |------|---------------|-----------------|
 | **Data scale** | Tens of millions through low single-digit billions of rows | Small data hides correctness bugs and scaling behavior. |
 | **Warehouse size** | Small through large | Large warehouses can mask algorithmic waste by brute-force parallelism. |
-| **Correctness** | Row counts plus two-way row-level `EXCEPT` validation against a known-good baseline | Totals can match while individual rows are wrong; a row-level diff shows which rows and why. |
+| **Correctness** | Two-way row-level `EXCEPT` validation against a known-good baseline | Totals can match while individual rows are wrong; a row-level diff shows which rows and why. |
 
 I also used two coding agents in parallel, but with strict role separation. I used **Codex CLI** for planning, benchmark design, and architectural reasoning around query shape, invariants, and failure modes. I used **Cortex Code** for execution inside the Snowflake workflow: implementing the Snowpark changes, building the benchmark notebook, and iterating on the validation queries. The contract between all of us was the same: benchmark tables plus row-level validation, not vibes.
 
@@ -131,19 +131,19 @@ EXCEPT
 SELECT * FROM candidate;
 ```
 
-One caveat matters for exactly this class of bug. `EXCEPT` is a set operation: it removes duplicates. If the candidate contains the same row twice and the baseline contains it once, both queries above return nothing. So the row-level diff has to be paired with a count check, either a plain `COUNT(*)` on both sides or, more precisely, a comparison of per-row multiplicities:
+One caveat matters for exactly this class of bug. `EXCEPT` is a set operation: it removes duplicates. If the candidate contains the same row twice and the baseline contains it once, both queries above return nothing. Adding a total `COUNT(*)` on each side does not close the gap. A candidate holding the rows `[A, A, B]` and a baseline holding `[A, B, B]` have the same distinct rows and the same total, and they are still different tables. What closes it is comparing each distinct row together with the number of times it occurs, in both directions:
 
 ```sql
-SELECT COUNT(*) FROM candidate;
-SELECT COUNT(*) FROM ground_truth;
-
--- or: rows whose multiplicity differs
 SELECT <all columns>, COUNT(*) AS n FROM candidate GROUP BY ALL
 EXCEPT
 SELECT <all columns>, COUNT(*) AS n FROM ground_truth GROUP BY ALL;
+
+SELECT <all columns>, COUNT(*) AS n FROM ground_truth GROUP BY ALL
+EXCEPT
+SELECT <all columns>, COUNT(*) AS n FROM candidate GROUP BY ALL;
 ```
 
-`EXCEPT` catches wrong content. Counts catch wrong multiplicity. Neither is sufficient on its own.
+If both return nothing, the two tables hold the same rows the same number of times. This pair also covers everything the plain `EXCEPT` pair covers, so it is the one to run whenever duplicates are possible. The plain pair is sufficient only when every row is already known to be unique on both sides.
 
 Simple is fine. The important part was running them systematically, across scales, across warehouse sizes, and against a known-good baseline.
 
@@ -168,4 +168,4 @@ The right question was not "how do I make this pipeline faster?" It was "what pa
 
 That is the optimization work that actually matters. Not shaving seconds off a bad architecture. Not shipping the prettiest benchmark. Changing query shape, proving correctness, and killing attractive wrong ideas before they escape.
 
-Fast wrong is worse than slow right. The useful pattern was: redesign the work, benchmark across scales, validate counts and rows, and only then talk about speedup.
+Fast wrong is worse than slow right. The useful pattern was: redesign the work, benchmark across scales, validate row by row, and only then talk about speedup.

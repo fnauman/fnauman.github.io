@@ -74,7 +74,9 @@ The validator runs four checks per table:
 
 Each check returns one of five statuses: `PASS`, `DIFF`, `ERROR`, `SKIP`, or `KNOWN_GAP`.
 
-It is worth being precise about what this layer proves. These are structural and aggregate checks: they establish that the same tables, columns, keys, and date coverage arrived on the target, and they are cheap enough to run across the whole estate on a schedule. That is validation in the sense a migration needs first, and it is what caught the problems described below. It is not row-level proof. Two tables can agree on all four checks and still differ in the content of individual rows. Edge cases of that kind did exist and were corrected later; the row-level technique for that class of problem is the subject of a later post, [Fast Wrong Is Worse Than Slow Right](../2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd).
+It is worth being precise about what this layer proves. These are structural and aggregate checks: they establish that the schemas match, and that row counts, distinct-key counts, and date endpoints agree between the two platforms. They are cheap enough to run across the whole estate on a schedule. That is validation in the sense a migration needs first, and it is what caught the problems described below.
+
+It is also weaker than it looks, in three specific ways. A matching `COUNT(DISTINCT key)` means both sides have the same *number* of keys, not the same keys: two entirely different key sets of equal size pass. A matching `MIN`/`MAX` means the date range starts and ends at the same points, not that every date in between is present on both sides. And none of the four checks looks at the content of a row. Edge cases of that kind did exist and were corrected later; the row-level technique for that class of problem is the subject of a later post, [Fast Wrong Is Worse Than Slow Right](../2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd).
 
 ### Why `KNOWN_GAP` matters
 
@@ -199,7 +201,7 @@ This was productive, but not magic.
 
 - **Cross-platform auth remains awkward**: a validator that needs to talk to both platforms is easiest to run from an environment where both credentials are already available
 - **Large tables are still expensive**: for very large datasets, metadata checks and aggregate comparisons are often the practical limit
-- **Counts and ranges are not row-level proof**: matching row counts, key counts, and date ranges is strong evidence that a table arrived, not that every value in it is right. Tables that need that guarantee need a row-level comparison on top (see [Fast Wrong Is Worse Than Slow Right](../2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd))
+- **Counts and endpoints are not row-level proof**: matching row counts, distinct-key counts, and date endpoints is good evidence that a table arrived at the right size and span, not that it holds the same keys, the same dates, or the same values. Tables that need that guarantee need a row-level comparison on top (see [Fast Wrong Is Worse Than Slow Right](../2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd))
 - **Agent-written code still needs review**: working code is not the same thing as well-designed long-term production code
 
 ## The numbers
