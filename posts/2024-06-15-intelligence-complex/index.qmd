@@ -5,7 +5,7 @@ author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
 date: "2024-06-15"
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Artificial Intelligence, Complex Systems, Natural Language Processing, Large Language Models]
 keywords: [Artificial Intelligence, Complex Systems, Natural Language Processing, Deep Learning, Large Language Models]
 citation: true
@@ -21,6 +21,10 @@ og:
 
 
 # Intelligence as a Complex System: Lessons from Physics
+
+::: {.callout-note appearance="simple"}
+**Update, November 2026.** This essay was written in June 2024, three months before the first reasoning models were released. I have corrected the Dirac quotation, which I had cut short in a way that changed its meaning, and marked two of the data limitations below that later developments overtook. The rest is left as written and should be read as a 2024 view.
+:::
 
 ## Introduction
 
@@ -42,11 +46,13 @@ This spectrum illustrates that, like turbulence, we may not yet know if there's 
 
 ## The Danger of Hype: Reductionist Thinking 
 
-Historically, scientists have fallen into the trap of reductionism – the belief that complex phenomena can be fully explained by understanding their fundamental components. Paul Dirac's 1929 statement exemplifies this:
+Historically, scientists have fallen into the trap of reductionism – the belief that complex phenomena can be fully explained by understanding their fundamental components. Paul Dirac's 1929 statement is the line usually quoted for this view, and it is usually quoted without its second half:
 
-> "The underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known." [Source](https://royalsocietypublishing.org/doi/10.1098/rspa.1929.0094)
+> "The underlying physical laws necessary for the mathematical theory of a large part of physics and the whole of chemistry are thus completely known, and the difficulty is only that the exact application of these laws leads to equations much too complicated to be soluble." [Source](https://royalsocietypublishing.org/doi/10.1098/rspa.1929.0094)
 
-However, just as a unified theory of fundamental forces wouldn't explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. This reductionist thinking can lead to overestimating the capabilities of current AI models, which excel in specific tasks but struggle with generalization and complex reasoning.
+Read in full, Dirac is not claiming that knowing the laws settles the matter. He is pointing at the gap between knowing them and being able to use them, and he goes on to call for approximate methods. The stronger form of the argument came later, in Philip Anderson's ["More Is Different"](https://doi.org/10.1126/science.177.4047.393) (1972): the ability to reduce everything to simple fundamental laws does not imply the ability to start from those laws and reconstruct the world, because each level of complexity has properties of its own.
+
+Just as a unified theory of fundamental forces wouldn't explain emergent phenomena in physics, a single AI model is unlikely to capture the full spectrum of intelligence. This reductionist thinking can lead to overestimating the capabilities of current AI models, which excel in specific tasks but struggle with generalization and complex reasoning.
 
 ## Key Aspects of Intelligence as a Complex System
 
@@ -59,15 +65,15 @@ However, just as a unified theory of fundamental forces wouldn't explain emergen
    - Fluid descriptions (e.g., Navier-Stokes equations)
    - Mean field descriptions (e.g., filtered turbulent fields)
 
-   AI research needs analogous frameworks to capture different levels of cognitive processes. However, one might argue that just like how one can use *synthetic* turbulence models through stochastic forcing to good effect for modeling unobserved physics across scales, GPT-like models with an analogus stochastic training process might be able to capture higher-level cognitive processes.
+   AI research needs analogous frameworks to capture different levels of cognitive processes. However, one might argue that just like how one can use *synthetic* turbulence models through stochastic forcing to good effect for modeling unobserved physics across scales, GPT-like models with an analogous stochastic training process might be able to capture higher-level cognitive processes.
 
 3. **Meta-frameworks for problem-solving**: Current AI models lack robust strategies for approaching intractable problems. For instance, when experimental data is scarce or the physical system under consideration is extremely complex, breakthroughs in physics often came from constructing simplified models that capture the essence of complex phenomena (e.g., the Ising model for ferromagnetism).
 
-4. **Data limitations**: Current AI models have almost no inductive biases and learn everything from the data, which has limitations:
+4. **Data limitations**: Current AI models have few built-in inductive biases and learn almost everything from the data, which has limitations:
 
     - Web-scale data has complex reasoning tasks only in their *long-tail*, which makes complex reasoning difficult to learn.
-    - Detailed reasoning steps are not available since humans only write down the final answer.
-    - Equal weighting of data samples is sub-optimal since only a fraction represent high-quality research and content. 
+    - Detailed reasoning steps are not available since humans only write down the final answer. *(True of human-written text. Since late 2024, reasoning models have been trained with reinforcement learning on reasoning traces they generate themselves, which sidesteps this limit rather than removing it.)*
+    - Equal weighting of data samples is sub-optimal since only a fraction represent high-quality research and content. *(This describes naive web-scale training. In practice, training data is filtered, deduplicated, and weighted heavily, though the details are rarely published.)*
     - Examples from long-term scientific development are randomly distributed in the data and not systematically organized (e.g., the evolution of theories over decades).
 
     The specific case of equal weighting of data is particularly problematic since many articles and books are written by people without adequate expertise and contain arguments without rigorous theoretical calculations and experimental results. 
@@ -86,7 +92,7 @@ Contrast this with research in turbulence or computational fluid dynamics, where
 - Limited access to high-performance computing.
 - Lack of open data sharing practices, and detailed model descriptions for reproducibility.
 
-As an example, consider the difficulty in generating $1000$ time steps for a turbulent flow simulation and contrast it with generating $1000$ tokens in language models through the interface, API or locally hosted models. 
+As an example, consider the difficulty in generating $1000$ time steps for a turbulent flow simulation and contrast it with generating $1000$ tokens in language models through the interface, API or locally hosted models. The comparison is about how quickly someone else can build on a result, not about cost: generating tokens is inference, and the fair counterpart of running a simulation is training a model, which for frontier models is neither cheap nor reproducible by outsiders. 
 
 ## Conclusion
 

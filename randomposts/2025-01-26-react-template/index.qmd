@@ -17,7 +17,7 @@ However, bridging the gap between AI-generated code and a functional, maintainab
 
 ### `create-react-app` does not work; `vite` does
 
-My first instinct was to reach for the familiar [`create-react-app`](https://github.com/facebook/create-react-app/). Unfortunately, as of January 2025, there are significant issues (see [this GitHub issue](https://github.com/facebook/create-react-app/issues/13911) and many others). 
+My first instinct was to reach for the familiar [`create-react-app`](https://github.com/facebook/create-react-app/). Unfortunately, as of January 2025, there were significant issues with it, and in February 2025 the React team [officially deprecated it](https://react.dev/blog/2025/02/14/sunsetting-create-react-app). 
 
 Vite (French for "fast") is a next-generation build tool that significantly improves the front-end development experience. Here's how I set up my React template using Vite:
 
@@ -101,6 +101,8 @@ my-react-app/
 └── vite.config.ts / vite.config.js
 ```
 
+The tree shows the TypeScript template's file names. With the JavaScript template the same files end in `.jsx` and `.js`.
+
 #### Step 7: Running Your App
 
 Finally, to see your app in action, use:
@@ -116,6 +118,6 @@ This starts the Vite development server, typically at `localhost:5173` (unlike `
 The JavaScript ecosystem can feel daunting at first, especially coming from a Python background. However, with tools like Vite and a clear understanding of Node.js's package management, setting up a modern React development environment becomes manageable.
 
 My template repository provides a solid starting point, and I encourage you to explore it, adapt it, and contribute to it. As I continue my journey into web development, I'll keep updating this blog with new insights and discoveries. Stay tuned!
+
 **Github repository link:** [https://github.com/fnauman/clip_react](https://github.com/fnauman/clip_react)
 
-I hope this comprehensive blog post is helpful! Let me know if you'd like any adjustments or further details on specific aspects.

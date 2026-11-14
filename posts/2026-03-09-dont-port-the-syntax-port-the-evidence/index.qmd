@@ -6,7 +6,7 @@ author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
 date: "2026-03-09"
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Artificial Intelligence, Software Engineering, Coding Agents]
 keywords: [coding agents, code migration, clean-room rewrite, software verification, AGENTS.md]
 citation: true
@@ -21,6 +21,8 @@ og:
 ---
 
 *Over the last six months, I have used coding agents on multiple migrations and reimplementations in the 10k+ line range. The strongest lesson is that these projects are not mainly translation problems. They are evidence-preservation problems.*
+
+Most of what follows comes from porting a grid-based computational fluid dynamics (CFD) solver from C to PyTorch, plus a few smaller migrations. I keep the examples general on purpose: the source code bases are not mine to publish, and the patterns transfer without them.
 
 That is true whether you are moving JAX to PyTorch, React to Svelte, C or Fortran to Python, or rebuilding a vision or time-series algorithm against an existing API and test suite. The cost of producing plausible code has fallen sharply. The cost of proving that the code is correct has not.
 
@@ -95,7 +97,7 @@ I also get more reliable results when different models review each other's work 
 
 ### 5. Turn every failure into repository policy
 
-Every recurring failure should become an instruction in `AGENTS.md`, a checklist item, a regression test, or a new reproducibility artifact. Over time, the repository accumulates institutional memory. That is the real leverage point.
+Every recurring failure should become repository policy: a regression test or a reproducibility artifact where the failure can be checked mechanically, a checklist item or a short rule in `AGENTS.md` where it cannot. Prefer the test. A rule the agent has to remember is weaker than a check it cannot pass without doing the work, and an `AGENTS.md` that grows by one line per incident stops being read. Over time, the repository accumulates institutional memory. That is the real leverage point.
 
 ## What I now put in AGENTS.md
 
@@ -120,7 +122,7 @@ A good `AGENTS.md` is not a vibe document. It is a quality contract.
 - A disabled feature should be absent from execution, not just numerically neutral.
 
 ## Shortcut audit
-- Search for TODO, FIXME, placeholder, simplified, stub, pass, and NotImplemented.
+- Search for TODO, FIXME, placeholder, simplified, stub, NotImplemented, and function bodies that are only `pass`.
 - Flag any fallback path that weakens correctness, not just performance.
 ```
 
@@ -130,15 +132,15 @@ I also add one explicit sentence for clean-room-style work:
 
 That single line changes the task from "restate this code in another syntax" to "rebuild the behavior and prove it."
 
-## Where the harness matters more than the model
+## Where the harness matters as much as the model
 
 There is a growing body of evidence that the *environment* around a coding agent matters at least as much as the model's raw capability.
 
-OpenAI's harness engineering team recently described building a million-line production application where human engineers wrote zero lines of code directly. Their central finding was that early progress was slow not because the agent was incapable, but because the environment was underspecified. The engineers' primary job became designing the harness: breaking goals into building blocks, making constraints legible and enforceable, and structuring documentation so that the agent could navigate it. They found that a monolithic `AGENTS.md` failed — it crowded out the actual task, rotted quickly, and became impossible to verify. Structured, cross-linked documentation in a `docs/` directory worked much better.
+OpenAI's harness engineering team described building and shipping an internal beta of a software product, roughly a million lines of code, in which human engineers wrote none of the code directly. Their central finding was that early progress was slow not because the agent was incapable, but because the environment was underspecified. The engineers' primary job became designing the harness: breaking goals into building blocks, making constraints legible and enforceable, and structuring documentation so that the agent could navigate it. They found that a monolithic `AGENTS.md` failed — it crowded out the actual task, rotted quickly, and became impossible to verify. What worked was a short `AGENTS.md`, about a hundred lines, used as a table of contents into structured, cross-linked documentation in a `docs/` directory. That is the reason the `AGENTS.md` above is a short contract rather than a manual: the detail belongs in linked docs, checklists, and tests.
 
-Models matter too. Peter Steinberger made the observation in his "Shipping at Inference Speed" workflow. He noted that Codex models build context autonomously — sometimes silently reading files for ten or fifteen minutes before writing a single line of code. This contrasts with models like Opus that tend to start writing eagerly and then miss parts of the codebase. Steinberger found that even though Codex sometimes took four times longer per task, the overall velocity was higher because he did not have to go back and fix the fix.
+Models matter too, and that is a separate point. In December 2025, Peter Steinberger described his "Shipping at Inference Speed" workflow and noted that the Codex model he was using built context autonomously — sometimes silently reading files for ten or fifteen minutes before writing a single line of code — while the Opus model of the time started writing eagerly and missed parts of the codebase. Even though Codex sometimes took four times longer per task, his overall velocity was higher because he did not have to go back and fix the fix. Those specific models have since been superseded, so read it as an observation about behavior, not a ranking: a model that reads before it writes is worth more on a migration than one that writes quickly.
 
-These two observations converge on the same point. The agent's effectiveness depends on the quality of the environment it can read and the evidence it can verify — not on how clever the prompt is. For migrations and clean-room-style rewrites, that environment is your oracle, your test suite, your `AGENTS.md`, and your intermediate checkpoints. Get those right and agents become extremely effective. Without them, they mostly accelerate ambiguity.
+The two observations are different, but they fit together. The harness decides what is there to read and verify. The model decides whether it actually reads it. You choose the model once; you build the environment every day, and no model can verify against an oracle that does not exist. For migrations and clean-room-style rewrites, that environment is your oracle, your test suite, your `AGENTS.md`, and your intermediate checkpoints. Get those right and agents become extremely effective. Without them, they mostly accelerate ambiguity.
 
 ## A review checklist I actually trust
 

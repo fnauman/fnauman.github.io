@@ -8,7 +8,7 @@ author:
     affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
     affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
 date: 2023-12-16
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Artificial Intelligence, Sustainable Fashion]
 keywords: [circular economy, sustainable fashion]
 citation: true
@@ -31,16 +31,20 @@ og:
 
 <!-- ## Introduction -->
 
-Textile industry is one of the biggest contributors to global pollution and green house emissions. Some statistics from the Nordic council of ministers [report 2023](https://pub.norden.org/temanord2023-502/#122166):
+Textile industry is one of the biggest contributors to global pollution and greenhouse gas emissions. Some statistics, mostly from the Nordic council of ministers [report 2023](https://pub.norden.org/temanord2023-502/#122166):
 
-- It accounts for up to 10% of global green house gas emssions [McKinsey 2020](https://www.mckinsey.com/industries/retail/our-insights/fashion-on-climate).
+- Estimates of its share of global greenhouse gas emissions range from about 2% to 10%, depending on what is counted. McKinsey's [Fashion on Climate](https://www.mckinsey.com/industries/retail/our-insights/fashion-on-climate) report (2020) puts it at about 4%, or 2.1 billion tonnes of CO2-equivalent in 2018.
 - The water use of the textile industry exceeds 215 trillion liters per year. 
 - In Nordic countries, the annual consumption textiles per capita is between 13.5 and 16 kgs.
 - Synthetic fiber production, which are harder to recycle than natural fibers, has increased from less than 20% of the global fiber production to 60% today.
-- Less than 1% of textiles are recycled every year. 
-- Many garments are only used 7-8 times before being discarded. If each garment could be worn twice as much, the emissions from the textile industry would be reduced by nearly half. 
+- Less than 1% of the material used to produce clothing is recycled into new clothing. 
+- By one often-quoted estimate, many garments are only used 7-8 times before being discarded. If each garment could be worn twice as much, the emissions from the textile industry would be reduced by nearly half. 
 
-These alarming trends and statistics have forced the European Union to propose Extended Producer Responsibility (EPR) for textiles. The EPR is a policy approach that makes the producer responsible for the entire life cycle of the product, including the management of the product after its end-of-life. The EPR is expected to be implemented in the EU by 2025. See [here](https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3635) for more details.
+These alarming trends and statistics have forced the European Union to propose Extended Producer Responsibility (EPR) for textiles. The EPR is a policy approach that makes the producer responsible for the entire life cycle of the product, including the management of the product after its end-of-life. When this was written, EPR was expected to be in place in the EU by 2025. See [here](https://ec.europa.eu/commission/presscorner/detail/en/ip_23_3635) for the original proposal.
+
+::: {.callout-note}
+**Update November 2026**: The timeline slipped. Separate collection of textile waste became mandatory across the EU on 1 January 2025. The revised Waste Framework Directive, which makes EPR for textiles mandatory, entered into force on 16 October 2025 and gives member states 30 months, until April 2028, to set up their schemes.
+:::
 
 ## AI in the Fashion Industry
 
@@ -60,7 +64,7 @@ Sorting is a multi-step process that involves the following steps:
     - Sell outside Sweden or export.
   - Repair: Items in need of repairs, but are otherwise reusable. 
   - Recycle: Items made of recyclable materials like 100% cotton. 
-  - Landfill: Items that are in extremely poor condition and cannot be reused or recycled.
+  - Disposal (landfill or incineration): Items that are in extremely poor condition and cannot be reused or recycled.
 - Fine sorting: This is the sorting that is most relevant to second-hand retailers that sell in-store and online. Their goal is to take the chunk of reusable clothing items and then decide which items to sell at what price and in what location. We do not address this in our project directly although our sorting model can be used to support this process.
 
 In addition to this, clothes must be handled manually when they first arrive at the facility in large containers. Currently, no known technology exists that can fully automate this step although exciting advances in the field of robotics are being made.
@@ -94,6 +98,6 @@ We have identified the following challenges and opportunities in the second-hand
 
 ## Conclusion
 
-The second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow exponentially. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players.
+The second-hand fashion industry is ripe for disruption. With the increase in global awareness about the environmental impact of the textile industry, the second-hand fashion retail is expected to grow rapidly. Nonetheless, the industry is still largely manual and lacks large scale datasets and AI models. The introduction of the digital product passport and extended producer responsibility are likely to accelerate the automation of the second-hand fashion industry. Most players in this sector are volunteer run small businesses that lack the resources to invest in AI and robotics. With project like ours, we hope to make the technology accessible to all players.
 
 <!-- ## References -->

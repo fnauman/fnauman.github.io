@@ -6,9 +6,9 @@ author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
 date: "2026-04-01"
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Artificial Intelligence, Data Engineering, Coding Agents]
-keywords: [data migration, data validation, Databricks, Snowflake, dashboards, Codex CLI, Cortex Code]
+keywords: [data migration, data validation, Databricks, Snowflake, dashboards, Streamlit in Snowflake, Cortex Code]
 featured: true
 twitter:
   creator: "@naumanf_"
@@ -74,6 +74,8 @@ The validator runs four checks per table:
 
 Each check returns one of five statuses: `PASS`, `DIFF`, `ERROR`, `SKIP`, or `KNOWN_GAP`.
 
+It is worth being precise about what this layer proves. These are structural and aggregate checks: they establish that the same tables, columns, keys, and date coverage arrived on the target, and they are cheap enough to run across the whole estate on a schedule. That is validation in the sense a migration needs first, and it is what caught the problems described below. It is not row-level proof. Two tables can agree on all four checks and still differ in the content of individual rows. Edge cases of that kind did exist and were corrected later; the row-level technique for that class of problem is the subject of a later post, [Fast Wrong Is Worse Than Slow Right](../2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd).
+
 ### Why `KNOWN_GAP` matters
 
 This turned out to be one of the most important design choices. Without it, the dashboard would have been a wall of red that nobody trusted. Some differences were expected and documented, such as shorter retention windows on the target platform or deliberate model differences between source and target.
@@ -116,7 +118,7 @@ This was more than a few `CREATE TABLE` statements. It also had to store structu
 
 Raw tables are good for debugging. Dashboards are what teams actually use.
 
-We ended up with both a local development dashboard and a Snowflake-in-Snowflake (SiS) dashboard that anyone with access could open without installing anything.
+We ended up with both a local development dashboard and a Streamlit in Snowflake (SiS) dashboard that anyone with access could open without installing anything.
 
 The dashboard ended up with five useful views:
 
@@ -197,9 +199,12 @@ This was productive, but not magic.
 
 - **Cross-platform auth remains awkward**: a validator that needs to talk to both platforms is easiest to run from an environment where both credentials are already available
 - **Large tables are still expensive**: for very large datasets, metadata checks and aggregate comparisons are often the practical limit
+- **Counts and ranges are not row-level proof**: matching row counts, key counts, and date ranges is strong evidence that a table arrived, not that every value in it is right. Tables that need that guarantee need a row-level comparison on top (see [Fast Wrong Is Worse Than Slow Right](../2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd))
 - **Agent-written code still needs review**: working code is not the same thing as well-designed long-term production code
 
 ## The numbers
+
+These are deliberately coarse. This was client work, and the exact figures are not mine to publish.
 
 | Metric | Value |
 |--------|-------|
@@ -207,10 +212,10 @@ This was productive, but not magic.
 | Tables inventoried across both platforms | 100+ |
 | Pipelines covered | Multiple |
 | Validation checks per run | Hundreds |
-| Largest table profiled | Very large event table |
+| Largest table profiled | Event table with tens of billions of rows |
 | Lines of Python written | A few thousand |
 | Dashboard pages | 5 |
-| Sessions to build everything | About 4 days across 7 sessions |
+| Time to build everything | About 4 working days of agent sessions (7 sessions), inside one calendar week |
 | Meaningful issues found early | Multiple |
 
 ## Takeaway
