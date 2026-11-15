@@ -1,7 +1,7 @@
 ---
 title: "CV"
 subtitle: "Role-specific versions for different assignment needs"
-description: "Role-specific CV downloads for enterprise data platforms, analytics, AI automation leadership, and agentic AI systems."
+description: "Role-specific CV downloads for agentic AI systems, enterprise data platforms, and AI automation leadership."
 resources:
   - assets/FarrukhNauman_default.pdf
   - assets/FarrukhNauman_agentic.pdf
@@ -16,17 +16,34 @@ format:
 ::: {.cv-page}
 
 ::: {.cv-intro}
-Three role-specific versions, each tuned to a different kind of assignment: hands-on data-platform delivery, AI engineering with agents, or AI adoption and change leadership. Same career, three angles — pick the one closest to your brief.
+Three role-specific versions, each tuned to a different kind of assignment: AI engineering with agents, hands-on data-platform delivery, or AI adoption and change leadership. Same career, three angles — pick the one closest to your brief.
 
-If you are unsure which one to use, start with the **Principal Consultant** version.
+If you are unsure which one to use, start with the **AI Engineer** version. It is the closest to my current work.
 :::
 
 ::: {.grid .mt-4}
 
 ::: {.g-col-12 .cv-card .cv-card-primary}
-<span class="cv-label">General profile</span>
+<span class="cv-label">Current profile</span>
 
-### Principal Consultant / Enterprise Data & AI Platforms
+### AI Engineer / Agentic Systems
+
+Best for LLM and coding agents, agents on analytics data, evaluation and tracing, Text-to-SQL, tool & API contracts, and agent-driven automation on BigQuery, Snowflake, or Databricks.
+
+::: {.cv-proof-list}
+- Currently building and evaluating AI agents for analytics on Google Cloud (BigQuery).
+- Text-to-SQL work against production ERP data with schema grounding and result-level evaluation.
+- Agent-driven migration validator wired to Databricks and Snowflake CLIs.
+- Open-source `ts-agents` framework with strict JSON tool contracts and sandboxed execution.
+:::
+
+<div class="cv-action"><a class="btn btn-primary cv-download" href="assets/FarrukhNauman_agentic.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+:::
+
+::: {.g-col-12 .g-col-lg-6 .cv-card}
+<span class="cv-label">Consulting profile</span>
+
+### Principal AI Consultant / AI Agents & Enterprise Data Platforms
 
 Best for platform migrations, warehouse cost and performance, analytics automation, coding agents, time series ML, and interim technical leadership.
 
@@ -36,23 +53,7 @@ Best for platform migrations, warehouse cost and performance, analytics automati
 - Interim lead for a 4-7 person DS and advanced analytics team.
 :::
 
-<div class="cv-action"><a class="btn btn-primary cv-download" href="assets/FarrukhNauman_default.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
-:::
-
-::: {.g-col-12 .g-col-lg-6 .cv-card}
-<span class="cv-label">AI engineering profile</span>
-
-### AI Engineer / Agentic Systems
-
-Best for LLM and coding agents, Text-to-SQL, tool & API contracts, evals, run manifests, CLI-orchestrated workflows, and Snowflake/Databricks automation.
-
-::: {.cv-proof-list}
-- Agent-driven migration validator wired to Databricks and Snowflake CLIs.
-- Text-to-SQL work against production ERP data with schema grounding and result-level evaluation.
-- Open-source `ts-agents` framework with strict JSON tool contracts and sandboxed execution.
-:::
-
-<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_agentic.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
+<div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_default.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
 :::
 
 ::: {.g-col-12 .g-col-lg-6 .cv-card}

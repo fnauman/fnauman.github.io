@@ -39,6 +39,8 @@ format:
 
 AI engineer and principal consultant. I build agentic systems that work against real schemas and real data: enforced retrieval, deterministic guardrails, result-level evaluation, and the test discipline that makes agents trustworthy in production.
 
+<p class="hero-now"><strong>Now:</strong> building and evaluating AI agents for analytics on Google Cloud (BigQuery).</p>
+
 ::: {.d-flex .gap-3 .mt-4 .flex-wrap}
 [See case studies](consulting.qmd){.btn .btn-primary}
 [Get in touch](contact.qmd){.btn .btn-outline-primary}
