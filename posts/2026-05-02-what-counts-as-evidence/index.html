@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.29">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -16,10 +16,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,18 +77,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0a78b434e389dc432db89d281373959.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-26ad15bd43d8661f417ce3af88259282.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2824e77f24f4970eecc10569812e94a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-0db4a80fcc7d42c481d5441fc2203f82.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,7 +139,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -158,6 +162,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -187,13 +192,19 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -287,6 +298,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -301,10 +313,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -354,8 +365,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -398,7 +410,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">May 2, 2026</p>
+        <p class="date-modified">November 14, 2026</p>
       </div>
     </div>
       
@@ -416,7 +428,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -437,7 +449,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content" tabindex="-1">
 
 
 
@@ -446,7 +458,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <p><em>A previous post argued that migrations and clean-room-style rewrites are evidence-preservation problems, not translation problems. This is the follow-up readers asked for: what does that evidence actually look like in the test suite, and how do you sequence it so the oracle leads the implementation rather than chasing it?</em></p>
 <p>In the prior post the central instruction was: <em>build the oracle before you port</em>. That sentence is short. The work behind it is not. If you have ever sat down to actually do it, the questions arrive immediately. What does the oracle live in? What does it compare against? What stops a benign-looking config edit from silently invalidating last week’s reference data? When tests pass, why do they pass — because the code is right, or because the test happens to be checking something easy?</p>
-<p>This post is my attempt to answer those questions concretely. It is not a recipe to copy verbatim. It is a layered structure that I have ended up rebuilding, in roughly the same shape, on every nontrivial migration I have worked on.</p>
+<p>This post is my attempt to answer those questions concretely. The structure comes mostly from porting a grid-based computational fluid dynamics (CFD) solver from C to PyTorch, which is why the examples talk about grids, boundary cells, step-size constraints, and differentiability. I keep the code bases themselves out of it; the test structure is what transfers. It is not a recipe to copy verbatim. It is a layered structure that I have ended up rebuilding, in roughly the same shape, on every nontrivial migration I have worked on.</p>
 <p>Here, “oracle” just means the thing the new implementation must agree with: captured behavior from the old implementation, plus enough metadata to prove those artifacts came from the configuration you think they came from.</p>
 <section id="why-migration-testing-is-different" class="level2">
 <h2 class="anchored" data-anchor-id="why-migration-testing-is-different">Why migration testing is different</h2>
@@ -466,7 +478,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <p>In rough order of how localized the failure they catch is, the layers are:</p>
 <ol type="1">
 <li><strong>Unit tests</strong> — small, isolated assertions about new-implementation building blocks (grids, layouts, config validators, IO helpers). These catch type bugs, off-by-one errors, and wiring mistakes early. They do not prove parity.</li>
-<li><strong>Parity tests</strong> — algorithm-level comparisons against captured reference logs from the source language, gated by hashed manifests. This is the load-bearing layer. If parity is green for the supported profiles, the port is real.</li>
+<li><strong>Parity tests</strong> — algorithm-level comparisons against captured reference logs from the source language, gated by hashed manifests. This is the load-bearing layer. If parity is green for the supported profiles, the port is real for the inputs those cases cover.</li>
 <li><strong>Manifest integrity tests</strong> — tests whose only job is to verify that profiles, harnesses, cases, and logs all agree on the same configuration hashes and schema hashes. They catch silent drift between the config you ran and the data you are comparing against.</li>
 <li><strong>End-to-end (system) tests</strong> — full pipeline runs that compare stage-by-stage logs across the entire update, not just final outputs. These catch interaction bugs that no leaf-level parity test can see.</li>
 <li><strong>Performance and differentiability tests</strong> — opt-in regression checks that lock in non-correctness properties (speed, differentiability) once correctness has been established.</li>
@@ -482,8 +494,8 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <li>Config validation (does an out-of-scope coefficient raise instead of silently proceeding?).</li>
 <li>IO and schema helpers (does the log header parser reject a file with a wrong column order?).</li>
 </ul>
-<p>What unit tests should <em>not</em> be doing in a migration is asserting numerical correctness of a ported algorithm. A unit test that says “given this input, this routine returns this hardcoded vector” is, almost always, a snapshot of <em>your</em> output that you forgot was a snapshot. It will pass forever, including when it is wrong.</p>
-<p>The discipline I now keep is simple: if a test asserts numbers, it must compare against an external oracle, and that oracle must live as a separate artifact in the repository, not as a literal in the test file.</p>
+<p>What unit tests should <em>not</em> be doing in a migration is asserting numerical correctness of a ported algorithm against numbers the port itself produced. A unit test that says “given this input, this routine returns this hardcoded vector” is, almost always, a snapshot of <em>your</em> output that you forgot was a snapshot. It will pass forever, including when it is wrong.</p>
+<p>The discipline I now keep is simple: if a test asserts numbers, those numbers must come from somewhere other than the code under test. Usually that is the reference implementation, stored as a separate artifact in the repository rather than as a literal in the test file. The one legitimate exception is a value you can derive independently: an analytic solution, a conserved quantity, a symmetry. Those are worth having precisely because they do not depend on the reference either.</p>
 </section>
 <section id="parity-tests-the-load-bearing-layer" class="level2">
 <h2 class="anchored" data-anchor-id="parity-tests-the-load-bearing-layer">Parity tests: the load-bearing layer</h2>
@@ -494,8 +506,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <li>The new implementation runs the same inputs and is asserted equal to those logs at machine precision.</li>
 </ol>
 <p>The details that make parity actually trustworthy are easy to skip because they look like pedantry. They are not.</p>
-<p><strong>Float64 by default, machine precision tolerances by default.</strong> I run parity at <code>rtol=1e-14, atol=1e-15</code> for double-precision codes. Anything looser is a documented decision tied to a specific harness and a specific reason — a particular reduction order, a known-divergent boundary cell, an algorithm that fans out across architectures. The default never moves silently. Every time someone proposes loosening a tolerance, the right reflex is to ask: is the diff truly numerical noise, or is one of the implementations wrong in a way that is small for this input?</p>
+<p><strong>Float64 by default, near-machine-precision tolerances by default.</strong> I run parity at <code>rtol=1e-14</code> for double-precision codes. The absolute tolerance needs more thought than it usually gets: a fixed <code>atol=1e-15</code> only means “machine precision” for quantities of order one. For a field whose values sit around <code>1e-20</code> in physical units it passes everything, and the test is vacuous. So <code>atol</code> is either zero or scaled to the magnitude of the field being compared. Tolerances this tight are only reachable if the reference build is pinned for it: no fast-math, no fused multiply-add contraction, and the same operation order on both sides. Anything looser is a documented decision tied to a specific harness and a specific reason — a particular reduction order, a math-library function that differs in the last bits, a known-divergent boundary cell, an algorithm that fans out across architectures. The default never moves silently. Every time someone proposes loosening a tolerance, the right reflex is to ask: is the diff truly numerical noise, or is one of the implementations wrong in a way that is small for this input?</p>
 <p><strong>Both execution modes, where the new code supports them.</strong> If the port adds capabilities the reference does not have — automatic differentiation, vectorized batching, accelerator paths — those capabilities each get their own parity test against the same reference. “Fast mode matches reference” and “differentiable mode matches fast mode” are two distinct claims, both worth proving.</p>
+<p><strong>Know what parity does not prove.</strong> Parity is agreement on the captured inputs, nothing more. Two consequences follow. First, a case set that never drives the reference down a branch says nothing about that branch, so it is worth measuring which reference lines and branches the harness cases actually execute (a coverage build of the reference driver is enough) and treating the unexercised ones as unported. Second, parity reproduces the reference faithfully, bugs included. A small set of checks that do not depend on the reference — analytic solutions, conservation, convergence order — is the only thing in the suite that can tell you the reference itself is wrong.</p>
 <p><strong>Disabled-feature tests, written explicitly.</strong> When a config disables an optional stage, parity that says “the output didn’t change” is not enough. The contract is that the stage is <em>not run at all</em> — not constructed, not called, its step-size constraint not applied, its boundary enrollment skipped. That has to be a test in its own right. More on this below.</p>
 </section>
 <section id="why-every-artifact-carries-a-hash" class="level2">
@@ -514,6 +527,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </ul>
 <p>Any mismatch is a hard fail. The test prints all three hashes so the contributor knows whether the harness, the case directory, or the log header is the stale one.</p>
 <p>I also hash log schemas — the ordered list of column names — and store the schema hash in both the harness manifest and the log header. That catches a different drift: a contributor adds a column or reorders them, the test still finds the file, and silent column mis-alignment turns results into garbage. With a schema hash, the parser refuses to read a log whose columns are not the ones it was written to expect.</p>
+<p>The configuration hash has a limit worth stating plainly: it proves a log is <em>labelled</em> with the right configuration, not that its contents are what the reference produced. Two things close that gap. Record a SHA-256 of each log file’s contents in the case metadata, and record the reference implementation’s revision and compiler flags in the harness manifest; then have the integrity test recompute the content hashes and fail on any mismatch. This matters more when a coding agent is doing the porting. An agent told to make parity pass can regenerate or edit a reference log and leave a perfectly valid header on it. With content hashes committed alongside, that edit shows up in review as a changed hash in a file the port was never supposed to touch.</p>
 <p>This pattern <em>configuration as cryptographic checksum</em> does almost all the structural work in the suite. It costs almost nothing to add, and it eliminates an entire class of “passed in CI, broken in production” failures that you would otherwise spend weeks debugging.</p>
 </section>
 <section id="end-to-end-tests-stages-not-endpoints" class="level2">
@@ -530,7 +544,7 @@ step_00_stage_02_state.txt
 </section>
 <section id="performance-and-differentiability-locks-for-after-correctness" class="level2">
 <h2 class="anchored" data-anchor-id="performance-and-differentiability-locks-for-after-correctness">Performance and differentiability: locks for after correctness</h2>
-<p>Performance tests and gradient tests are the layer most teams reach for first and benefit from least, because they are useless if correctness is not pinned down. Once correctness <em>is</em> pinned down, they are valuable for a precise reason: they prevent the next round of changes from silently regressing properties you cared about.</p>
+<p>Performance tests and gradient tests are tempting to reach for early, and they pay the least until correctness is pinned down: a fast or differentiable wrong answer is still wrong. Once correctness <em>is</em> pinned down, they are valuable for a precise reason: they prevent the next round of changes from silently regressing properties you cared about.</p>
 <p>I keep performance benchmarks as opt-in (<code>RUN_PERF_TESTS=1</code>) so they do not gate ordinary pull requests, but I record a baseline snapshot in the repository: date, hardware, framework versions, grid sizes, milliseconds per stage, and refer to it whenever someone proposes a “harmless refactor”. A refactor that quietly halves throughput is the kind of regression that can survive code review, but it cannot survive a benchmark that prints the slowdown next to the baseline.</p>
 <p>For differentiability, the discipline is similar. If the new code claims to support automatic differentiation, that claim has tests: gradient sanity on full pipeline steps, framework-level gradient checks on isolated kernels, and agreement between the in-place “fast” path and the functional differentiable path on identical inputs. Without those, the differentiable path tends to bit-rot in two pull requests.</p>
 <p>These tests do not prove correctness. They prevent erosion of properties that already were correct. That is a different job, and worth its own layer.</p>
@@ -558,7 +572,7 @@ step_00_stage_02_state.txt
 <p><strong>Day 2: write a single harness in the source language.</strong> Pick the smallest leaf algorithm — a reconstruction routine, a core numerical kernel, a format conversion. Make it write deterministic logs with schema headers and the manifest hash baked in.</p>
 <p><strong>Day 3: write the manifest integrity test.</strong> Before you implement the algorithm in the new language, write the test that loads the harness manifest, recomputes the profile hash from disk, and asserts agreement with the case directory and log headers. This is the test that prevents the rest of the suite from drifting silently.</p>
 <p><strong>Day 4: implement the algorithm and write its parity test.</strong> Float64. Machine-precision tolerances. The implementation is done when the parity test passes, not when it “looks right.”</p>
-<p><strong>Day 5: add a second profile and a second case.</strong> Resist the urge to add five. The point of the second profile is to force the manifest hashing infrastructure to handle multiple configurations at once. Two is enough to find that bug; three hides it.</p>
+<p><strong>Day 5: add a second profile and a second case.</strong> Resist the urge to add five. The point of the second profile is to force the manifest hashing infrastructure to handle multiple configurations at once. Two is enough to find that bug; more only adds work before the infrastructure is proven.</p>
 <p><strong>Day 6: write the directory-matrix test.</strong> A test that fails if any profile in the supported list is missing a required case directory. This is the test that keeps the list of “things that work” honest as the suite grows.</p>
 <p><strong>Day 7: write the disabled-feature test for the algorithm you just implemented.</strong> Make sure that when the feature is off, the operator is <em>absent</em>, not just neutral. Encode the rule in a contract test that all future operators will inherit.</p>
 <p>After that week, you have a real oracle, real drift detection, and a real pattern to repeat. From there, every new algorithm follows the same loop: harness, logs, parity test, disabled-feature test. End-to-end stage tests come once the leaves are green. Performance and gradient checks come once correctness is locked.</p>
@@ -584,8 +598,8 @@ tests/
           manifest_hash.txt          # case-level hash lock
           *.log                      # logs with schema headers
   unit/                              # building-block tests
-  unit/test_&lt;algo&gt;_parity.py         # algorithm-level parity
-  unit/test_manifest_integrity.py    # drift detection
+  parity/test_&lt;algo&gt;_parity.py       # algorithm-level parity
+  parity/test_manifest_integrity.py  # drift detection
   e2e/test_&lt;system&gt;_stages.py        # stage-by-stage system parity
   performance/test_&lt;algo&gt;_speed.py   # opt-in regression
   profiles.py                        # canonical CI profile list
@@ -603,8 +617,8 @@ tests/
 <p>When I review a migration’s test suite, these are the questions I want answered without me reading the code. I do not always get them. The ones that are missing tend to predict where the next bug lives.</p>
 <ol type="1">
 <li>Which build configurations are supported, and where is that list?</li>
-<li>For each configuration, which algorithms have parity tests against captured reference data?</li>
-<li>What hashing chain ties the configuration to the reference logs, and where is the test that verifies the chain?</li>
+<li>For each configuration, which algorithms have parity tests against captured reference data, and which reference branches do those cases actually exercise?</li>
+<li>What hashing chain ties the configuration, the reference revision, and the log contents together, and where is the test that verifies the chain?</li>
 <li>What schema validation prevents a log file from being read with the wrong column order?</li>
 <li>For features that can be disabled, is there a test asserting <em>absence</em> — not just zero output?</li>
 <li>Is there a test that fails when a supported profile is missing required cases?</li>
@@ -633,29 +647,64 @@ tests/
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2026,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><div class="code-copy-outer-scaffold"><pre class="sourceCode quarto-appendix-bibtex code-with-copy"><code class="sourceCode bibtex">@online{nauman2026,
   author = {Nauman, Farrukh},
   title = {What {Counts} as {Evidence.}},
   date = {2026-05-02},
   url = {https://fnauman.com/posts/2026-05-02-what-counts-as-evidence/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+</code></pre><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2026" class="csl-entry quarto-appendix-citeas" role="listitem">
 Nauman, Farrukh. 2026. <span>“What Counts as Evidence.”</span> May 2. <a href="https://fnauman.com/posts/2026-05-02-what-counts-as-evidence/">https://fnauman.com/posts/2026-05-02-what-counts-as-evidence/</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -734,7 +783,8 @@ Nauman, Farrukh. 2026. <span>“What Counts as Evidence.”</span> May 2. <a hre
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -743,8 +793,69 @@ Nauman, Farrukh. 2026. <span>“What Counts as Evidence.”</span> May 2. <a hre
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -758,6 +869,7 @@ Nauman, Farrukh. 2026. <span>“What Counts as Evidence.”</span> May 2. <a hre
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -920,44 +1032,54 @@ Nauman, Farrukh. 2026. <span>“What Counts as Evidence.”</span> May 2. <a hre
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1055,6 +1177,9 @@ Nauman, Farrukh. 2026. <span>“What Counts as Evidence.”</span> May 2. <a hre
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 <footer class="footer">

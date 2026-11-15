@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.29">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -16,10 +16,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -39,18 +42,19 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0a78b434e389dc432db89d281373959.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-26ad15bd43d8661f417ce3af88259282.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2824e77f24f4970eecc10569812e94a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-0db4a80fcc7d42c481d5441fc2203f82.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -92,17 +96,15 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <link rel="stylesheet" href="../../styles.css">
 <meta property="og:title" content="Large Language Models: A Compact Guide – Farrukh Nauman">
 <meta property="og:description" content="What are Large Language Models? What are their limitations and common use cases?">
-<meta property="og:image" content="https://fnauman.com/posts/2023-11-20-llms-summary/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta property="og:site_name" content="Farrukh Nauman">
 <meta name="twitter:title" content="Large Language Models: A Compact Guide – Farrukh Nauman">
 <meta name="twitter:description" content="What are Large Language Models? What are their limitations and common use cases?">
-<meta name="twitter:image" content="https://fnauman.com/posts/2023-11-20-llms-summary/data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg==">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -125,6 +127,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -154,13 +157,19 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -254,6 +263,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -268,10 +278,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -321,8 +330,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -350,7 +360,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p><a href="https://fnauman.com/">Farrukh Nauman</a> <a href="https://orcid.org/0000-0003-2940-8432" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+               <p><a href="https://fnauman.com/">Farrukh Nauman</a> <a href="https://orcid.org/0000-0003-2940-8432" class="quarto-title-author-orcid" aria-label="ORCID profile for Farrukh Nauman"> <img alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
             </div>
     </div>
       
@@ -364,7 +374,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">April 7, 2026</p>
+        <p class="date-modified">November 14, 2026</p>
       </div>
     </div>
       
@@ -382,13 +392,13 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
   <li><a href="#large-language-models-a-compact-guide" id="toc-large-language-models-a-compact-guide" class="nav-link active" data-scroll-target="#large-language-models-a-compact-guide">Large Language Models: A Compact Guide</a>
   <ul class="collapse">
-  <li><a href="#update-feb.-7th-2025" id="toc-update-feb.-7th-2025" class="nav-link" data-scroll-target="#update-feb.-7th-2025">Update <strong>Feb.&nbsp;7th, 2025</strong>:</a></li>
+  <li><a href="#update-november-2026" id="toc-update-november-2026" class="nav-link" data-scroll-target="#update-november-2026">Update <strong>November 2026</strong>:</a></li>
   <li><a href="#key-components-of-modern-llm-architectures" id="toc-key-components-of-modern-llm-architectures" class="nav-link" data-scroll-target="#key-components-of-modern-llm-architectures">Key Components of Modern LLM Architectures</a>
   <ul class="collapse">
   <li><a href="#tokenization-converting-text-to-numerical-representations" id="toc-tokenization-converting-text-to-numerical-representations" class="nav-link" data-scroll-target="#tokenization-converting-text-to-numerical-representations">1. Tokenization: Converting Text to Numerical Representations</a></li>
@@ -401,7 +411,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <li><a href="#pretraining-or-self-supervised-learning" id="toc-pretraining-or-self-supervised-learning" class="nav-link" data-scroll-target="#pretraining-or-self-supervised-learning">1. Pretraining or Self-Supervised Learning</a></li>
   <li><a href="#instruction-tuning-or-supervised-fine-tuning" id="toc-instruction-tuning-or-supervised-fine-tuning" class="nav-link" data-scroll-target="#instruction-tuning-or-supervised-fine-tuning">2. Instruction Tuning or Supervised Fine-Tuning</a></li>
   <li><a href="#preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf" id="toc-preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf" class="nav-link" data-scroll-target="#preference-tuning-or-reinforcement-learning-from-human-feedback-rlhf">3. Preference Tuning or Reinforcement Learning from Human Feedback (RLHF)</a></li>
-  <li><a href="#reinforcement-finetuning-for-reasoning-verfiable-rewards" id="toc-reinforcement-finetuning-for-reasoning-verfiable-rewards" class="nav-link" data-scroll-target="#reinforcement-finetuning-for-reasoning-verfiable-rewards">4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)</a></li>
+  <li><a href="#reinforcement-finetuning-for-reasoning-verifiable-rewards" id="toc-reinforcement-finetuning-for-reasoning-verifiable-rewards" class="nav-link" data-scroll-target="#reinforcement-finetuning-for-reasoning-verifiable-rewards">4. Reinforcement Finetuning for Reasoning (Verifiable Rewards)</a></li>
   </ul></li>
   <li><a href="#limitations-of-large-language-models-understanding-the-boundaries" id="toc-limitations-of-large-language-models-understanding-the-boundaries" class="nav-link" data-scroll-target="#limitations-of-large-language-models-understanding-the-boundaries">Limitations of Large Language Models: Understanding the Boundaries</a>
   <ul class="collapse">
@@ -416,7 +426,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content" tabindex="-1">
 
 
 
@@ -429,20 +439,42 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <blockquote class="blockquote">
 <p>This article is a work in progress because the field of LLMs is a work in progress. Additionally, I am unable to keep up with all the fantastic innovations in LLMs every couple of months. This article represents both my own learning experience and a compilation of things that I have tested and found to work well with my workflows.</p>
 </blockquote>
-<p>In November, 2023, when I first wrote this article, GPT-4 with vision capabilities had just come out. Most competitors were playing catch-up with GPT-4 for most of 2023 and early 2024. By Summer 2024, Claude 3.5 Sonnet was released and immediately became the default LLM for coding assistants because of its superior performance over GPT-4/GPT-4o. Since September 2024, multiple reasoning models have been released triggered by the launch of OpenAI’s o1. Below article represents a high level summary of how LLMs work and I start by presenting my top choices for LLMs for various tasks, which changes every few months.</p>
+<p>In November, 2023, when I first wrote this article, GPT-4 with vision capabilities had just come out. Most competitors were playing catch-up with GPT-4 for most of 2023 and early 2024. By Summer 2024, Claude 3.5 Sonnet was released and immediately became the default LLM for coding assistants because of its superior performance over GPT-4/GPT-4o. Since September 2024, multiple reasoning models have been released triggered by the launch of OpenAI’s o1. Below article represents a high level summary of how LLMs work and I start by presenting the models and tools I use, which changes every few months. The page was last revised in November 2026: the tooling section is current as of then, and I have corrected or dated the parts of the fundamentals and limitations sections that the field has moved past.</p>
 <!-- This guide provides a technical introduction to modern Large Language Models (LLMs) targeted at academics and software engineers who are beginning to explore this exciting field. LLMs can be leveraged in various applications, such as content generation, code assistance, data analysis, and more. While this is a concise overview, it should serve as a solid starting point for anyone interested in grasping the fundamentals of LLMs and their potential. I intend to continually update this guide with the latest advancements and insights in the field. -->
-<section id="update-feb.-7th-2025" class="level2">
-<h2 class="anchored" data-anchor-id="update-feb.-7th-2025">Update <strong>Feb.&nbsp;7th, 2025</strong>:</h2>
-<p>Best models and tools I use:</p>
+<section id="update-november-2026" class="level2">
+<h2 class="anchored" data-anchor-id="update-november-2026">Update <strong>November 2026</strong>:</h2>
+<p>Models and tools I use:</p>
 <ul>
-<li><strong>Code</strong>: Claude 3.5 Sonnet, DeepSeek-r1 (see also DeekSeekv3 - <a href="https://x.com/paulgauthier/status/1877867244614779030/photo/1">93.1% of aider’s own code writes are using Deepseekv3</a>)</li>
+<li><strong>Models</strong>: Claude Opus 5.5 and Claude Fable 5.2 from Anthropic; GPT-6.1 Sol and GPT-6 Astra from OpenAI.</li>
+<li><strong>Subscriptions</strong>: Claude Max and ChatGPT Pro, both since November 2025.</li>
+<li><strong>Client work</strong>: mostly GitHub Copilot.</li>
+<li><strong>API</strong>: some models directly through the API when a task needs it.</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Previous snapshot: February 7th, 2025
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Kept for the record. Every item here is out of date.</p>
+<ul>
+<li><strong>Code</strong>: Claude 3.5 Sonnet, DeepSeek-r1 (see also DeepSeek-V3 - <a href="https://x.com/paulgauthier/status/1877867244614779030/photo/1">93.1% of aider’s own code writes are using DeepSeek-V3</a>)</li>
 <li><strong>Writing</strong>: Gemini 2.0 Pro Experimental 02-05 - this has become my default model for writing. The only complaint I have is that it currently supports file attachments through the AI studio interface, but not the Gemini app.</li>
 <li><strong>Speech-to-Speech</strong>: OpenAI’s GPT-4o, Gemini 2.0 Flash - both seem to have a 30 min limit unfortunately.</li>
 <li><strong>Reasoning/Planning</strong>: OpenAI-o1, DeepSeek-r1, Gemini Flash Thinking Experimental 01-21, OpenAI-o3-mini - in that order. I am hoping OpenAI-o3 will be considerably better than OpenAI-o1 and o3-mini when it becomes available to Plus users.</li>
-<li><strong>Research</strong>: NotebookLM, Gemini Deep Research. One major limitation of these tools and LLMs in general (except Claude 3.5 Sonnet apparently) is that they use OCR to convert PDFs into text, which often does not capture the layout and structure of the document.</li>
-<li><strong>IDEs/Agents</strong>: <code>windsurf</code>, <code>aider</code>, <code>github copilot</code> - in that order. I also tried <code>cursor</code>, which is arguably the most popular IDE right now for power users. I personally do not find it’s composer to be better than Windsurf’s cascade. The <code>tab</code> might be better though. Also, Windsurf costs $10/month while Cursor $20/month with differences in how many times you can call “premium models” (GPT-4o, Claude 3.5 Sonnet, DeepSeek-r1, etc.). I will report back on how <code>[OpenHands](https://github.com/All-Hands-AI/OpenHands)</code> (previously called OpenDevin) compares to the other tools listed here.</li>
+<li><strong>Research</strong>: NotebookLM, Gemini Deep Research. One limitation I ran into with several of these tools at the time was that PDFs were converted to plain text first, which often loses the layout and structure of the document.</li>
+<li><strong>IDEs/Agents</strong>: <code>windsurf</code>, <code>aider</code>, <code>github copilot</code> - in that order. I also tried <code>cursor</code>, which is arguably the most popular IDE right now for power users. I personally do not find its composer to be better than Windsurf’s cascade. The <code>tab</code> might be better though. Also, Windsurf costs $10/month while Cursor $20/month with differences in how many times you can call “premium models” (GPT-4o, Claude 3.5 Sonnet, DeepSeek-r1, etc.). I will report back on how <a href="https://github.com/All-Hands-AI/OpenHands">OpenHands</a> (previously called OpenDevin) compares to the other tools listed here.</li>
 </ul>
 <p>(For text-to-image, <code>imagen-3</code> by Google and <code>flux-dev</code> are my top choices.)</p>
+</div>
+</div>
+</div>
 <!-- ## Demystifying Large Language Models: A Technical Introduction for Application Builders -->
 </section>
 <section id="key-components-of-modern-llm-architectures" class="level2">
@@ -451,22 +483,22 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <ul>
 <li><strong>Input</strong>: This covers tokenization and embedding on input text. Tokenization is a bottleneck especially for domain-specific languages. Frontier research is exploring alternative tokenization methods and tokenization-free approaches that I will write more about later.</li>
 <li><strong>Core (self-attention)</strong>: Multi-head self-attention, several layers of it with residual connection forms the core of the transformer architecture (<em>attention is all you need</em>). This is arguably the reason why LLMs are so powerful at understanding multiple meanings of the same word, and doing “in-context learning”.</li>
-<li><strong>Output</strong>: While earlier models were only focusing on the “pretraining” phase that literally just does next-token prediction, newer models involve extensive instruction tuning and reinforecement learning based approaches to force the model to learn how to generate coherent text over long sequences. Some recent work like <a href="https://arxiv.org/abs/2412.1943">DeepSeekv3</a> has made improvements in the pretraining phase where they introduced an auxiliary multi-token prediction loss instead of just using a single token prediction loss that is commonplace.</li>
+<li><strong>Output</strong>: A final linear layer maps the last hidden state to a probability distribution over the vocabulary, and a sampling strategy picks the next token from it. How good those predictions are is decided in training. While earlier models were only focusing on the “pretraining” phase that literally just does next-token prediction, newer models involve extensive instruction tuning and reinforcement learning based approaches to force the model to learn how to generate coherent text over long sequences. Some recent work like <a href="https://arxiv.org/abs/2412.19437">DeepSeek-V3</a> has made improvements in the pretraining phase where they introduced an auxiliary multi-token prediction loss instead of just using a single token prediction loss that is commonplace.</li>
 </ul>
-<p>I plan to extend the following discussion with more about the recent innovations in each of the three components: context extension through Rotary Position Embeddings (RoPE), performance improvements through Flash Attention, multi-token prediction, etc.</p>
+<p>I plan to extend the following discussion with more about the recent innovations in each of the three components: positional encoding through Rotary Position Embeddings (RoPE), performance improvements through FlashAttention, multi-token prediction, etc.</p>
 <section id="tokenization-converting-text-to-numerical-representations" class="level3">
 <h3 class="anchored" data-anchor-id="tokenization-converting-text-to-numerical-representations">1. Tokenization: Converting Text to Numerical Representations</h3>
-<p>Before text can be processed by an LLM, it must be converted into numerical representations. This is the role of the <strong>tokenizer</strong>. Tokenizers break down text into smaller units called <strong>tokens</strong>, which can be words, subwords, or characters. Different LLMs often employ distinct tokenization methods, leading to fragmentation in the ecosystem. For example, OpenAI models utilize Byte-Pair Encoding (BPE), while T5 uses SentencePiece.</p>
+<p>Before text can be processed by an LLM, it must be converted into numerical representations. This is the role of the <strong>tokenizer</strong>. Tokenizers break down text into smaller units called <strong>tokens</strong>, which can be words, subwords, or characters. Different LLMs often employ distinct tokenization methods, leading to fragmentation in the ecosystem. For example, OpenAI models use byte-level Byte-Pair Encoding (BPE), while T5 uses a unigram model built with the SentencePiece library.</p>
 <p><strong>Tokenization as a Potential Bottleneck:</strong> Tokenization can be a performance bottleneck and introduce limitations, particularly in these scenarios:</p>
 <ul>
-<li><strong>Out-of-Vocabulary (OOV) Tokens:</strong> Tokenizers typically have a fixed vocabulary size. Words not present in this vocabulary are treated as OOV tokens, often represented by a special <code>&lt;unk&gt;</code> token. A high number of OOV tokens can degrade model performance as the model has no learned representation for these words.</li>
+<li><strong>Rare and Unseen Words:</strong> Tokenizers have a fixed vocabulary size. Older word-level tokenizers mapped any word outside the vocabulary to a special <code>&lt;unk&gt;</code> token and lost it entirely. Modern subword tokenizers almost never do that: byte-level BPE can encode any string. The cost shows up differently. A word the tokenizer has rarely seen is split into many small pieces, which uses more of the context window and leaves the model with weaker learned representations to work from.</li>
 <li><strong>Adaptability to New Languages:</strong> Models trained primarily on English may struggle to tokenize languages with different scripts or linguistic structures (e.g., Chinese, Urdu, Swahili).</li>
 <li><strong>Domain-Specific Languages:</strong> Technical domains like programming languages (HTML, Python) or specialized fields (medicine, law) pose challenges. These domains have unique syntax, terminology, and structures that general-purpose tokenizers may not handle optimally. Currently, as a side project, I am trying to port some old fluid dynamics codes from Fortran 90 to Python and finding that some LLMs are worse at understanding Fortran 90 (arguably out of favor in the industry).</li>
 </ul>
 </section>
 <section id="embedding-layer-representing-tokens-semantically" class="level3">
 <h3 class="anchored" data-anchor-id="embedding-layer-representing-tokens-semantically">2. Embedding Layer: Representing Tokens Semantically</h3>
-<p>Broadly speaking, this is the stand-out feature of the neural network based approaches as opposed to classical Markovian or n-gram like models: you can embed anything (language, audio, video, images, etc.) into a numerical representation that captures its semantic meaning. The numerical tokens are then transformed into <strong>dense vector representations</strong> by a learned <strong>embedding layer</strong>. These embeddings are not just arbitrary numbers; they are designed to capture the <strong>semantic meaning</strong> of the tokens. Tokens with similar meanings are positioned closer together in the embedding space. The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger. The increasing the embedding dimension can significantly increase the model size and computational complexity.</p>
+<p>Broadly speaking, this is the stand-out feature of the neural network based approaches as opposed to classical Markovian or n-gram like models: you can embed anything (language, audio, video, images, etc.) into a numerical representation that captures its semantic meaning. The numerical tokens are then transformed into <strong>dense vector representations</strong> by a learned <strong>embedding layer</strong>. These embeddings are not just arbitrary numbers; they are designed to capture the <strong>semantic meaning</strong> of the tokens. Tokens with similar meanings are positioned closer together in the embedding space. The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger. Increasing the embedding dimension can significantly increase the model size and computational complexity.</p>
 <p><strong>Purpose:</strong> Embeddings serve as a crucial bridge, translating discrete tokens into a continuous vector space where semantic relationships can be mathematically modeled. Pre-trained LLMs leverage embeddings learned from vast amounts of text data, enabling them to capture general language understanding.</p>
 </section>
 <section id="self-attention-mechanism-capturing-contextual-relationships" class="level3">
@@ -478,7 +510,14 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </section>
 <section id="other-architectural-components" class="level3">
 <h3 class="anchored" data-anchor-id="other-architectural-components">4. Other Architectural Components</h3>
-<p>Modern LLM architectures, primarily based on decoder-only Transformers, also incorporate other layers such as Layer Normalization (LayerNorm) and activation functions like GeLU (Gaussian Error Linear Unit). While their precise theoretical underpinnings are still being researched, empirically, these components play a crucial role in stabilizing the training process and improving model performance.</p>
+<p>Modern LLM architectures, primarily based on decoder-only Transformers, have more in each layer than attention:</p>
+<ul>
+<li><strong>Feed-forward (MLP) blocks:</strong> Every attention layer is followed by a position-wise feed-forward network. In a standard Transformer block these hold roughly two thirds of the parameters, and much of what the model “knows” appears to be stored there.</li>
+<li><strong>Residual connections:</strong> Each sub-layer adds its output to its input, which is what makes very deep stacks trainable.</li>
+<li><strong>Normalization and activation functions:</strong> Layer Normalization (LayerNorm) or, in most recent models, RMSNorm; and activation functions like GeLU (Gaussian Error Linear Unit) or SwiGLU.</li>
+<li><strong>Positional information:</strong> Attention by itself is blind to token order, so position has to be injected, most commonly today through rotary position embeddings (RoPE).</li>
+</ul>
+<p>While the precise theoretical underpinnings of some of these choices are still being researched, empirically, they play a crucial role in stabilizing the training process and improving model performance.</p>
 </section>
 </section>
 <section id="language-model-training-stages-from-raw-text-to-instruction-following" class="level2">
@@ -502,10 +541,10 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <p><strong>Data and Objective:</strong> RLHF utilizes human preference data. Humans are presented with pairs of model-generated outputs for the same prompt and asked to choose the preferred output. This preference data is then used to train a reward model, which learns to predict human preferences. Subsequently, reinforcement learning algorithms (like Proximal Policy Optimization - PPO) are used to fine-tune the LLM to maximize the reward predicted by the reward model.</p>
 <p><strong>Importance:</strong> RLHF helps align the model’s behavior with human values and preferences, improving the quality, helpfulness, and safety of generated text. It addresses subjective aspects of language quality that are difficult to capture with purely supervised learning objectives.</p>
 </section>
-<section id="reinforcement-finetuning-for-reasoning-verfiable-rewards" class="level3">
-<h3 class="anchored" data-anchor-id="reinforcement-finetuning-for-reasoning-verfiable-rewards">4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)</h3>
-<p>Some advanced models, like OpenAI’s o1 or DeepSeek’s r1 reasoning models, incorporate additional reinforcement learning stages focused on improving reasoning abilities. While the exact details on how OpenAI trained their “o” series of models are hidden and proprietary, the speculation is that it could include test time search, process reward modeling, chain-of-thought based supervised finetuning, and more. DeepSeek’s r1-zero model does not use supervised finetuning at all and relies on verifable (or “rule-based”) rewards for training. Their r1 model, however, uses a combination of supervised finetuning, RLHF and verifiable rewards. The most fascinating thing about DeepSeek’s r1 model is reflection or backtracking, where the model can reflect on its own reasoning process and correct itself if it finds a mistake. According to the authors, this emerged during training and was not explicitly programmed into the model.</p>
-<p><strong>Data and Objective:</strong> The data for verifable rewards is mostly restricted to domains like math and code.</p>
+<section id="reinforcement-finetuning-for-reasoning-verifiable-rewards" class="level3">
+<h3 class="anchored" data-anchor-id="reinforcement-finetuning-for-reasoning-verifiable-rewards">4. Reinforcement Finetuning for Reasoning (Verifiable Rewards)</h3>
+<p>Some advanced models, like OpenAI’s o1 or DeepSeek’s r1 reasoning models, incorporate additional reinforcement learning stages focused on improving reasoning abilities. While the exact details on how OpenAI trained their “o” series of models are hidden and proprietary, the speculation is that it could include test time search, process reward modeling, chain-of-thought based supervised finetuning, and more. DeepSeek’s r1-zero model does not use supervised finetuning at all and relies on verifiable (or “rule-based”) rewards for training. Their r1 model, however, uses a combination of supervised finetuning, RLHF and verifiable rewards. The most fascinating thing about DeepSeek’s r1 model is reflection or backtracking, where the model can reflect on its own reasoning process and correct itself if it finds a mistake. According to the authors, this emerged during training and was not explicitly programmed into the model.</p>
+<p><strong>Data and Objective:</strong> The data for verifiable rewards is mostly restricted to domains like math and code.</p>
 <p><strong>Importance:</strong> Reinforcement finetuning for reasoning is a frontier in LLM training with multiple labs trying to understand how best to scale reasoning capabilities.</p>
 </section>
 </section>
@@ -525,22 +564,21 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </section>
 <section id="limited-self-improvement-stuck-in-loops-and-knowledge-plateaus" class="level3">
 <h3 class="anchored" data-anchor-id="limited-self-improvement-stuck-in-loops-and-knowledge-plateaus">2. Limited Self-Improvement: Stuck in Loops and Knowledge Plateaus</h3>
-<p>LLMs can exhibit limited self-improvement. They may repeat the same mistakes or biases without fundamentally learning from their errors in an iterative manner. While models like OpenAI’s o1 and Claude 3.5 Sonnet demonstrate improved self-correction, particularly in code-related tasks, general self-improvement remains a significant challenge.</p>
+<p>LLMs can exhibit limited self-improvement. They may repeat the same mistakes or biases without fundamentally learning from their errors in an iterative manner. Within a single task this has improved a great deal: reasoning models, and agents that can run code and read the result, correct themselves far better than the models of 2023, particularly in code-related tasks. Across tasks it has not. A model’s weights do not change when it makes a mistake, so it learns from an error only if the system around it writes the lesson down somewhere it will read next time.</p>
 </section>
 <section id="knowing-vs.-understanding-correlation-vs.-causation" class="level3">
 <h3 class="anchored" data-anchor-id="knowing-vs.-understanding-correlation-vs.-causation">3. Knowing vs.&nbsp;Understanding: Correlation vs.&nbsp;Causation</h3>
-<p>LLMs primarily learn statistical correlations from massive datasets. While they can exhibit impressive “knowledge,” they often lack true “understanding” of underlying concepts and causal relationships.</p>
-<p><strong>Counterfactual Reasoning Failures:</strong> When tested on counterfactual puzzles or questions that require reasoning about “what if” scenarios or understanding causal mechanisms, LLMs often perform poorly. This highlights their reliance on memorized patterns rather than genuine conceptual understanding. Some papers like <a href="https://arxiv.org/abs/2307.02477">“Reasoning or Reciting?”</a> and <a href="https://arxiv.org/abs/2410.02162">“Planning in Strawberry Fields”</a> emphasize distinguishing between knowledge (memory) and understanding through evaluations on counterfactual questions and plans.</p>
+<p>LLMs learn statistical regularities from massive datasets. How much of what they do with them deserves to be called “understanding” of underlying concepts and causal relationships is a contested question, and the evidence has shifted since I first wrote this section.</p>
+<p><strong>Counterfactual Reasoning:</strong> When tested on counterfactual variants of familiar tasks, the LLMs of 2023 performed markedly worse than on the default versions, which suggests they leaned on memorized patterns (<a href="https://arxiv.org/abs/2307.02477">“Reasoning or Reciting?”</a>). Reasoning models narrowed that gap considerably: <a href="https://arxiv.org/abs/2410.02162">“Planning in Strawberry Fields”</a> found OpenAI’s o1 far ahead of earlier LLMs on planning benchmarks, though still not robust on longer or obfuscated problems. The practical advice survives the debate: test a model on variations of your task, not only on the form of it that is all over the internet.</p>
 </section>
 <section id="domain-specializations" class="level3">
 <h3 class="anchored" data-anchor-id="domain-specializations">4. Domain Specializations</h3>
 <p>General-purpose LLMs are trained on broad internet datasets. Many specialized domains, such as medicine, law, or specific technical fields, have their own extensive vocabularies, jargon, and conceptual frameworks that are not adequately represented in general language models.</p>
-<p><strong>Domain-Specific Model Requirements:</strong> Effective application of LLMs in specialized domains often necessitates:</p>
+<p><strong>What Specialized Domains Need:</strong> When I first wrote this in 2023, the standard advice was domain-specific fine-tuning, models trained for one domain from the outset, and extending the tokenizer vocabulary with domain terms. That advice has aged badly. General frontier models have repeatedly caught up with or overtaken specialized ones, and a fine-tune has to be redone every time the base model changes. For language tasks, my own practice in 2026 is to use a general frontier model and put the domain into its context instead:</p>
 <ul>
-<li><strong>Domain-Specific Fine-tuning:</strong> Further training general LLMs on domain-specific data to adapt their vocabulary and knowledge.</li>
-<li><strong>Specialized Models:</strong> Developing LLMs trained specifically for a particular domain from the outset.</li>
-<li><strong>Vocabulary Extension Techniques:</strong> Methods to expand the tokenizer vocabulary to include domain-specific terms.</li>
-<li><strong>Knowledge Augmentation:</strong> Integrating LLMs with domain-specific knowledge bases or retrieval systems.</li>
+<li><strong>Knowledge Augmentation:</strong> Retrieval over domain documents, a curated layer that maps business vocabulary to the underlying data, and worked examples in the prompt.</li>
+<li><strong>Tools and Verification:</strong> Give the model the means to check its answer against the domain’s own systems: run the query, execute the code, look up the record.</li>
+<li><strong>Fine-tuning, Selectively:</strong> It still earns its place for narrow, high-volume tasks where cost or latency matters, for data that cannot leave the premises, and for modalities and signals that general models handle poorly.</li>
 </ul>
 <p>Concepts and ideas that appear infrequently in the training data (the “long tail” of the knowledge distribution) are less likely to be learned effectively by LLMs. While Retrieval-Augmented Generation (RAG) can provide LLMs with relevant context from external knowledge sources, it is not a complete solution for long-tail knowledge. Generating high-quality text about rare or novel concepts may require more “core” knowledge and reasoning ability than the model possesses, even with retrieved context.</p>
 <p><strong>Challenges for Niche Applications:</strong> Applications dealing with highly specialized or niche topics may encounter limitations due to the model’s lack of familiarity with long-tail concepts.</p>
@@ -552,8 +590,8 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <ul>
 <li><strong>Explore the <a href="https://huggingface.co/docs/transformers/en/index">Transformers</a> Library:</strong> A powerful and user-friendly library for working with pre-trained LLMs in Python. Experiment with different models, tokenizers, and prompting techniques.</li>
 <li><strong>Dive into Prompt Engineering:</strong> A good rule of thumb is that your prompt should contain enough information to be useful for a human to understand. For code, I often think of the LLM as a junior developer that needs specific information on what to do next.</li>
-<li><strong>Practice a lot:</strong> I personally have multiple subscriptions and use many LLMs through the API as well. For instance, I have found that <code>DeepSeek-r1</code> is fantastic at code and math, even out-doing o1 and o3-mini in many cases, but for general physics questions, it is worse.</li>
-<li><strong>Try Frameworks:</strong> <a href="https://python.langchain.com/docs/introduction/"><code>langchain</code></a> and other frameworks are relatively easy to explore, and some including <code>langchain</code> have a LLM-based chatbot for their docs that can generate starter code for you immediately. The only frustration I have is that their API changes every couple of months, so if you found a nice <code>langchain</code> tutorial from 6 months ago, it is unlikely to work anymore.</li>
+<li><strong>Practice a lot:</strong> I keep two subscriptions and use other models through the API when needed. Models differ by task in ways that benchmarks do not predict, and the differences change with every release, so the only reliable guide is trying them on your own work.</li>
+<li><strong>Try Frameworks:</strong> <a href="https://python.langchain.com/docs/introduction/"><code>langchain</code></a> and other frameworks are relatively easy to explore, and some including <code>langchain</code> have a LLM-based chatbot for their docs that can generate starter code for you immediately. My frustration through early 2025 was that their API changed every couple of months, so a nice <code>langchain</code> tutorial from 6 months earlier was unlikely to work anymore. Check a tutorial’s date before following it.</li>
 <li><strong>Stay up-to-date:</strong> Podcasts like <a href="https://sub.thursdai.news/podcast">thursdai</a> and newsletters like <a href="https://smol.ai/">AI News by smol-ai</a> are great resources for staying up-to-date with the latest developments in LLMs.</li>
 </ul>
 
@@ -561,14 +599,14 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2023,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><div class="code-copy-outer-scaffold"><pre class="sourceCode quarto-appendix-bibtex code-with-copy"><code class="sourceCode bibtex">@online{nauman2023,
   author = {Nauman, Farrukh},
   title = {Large {Language} {Models:} {A} {Compact} {Guide}},
   date = {2023-11-20},
   url = {https://fnauman.com/posts/2023-11-20-llms-summary/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+</code></pre><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2023" class="csl-entry quarto-appendix-citeas" role="listitem">
 Nauman, Farrukh. 2023. <span>“Large Language Models: A Compact
 Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms-summary/">https://fnauman.com/posts/2023-11-20-llms-summary/</a>.
 </div></div></section></div></main> <!-- /main -->
@@ -576,15 +614,50 @@ Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -663,7 +736,8 @@ Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -672,8 +746,69 @@ Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -687,6 +822,7 @@ Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -849,44 +985,54 @@ Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -984,6 +1130,9 @@ Guide.”</span> November 20. <a href="https://fnauman.com/posts/2023-11-20-llms
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 <footer class="footer">

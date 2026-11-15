@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.29">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -16,10 +16,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -74,18 +77,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0a78b434e389dc432db89d281373959.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-8a6658da759c160f83700c4dee5696ae.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-26ad15bd43d8661f417ce3af88259282.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-2824e77f24f4970eecc10569812e94a3.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c3b143f304613df895e1a27e11d1aeee.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-0db4a80fcc7d42c481d5441fc2203f82.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -135,7 +139,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -158,6 +162,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       for (let i=0; i < toggles.length; i++) {
         const toggle = toggles[i];
         if (toggle) {
+          toggle.setAttribute("aria-checked", alternate ? "true" : "false");
           if (alternate) {
             toggle.classList.add("alternate");
           } else {
@@ -187,13 +192,19 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       manageTransitions('#quarto-margin-sidebar .nav-link', true);
       // Switch the toggles
       setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455).
+    // Not run on load: stylesheets are set before first paint there, and
+    // scrolling would undo the scroll to a URL fragment (#14973).
+    // The one pixel nudge keeps the reader where they were.
+    const refreshSafariScrollbar = () => {
       if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
         manageTransitions("body", false);
-        window.scrollTo(0, 1);
+        const scrollY = window.scrollY;
+        window.scrollTo(0, scrollY > 0 ? scrollY - 1 : 1);
         setTimeout(() => {
-          window.scrollTo(0, 0);
+          window.scrollTo(0, scrollY);
           manageTransitions("body", true);
         }, 40);
       }
@@ -287,6 +298,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       // Read the current dark / light value
       let toAlternate = !hasAlternateSentinel();
       toggleColorMode(toAlternate);
+      refreshSafariScrollbar();
       setStyleSentinel(toAlternate);
       toggleGiscusIfUsed(toAlternate, darkModeDefault);
       window.dispatchEvent(new Event('resize'));
@@ -301,10 +313,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -354,8 +365,9 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <button type="button" role="switch" aria-checked="false" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode" aria-label="Toggle dark mode"><i class="bi"></i></button>
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -398,7 +410,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">May 2, 2026</p>
+        <p class="date-modified">November 14, 2026</p>
       </div>
     </div>
       
@@ -416,7 +428,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
+        <nav id="TOC" role="doc-toc" aria-labelledby="toc-title" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
   <ul>
@@ -438,7 +450,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <li><a href="#turn-every-failure-into-repository-policy" id="toc-turn-every-failure-into-repository-policy" class="nav-link" data-scroll-target="#turn-every-failure-into-repository-policy">5. Turn every failure into repository policy</a></li>
   </ul></li>
   <li><a href="#what-i-now-put-in-agents.md" id="toc-what-i-now-put-in-agents.md" class="nav-link" data-scroll-target="#what-i-now-put-in-agents.md">What I now put in AGENTS.md</a></li>
-  <li><a href="#where-the-harness-matters-more-than-the-model" id="toc-where-the-harness-matters-more-than-the-model" class="nav-link" data-scroll-target="#where-the-harness-matters-more-than-the-model">Where the harness matters more than the model</a></li>
+  <li><a href="#where-the-harness-matters-as-much-as-the-model" id="toc-where-the-harness-matters-as-much-as-the-model" class="nav-link" data-scroll-target="#where-the-harness-matters-as-much-as-the-model">Where the harness matters as much as the model</a></li>
   <li><a href="#a-review-checklist-i-actually-trust" id="toc-a-review-checklist-i-actually-trust" class="nav-link" data-scroll-target="#a-review-checklist-i-actually-trust">A review checklist I actually trust</a></li>
   <li><a href="#closing-thought" id="toc-closing-thought" class="nav-link" data-scroll-target="#closing-thought">Closing thought</a></li>
   <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further reading</a></li>
@@ -446,7 +458,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content" tabindex="-1">
 
 
 
@@ -454,6 +466,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 
 <p><em>Over the last six months, I have used coding agents on multiple migrations and reimplementations in the 10k+ line range. The strongest lesson is that these projects are not mainly translation problems. They are evidence-preservation problems.</em></p>
+<p>Most of what follows comes from porting a grid-based computational fluid dynamics (CFD) solver from C to PyTorch, plus a few smaller migrations. I keep the examples general on purpose: the source code bases are not mine to publish, and the patterns transfer without them.</p>
 <p>That is true whether you are moving JAX to PyTorch, React to Svelte, C or Fortran to Python, or rebuilding a vision or time-series algorithm against an existing API and test suite. The cost of producing plausible code has fallen sharply. The cost of proving that the code is correct has not.</p>
 <p>That gap is where most projects go sideways.</p>
 <section id="why-migration-and-clean-room-rewrite-are-the-same-hard-problem" class="level2">
@@ -518,7 +531,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </section>
 <section id="turn-every-failure-into-repository-policy" class="level3">
 <h3 class="anchored" data-anchor-id="turn-every-failure-into-repository-policy">5. Turn every failure into repository policy</h3>
-<p>Every recurring failure should become an instruction in <code>AGENTS.md</code>, a checklist item, a regression test, or a new reproducibility artifact. Over time, the repository accumulates institutional memory. That is the real leverage point.</p>
+<p>Every recurring failure should become repository policy: a regression test or a reproducibility artifact where the failure can be checked mechanically, a checklist item or a short rule in <code>AGENTS.md</code> where it cannot. Prefer the test. A rule the agent has to remember is weaker than a check it cannot pass without doing the work, and an <code>AGENTS.md</code> that grows by one line per incident stops being read. Over time, the repository accumulates institutional memory. That is the real leverage point.</p>
 </section>
 </section>
 <section id="what-i-now-put-in-agents.md" class="level2">
@@ -542,7 +555,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>A disabled feature should be absent from execution, not just numerically neutral.</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Shortcut audit</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Search for TODO, FIXME, placeholder, simplified, stub, pass, and NotImplemented.</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Search for TODO, FIXME, placeholder, simplified, stub, NotImplemented, and function bodies that are only <span class="in">`pass`</span>.</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Flag any fallback path that weakens correctness, not just performance.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>I also add one explicit sentence for clean-room-style work:</p>
 <blockquote class="blockquote">
@@ -550,12 +563,12 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </blockquote>
 <p>That single line changes the task from “restate this code in another syntax” to “rebuild the behavior and prove it.”</p>
 </section>
-<section id="where-the-harness-matters-more-than-the-model" class="level2">
-<h2 class="anchored" data-anchor-id="where-the-harness-matters-more-than-the-model">Where the harness matters more than the model</h2>
+<section id="where-the-harness-matters-as-much-as-the-model" class="level2">
+<h2 class="anchored" data-anchor-id="where-the-harness-matters-as-much-as-the-model">Where the harness matters as much as the model</h2>
 <p>There is a growing body of evidence that the <em>environment</em> around a coding agent matters at least as much as the model’s raw capability.</p>
-<p>OpenAI’s harness engineering team recently described building a million-line production application where human engineers wrote zero lines of code directly. Their central finding was that early progress was slow not because the agent was incapable, but because the environment was underspecified. The engineers’ primary job became designing the harness: breaking goals into building blocks, making constraints legible and enforceable, and structuring documentation so that the agent could navigate it. They found that a monolithic <code>AGENTS.md</code> failed — it crowded out the actual task, rotted quickly, and became impossible to verify. Structured, cross-linked documentation in a <code>docs/</code> directory worked much better.</p>
-<p>Models matter too. Peter Steinberger made the observation in his “Shipping at Inference Speed” workflow. He noted that Codex models build context autonomously — sometimes silently reading files for ten or fifteen minutes before writing a single line of code. This contrasts with models like Opus that tend to start writing eagerly and then miss parts of the codebase. Steinberger found that even though Codex sometimes took four times longer per task, the overall velocity was higher because he did not have to go back and fix the fix.</p>
-<p>These two observations converge on the same point. The agent’s effectiveness depends on the quality of the environment it can read and the evidence it can verify — not on how clever the prompt is. For migrations and clean-room-style rewrites, that environment is your oracle, your test suite, your <code>AGENTS.md</code>, and your intermediate checkpoints. Get those right and agents become extremely effective. Without them, they mostly accelerate ambiguity.</p>
+<p>OpenAI’s harness engineering team described building and shipping an internal beta of a software product, roughly a million lines of code, in which human engineers wrote none of the code directly. Their central finding was that early progress was slow not because the agent was incapable, but because the environment was underspecified. The engineers’ primary job became designing the harness: breaking goals into building blocks, making constraints legible and enforceable, and structuring documentation so that the agent could navigate it. They found that a monolithic <code>AGENTS.md</code> failed — it crowded out the actual task, rotted quickly, and became impossible to verify. What worked was a short <code>AGENTS.md</code>, about a hundred lines, used as a table of contents into structured, cross-linked documentation in a <code>docs/</code> directory. That is the reason the <code>AGENTS.md</code> above is a short contract rather than a manual: the detail belongs in linked docs, checklists, and tests.</p>
+<p>Models matter too, and that is a separate point. In December 2025, Peter Steinberger described his “Shipping at Inference Speed” workflow and noted that the Codex model he was using built context autonomously — sometimes silently reading files for ten or fifteen minutes before writing a single line of code — while the Opus model of the time started writing eagerly and missed parts of the codebase. Even though Codex sometimes took four times longer per task, his overall velocity was higher because he did not have to go back and fix the fix. Those specific models have since been superseded, so read it as an observation about behavior, not a ranking: a model that reads before it writes is worth more on a migration than one that writes quickly.</p>
+<p>The two observations are different, but they fit together. The harness decides what is there to read and verify. The model decides whether it actually reads it. You choose the model once; you build the environment every day, and no model can verify against an oracle that does not exist. For migrations and clean-room-style rewrites, that environment is your oracle, your test suite, your <code>AGENTS.md</code>, and your intermediate checkpoints. Get those right and agents become extremely effective. Without them, they mostly accelerate ambiguity.</p>
 </section>
 <section id="a-review-checklist-i-actually-trust" class="level2">
 <h2 class="anchored" data-anchor-id="a-review-checklist-i-actually-trust">A review checklist I actually trust</h2>
@@ -598,14 +611,14 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{nauman2026,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><div class="code-copy-outer-scaffold"><pre class="sourceCode quarto-appendix-bibtex code-with-copy"><code class="sourceCode bibtex">@online{nauman2026,
   author = {Nauman, Farrukh},
   title = {Don’t {Port} the {Syntax.} {Port} the {Evidence.}},
   date = {2026-03-09},
   url = {https://fnauman.com/posts/2026-03-09-dont-port-the-syntax-port-the-evidence/},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2026" class="csl-entry quarto-appendix-citeas" role="listitem">
+</code></pre><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-nauman2026" class="csl-entry quarto-appendix-citeas" role="listitem">
 Nauman, Farrukh. 2026. <span>“Don’t Port the Syntax. Port the
 Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-port-the-syntax-port-the-evidence/">https://fnauman.com/posts/2026-03-09-dont-port-the-syntax-port-the-evidence/</a>.
 </div></div></section></div></main> <!-- /main -->
@@ -613,15 +626,50 @@ Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const toggle = window.document.createElement('button');
+      toggle.type = "button";
+      toggle.setAttribute("role", "switch");
+      toggle.setAttribute("aria-checked", "false");
+      toggle.classList.add('top-right');
+      toggle.classList.add('quarto-color-scheme-toggle');
+      toggle.setAttribute("aria-label", "Toggle dark mode");
+      toggle.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
       const i = window.document.createElement("i");
       i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
+      toggle.appendChild(i);
+      // Put the toggle in a landmark of its own, so that landmark navigation
+      // can reach it.
+      //
+      // The container is always a fresh direct child of body, and the toggle is
+      // never moved into page furniture that the theme or the author controls.
+      // The toggle is positioned against the page, so any ancestor that
+      // establishes a containing block captures it: a positioned element or a
+      // grid for position: absolute, and transform, filter, will-change or
+      // contain for position: fixed. A direct child of body has none of these
+      // to inherit, and the shift when one appears is silent and visual.
+      //
+      // ARIA says a document should have at most one banner, and axe reports a
+      // duplicate whether or not the banners carry distinct labels. So use a
+      // header when the page has no banner yet, and a named region otherwise.
+      //
+      // A header is a banner wherever it sits, unless it is inside sectioning
+      // content, so this cannot just look at the children of body: a custom
+      // page layout wraps the title block header in a plain div. An explicit
+      // role="banner" always counts.
+      const sectioning = 'article, aside, main, nav, section, [role="article"], [role="complementary"], [role="main"], [role="navigation"], [role="region"]';
+      const hasBanner = Array.from(
+        window.document.querySelectorAll('header:not([role]), [role="banner"]')
+      ).some(function(el) {
+        return el.hasAttribute("role") || el.closest(sectioning) === null;
+      });
+      const container = window.document.createElement(hasBanner ? "div" : "header");
+      if (hasBanner) {
+        container.setAttribute("role", "region");
+        container.setAttribute("aria-label", "Toggle dark mode");
+      }
+      container.classList.add('quarto-color-scheme-toggle-container');
+      container.appendChild(toggle);
+      window.document.body.appendChild(container);
     }
     setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
@@ -700,7 +748,8 @@ Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -709,8 +758,69 @@ Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -724,6 +834,7 @@ Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -886,44 +997,54 @@ Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -1021,6 +1142,9 @@ Evidence.”</span> March 9. <a href="https://fnauman.com/posts/2026-03-09-dont-
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 <footer class="footer">
