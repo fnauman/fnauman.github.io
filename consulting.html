@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production platforms like Snowflake, Databricks, and SQL databases.">
+<meta name="description" content="What I do — agents on analytics data, agent evaluation, and coding agents for engineering work — and the case studies behind each.">
 
 <title>Selected Work – Farrukh Nauman</title>
 <style>
@@ -49,9 +49,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dde02ce4c633e0f27ec1a8395675d2d0.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-0db4a80fcc7d42c481d5441fc2203f82.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-4420464bc12d3418151f508565d382d0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-2af66896b1dfb5775a127ed212410e0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-65d1800acc261c9acbf5cc5ec00b7d6c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-2af66896b1dfb5775a127ed212410e0d.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -92,10 +92,10 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 
 <link rel="stylesheet" href="styles.css">
 <meta property="og:title" content="Selected Work – Farrukh Nauman">
-<meta property="og:description" content="I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production platforms like Snowflake, Databricks, and SQL databases.">
+<meta property="og:description" content="What I do — agents on analytics data, agent evaluation, and coding agents for engineering work — and the case studies behind each.">
 <meta property="og:site_name" content="Farrukh Nauman">
 <meta name="twitter:title" content="Selected Work – Farrukh Nauman">
-<meta name="twitter:description" content="I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production platforms like Snowflake, Databricks, and SQL databases.">
+<meta name="twitter:description" content="What I do — agents on analytics data, agent evaluation, and coding agents for engineering work — and the case studies behind each.">
 <meta name="twitter:creator" content="@naumanf_">
 <meta name="twitter:site" content="@naumanf_">
 <meta name="twitter:card" content="summary">
@@ -345,12 +345,11 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Selected Work</h1>
-<p class="subtitle lead">AI engineering and agentic systems for production data platforms</p>
 </div>
 
 <div>
   <div class="description">
-    I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production platforms like Snowflake, Databricks, and SQL databases.
+    What I do — agents on analytics data, agent evaluation, and coding agents for engineering work — and the case studies behind each.
   </div>
 </div>
 
@@ -367,75 +366,72 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 </header>
 
 
-<section id="problems-i-solve" class="level2">
-<h2 class="anchored" data-anchor-id="problems-i-solve">Problems I solve</h2>
+<section id="what-i-do" class="level2">
+<h2 class="anchored" data-anchor-id="what-i-do">What I do</h2>
 <div class="grid mt-4">
-<div class="g-col-12 fit-card">
-<p><strong>AI engineering &amp; agentic systems</strong> — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.</p>
+<section id="agents-on-analytics-data" class="level3 g-col-12 service-card service-card-feature">
+<h3 class="anchored" data-anchor-id="agents-on-analytics-data">Agents on analytics data</h3>
+<p><strong>The problem:</strong> A demo answers questions on a clean toy schema. Real data has hundreds of tables, columns that still exist but are no longer filled, and business words that do not match column names. On that data the dangerous answer is not an error. It is a clean result that is wrong.</p>
+<p><strong>What I do:</strong> Build analytics agents and Text-to-SQL over the real schema on BigQuery, Snowflake, and SQL databases: schema and business-vocabulary grounding, enforced retrieval, deterministic read-only guardrails, and an interface that shows the SQL and each pipeline stage.</p>
+<p><strong>Evidence:</strong> Text-to-SQL against a production ERP with hundreds of tables, rebuilt as the open-source <a href="https://github.com/fnauman/txt2sql"><code>txt2sql</code></a>. I am currently building agents on an analytics stack on Google Cloud (BigQuery).</p>
+</section>
+<section id="agent-evaluation-reliability" class="level3 g-col-12 g-col-md-6 service-card">
+<h3 class="anchored" data-anchor-id="agent-evaluation-reliability">Agent evaluation &amp; reliability</h3>
+<p><strong>The problem:</strong> Most agent projects cannot say how often the agent is right. A handful of passing examples is not a measurement, and an eval set the prompts were tuned on overstates accuracy.</p>
+<p><strong>What I do:</strong> Build eval suites scored on returned results, keep a held-out split and track when it stops being independent, read traces to classify failures, and turn recurring failures into tests or guardrails.</p>
+<p><strong>Evidence:</strong> The <code>txt2sql</code> suite has 404 synthetic cases over 217 intents. Its holdout was authored blind and frozen, and has since informed several model comparisons, so I treat the suite as regression evidence on one synthetic schema, not as a production accuracy claim. Re-measuring my own pipeline changed three conclusions of the original write-up, and the post says which.</p>
+</section>
+<section id="coding-agents-for-engineering-work" class="level3 g-col-12 g-col-md-6 service-card">
+<h3 class="anchored" data-anchor-id="coding-agents-for-engineering-work">Coding agents for engineering work</h3>
+<p><strong>The problem:</strong> Coding agents produce plausible code quickly. On migrations and optimizations, plausible is the failure mode: the fastest result is sometimes wrong.</p>
+<p><strong>What I do:</strong> Set up the oracle first — parity tests against the reference, row-level validation against a known-good baseline — then let agents do the volume. I use this for code migrations, platform-migration validation, and pipeline redesign.</p>
+<p><strong>Evidence:</strong> A Databricks-to-Snowflake validator live in about a week. A daily pipeline whose largest job now runs 5-10x faster, after a faster design failed row-level validation. A CFD solver ported from C to PyTorch under parity tests.</p>
+</section>
+<div class="g-col-12 g-col-md-6 fit-card">
+<p><strong>AI enablement &amp; interim leadership</strong> Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building. I led a 4–7 person DS/analytics team as interim lead, and an ~11M SEK Vinnova/EU AI portfolio.</p>
 </div>
 <div class="g-col-12 g-col-md-6 fit-card">
-<p><strong>Migration assurance</strong> — Agent-driven cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.</p>
-</div>
-<div class="g-col-12 g-col-md-6 fit-card">
-<p><strong>Warehouse cost &amp; performance</strong> — AI-agent workflows that profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster <em>and</em> still right.</p>
-</div>
-<div class="g-col-12 g-col-md-6 fit-card">
-<p><strong>AI enablement &amp; change</strong> — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.</p>
-</div>
-<div class="g-col-12 g-col-md-6 fit-card">
-<p><strong>Time series &amp; telemetry ML</strong> — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy.</p>
+<p><strong>Time series &amp; telemetry ML</strong> Production ML for sensor and telemetry data: activity recognition, anomaly detection, forecasting. Fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy.</p>
 </div>
 </div>
 </section>
-<section id="how-i-work" class="level2">
-<h2 class="anchored" data-anchor-id="how-i-work">How I work</h2>
-<p><strong>Advisory</strong> — A few sessions to scope an AI-agent architecture, review evaluation strategy, or pressure-test a plan.</p>
-<p><strong>Embedded principal / interim lead</strong> — Weeks to months on your team; I own deliverables and ship agentic systems alongside your people.</p>
-<p><strong>Hands-on AI engineering</strong> — I build the thing and write the code — agents, guardrails, evals, tool contracts — not slide decks.</p>
-<p><strong>Evaluation-first delivery</strong> — A clear success criterion up front: I prove correctness before I optimize, and show evidence before I ship.</p>
-</section>
-<section id="selected-examples" class="level2">
-<h2 class="anchored" data-anchor-id="selected-examples">Selected examples</h2>
+<section id="case-studies" class="level2">
+<h2 class="anchored" data-anchor-id="case-studies">Case studies</h2>
 <div class="grid mt-4">
 <section id="text-to-sql-against-a-real-erp" class="level3 g-col-12 g-col-md-6 work-card">
 <h3 class="anchored" data-anchor-id="text-to-sql-against-a-real-erp">Text-to-SQL Against a Real ERP</h3>
-<p>Built natural-language querying against a wide production ERP with enforced retrieval, deterministic guardrails, value-aware evaluation (Wilson confidence bounds), and a streaming full-stack TypeScript/React app. Rebuilt as a fully synthetic open-source version preserving the real failure modes.</p>
+<p>Natural-language querying against a wide production ERP with enforced retrieval, deterministic guardrails, value-aware evaluation, and a streaming full-stack TypeScript/React app. Rebuilt as a fully synthetic open-source version that keeps the real failure modes.</p>
 <p><a href="./posts/2026-06-28-text-to-sql-real-erp/index.html" class="btn btn-sm btn-outline-primary mt-2">Read the essay</a></p>
 </section>
 <section id="sql-pipeline-optimization" class="level3 g-col-12 g-col-md-6 work-card">
 <h3 class="anchored" data-anchor-id="sql-pipeline-optimization">SQL Pipeline Optimization</h3>
-<p>Redesigned a critical daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.</p>
+<p>A critical daily full-recompute pipeline redesigned into a validated incremental one: the largest daily job runs 5-10x faster and overall compute cost fell by more than 50%. Multi-scale benchmarks and row-level validation killed an attractive but broken optimization before it reached production.</p>
 <p><a href="./posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.html" class="btn btn-sm btn-outline-primary mt-2">Read the case study</a></p>
 </section>
 <section id="cross-platform-migration-validation" class="level3 g-col-12 g-col-md-6 work-card">
 <h3 class="anchored" data-anchor-id="cross-platform-migration-validation">Cross-Platform Migration Validation</h3>
-<p>Built a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.</p>
-<p><a href="./posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html" class="btn btn-sm btn-outline-primary mt-2">Read the full case study</a></p>
+<p>A validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.</p>
+<p><a href="./posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.html" class="btn btn-sm btn-outline-primary mt-2">Read the case study</a></p>
 </section>
 <section id="code-migration-methodology" class="level3 g-col-12 g-col-md-6 work-card">
 <h3 class="anchored" data-anchor-id="code-migration-methodology">Code Migration Methodology</h3>
-<p>Developed a practitioner’s framework for large code migrations and clean-room-style rewrites with coding agents. Covers evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails — drawn from multiple 10k+ line migrations.</p>
+<p>A practitioner’s framework for large code migrations and clean-room-style rewrites with coding agents: evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails, drawn from multiple 10k+ line migrations.</p>
 <p><a href="./posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.html" class="btn btn-sm btn-outline-primary mt-2">Read the essay</a></p>
+</section>
+<section id="migration-testing-what-counts-as-evidence" class="level3 g-col-12 g-col-md-6 work-card">
+<h3 class="anchored" data-anchor-id="migration-testing-what-counts-as-evidence">Migration Testing: What Counts as Evidence</h3>
+<p>A reference for migration test suites: five layers (unit, parity, manifest integrity, end-to-end, performance), why every reference artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation.</p>
+<p><a href="./posts/2026-05-02-what-counts-as-evidence/index.html" class="btn btn-sm btn-outline-primary mt-2">Read the essay</a></p>
 </section>
 <section id="time-series-classification-for-production" class="level3 g-col-12 g-col-md-6 work-card">
 <h3 class="anchored" data-anchor-id="time-series-classification-for-production">Time Series Classification for Production</h3>
-<p>Delivered a time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Designed for edge and IoT deployment where latency and power matter.</p>
+<p>A time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines, designed for edge and IoT deployment where latency and power matter.</p>
 <p><a href="./consulting/2025-11-01-Time-Series-Classification/index.html" class="btn btn-sm btn-outline-primary mt-2">Read more</a></p>
 </section>
 </div>
-</section>
-<section id="engagement-fit" class="level2">
-<h2 class="anchored" data-anchor-id="engagement-fit">Engagement fit</h2>
-<p>You should reach out if:</p>
-<ul>
-<li>You are <strong>building AI agents against real data</strong> — Text-to-SQL, coding agents, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline, not just prompts.</li>
-<li>You are a <strong>data platform or engineering leader</strong> who wants AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.</li>
-<li>You are <strong>driving AI adoption</strong> and need someone to run discovery, align stakeholders, and take agentic PoCs to production — not just advise.</li>
-<li>You are a <strong>technical sponsor or architect</strong> who needs a senior AI engineer to lead or unblock a workstream.</li>
-<li>You need an <strong>interim team lead</strong> who can own a roadmap, manage stakeholders, and still write code.</li>
-<li>You have a <strong>time series or telemetry problem</strong> that needs production ML, not a research paper.</li>
-</ul>
-<p>I typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT — but the methods transfer.</p>
+<div class="section-note">
+<p>How engagements run, and who they fit, is on <a href="./contact.html">Work With Me</a>. More essays are under <a href="./posts.html">Writing</a>.</p>
+</div>
 <div class="mt-4">
 <p><a href="./contact.html" class="btn btn-primary">Work with me</a> <a href="mailto:farrukh.nauman@inertialrange.com" class="btn btn-outline-primary">Email me</a></p>
 </div>
