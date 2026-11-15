@@ -1,30 +1,32 @@
 ---
 title: "Work With Me"
-subtitle: "AI engineering and agentic systems for production data platforms"
-description: "Get in touch about AI-agent systems (Text-to-SQL, coding agents, evaluation harnesses), production data platform work, AI enablement, or time series ML."
+description: "How engagements run, who they fit, and how to reach me."
 toc: false
 format:
   html:
     page-layout: article
 ---
 
-I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production data platforms like Snowflake, Databricks, and SQL databases. I also help teams that need AI-agent workflows for migration validation, warehouse optimization, analytics automation, or time series ML.
+## How engagements run
 
-## What a typical engagement looks like
-
-**Advisory** — A few sessions to scope an AI-agent architecture, review your evaluation strategy, or pressure-test a plan. Good for teams that have the people but need a second opinion from someone who has done it before.
-
-**Embedded principal** — I join your team for weeks or months as an interim lead or senior IC. I own deliverables, coordinate with stakeholders, and ship agentic systems in production. This is how most of my enterprise engagements run.
+**Advisory** — A few sessions to scope an AI-agent architecture, review your evaluation strategy, or pressure-test a plan. Good for teams that have the people but want a second opinion from someone who has done it before.
 
 **Hands-on AI engineering** — I build the thing: agents, guardrails, evals, tool contracts. I write code, not slide decks.
 
+**Embedded principal / interim lead** — I join your team for weeks or months as a senior IC or interim lead. I own deliverables, coordinate with stakeholders, and ship alongside your people. This is how most of my enterprise engagements run.
+
+Whatever the form, delivery is evaluation-first: a success criterion agreed up front, correctness proved before optimization, and evidence shown before anything ships.
+
 ## Good fit
 
-- You are building AI agents against real data — Text-to-SQL, coding agents, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline.
-- You want AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.
-- You are driving AI adoption and need someone to run discovery, align stakeholders, and take agentic PoCs to production.
-- You have telemetry, sensor, or time series data and need production ML — not a research paper.
-- You need an interim team lead who can own a roadmap, manage stakeholders, and still write code.
+- You are **building AI agents against real data** — analytics agents, Text-to-SQL, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline, not just prompts.
+- You have an agent in use and **cannot say how often it is right**. You need an eval suite, tracing, and a failure analysis you can act on.
+- You want **coding agents on real engineering work** — a code migration, a platform migration, a pipeline redesign — with tests that decide what ships.
+- You are **driving AI adoption** and need someone to run discovery, align stakeholders, and take agentic PoCs to production.
+- You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
+- You have a **time series or telemetry problem** that needs production ML, not a research paper.
+
+I typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT, but the methods transfer.
 
 ## Get in touch
 
@@ -34,5 +36,5 @@ I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation ha
 I usually reply within 1–2 business days. If you reach out, a line or two on what you are working on helps me prepare a useful first response:
 
 ::: {.intake-topics .mt-3}
-`AI agents` · `Text-to-SQL` · `coding agents` · `AI enablement` · `migration` · `warehouse cost` · `time series` · `interim leadership` · `something else`
+`AI agents` · `agent evaluation` · `Text-to-SQL` · `coding agents` · `data platforms` · `AI enablement` · `interim leadership` · `time series` · `something else`
 :::

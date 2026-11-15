@@ -1,7 +1,6 @@
 ---
 title: "CV"
-subtitle: "Role-specific versions for different assignment needs"
-description: "Role-specific CV downloads for agentic AI systems, enterprise data platforms, and AI automation leadership."
+description: "Three versions of the same career, each tuned to a different kind of assignment: AI engineering with agents, data-platform consulting, or AI adoption and change leadership."
 resources:
   - assets/FarrukhNauman_default.pdf
   - assets/FarrukhNauman_agentic.pdf
@@ -9,16 +8,14 @@ resources:
 toc: false
 format:
   html:
-    page-layout: full
+    page-layout: article
     toc: false
 ---
 
 ::: {.cv-page}
 
 ::: {.cv-intro}
-Three role-specific versions, each tuned to a different kind of assignment: AI engineering with agents, hands-on data-platform delivery, or AI adoption and change leadership. Same career, three angles — pick the one closest to your brief.
-
-If you are unsure which one to use, start with the **AI Engineer** version. It is the closest to my current work.
+All three share the same chronology, employers, and education. If you are unsure which one to use, start with the **AI Engineer** version. It is the closest to my current work.
 :::
 
 ::: {.grid .mt-4}
@@ -49,7 +46,7 @@ Best for platform migrations, warehouse cost and performance, analytics automati
 
 ::: {.cv-proof-list}
 - Cross-platform migration validation from zero to live dashboard in about one week.
-- SQL pipeline optimization with 5-10x speedup, 50%+ compute savings, and row-level correctness proof.
+- Daily pipeline redesign: largest job 5-10x faster, overall compute cost down 50%+, with row-level correctness proof.
 - Interim lead for a 4-7 person DS and advanced analytics team.
 :::
 
@@ -72,10 +69,6 @@ Best for AI opportunity discovery, business/IT/data stakeholder alignment, contr
 <div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_lead.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
 :::
 
-:::
-
-::: {.cv-guidance .mt-4}
-All three share the same chronology, employers, and education. Each foregrounds the evidence most relevant to a specific brief — the same career, read through the lens that matters to your assignment.
 :::
 
 ::: {.final-cta .mt-5 .text-center}

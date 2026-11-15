@@ -1,9 +1,7 @@
 ---
 title: "Farrukh Nauman"
-description: "AI engineer shipping agentic systems — Text-to-SQL, coding agents, tool contracts, evaluation harnesses — against production data platforms like Snowflake, Databricks, and SQL databases."
+description: "AI engineer building agents that work on real data — analytics agents, Text-to-SQL, coding agents — and the evaluations that show whether they are right."
 image: assets/officialpic.JPG
-resources:
-  - assets/FarrukhNauman_default.pdf
 body-classes: home-page
 toc: false
 format:
@@ -33,20 +31,20 @@ format:
 
 <h1 class="hero-name">Farrukh Nauman</h1>
 
-<p class="hero-subhead">AI Engineering & Agentic Systems · Production Data Platforms · Time Series ML</p>
+<p class="hero-subhead">AI Engineering · Agentic Systems · Agent Evaluation</p>
 
-<p class="hero-headline">I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production data platforms like Snowflake, Databricks, and SQL databases.</p>
+<p class="hero-headline">I design and ship AI-agent systems that hold up on production data.</p>
 
-AI engineer and principal consultant. I build agentic systems that work against real schemas and real data: enforced retrieval, deterministic guardrails, result-level evaluation, and the test discipline that makes agents trustworthy in production.
+AI engineer and principal consultant. I build agents against real schemas and real data — analytics agents, Text-to-SQL, coding agents — with enforced retrieval, deterministic guardrails, and result-level evaluation.
 
 <p class="hero-now"><strong>Now:</strong> building and evaluating AI agents for analytics on Google Cloud (BigQuery).</p>
 
 ::: {.d-flex .gap-3 .mt-4 .flex-wrap}
-[See case studies](consulting.qmd){.btn .btn-primary}
+[See selected work](consulting.qmd){.btn .btn-primary}
 [Get in touch](contact.qmd){.btn .btn-outline-primary}
 :::
 
-<p class="hero-cv-link mt-3"><a href="cv.qmd">Choose the CV closest to your assignment</a></p>
+<p class="hero-cv-link mt-3"><a href="cv.qmd">Download a CV</a></p>
 
 :::
 
@@ -62,23 +60,23 @@ AI engineer and principal consultant. I build agentic systems that work against 
 ::: {.grid}
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
+**400+ regression cases**
+Synthetic Text-to-SQL suite, scored on returned results
+:::
+
+::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
 **~1 week**
-Agent-driven migration validator from zero to live dashboard
+Agent-built migration validator, from zero to live dashboard
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**50%+ compute savings**
-SQL pipeline redesigned to incremental by an AI-agent workflow — 5-10x faster, row-level correctness proof
-:::
-
-::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**10-100x faster**
-Time series classification for industrial telemetry and edge deployment
+**50%+ lower compute cost**
+Largest daily job 5-10x faster after an agent-driven redesign
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
 **~11M SEK**
-Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
+Vinnova/EU AI portfolio led; interim lead of a DS team
 :::
 
 :::
@@ -86,62 +84,34 @@ Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 :::
 
 
-<!-- ───────────────── WHAT I HELP WITH ───────────────── -->
+<!-- ───────────────── WHAT I DO ───────────────── -->
 
-## What I help with {.section-heading .mt-5}
+## What I do {.section-heading .mt-5}
 
 ::: {.grid .mt-4}
 
-::: {.g-col-12 .service-card .service-card-feature}
-### AI Engineering & Agentic Systems
+::: {.g-col-12 .g-col-md-4 .service-card}
+### Agents on analytics data
 
-**The problem:** You want to use AI agents for real engineering work — wired into your data platform, your CLIs, and your real schemas — not another chat demo that falls over on production data. You need someone who has shipped agentic systems with the test discipline to make them reliable.
-
-**What I do:** Design and build agentic systems end to end: coding agents wired to Databricks/Snowflake CLIs and APIs, Text-to-SQL over real schemas, tool and API contracts, evals, run manifests, and sandboxed execution. I write the harness and the operating constraints that keep agents trustworthy in production.
-
-**Example outcomes:** Built a full agent-driven validation workflow — discovery, per-pipeline scripts, unified validator, historical storage, and live dashboards. Shipped Text-to-SQL against a production ERP with result-level evaluation. Open-sourced `ts-agents`, a framework with strict JSON tool contracts and sandboxed execution.
+Analytics agents and Text-to-SQL over real schemas on BigQuery, Snowflake, and SQL databases: schema and business-vocabulary grounding, enforced retrieval, and deterministic read-only guardrails.
 :::
 
-::: {.g-col-12 .g-col-md-6 .service-card}
-### Migration Assurance
+::: {.g-col-12 .g-col-md-4 .service-card}
+### Agent evaluation & reliability
 
-**The problem:** You are migrating between data platforms and nobody can answer "is the target data correct?" with confidence. Spot-checks and row counts are not enough.
-
-**What I do:** Build agent-driven cross-platform validation — automated comparison of schemas, row counts, key distributions, and date ranges across dozens of tables. The coding agent discovers pipelines, writes per-table validators, and deploys dashboards the team can trust.
-
-**Example outcomes:** Validated dozens of tables across Databricks and Snowflake in under a week using a coding agent. Surfaced a row-count discrepancy of more than 2x on the first automated run.
+Eval suites scored on results, held-out cases, tracing, and failure analysis, so you know how often the agent is right and why it is wrong when it is not.
 :::
 
-::: {.g-col-12 .g-col-md-6 .service-card}
-### Warehouse Cost & Performance
+::: {.g-col-12 .g-col-md-4 .service-card}
+### Coding agents for engineering work
 
-**The problem:** Your warehouse bill is growing faster than your data. Pipelines run on brute-force full scans. Nobody has profiled the actual bottlenecks or tested whether an incremental approach is both faster *and* correct.
-
-**What I do:** Use AI-agent workflows to profile pipelines, benchmark alternatives at multiple data scales and warehouse sizes, and validate correctness with row-level comparisons — not just aggregate checksums. The agent parallelizes experiments that would take a human weeks.
-
-**Example deliverables:** Agent-driven profiling reports, benchmark harnesses across warehouse sizes, correctness-validation checks, and rollout plans for incremental pipeline changes.
+Code migrations, platform-migration validation, and pipeline redesigns done with coding agents under parity tests and row-level validation. The agent does the volume; the tests decide what ships.
 :::
 
-::: {.g-col-12 .g-col-md-6 .service-card}
-### AI Enablement & Change
-
-**The problem:** Your teams are experimenting with AI but stuck between interesting demos and production. Nobody owns the path from "we should use this" to "it is in daily use," and stakeholders across business, IT, and data are not aligned.
-
-**What I do:** Run AI opportunity discovery, prioritize high-friction workflows, align business/IT/data stakeholders, lead PoCs through to production, and build internal capability — with governance and ROI framing, not hype.
-
-**Example outcomes:** Interim lead of a 4–7 person DS & analytics team owning roadmap and stakeholders. Project lead across an ~11M SEK Vinnova/EU AI portfolio. Established an AI mentorship program that built durable in-house capability.
 :::
 
-::: {.g-col-12 .g-col-md-6 .service-card}
-### Time Series / Telemetry ML
-
-**The problem:** You have sensor, telemetry, or time series data and need production ML — activity recognition, anomaly detection, forecasting, or classification — but your team's ML experience is limited or focused elsewhere.
-
-**What I do:** Design and deliver time series ML systems from evaluation harness to production deployment. I specialize in approaches that are fast enough for edge and IoT (ROCKET family, lightweight models) while maintaining accuracy.
-
-**Example outcomes:** Delivered a time series classification system with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Established in-house activity recognition from sensor data.
-:::
-
+::: {.section-note}
+I also take on AI enablement and interim team leadership, and time series / telemetry ML. [The detail, with case studies, is in Selected Work →](consulting.qmd)
 :::
 
 
@@ -154,15 +124,23 @@ Led a Vinnova/EU AI portfolio; interim lead of a DS & analytics team
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### Text-to-SQL Against a Real ERP
 
-Built natural-language querying against a wide production ERP — enforced retrieval, deterministic guardrails, value-aware evaluation with Wilson confidence bounds, and a streaming full-stack TypeScript/React app. Open-sourced a synthetic rebuild preserving the real traps.
+Natural-language querying against a wide production ERP: enforced retrieval, deterministic guardrails, value-aware evaluation, and a streaming full-stack TypeScript/React app. Open-sourced as a synthetic rebuild that keeps the real traps.
 
 [Read the essay](posts/2026-06-28-text-to-sql-real-erp/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
 ::: {.g-col-12 .g-col-md-6 .work-card}
+### Code Migrations with Coding Agents
+
+How to run a large code migration with coding agents: port the evidence before the syntax, test against behavioral oracles, and sequence the suite so the oracle leads the implementation. Follow-up: [What Counts as Evidence](posts/2026-05-02-what-counts-as-evidence/index.qmd).
+
+[Read the essay](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
 ### SQL Pipeline Optimization
 
-Redesigned a years-old daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. The fastest approach tested was wrong; multi-scale benchmarks and parallel AI-agent workflows found the working design.
+A years-old daily full-recompute pipeline redesigned into a validated incremental one: the largest daily job runs 5-10x faster and overall compute cost fell by more than 50%. The fastest design tested was wrong, and row-level validation caught it.
 
 [Read the case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
@@ -170,55 +148,17 @@ Redesigned a years-old daily full-recompute pipeline into a validated incrementa
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### Cross-Platform Migration Validation
 
-Built a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.
+A validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.
 
 [Read the case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
-::: {.g-col-12 .g-col-md-6 .work-card}
-### Time Series Classification for Production
-
-Delivered a time series classification system for industrial telemetry: state-of-the-art accuracy with 10-100x faster inference than deep learning, designed for edge and IoT deployment.
-
-[Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
-::: {.g-col-12 .g-col-md-6 .work-card}
-### Migration Testing: What Counts as Evidence
-
-A practitioner's reference for migration test suites: five layers (unit, parity, manifest integrity, end-to-end, performance), why every reference artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation. The follow-up to ["Don't Port the Syntax. Port the Evidence."](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd)
-
-[Read the essay](posts/2026-05-02-what-counts-as-evidence/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+::: {.d-flex .gap-3 .mt-4 .flex-wrap}
+[All selected work →](consulting.qmd){.btn .btn-outline-secondary}
+[Writing →](posts.qmd){.btn .btn-outline-secondary}
 :::
-
-:::
-
-
-<!-- ───────────────── WHO I WORK BEST WITH ───────────────── -->
-
-## Who I work best with {.section-heading .mt-5}
-
-::: {.grid .mt-4}
-
-::: {.g-col-12 .g-col-md-6 .fit-card}
-**Teams building AI agents against real data** — Text-to-SQL, coding agents, RAG over schemas — who need someone who has shipped agentic systems with evaluation discipline, not just prompts.
-:::
-
-::: {.g-col-12 .g-col-md-6 .fit-card}
-**Data platform & engineering leaders** who want AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.
-:::
-
-::: {.g-col-12 .g-col-md-6 .fit-card}
-**Leaders driving AI adoption** stuck between demos and production who need someone to run discovery, align stakeholders, and ship real agentic workflows.
-:::
-
-::: {.g-col-12 .g-col-md-6 .fit-card}
-**Teams with telemetry or time series data** that need production ML — activity recognition, anomaly detection, or forecasting — not a research paper.
-:::
-
-:::
-
-[More writing on the blog →](posts.qmd){.btn .btn-outline-secondary .mt-4}
 
 
 <!-- ───────────────── FINAL CTA ───────────────── -->
@@ -227,7 +167,7 @@ A practitioner's reference for migration test suites: five layers (unit, parity,
 
 ### Need AI-agent systems that hold up in production?
 
-Let's talk about the agentic system, data platform, or evaluation problem you're solving.
+Let's talk about the agent, the data it runs on, or how you will know it is right.
 
 ::: {.d-flex .justify-content-center .gap-3 .mt-3}
 [Get in touch](contact.qmd){.btn .btn-primary .btn-lg}

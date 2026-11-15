@@ -1,7 +1,6 @@
 ---
 title: "Writing"
-subtitle: "Case studies and technical essays on AI engineering, agents, and production data"
-description: "Technical writing on AI-agent systems, Text-to-SQL, coding agents, evaluation harnesses, data platform work, and time series ML."
+description: "Case studies and technical essays on AI-agent systems, Text-to-SQL, coding agents, evaluation, and production data work."
 listing:
   - id: all-posts-listing
     contents: posts
@@ -16,8 +15,6 @@ format:
   html:
     page-layout: article
 ---
-
-Longer-form case studies and technical essays on AI-agent systems, evaluation, and production data platform work live here.
 
 Shorter notes and experiments live in [TIL / Random Notes](randomposts.qmd).
 
