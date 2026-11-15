@@ -2,7 +2,7 @@
 title: "Time Series Classification for Production"
 description: "Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation"
 date: 2025-11-01
-date-modified: last-modified
+date-modified: "2025-11-01"
 categories: [Time Series, Production ML, Feature Engineering, Algorithm Adaptation, PyTorch, Scikit-Learn, Real-time ML]
 draft: false
 twitter:

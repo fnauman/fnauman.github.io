@@ -2,7 +2,7 @@
 title: "AI for second-hand fashion"
 description: "MLOps, Object Detection, Synthetic Data, Web App Development, Image Classification, Project Management"
 date: 2025-04-13
-date-modified: last-modified
+date-modified: "2025-05-06"
 categories: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
 # keywords: [MLOps, Object Detection, Web App Development, Computer Vision, Synthetic Data, Project Management, PyTorch, HuggingFace, Datasets]
 # citation: true

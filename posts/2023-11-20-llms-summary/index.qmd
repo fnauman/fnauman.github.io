@@ -8,7 +8,7 @@ author:
     # affiliation: Department of Industrial Systems, Division of Digital Systems, RISE Research Institutes of Sweden AB
     # affiliation-url: https://www.ri.se/en/what-we-do/projects/ai-for-resource-efficient-circular-fashion
 date: "2023-11-20"
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Artificial Intelligence, Natural Language Processing, Large Language Models]
 keywords: [Artificial Intelligence, Natural Language Processing, Deep Learning, Large Language Models]
 citation: true
@@ -29,22 +29,33 @@ og:
 
 > This article is a work in progress because the field of LLMs is a work in progress. Additionally, I am unable to keep up with all the fantastic innovations in LLMs every couple of months. This article represents both my own learning experience and a compilation of things that I have tested and found to work well with my workflows. 
 
-In November, 2023, when I first wrote this article, GPT-4 with vision capabilities had just come out. Most competitors were playing catch-up with GPT-4 for most of 2023 and early 2024. By Summer 2024, Claude 3.5 Sonnet was released and immediately became the default LLM for coding assistants because of its superior performance over GPT-4/GPT-4o. Since September 2024, multiple reasoning models have been released triggered by the launch of OpenAI's o1. Below article represents a high level summary of how LLMs work and I start by presenting my top choices for LLMs for various tasks, which changes every few months. 
+In November, 2023, when I first wrote this article, GPT-4 with vision capabilities had just come out. Most competitors were playing catch-up with GPT-4 for most of 2023 and early 2024. By Summer 2024, Claude 3.5 Sonnet was released and immediately became the default LLM for coding assistants because of its superior performance over GPT-4/GPT-4o. Since September 2024, multiple reasoning models have been released triggered by the launch of OpenAI's o1. Below article represents a high level summary of how LLMs work and I start by presenting the models and tools I use, which changes every few months. The page was last revised in November 2026: the tooling section is current as of then, and I have corrected or dated the parts of the fundamentals and limitations sections that the field has moved past.
 
 <!-- This guide provides a technical introduction to modern Large Language Models (LLMs) targeted at academics and software engineers who are beginning to explore this exciting field. LLMs can be leveraged in various applications, such as content generation, code assistance, data analysis, and more. While this is a concise overview, it should serve as a solid starting point for anyone interested in grasping the fundamentals of LLMs and their potential. I intend to continually update this guide with the latest advancements and insights in the field. -->
 
-## Update **Feb. 7th, 2025**:
+## Update **November 2026**:
 
-Best models and tools I use:
+Models and tools I use:
 
-- **Code**: Claude 3.5 Sonnet, DeepSeek-r1 (see also DeekSeekv3 - [93.1% of aider's own code writes are using Deepseekv3](https://x.com/paulgauthier/status/1877867244614779030/photo/1))
-- **Writing**: Gemini 2.0 Pro Experimental 02-05 - this has become my default model for writing. The only complaint I have is that it currently supports file attachments through the AI studio interface, but not the Gemini app. 
-- **Speech-to-Speech**: OpenAI's GPT-4o, Gemini 2.0 Flash - both seem to have a 30 min limit unfortunately. 
-- **Reasoning/Planning**: OpenAI-o1, DeepSeek-r1, Gemini Flash Thinking Experimental 01-21, OpenAI-o3-mini - in that order. I am hoping OpenAI-o3 will be considerably better than OpenAI-o1 and o3-mini when it becomes available to Plus users. 
-- **Research**: NotebookLM, Gemini Deep Research. One major limitation of these tools and LLMs in general (except Claude 3.5 Sonnet apparently) is that they use OCR to convert PDFs into text, which often does not capture the layout and structure of the document.
-- **IDEs/Agents**: `windsurf`, `aider`, `github copilot` - in that order. I also tried `cursor`, which is arguably the most popular IDE right now for power users. I personally do not find it's composer to be better than Windsurf's cascade. The `tab` might be better though. Also, Windsurf costs $10/month while Cursor $20/month with differences in how many times you can call "premium models" (GPT-4o, Claude 3.5 Sonnet, DeepSeek-r1, etc.). I will report back on how `[OpenHands](https://github.com/All-Hands-AI/OpenHands)` (previously called OpenDevin) compares to the other tools listed here. 
+- **Models**: Claude Opus 5.5 and Claude Fable 5.2 from Anthropic; GPT-6.1 Sol and GPT-6 Astra from OpenAI.
+- **Subscriptions**: Claude Max and ChatGPT Pro, both since November 2025.
+- **Client work**: mostly GitHub Copilot.
+- **API**: some models directly through the API when a task needs it.
+
+::: {.callout-note collapse="true"}
+## Previous snapshot: February 7th, 2025
+
+Kept for the record. Every item here is out of date.
+
+- **Code**: Claude 3.5 Sonnet, DeepSeek-r1 (see also DeepSeek-V3 - [93.1% of aider's own code writes are using DeepSeek-V3](https://x.com/paulgauthier/status/1877867244614779030/photo/1))
+- **Writing**: Gemini 2.0 Pro Experimental 02-05 - this has become my default model for writing. The only complaint I have is that it currently supports file attachments through the AI studio interface, but not the Gemini app.
+- **Speech-to-Speech**: OpenAI's GPT-4o, Gemini 2.0 Flash - both seem to have a 30 min limit unfortunately.
+- **Reasoning/Planning**: OpenAI-o1, DeepSeek-r1, Gemini Flash Thinking Experimental 01-21, OpenAI-o3-mini - in that order. I am hoping OpenAI-o3 will be considerably better than OpenAI-o1 and o3-mini when it becomes available to Plus users.
+- **Research**: NotebookLM, Gemini Deep Research. One limitation I ran into with several of these tools at the time was that PDFs were converted to plain text first, which often loses the layout and structure of the document.
+- **IDEs/Agents**: `windsurf`, `aider`, `github copilot` - in that order. I also tried `cursor`, which is arguably the most popular IDE right now for power users. I personally do not find its composer to be better than Windsurf's cascade. The `tab` might be better though. Also, Windsurf costs $10/month while Cursor $20/month with differences in how many times you can call "premium models" (GPT-4o, Claude 3.5 Sonnet, DeepSeek-r1, etc.). I will report back on how [OpenHands](https://github.com/All-Hands-AI/OpenHands) (previously called OpenDevin) compares to the other tools listed here.
 
 (For text-to-image, `imagen-3` by Google and `flux-dev` are my top choices.)
+:::
 
 <!-- ## Demystifying Large Language Models: A Technical Introduction for Application Builders -->
 
@@ -54,23 +65,23 @@ At their core, Language Models are designed to learn the probability distributio
 
 - **Input**: This covers tokenization and embedding on input text. Tokenization is a bottleneck especially for domain-specific languages. Frontier research is exploring alternative tokenization methods and tokenization-free approaches that I will write more about later. 
 - **Core (self-attention)**: Multi-head self-attention, several layers of it with residual connection forms the core of the transformer architecture (*attention is all you need*). This is arguably the reason why LLMs are so powerful at understanding multiple meanings of the same word, and doing "in-context learning". 
-- **Output**: While earlier models were only focusing on the "pretraining" phase that literally just does next-token prediction, newer models involve extensive instruction tuning and reinforecement learning based approaches to force the model to learn how to generate coherent text over long sequences. Some recent work like [DeepSeekv3](https://arxiv.org/abs/2412.1943) has made improvements in the pretraining phase where they introduced an auxiliary multi-token prediction loss instead of just using a single token prediction loss that is commonplace. 
+- **Output**: A final linear layer maps the last hidden state to a probability distribution over the vocabulary, and a sampling strategy picks the next token from it. How good those predictions are is decided in training. While earlier models were only focusing on the "pretraining" phase that literally just does next-token prediction, newer models involve extensive instruction tuning and reinforcement learning based approaches to force the model to learn how to generate coherent text over long sequences. Some recent work like [DeepSeek-V3](https://arxiv.org/abs/2412.19437) has made improvements in the pretraining phase where they introduced an auxiliary multi-token prediction loss instead of just using a single token prediction loss that is commonplace. 
 
-I plan to extend the following discussion with more about the recent innovations in each of the three components: context extension through Rotary Position Embeddings (RoPE), performance improvements through Flash Attention, multi-token prediction, etc.
+I plan to extend the following discussion with more about the recent innovations in each of the three components: positional encoding through Rotary Position Embeddings (RoPE), performance improvements through FlashAttention, multi-token prediction, etc.
 
 ### 1. Tokenization: Converting Text to Numerical Representations
 
-Before text can be processed by an LLM, it must be converted into numerical representations. This is the role of the **tokenizer**. Tokenizers break down text into smaller units called **tokens**, which can be words, subwords, or characters.  Different LLMs often employ distinct tokenization methods, leading to fragmentation in the ecosystem. For example, OpenAI models utilize Byte-Pair Encoding (BPE), while T5 uses SentencePiece.
+Before text can be processed by an LLM, it must be converted into numerical representations. This is the role of the **tokenizer**. Tokenizers break down text into smaller units called **tokens**, which can be words, subwords, or characters.  Different LLMs often employ distinct tokenization methods, leading to fragmentation in the ecosystem. For example, OpenAI models use byte-level Byte-Pair Encoding (BPE), while T5 uses a unigram model built with the SentencePiece library.
 
 **Tokenization as a Potential Bottleneck:** Tokenization can be a performance bottleneck and introduce limitations, particularly in these scenarios:
 
-* **Out-of-Vocabulary (OOV) Tokens:** Tokenizers typically have a fixed vocabulary size. Words not present in this vocabulary are treated as OOV tokens, often represented by a special `<unk>` token. A high number of OOV tokens can degrade model performance as the model has no learned representation for these words.
+* **Rare and Unseen Words:** Tokenizers have a fixed vocabulary size. Older word-level tokenizers mapped any word outside the vocabulary to a special `<unk>` token and lost it entirely. Modern subword tokenizers almost never do that: byte-level BPE can encode any string. The cost shows up differently. A word the tokenizer has rarely seen is split into many small pieces, which uses more of the context window and leaves the model with weaker learned representations to work from.
 * **Adaptability to New Languages:** Models trained primarily on English may struggle to tokenize languages with different scripts or linguistic structures (e.g., Chinese, Urdu, Swahili). 
 * **Domain-Specific Languages:** Technical domains like programming languages (HTML, Python) or specialized fields (medicine, law) pose challenges. These domains have unique syntax, terminology, and structures that general-purpose tokenizers may not handle optimally. Currently, as a side project, I am trying to port some old fluid dynamics codes from Fortran 90 to Python and finding that some LLMs are worse at understanding Fortran 90 (arguably out of favor in the industry). 
 
 ### 2. Embedding Layer: Representing Tokens Semantically
 
-Broadly speaking, this is the stand-out feature of the neural network based approaches as opposed to classical Markovian or n-gram like models: you can embed anything (language, audio, video, images, etc.) into a numerical representation that captures its semantic meaning. The numerical tokens are then transformed into **dense vector representations** by a learned **embedding layer**.  These embeddings are not just arbitrary numbers; they are designed to capture the **semantic meaning** of the tokens.  Tokens with similar meanings are positioned closer together in the embedding space. The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger. The increasing the embedding dimension can significantly increase the model size and computational complexity.
+Broadly speaking, this is the stand-out feature of the neural network based approaches as opposed to classical Markovian or n-gram like models: you can embed anything (language, audio, video, images, etc.) into a numerical representation that captures its semantic meaning. The numerical tokens are then transformed into **dense vector representations** by a learned **embedding layer**.  These embeddings are not just arbitrary numbers; they are designed to capture the **semantic meaning** of the tokens.  Tokens with similar meanings are positioned closer together in the embedding space. The size of the embedding vector (embedding dimension) is a hyperparameter, with modern LLMs often employing sizes of 2048 or larger. Increasing the embedding dimension can significantly increase the model size and computational complexity.
 
 **Purpose:** Embeddings serve as a crucial bridge, translating discrete tokens into a continuous vector space where semantic relationships can be mathematically modeled. Pre-trained LLMs leverage embeddings learned from vast amounts of text data, enabling them to capture general language understanding. 
 
@@ -86,7 +97,14 @@ The **self-attention mechanism** is arguably the most significant innovation dri
 
 ### 4. Other Architectural Components
 
-Modern LLM architectures, primarily based on decoder-only Transformers, also incorporate other layers such as Layer Normalization (LayerNorm) and activation functions like GeLU (Gaussian Error Linear Unit). While their precise theoretical underpinnings are still being researched, empirically, these components play a crucial role in stabilizing the training process and improving model performance.
+Modern LLM architectures, primarily based on decoder-only Transformers, have more in each layer than attention:
+
+* **Feed-forward (MLP) blocks:** Every attention layer is followed by a position-wise feed-forward network. In a standard Transformer block these hold roughly two thirds of the parameters, and much of what the model "knows" appears to be stored there.
+* **Residual connections:** Each sub-layer adds its output to its input, which is what makes very deep stacks trainable.
+* **Normalization and activation functions:** Layer Normalization (LayerNorm) or, in most recent models, RMSNorm; and activation functions like GeLU (Gaussian Error Linear Unit) or SwiGLU.
+* **Positional information:** Attention by itself is blind to token order, so position has to be injected, most commonly today through rotary position embeddings (RoPE).
+
+While the precise theoretical underpinnings of some of these choices are still being researched, empirically, they play a crucial role in stabilizing the training process and improving model performance.
 
 ## Language Model Training Stages: From Raw Text to Instruction Following
 
@@ -116,11 +134,11 @@ For tasks where output quality is subjective or difficult to define objectively 
 
 **Importance:** RLHF helps align the model's behavior with human values and preferences, improving the quality, helpfulness, and safety of generated text.  It addresses subjective aspects of language quality that are difficult to capture with purely supervised learning objectives.
 
-### 4. Reinforcement Finetuning for Reasoning (Verfiable Rewards)
+### 4. Reinforcement Finetuning for Reasoning (Verifiable Rewards)
 
-Some advanced models, like OpenAI's o1 or DeepSeek's r1 reasoning models, incorporate additional reinforcement learning stages focused on improving reasoning abilities. While the exact details on how OpenAI trained their "o" series of models are hidden and proprietary, the speculation is that it could include test time search, process reward modeling, chain-of-thought based supervised finetuning, and more. DeepSeek's r1-zero model does not use supervised finetuning at all and relies on verifable (or "rule-based") rewards for training. Their r1 model, however, uses a combination of supervised finetuning, RLHF and verifiable rewards. The most fascinating thing about DeepSeek's r1 model is reflection or backtracking, where the model can reflect on its own reasoning process and correct itself if it finds a mistake. According to the authors, this emerged during training and was not explicitly programmed into the model.
+Some advanced models, like OpenAI's o1 or DeepSeek's r1 reasoning models, incorporate additional reinforcement learning stages focused on improving reasoning abilities. While the exact details on how OpenAI trained their "o" series of models are hidden and proprietary, the speculation is that it could include test time search, process reward modeling, chain-of-thought based supervised finetuning, and more. DeepSeek's r1-zero model does not use supervised finetuning at all and relies on verifiable (or "rule-based") rewards for training. Their r1 model, however, uses a combination of supervised finetuning, RLHF and verifiable rewards. The most fascinating thing about DeepSeek's r1 model is reflection or backtracking, where the model can reflect on its own reasoning process and correct itself if it finds a mistake. According to the authors, this emerged during training and was not explicitly programmed into the model.
 
-**Data and Objective:** The data for verifable rewards is mostly restricted to domains like math and code. 
+**Data and Objective:** The data for verifiable rewards is mostly restricted to domains like math and code. 
 
 **Importance:** Reinforcement finetuning for reasoning is a frontier in LLM training with multiple labs trying to understand how best to scale reasoning capabilities. 
 
@@ -142,24 +160,23 @@ LLMs can exhibit **prompt sensitivity**.  Slight variations in prompt phrasing, 
 
 ### 2. Limited Self-Improvement:  Stuck in Loops and Knowledge Plateaus
 
-LLMs can exhibit limited self-improvement. They may repeat the same mistakes or biases without fundamentally learning from their errors in an iterative manner.  While models like OpenAI's o1 and Claude 3.5 Sonnet demonstrate improved self-correction, particularly in code-related tasks, general self-improvement remains a significant challenge.
+LLMs can exhibit limited self-improvement. They may repeat the same mistakes or biases without fundamentally learning from their errors in an iterative manner. Within a single task this has improved a great deal: reasoning models, and agents that can run code and read the result, correct themselves far better than the models of 2023, particularly in code-related tasks. Across tasks it has not. A model's weights do not change when it makes a mistake, so it learns from an error only if the system around it writes the lesson down somewhere it will read next time.
 
 ### 3. Knowing vs. Understanding:  Correlation vs. Causation
 
-LLMs primarily learn statistical correlations from massive datasets.  While they can exhibit impressive "knowledge," they often lack true "understanding" of underlying concepts and causal relationships.
+LLMs learn statistical regularities from massive datasets. How much of what they do with them deserves to be called "understanding" of underlying concepts and causal relationships is a contested question, and the evidence has shifted since I first wrote this section.
 
-**Counterfactual Reasoning Failures:**  When tested on counterfactual puzzles or questions that require reasoning about "what if" scenarios or understanding causal mechanisms, LLMs often perform poorly.  This highlights their reliance on memorized patterns rather than genuine conceptual understanding. Some papers like ["Reasoning or Reciting?"](https://arxiv.org/abs/2307.02477) and ["Planning in Strawberry Fields"](https://arxiv.org/abs/2410.02162) emphasize distinguishing between knowledge (memory) and understanding through evaluations on counterfactual questions and plans.
+**Counterfactual Reasoning:**  When tested on counterfactual variants of familiar tasks, the LLMs of 2023 performed markedly worse than on the default versions, which suggests they leaned on memorized patterns (["Reasoning or Reciting?"](https://arxiv.org/abs/2307.02477)). Reasoning models narrowed that gap considerably: ["Planning in Strawberry Fields"](https://arxiv.org/abs/2410.02162) found OpenAI's o1 far ahead of earlier LLMs on planning benchmarks, though still not robust on longer or obfuscated problems. The practical advice survives the debate: test a model on variations of your task, not only on the form of it that is all over the internet.
 
 ### 4. Domain Specializations
 
 General-purpose LLMs are trained on broad internet datasets.  Many specialized domains, such as medicine, law, or specific technical fields, have their own extensive vocabularies, jargon, and conceptual frameworks that are not adequately represented in general language models.
 
-**Domain-Specific Model Requirements:**  Effective application of LLMs in specialized domains often necessitates:
+**What Specialized Domains Need:**  When I first wrote this in 2023, the standard advice was domain-specific fine-tuning, models trained for one domain from the outset, and extending the tokenizer vocabulary with domain terms. That advice has aged badly. General frontier models have repeatedly caught up with or overtaken specialized ones, and a fine-tune has to be redone every time the base model changes. For language tasks, my own practice in 2026 is to use a general frontier model and put the domain into its context instead:
 
-* **Domain-Specific Fine-tuning:**  Further training general LLMs on domain-specific data to adapt their vocabulary and knowledge.
-* **Specialized Models:**  Developing LLMs trained specifically for a particular domain from the outset.
-* **Vocabulary Extension Techniques:**  Methods to expand the tokenizer vocabulary to include domain-specific terms.
-* **Knowledge Augmentation:**  Integrating LLMs with domain-specific knowledge bases or retrieval systems.
+* **Knowledge Augmentation:**  Retrieval over domain documents, a curated layer that maps business vocabulary to the underlying data, and worked examples in the prompt.
+* **Tools and Verification:**  Give the model the means to check its answer against the domain's own systems: run the query, execute the code, look up the record.
+* **Fine-tuning, Selectively:**  It still earns its place for narrow, high-volume tasks where cost or latency matters, for data that cannot leave the premises, and for modalities and signals that general models handle poorly.
 
 Concepts and ideas that appear infrequently in the training data (the "long tail" of the knowledge distribution) are less likely to be learned effectively by LLMs. While Retrieval-Augmented Generation (RAG) can provide LLMs with relevant context from external knowledge sources, it is not a complete solution for long-tail knowledge. Generating high-quality text about rare or novel concepts may require more "core" knowledge and reasoning ability than the model possesses, even with retrieved context.
 
@@ -171,6 +188,6 @@ This introduction has provided a foundational understanding of Large Language Mo
 
 * **Explore the [Transformers](https://huggingface.co/docs/transformers/en/index) Library:**  A powerful and user-friendly library for working with pre-trained LLMs in Python. Experiment with different models, tokenizers, and prompting techniques.
 * **Dive into Prompt Engineering:** A good rule of thumb is that your prompt should contain enough information to be useful for a human to understand. For code, I often think of the LLM as a junior developer that needs specific information on what to do next. 
-* **Practice a lot:** I personally have multiple subscriptions and use many LLMs through the API as well. For instance, I have found that `DeepSeek-r1` is fantastic at code and math, even out-doing o1 and o3-mini in many cases, but for general physics questions, it is worse. 
-* **Try Frameworks:** [`langchain`](https://python.langchain.com/docs/introduction/) and other frameworks are relatively easy to explore, and some including `langchain` have a LLM-based chatbot for their docs that can generate starter code for you immediately. The only frustration I have is that their API changes every couple of months, so if you found a nice `langchain` tutorial from 6 months ago, it is unlikely to work anymore.
+* **Practice a lot:** I keep two subscriptions and use other models through the API when needed. Models differ by task in ways that benchmarks do not predict, and the differences change with every release, so the only reliable guide is trying them on your own work. 
+* **Try Frameworks:** [`langchain`](https://python.langchain.com/docs/introduction/) and other frameworks are relatively easy to explore, and some including `langchain` have a LLM-based chatbot for their docs that can generate starter code for you immediately. My frustration through early 2025 was that their API changed every couple of months, so a nice `langchain` tutorial from 6 months earlier was unlikely to work anymore. Check a tutorial's date before following it.
 * **Stay up-to-date:** Podcasts like [thursdai](https://sub.thursdai.news/podcast) and newsletters like [AI News by smol-ai](https://smol.ai/) are great resources for staying up-to-date with the latest developments in LLMs.

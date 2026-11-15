@@ -6,7 +6,7 @@ author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
 date: "2026-05-02"
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Software Engineering, Coding Agents, Testing]
 keywords: [code migration, testing strategy, parity tests, manifest hashing, end-to-end tests, oracle, reference data]
 citation: true
@@ -24,7 +24,7 @@ og:
 
 In the prior post the central instruction was: *build the oracle before you port*. That sentence is short. The work behind it is not. If you have ever sat down to actually do it, the questions arrive immediately. What does the oracle live in? What does it compare against? What stops a benign-looking config edit from silently invalidating last week's reference data? When tests pass, why do they pass — because the code is right, or because the test happens to be checking something easy?
 
-This post is my attempt to answer those questions concretely. It is not a recipe to copy verbatim. It is a layered structure that I have ended up rebuilding, in roughly the same shape, on every nontrivial migration I have worked on.
+This post is my attempt to answer those questions concretely. The structure comes mostly from porting a grid-based computational fluid dynamics (CFD) solver from C to PyTorch, which is why the examples talk about grids, boundary cells, step-size constraints, and differentiability. I keep the code bases themselves out of it; the test structure is what transfers. It is not a recipe to copy verbatim. It is a layered structure that I have ended up rebuilding, in roughly the same shape, on every nontrivial migration I have worked on.
 
 Here, "oracle" just means the thing the new implementation must agree with: captured behavior from the old implementation, plus enough metadata to prove those artifacts came from the configuration you think they came from.
 
@@ -48,7 +48,7 @@ No single test type satisfies all of those properties. So the suite layers.
 In rough order of how localized the failure they catch is, the layers are:
 
 1. **Unit tests** — small, isolated assertions about new-implementation building blocks (grids, layouts, config validators, IO helpers). These catch type bugs, off-by-one errors, and wiring mistakes early. They do not prove parity.
-2. **Parity tests** — algorithm-level comparisons against captured reference logs from the source language, gated by hashed manifests. This is the load-bearing layer. If parity is green for the supported profiles, the port is real.
+2. **Parity tests** — algorithm-level comparisons against captured reference logs from the source language, gated by hashed manifests. This is the load-bearing layer. If parity is green for the supported profiles, the port is real for the inputs those cases cover.
 3. **Manifest integrity tests** — tests whose only job is to verify that profiles, harnesses, cases, and logs all agree on the same configuration hashes and schema hashes. They catch silent drift between the config you ran and the data you are comparing against.
 4. **End-to-end (system) tests** — full pipeline runs that compare stage-by-stage logs across the entire update, not just final outputs. These catch interaction bugs that no leaf-level parity test can see.
 5. **Performance and differentiability tests** — opt-in regression checks that lock in non-correctness properties (speed, differentiability) once correctness has been established.
@@ -64,9 +64,9 @@ Unit tests are the layer most people start with, because they are the easiest to
 - Config validation (does an out-of-scope coefficient raise instead of silently proceeding?).
 - IO and schema helpers (does the log header parser reject a file with a wrong column order?).
 
-What unit tests should *not* be doing in a migration is asserting numerical correctness of a ported algorithm. A unit test that says "given this input, this routine returns this hardcoded vector" is, almost always, a snapshot of *your* output that you forgot was a snapshot. It will pass forever, including when it is wrong.
+What unit tests should *not* be doing in a migration is asserting numerical correctness of a ported algorithm against numbers the port itself produced. A unit test that says "given this input, this routine returns this hardcoded vector" is, almost always, a snapshot of *your* output that you forgot was a snapshot. It will pass forever, including when it is wrong.
 
-The discipline I now keep is simple: if a test asserts numbers, it must compare against an external oracle, and that oracle must live as a separate artifact in the repository, not as a literal in the test file.
+The discipline I now keep is simple: if a test asserts numbers, those numbers must come from somewhere other than the code under test. Usually that is the reference implementation, stored as a separate artifact in the repository rather than as a literal in the test file. The one legitimate exception is a value you can derive independently: an analytic solution, a conserved quantity, a symmetry. Those are worth having precisely because they do not depend on the reference either.
 
 ## Parity tests: the load-bearing layer
 
@@ -78,9 +78,11 @@ Parity tests are where the migration is actually proven. The shape is always the
 
 The details that make parity actually trustworthy are easy to skip because they look like pedantry. They are not.
 
-**Float64 by default, machine precision tolerances by default.** I run parity at `rtol=1e-14, atol=1e-15` for double-precision codes. Anything looser is a documented decision tied to a specific harness and a specific reason — a particular reduction order, a known-divergent boundary cell, an algorithm that fans out across architectures. The default never moves silently. Every time someone proposes loosening a tolerance, the right reflex is to ask: is the diff truly numerical noise, or is one of the implementations wrong in a way that is small for this input?
+**Float64 by default, near-machine-precision tolerances by default.** I run parity at `rtol=1e-14` for double-precision codes. The absolute tolerance needs more thought than it usually gets: a fixed `atol=1e-15` only means "machine precision" for quantities of order one. For a field whose values sit around `1e-20` in physical units it passes everything, and the test is vacuous. So `atol` is either zero or scaled to the magnitude of the field being compared. Tolerances this tight are only reachable if the reference build is pinned for it: no fast-math, no fused multiply-add contraction, and the same operation order on both sides. Anything looser is a documented decision tied to a specific harness and a specific reason — a particular reduction order, a math-library function that differs in the last bits, a known-divergent boundary cell, an algorithm that fans out across architectures. The default never moves silently. Every time someone proposes loosening a tolerance, the right reflex is to ask: is the diff truly numerical noise, or is one of the implementations wrong in a way that is small for this input?
 
 **Both execution modes, where the new code supports them.** If the port adds capabilities the reference does not have — automatic differentiation, vectorized batching, accelerator paths — those capabilities each get their own parity test against the same reference. "Fast mode matches reference" and "differentiable mode matches fast mode" are two distinct claims, both worth proving.
+
+**Know what parity does not prove.** Parity is agreement on the captured inputs, nothing more. Two consequences follow. First, a case set that never drives the reference down a branch says nothing about that branch, so it is worth measuring which reference lines and branches the harness cases actually execute (a coverage build of the reference driver is enough) and treating the unexercised ones as unported. Second, parity reproduces the reference faithfully, bugs included. A small set of checks that do not depend on the reference — analytic solutions, conservation, convergence order — is the only thing in the suite that can tell you the reference itself is wrong.
 
 **Disabled-feature tests, written explicitly.** When a config disables an optional stage, parity that says "the output didn't change" is not enough. The contract is that the stage is *not run at all* — not constructed, not called, its step-size constraint not applied, its boundary enrollment skipped. That has to be a test in its own right. More on this below.
 
@@ -108,6 +110,8 @@ Any mismatch is a hard fail. The test prints all three hashes so the contributor
 
 I also hash log schemas — the ordered list of column names — and store the schema hash in both the harness manifest and the log header. That catches a different drift: a contributor adds a column or reorders them, the test still finds the file, and silent column mis-alignment turns results into garbage. With a schema hash, the parser refuses to read a log whose columns are not the ones it was written to expect.
 
+The configuration hash has a limit worth stating plainly: it proves a log is *labelled* with the right configuration, not that its contents are what the reference produced. Two things close that gap. Record a SHA-256 of each log file's contents in the case metadata, and record the reference implementation's revision and compiler flags in the harness manifest; then have the integrity test recompute the content hashes and fail on any mismatch. This matters more when a coding agent is doing the porting. An agent told to make parity pass can regenerate or edit a reference log and leave a perfectly valid header on it. With content hashes committed alongside, that edit shows up in review as a changed hash in a file the port was never supposed to touch.
+
 This pattern *configuration as cryptographic checksum* does almost all the structural work in the suite. It costs almost nothing to add, and it eliminates an entire class of "passed in CI, broken in production" failures that you would otherwise spend weeks debugging.
 
 ## End-to-end tests: stages, not endpoints
@@ -130,7 +134,7 @@ End-to-end tests are also where you catch *configuration coverage gaps*. A profi
 
 ## Performance and differentiability: locks for after correctness
 
-Performance tests and gradient tests are the layer most teams reach for first and benefit from least, because they are useless if correctness is not pinned down. Once correctness *is* pinned down, they are valuable for a precise reason: they prevent the next round of changes from silently regressing properties you cared about.
+Performance tests and gradient tests are tempting to reach for early, and they pay the least until correctness is pinned down: a fast or differentiable wrong answer is still wrong. Once correctness *is* pinned down, they are valuable for a precise reason: they prevent the next round of changes from silently regressing properties you cared about.
 
 I keep performance benchmarks as opt-in (`RUN_PERF_TESTS=1`) so they do not gate ordinary pull requests, but I record a baseline snapshot in the repository: date, hardware, framework versions, grid sizes, milliseconds per stage, and refer to it whenever someone proposes a "harmless refactor". A refactor that quietly halves throughput is the kind of regression that can survive code review, but it cannot survive a benchmark that prints the slowdown next to the baseline.
 
@@ -171,7 +175,7 @@ If I were starting a new migration tomorrow and I had one week to set up the tes
 
 **Day 4: implement the algorithm and write its parity test.** Float64. Machine-precision tolerances. The implementation is done when the parity test passes, not when it "looks right."
 
-**Day 5: add a second profile and a second case.** Resist the urge to add five. The point of the second profile is to force the manifest hashing infrastructure to handle multiple configurations at once. Two is enough to find that bug; three hides it.
+**Day 5: add a second profile and a second case.** Resist the urge to add five. The point of the second profile is to force the manifest hashing infrastructure to handle multiple configurations at once. Two is enough to find that bug; more only adds work before the infrastructure is proven.
 
 **Day 6: write the directory-matrix test.** A test that fails if any profile in the supported list is missing a required case directory. This is the test that keeps the list of "things that work" honest as the suite grows.
 
@@ -203,8 +207,8 @@ tests/
           manifest_hash.txt          # case-level hash lock
           *.log                      # logs with schema headers
   unit/                              # building-block tests
-  unit/test_<algo>_parity.py         # algorithm-level parity
-  unit/test_manifest_integrity.py    # drift detection
+  parity/test_<algo>_parity.py       # algorithm-level parity
+  parity/test_manifest_integrity.py  # drift detection
   e2e/test_<system>_stages.py        # stage-by-stage system parity
   performance/test_<algo>_speed.py   # opt-in regression
   profiles.py                        # canonical CI profile list
@@ -223,8 +227,8 @@ The shape of the tree matters less than the invariants it enforces:
 When I review a migration's test suite, these are the questions I want answered without me reading the code. I do not always get them. The ones that are missing tend to predict where the next bug lives.
 
 1. Which build configurations are supported, and where is that list?
-2. For each configuration, which algorithms have parity tests against captured reference data?
-3. What hashing chain ties the configuration to the reference logs, and where is the test that verifies the chain?
+2. For each configuration, which algorithms have parity tests against captured reference data, and which reference branches do those cases actually exercise?
+3. What hashing chain ties the configuration, the reference revision, and the log contents together, and where is the test that verifies the chain?
 4. What schema validation prevents a log file from being read with the wrong column order?
 5. For features that can be disabled, is there a test asserting *absence* — not just zero output?
 6. Is there a test that fails when a supported profile is missing required cases?

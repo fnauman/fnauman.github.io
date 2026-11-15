@@ -5,7 +5,7 @@ author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
 date: "2025-02-23"
-date-modified: last-modified
+date-modified: "2025-04-12"
 categories: [Physics, Computational Fluid Dynamics, Aritifical Intelligence]
 keywords: [Physics, Computational Fluid Dynamics, Machine Learning, Artificial Intelligence]
 citation: true

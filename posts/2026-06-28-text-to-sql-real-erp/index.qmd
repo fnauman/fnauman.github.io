@@ -6,7 +6,7 @@ author:
   - name: Farrukh Nauman
     url: https://fnauman.com/
 date: "2026-06-28"
-date-modified: last-modified
+date-modified: "2026-11-14"
 categories: [Text-to-SQL, LLM Evaluation, Coding Agents, Full-Stack]
 keywords: [text-to-sql, natural language to sql, LLM evaluation, retrieval, SQL guardrails, semantic layer, Wilson interval, reliability, server-sent events, React, TypeScript, MariaDB]
 featured: true
@@ -22,6 +22,16 @@ og:
 
 ::: {.callout-note appearance="minimal"}
 **Disclaimer**: This is anonymized and generalized. It names no client, exposes no proprietary schema, data, or figures, and contains no credentials. The focus is transferable engineering patterns. The companion repo ships a fully synthetic schema with synthetic data.
+:::
+
+::: {.callout-important appearance="simple"}
+**Update, November 2026.** The [companion repo](https://github.com/fnauman/txt2sql) has evolved a lot since this was written in June, and some of what follows describes the first public version rather than the current one. The lessons from the real ERP stand; three things changed once I measured them properly on the synthetic schema:
+
+- **Retrieval scope is now sized to the schema.** On the 13-table demo schema the whole schema fits the prompt, so it is sent in full and retrieval only ranks tables as a hint. Enforced retrieval scope remains the fallback for schemas too wide to send, with a table added on demand when the model's SQL needs one that retrieval missed.
+- **The reliability headline changed.** The suite grew from a handful of cases to 404, and the headline is now case-level accuracy with a bootstrap confidence interval. The pooled Wilson bound described below overstated confidence, because repeated runs of the same question are strongly correlated.
+- **The guardrails do not catch wrong meaning.** In the current baseline, every remaining failure on the dev split is valid SQL that returns the wrong result, and the deterministic layer rejects none of them. The guardrails stop unsafe and structurally wrong SQL; they are not a substitute for the model getting the semantics right.
+
+I have marked the affected sections inline.
 :::
 
 ## The problem tutorials assume away
@@ -59,6 +69,8 @@ So retrieval scope became a hard constraint, not a hint. The pipeline selects a 
 
 Run the same question a few times and you see why this matters. Before I enforced scope, one product-line question produced four different wrong strategies across four runs: match the name as free text (no rows), use an obsolete denormalized column (no rows), emit SQL with an unbound `@variable` for the user to fill in (no rows), and guess a join. For an analytics tool, *non-determinism on the same business question is itself a trust failure.*
 
+*Update, November 2026:* enforcement has a cost I had not measured when I wrote this. If the retrieved set is the validator's allow-list, every retrieval miss becomes an unrecoverable failure: the SQL that needs the missing table is rejected, and a retry can only be told to avoid it. On a schema small enough to fit the prompt, sending the whole schema and using retrieval as a ranking hint removes that failure class at about the same token cost, and that is now the repo's default. On a schema as wide as the real ERP the full schema does not fit, so retrieval still has to narrow it. There, the scope is still enforced, but a table the model's SQL needs and retrieval missed is added on demand and the query is regenerated. The rule I would state now is narrower than this section's title: *never fall back silently to an arbitrary table set, and make a retrieval miss recoverable.*
+
 ## Put it in users' hands before the benchmark looks done
 
 Another thing that changed the system was early user feedback. Once a minimal pipeline worked, we put it in front of users instead of waiting for a polished evaluation suite. That surfaced failures I would not have written into synthetic tests on my own.
@@ -83,7 +95,9 @@ What gets checked, mechanically, before anything executes:
 | If a business metric matched, the SQL must use its canonical column | "Right shape, wrong column" |
 | Literal entity IDs in filters must come from the resolver's candidate list | The model inventing IDs |
 
-One subtlety worth stealing: strip string literals and comments *before* the safety scan, so `WHERE note = 'delete later'` isn't a false positive and a comment-obfuscated payload isn't a false negative.
+One subtlety worth stealing: scan the SQL the way the database reads it, not as raw text. A keyword scan over the raw string flags `WHERE note = 'delete later'` (a false positive), so string literals have to be excluded from the scan. Comments need more care than literals, because MariaDB *executes* the contents of `/*! ... */` comments: strip those before scanning and you have hidden a payload from your own check. The first version rejected executable comments and stripped the rest. The current repo reads the SQL through a MariaDB-aware tokenizer and rejects every comment outright, which is simpler to reason about.
+
+The validator is defense in depth, not the security boundary. A denylist can always miss something, so the generated SQL also runs as a database user that has `SELECT`-only grants, under a statement timeout.
 
 The principle generalizes well beyond SQL: **let the model propose, and put a small, testable, deterministic layer underneath that has the authority to say no.**
 
@@ -91,9 +105,11 @@ The principle generalizes well beyond SQL: **let the model propose, and put a sm
 
 Early on, my first scoring oracle reported **16.7% accuracy** and I nearly started "fixing the model." Then I read the failures. Four of the five were *correct answers* — they just projected an extra ID column, or aliased the metric `total_net_sales` instead of `total_net_amount`. The bug was the oracle, not the model. An evaluation that scores correct SQL as failure for cosmetic reasons turns every downstream measurement into noise.
 
-The fix was a **value-aware comparator** (Spider-style execution match): it matches columns by their value signature rather than by name, ignores extra projected columns, matches rows by an order-blind bijection, and rounds numerics to the gold answer's precision. For ranked questions it also checks the primary measure is monotonic in the requested order — catching "didn't sort / sorted backwards" while tolerating tie reordering.
+The fix was a **value-aware comparator** that scores the executed result rather than the SQL text, and is deliberately more lenient than a strict result-set comparison: it matches columns by their value signature rather than by name, ignores extra projected columns, matches rows by an order-blind bijection, and rounds numerics to the gold answer's precision. For ranked questions it also checks the primary measure is monotonic in the requested order — catching "didn't sort / sorted backwards" while tolerating tie reordering.
 
 The second reliability trap is subtler and more tempting: **a single `accuracy: 1.0` is a sample, not a guarantee.** Generation is non-deterministic in practice, and the same code on the same small dataset can land anywhere. My synthetic edge-case suite drifted across a wide band from one run to the next. So the harness has a `--repeat N` mode that reports per-run min/mean/max and, as the honest headline, a **Wilson 95% lower bound** on the pass rate. Six-for-six on one run has a lower bound near 0.6, not 1.0. That number is much harder to fool yourself with — which is the point.
+
+*Update, November 2026:* the single-run arithmetic above is right, but pooling repetitions into one Wilson bound was not. Repeated runs of the same question are strongly correlated (most failures are systematic, so a case that fails once tends to fail every time), and counting them as independent trials overstates confidence. The harness now treats the *case* as the unit: the headline is the mean over cases of each case's pass rate across repetitions, with a 95% interval from a bootstrap over cases. The principle survives; the statistic did not.
 
 ## Ground the model before it generates
 
@@ -116,17 +132,17 @@ The slow part of text-to-SQL is the single blocking LLM call — the overwhelmin
 
 ## What I'd do next
 
-The honest list, grounded in what the code does *not* yet do:
+The honest list as it stood in June, grounded in what the code did *not* yet do, with where each item stands in November 2026:
 
-1. **Vector retrieval to complement lexical scoring.** Retrieval today is lexical token-overlap plus a hand-curated semantic layer — every new business term needs a manual entry. Hybrid lexical + embedding retrieval would generalize to unseen phrasing.
-2. **Multi-entity master-data resolution.** Resolution and the ID guardrail are item-only by design; customers, locations, and campaigns each need their own resolver and guardrail columns. The fuzzy-match war stories all point here.
-3. **A semantic planning step before SQL.** Question → structured plan (entities, metric, date column, dimensions, required tables, assumptions) → validate the *plan* against the schema → only then generate SQL. Catch metric/date/join errors earlier than a post-hoc SQL check.
-4. **A bounded self-correction loop.** Today there's one retry, and only on a database error — guardrail rejections don't retry. Feeding the guardrail's specific complaint back for one re-generation, plus self-consistency voting, should lift reliability.
-5. **A real SQL parser/AST** instead of regex for the column/join checks — more rigorous, fewer edge-case blind spots.
-6. **Bigger benchmarks fed by real usage.** The committed datasets are intentionally small smoke signals; any real reliability claim needs a few dozen execution-verified cases, not six. The highest-value cases should come from early user feedback, not only synthetic brainstorming.
+1. **Vector retrieval to complement lexical scoring.** Retrieval is lexical token-overlap plus a hand-curated semantic layer — every new business term needs a manual entry. Hybrid lexical + embedding retrieval would generalize to unseen phrasing. *Still open.*
+2. **Multi-entity master-data resolution.** Resolution and the ID guardrail cover products only; customers, locations, and campaigns each need their own resolver and guardrail columns. The fuzzy-match war stories all point here. *Still open.*
+3. **A semantic planning step before SQL.** Question → structured plan (entities, metric, date column, dimensions, required tables, assumptions) → validate the *plan* against the schema → only then generate SQL. Catch metric/date/join errors earlier than a post-hoc SQL check. *Still open, and now the most interesting item: the failures that remain are wrong meaning, which a post-hoc SQL check does not see.*
+4. **A bounded self-correction loop.** In June there was one retry, and only on a database error. *Partly done: a failed generation, validation or execution now gets a bounded number of extra attempts, and a scope rejection widens the schema before regenerating. Self-consistency voting is not implemented.*
+5. **A real SQL parser/AST** instead of regex for the column/join checks. *Partly done: the checks now read the SQL through one MariaDB-aware tokenizer instead of regexes over the raw string. It is still not a full parser.*
+6. **Bigger benchmarks fed by real usage.** In June the committed datasets were six-case smoke signals. *Done for size: the suite is now 404 cases with a hidden holdout split. It is still synthetic, and the highest-value cases should still come from real user questions.*
 
 ## The repo
 
-The open-source version lives at [github.com/fnauman/txt2sql](https://github.com/fnauman/txt2sql). It is a compact reference implementation: the enforced-retrieval pipeline, deterministic guardrails, value-aware evaluation harness with the Wilson lower bound, and streaming full-stack app, all against a synthetic schema you can stand up locally in a couple of commands.
+The open-source version lives at [github.com/fnauman/txt2sql](https://github.com/fnauman/txt2sql). It is a compact reference implementation: the scoped-schema pipeline, deterministic guardrails, value-aware evaluation harness with case-level confidence intervals, and streaming full-stack app, all against a synthetic schema you can stand up locally in a couple of commands. Its README is the source of truth for current behavior and numbers.
 
-If there's one thing to take from it: on real data, the model writing SQL was never the bottleneck. The bottleneck is everything around it — and most of that is deterministic, testable, and yours to control.
+If there's one thing to take from it: on the real ERP, the first-order failures were not the model's SQL-writing. They were everything around it — retrieval, grounding, vocabulary, and evaluation — and most of that is deterministic, testable, and yours to control. Once that layer is in place, what remains is the harder residue: valid SQL with the wrong meaning. That part still belongs to the model, and to whoever reviews its assumptions.
