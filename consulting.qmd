@@ -1,59 +1,67 @@
 ---
 title: "Selected Work"
-subtitle: "AI engineering and agentic systems for production data platforms"
-description: "I design and ship AI-agent systems — Text-to-SQL, coding agents, evaluation harnesses, tool contracts — wired to production platforms like Snowflake, Databricks, and SQL databases."
+description: "What I do — agents on analytics data, agent evaluation, and coding agents for engineering work — and the case studies behind each."
 toc: false
 format:
   html:
     page-layout: article
 ---
 
-## Problems I solve
+## What I do
 
 ::: {.grid .mt-4}
 
-::: {.g-col-12 .fit-card}
-**AI engineering & agentic systems** — Coding agents wired to your data platform, CLIs, and real schemas: Text-to-SQL, tool/API contracts, evals, run manifests, sandboxed execution. Agents that ship to production, not chat demos.
+::: {.g-col-12 .service-card .service-card-feature}
+### Agents on analytics data
+
+**The problem:** A demo answers questions on a clean toy schema. Real data has hundreds of tables, columns that still exist but are no longer filled, and business words that do not match column names. On that data the dangerous answer is not an error. It is a clean result that is wrong.
+
+**What I do:** Build analytics agents and Text-to-SQL over the real schema on BigQuery, Snowflake, and SQL databases: schema and business-vocabulary grounding, enforced retrieval, deterministic read-only guardrails, and an interface that shows the SQL and each pipeline stage.
+
+**Evidence:** Text-to-SQL against a production ERP with hundreds of tables, rebuilt as the open-source [`txt2sql`](https://github.com/fnauman/txt2sql). I am currently building agents on an analytics stack on Google Cloud (BigQuery).
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Agent evaluation & reliability
+
+**The problem:** Most agent projects cannot say how often the agent is right. A handful of passing examples is not a measurement, and an eval set the prompts were tuned on overstates accuracy.
+
+**What I do:** Build eval suites scored on returned results, keep a blind held-out split, read traces to classify failures, and turn recurring failures into tests or guardrails.
+
+**Evidence:** The `txt2sql` suite has 404 cases over 217 intents, with a frozen holdout. Re-measuring my own pipeline changed three conclusions of the original write-up, and the post says which.
+:::
+
+::: {.g-col-12 .g-col-md-6 .service-card}
+### Coding agents for engineering work
+
+**The problem:** Coding agents produce plausible code quickly. On migrations and optimizations, plausible is the failure mode: the fastest result is sometimes wrong.
+
+**What I do:** Set up the oracle first — parity tests against the reference, row-level validation against a known-good baseline — then let agents do the volume. I use this for code migrations, platform-migration validation, and pipeline redesign.
+
+**Evidence:** A Databricks-to-Snowflake validator live in about a week. A daily pipeline whose largest job now runs 5-10x faster, after a faster design failed row-level validation. A CFD solver ported from C to PyTorch under parity tests.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Migration assurance** — Agent-driven cross-platform validation for Databricks/Snowflake and cloud moves: schema, row-count, key-distribution, and date-range checks across dozens of tables — in a dashboard the team trusts.
+**AI enablement & interim leadership**
+Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building. I led a 4–7 person DS/analytics team as interim lead, and an ~11M SEK Vinnova/EU AI portfolio.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
-**Warehouse cost & performance** — AI-agent workflows that profile the real bottleneck, benchmark across data scales and warehouse sizes, and prove row-level correctness before rollout. Faster *and* still right.
-:::
-
-::: {.g-col-12 .g-col-md-6 .fit-card}
-**AI enablement & change** — Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building — with governance and ROI, not hype. Led a DS/analytics team and an ~11M SEK Vinnova/EU portfolio.
-:::
-
-::: {.g-col-12 .g-col-md-6 .fit-card}
-**Time series & telemetry ML** — Production ML for sensor and telemetry data — activity recognition, anomaly detection, forecasting — fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy.
+**Time series & telemetry ML**
+Production ML for sensor and telemetry data: activity recognition, anomaly detection, forecasting. Fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy.
 :::
 
 :::
 
 
-## How I work
-
-**Advisory** — A few sessions to scope an AI-agent architecture, review evaluation strategy, or pressure-test a plan.
-
-**Embedded principal / interim lead** — Weeks to months on your team; I own deliverables and ship agentic systems alongside your people.
-
-**Hands-on AI engineering** — I build the thing and write the code — agents, guardrails, evals, tool contracts — not slide decks.
-
-**Evaluation-first delivery** — A clear success criterion up front: I prove correctness before I optimize, and show evidence before I ship.
-
-
-## Selected examples
+## Case studies
 
 ::: {.grid .mt-4}
 
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### Text-to-SQL Against a Real ERP
 
-Built natural-language querying against a wide production ERP with enforced retrieval, deterministic guardrails, value-aware evaluation (Wilson confidence bounds), and a streaming full-stack TypeScript/React app. Rebuilt as a fully synthetic open-source version preserving the real failure modes.
+Natural-language querying against a wide production ERP with enforced retrieval, deterministic guardrails, value-aware evaluation, and a streaming full-stack TypeScript/React app. Rebuilt as a fully synthetic open-source version that keeps the real failure modes.
 
 [Read the essay](posts/2026-06-28-text-to-sql-real-erp/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
@@ -61,7 +69,7 @@ Built natural-language querying against a wide production ERP with enforced retr
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### SQL Pipeline Optimization
 
-Redesigned a critical daily full-recompute pipeline into a validated incremental one — 5-10x faster with 50%+ compute savings and row-level correctness proof. Multi-scale benchmarks and parallel AI-agent workflows killed an attractive but broken optimization before it reached production.
+A critical daily full-recompute pipeline redesigned into a validated incremental one: the largest daily job runs 5-10x faster and overall compute cost fell by more than 50%. Multi-scale benchmarks and row-level validation killed an attractive but broken optimization before it reached production.
 
 [Read the case study](posts/2026-04-07-fast-wrong-is-worse-than-slow-right/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
@@ -69,42 +77,40 @@ Redesigned a critical daily full-recompute pipeline into a validated incremental
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### Cross-Platform Migration Validation
 
-Built a production-grade validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.
+A validation system for a large Databricks-to-Snowflake migration: automated comparison across dozens of tables, historical result storage, and a live team dashboard — from zero to deployed in about a week using a coding agent.
 
-[Read the full case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+[Read the case study](posts/2026-04-01-validating-a-data-platform-migration-with-an-ai-coding-agent/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### Code Migration Methodology
 
-Developed a practitioner's framework for large code migrations and clean-room-style rewrites with coding agents. Covers evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails — drawn from multiple 10k+ line migrations.
+A practitioner's framework for large code migrations and clean-room-style rewrites with coding agents: evidence-preservation, behavioral oracles, shortcut audits, and agent guardrails, drawn from multiple 10k+ line migrations.
 
 [Read the essay](posts/2026-03-09-dont-port-the-syntax-port-the-evidence/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
 ::: {.g-col-12 .g-col-md-6 .work-card}
+### Migration Testing: What Counts as Evidence
+
+A reference for migration test suites: five layers (unit, parity, manifest integrity, end-to-end, performance), why every reference artifact carries a cryptographic hash, and how to sequence the suite so the oracle leads the implementation.
+
+[Read the essay](posts/2026-05-02-what-counts-as-evidence/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
+:::
+
+::: {.g-col-12 .g-col-md-6 .work-card}
 ### Time Series Classification for Production
 
-Delivered a time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines. Designed for edge and IoT deployment where latency and power matter.
+A time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines, designed for edge and IoT deployment where latency and power matter.
 
 [Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
 
 :::
 
-
-## Engagement fit
-
-You should reach out if:
-
-- You are **building AI agents against real data** — Text-to-SQL, coding agents, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline, not just prompts.
-- You are a **data platform or engineering leader** who wants AI-agent workflows for migration validation, pipeline optimization, or analytics automation on Snowflake/Databricks/SQL databases.
-- You are **driving AI adoption** and need someone to run discovery, align stakeholders, and take agentic PoCs to production — not just advise.
-- You are a **technical sponsor or architect** who needs a senior AI engineer to lead or unblock a workstream.
-- You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
-- You have a **time series or telemetry problem** that needs production ML, not a research paper.
-
-I typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT — but the methods transfer.
+::: {.section-note}
+How engagements run, and who they fit, is on [Work With Me](contact.qmd). More essays are under [Writing](posts.qmd).
+:::
 
 ::: {.mt-4}
 [Work with me](contact.qmd){.btn .btn-primary}

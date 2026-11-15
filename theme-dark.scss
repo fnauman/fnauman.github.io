@@ -144,7 +144,7 @@ a {
     color: $headings-color;
     font-weight: 600;
     margin-bottom: 0.75rem;
-    max-width: 24ch;
+    max-width: 32ch;
   }
 
   p {
@@ -590,6 +590,41 @@ h2.section-heading {
   }
 }
 
+// ─── Section note (one-line pointer under a card grid) ───
+
+.section-note {
+  margin-top: 1.1rem;
+  font-size: 0.98rem;
+  color: $secondary;
+}
+
+// ─── Post header: keywords stay in the page metadata, not on the page ───
+
+#title-block-header .keywords {
+  display: none;
+}
+
+// ─── Post title banner: match the dark page instead of the bright primary ───
+
+.quarto-title-banner {
+  background: #20242a !important;
+  color: $headings-color !important;
+  border-bottom: 1px solid rgba($primary, 0.18);
+
+  .title,
+  .subtitle,
+  .description,
+  .description p {
+    color: $headings-color !important;
+  }
+
+  .subtitle,
+  .description,
+  .description p {
+    opacity: 0.85;
+  }
+}
+
 // ─── Grid ───
 
 .grid {
@@ -703,8 +738,14 @@ blockquote {
     }
   }
 
+  .proof-bar {
+    padding: 1rem 0.5rem;
+  }
+
   .proof-bar .proof-item {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
+    padding: 0.5rem 0.35rem;
+    font-size: 0.86rem;
     strong { font-size: 1.1rem; }
   }
 
