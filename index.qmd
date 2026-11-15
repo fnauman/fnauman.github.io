@@ -60,8 +60,8 @@ AI engineer and principal consultant. I build agents against real schemas and re
 ::: {.grid}
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**400+ eval cases**
-Text-to-SQL scored on returned values, with a blind held-out split
+**400+ regression cases**
+Synthetic Text-to-SQL suite, scored on returned results
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
@@ -99,7 +99,7 @@ Analytics agents and Text-to-SQL over real schemas on BigQuery, Snowflake, and S
 ::: {.g-col-12 .g-col-md-4 .service-card}
 ### Agent evaluation & reliability
 
-Eval suites scored on results, blind held-out cases, tracing, and failure analysis, so you know how often the agent is right and why it is wrong when it is not.
+Eval suites scored on results, held-out cases, tracing, and failure analysis, so you know how often the agent is right and why it is wrong when it is not.
 :::
 
 ::: {.g-col-12 .g-col-md-4 .service-card}

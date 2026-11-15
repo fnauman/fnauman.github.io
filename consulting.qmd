@@ -26,9 +26,9 @@ format:
 
 **The problem:** Most agent projects cannot say how often the agent is right. A handful of passing examples is not a measurement, and an eval set the prompts were tuned on overstates accuracy.
 
-**What I do:** Build eval suites scored on returned results, keep a blind held-out split, read traces to classify failures, and turn recurring failures into tests or guardrails.
+**What I do:** Build eval suites scored on returned results, keep a held-out split and track when it stops being independent, read traces to classify failures, and turn recurring failures into tests or guardrails.
 
-**Evidence:** The `txt2sql` suite has 404 cases over 217 intents, with a frozen holdout. Re-measuring my own pipeline changed three conclusions of the original write-up, and the post says which.
+**Evidence:** The `txt2sql` suite has 404 synthetic cases over 217 intents. Its holdout was authored blind and frozen, and has since informed several model comparisons, so I treat the suite as regression evidence on one synthetic schema, not as a production accuracy claim. Re-measuring my own pipeline changed three conclusions of the original write-up, and the post says which.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
