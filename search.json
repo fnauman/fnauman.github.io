@@ -368,14 +368,14 @@
     "href": "contact.html",
     "title": "Work With Me",
     "section": "",
-    "text": "Advisory — A few sessions to scope an AI-agent architecture, review your evaluation strategy, or pressure-test a plan. Good for teams that have the people but want a second opinion from someone who has done it before.\nHands-on AI engineering — I build the thing: agents, guardrails, evals, tool contracts. I write code, not slide decks.\nEmbedded principal / interim lead — I join your team for weeks or months as a senior IC or interim lead. I own deliverables, coordinate with stakeholders, and ship alongside your people. This is how most of my enterprise engagements run.\nWhatever the form, delivery is evaluation-first: a success criterion agreed up front, correctness proved before optimization, and evidence shown before anything ships."
+    "text": "Engagements are contracted through my company, InertialRange Labs AB. There are four offers:\n\nAgent Reliability Audit — fixed price, about 2 weeks: an eval suite on your data, a baseline, and a ranked list of fixes.\nAgent Build Sprint — fixed price, 4 to 6 weeks: one agent built to an acceptance test agreed in week one.\nReliability Retainer — monthly: regression checks and reviews as models, prompts, and data change.\nEmbedded AI Engineering — hourly or daily rate: a senior engineer or interim lead inside your team.\n\nWhat each offer includes is on inertialrange.com →"
   },
   {
-    "objectID": "contact.html#how-engagements-run",
-    "href": "contact.html#how-engagements-run",
+    "objectID": "contact.html#ways-to-work-together",
+    "href": "contact.html#ways-to-work-together",
     "title": "Work With Me",
     "section": "",
-    "text": "Advisory — A few sessions to scope an AI-agent architecture, review your evaluation strategy, or pressure-test a plan. Good for teams that have the people but want a second opinion from someone who has done it before.\nHands-on AI engineering — I build the thing: agents, guardrails, evals, tool contracts. I write code, not slide decks.\nEmbedded principal / interim lead — I join your team for weeks or months as a senior IC or interim lead. I own deliverables, coordinate with stakeholders, and ship alongside your people. This is how most of my enterprise engagements run.\nWhatever the form, delivery is evaluation-first: a success criterion agreed up front, correctness proved before optimization, and evidence shown before anything ships."
+    "text": "Engagements are contracted through my company, InertialRange Labs AB. There are four offers:\n\nAgent Reliability Audit — fixed price, about 2 weeks: an eval suite on your data, a baseline, and a ranked list of fixes.\nAgent Build Sprint — fixed price, 4 to 6 weeks: one agent built to an acceptance test agreed in week one.\nReliability Retainer — monthly: regression checks and reviews as models, prompts, and data change.\nEmbedded AI Engineering — hourly or daily rate: a senior engineer or interim lead inside your team.\n\nWhat each offer includes is on inertialrange.com →"
   },
   {
     "objectID": "contact.html#good-fit",
@@ -389,7 +389,7 @@
     "href": "contact.html#get-in-touch",
     "title": "Work With Me",
     "section": "Get in touch",
-    "text": "Get in touch\nEmail me Connect on LinkedIn\nI usually reply within 1–2 business days. If you reach out, a line or two on what you are working on helps me prepare a useful first response:\n\nAI agents · agent evaluation · Text-to-SQL · coding agents · data platforms · AI enablement · interim leadership · time series · something else"
+    "text": "Get in touch\nBook a call Email me Connect on LinkedIn\nI usually reply within 1–2 business days. Two lines are enough to start: what you are building or already running, and what you need to know or ship. A topic helps too:\n\nAI agents · agent evaluation · Text-to-SQL · coding agents · data platforms · AI enablement · interim leadership · time series · something else"
   },
   {
     "objectID": "index.html",
