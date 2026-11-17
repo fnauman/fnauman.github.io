@@ -2,7 +2,7 @@
 title: "Time Series Classification for Production"
 description: "Time Series Classification, Feature Engineering, Production ML, Edge Computing, IoT, Algorithm Adaptation"
 date: 2025-11-01
-date-modified: "2025-11-01"
+date-modified: "2026-11-17"
 categories: [Time Series, Production ML, Feature Engineering, Algorithm Adaptation, PyTorch, Scikit-Learn, Real-time ML]
 draft: false
 twitter:
@@ -10,11 +10,11 @@ twitter:
   card-style: summary_large_image
 og:
   title: "Time Series Classification: Research to Production"
-  description: "How modern feature-based approaches deliver state-of-the-art accuracy with 10-100× faster inference than deep learning for real-world applications."
+  description: "How to evaluate ROCKET-family methods for classification accuracy, inference latency, and hardware requirements."
 ---
 
 ::: {.callout-important appearance="minimal"}
-**OUTCOME**: State-of-the-art accuracy with 10-100× faster inference than deep learning through modern feature engineering and careful algorithm selection.
+**METHOD OVERVIEW**: ROCKET-family methods are candidates for time series classification on constrained hardware. The right choice depends on measured accuracy, latency, and memory use for your workload.
 :::
 
 ## Why this matters
@@ -31,12 +31,12 @@ Many real‑world systems need accurate, low‑latency models on constrained har
 
 - Thousands of simple, randomly‑parameterized convolutions over the series
 - Pool to compact features; train a lightweight linear classifier
-- Results: competitive accuracy on many benchmarks and often 10–100× faster inference than deep architectures; MiniROCKET is deterministic and reproducible
+- Compare classification accuracy, inference latency, and memory use against a named baseline on the same data split and hardware. Record the series length, batch size, and feature count so the comparison is reproducible.
 
 ### Variants at a glance
 
-- **MiniROCKET** — Deterministic kernels and PPV pooling. Best for edge/IoT and reproducibility.
-- **MultiROCKET** — Multiple pooling stats; raw + differenced signals. Best for complex multivariate data when accuracy matters.
+- **MiniROCKET** — A compact set of convolutional kernels and proportion-of-positive-values (PPV) features; a candidate when efficient feature extraction matters.
+- **MultiROCKET** — Multiple pooling statistics over raw and differenced signals; compare its additional feature cost and classification quality on the target task.
 - **ROCKET** — Random kernels with simple pooling. Solid, fast baseline.
 
 ### Simple pipeline
@@ -58,11 +58,13 @@ classifier.fit(X_train_features, y_train)
 y_pred = classifier.predict(X_test_features)
 ```
 
-## Real-world use cases
+## Workload considerations
 
-- **Edge anomaly detection**: Sub‑100 ms latency on embedded hardware; consistent behavior across a fleet.
-- **IoT sensors**: Efficient CPU‑only processing that preserves battery life.
-- **Industrial monitoring**: High‑quality multichannel vibration classification with interpretable features.
+- **Edge classification**: measure end-to-end latency and peak memory on the target device.
+- **IoT sensors**: measure CPU and power use at the required sampling and prediction rates.
+- **Industrial monitoring**: test across machines and operating conditions, with splits that avoid leakage between related signals.
+
+This overview does not report a client benchmark. A deployment claim needs the dataset, baseline, hardware, metric, and measured result; a general speed multiplier would hide those conditions.
 
 ## How I can help
 

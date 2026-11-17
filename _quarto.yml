@@ -10,7 +10,7 @@ project:
 website:
   title: "Farrukh Nauman"
   site-url: https://fnauman.com
-  description: "AI engineer building agents that work on real data — analytics agents, Text-to-SQL, coding agents — and the evaluations that show whether they are right."
+  description: "Senior AI Engineer building agents that work on real data — analytics agents, Text-to-SQL, coding agents — and the evaluations that show whether they are right."
   navbar:
     title: false
     left:
@@ -23,7 +23,7 @@ website:
       - href: cv.qmd
         text: CV
       - href: contact.qmd
-        text: Work With Me
+        text: Contact
 
     right:
       - icon: github

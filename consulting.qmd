@@ -18,7 +18,7 @@ format:
 
 **What I do:** Build analytics agents and Text-to-SQL over the real schema on BigQuery, Snowflake, and SQL databases: schema and business-vocabulary grounding, enforced retrieval, deterministic read-only guardrails, and an interface that shows the SQL and each pipeline stage.
 
-**Evidence:** Text-to-SQL against a production ERP with hundreds of tables, rebuilt as the open-source [`txt2sql`](https://github.com/fnauman/txt2sql). I am currently building agents on an analytics stack on Google Cloud (BigQuery).
+**Evidence:** Text-to-SQL against a production ERP with hundreds of tables, rebuilt as the open-source [`txt2sql`](https://github.com/fnauman/txt2sql). I currently work as a Senior AI Engineer, building and evaluating analytics agents on Google Cloud (BigQuery).
 :::
 
 ::: {.g-col-12 .g-col-md-6 .service-card}
@@ -43,12 +43,12 @@ format:
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
 **AI enablement & interim leadership**
-Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building. I led a 4–7 person DS/analytics team as interim lead, and an ~11M SEK Vinnova/EU AI portfolio.
+Opportunity discovery, stakeholder alignment, PoC-to-production, and capability building. I led a 4–7 person DS/analytics team as interim lead. At RISE, I was project lead for a ~9M SEK Vinnova project and AI lead for a ~2M SEK CISUTAC initiative.
 :::
 
 ::: {.g-col-12 .g-col-md-6 .fit-card}
 **Time series & telemetry ML**
-Production ML for sensor and telemetry data: activity recognition, anomaly detection, forecasting. Fast enough for edge/IoT (ROCKET family) at state-of-the-art accuracy.
+Production ML for sensor and telemetry data: activity recognition, anomaly detection, forecasting. I evaluate ROCKET-family methods against the accuracy, latency, and hardware constraints of the task.
 :::
 
 :::
@@ -101,7 +101,7 @@ A reference for migration test suites: five layers (unit, parity, manifest integ
 ::: {.g-col-12 .g-col-md-6 .work-card}
 ### Time Series Classification for Production
 
-A time series classification system for industrial telemetry with state-of-the-art accuracy and 10-100x faster inference than deep learning baselines, designed for edge and IoT deployment where latency and power matter.
+A practical overview of ROCKET-family methods for industrial telemetry, including how to compare classification quality, inference latency, and hardware requirements for edge and IoT deployment.
 
 [Read more](consulting/2025-11-01-Time-Series-Classification/index.qmd){.btn .btn-sm .btn-outline-primary .mt-2}
 :::
@@ -109,10 +109,10 @@ A time series classification system for industrial telemetry with state-of-the-a
 :::
 
 ::: {.section-note}
-How engagements run, and who they fit, is on [Work With Me](contact.qmd). More essays are under [Writing](posts.qmd).
+Scopes, deliverables, and contracting are on [InertialRange Labs AB](https://inertialrange.com/engage.html). More essays are under [Writing](posts.qmd).
 :::
 
 ::: {.mt-4}
-[Work with me](contact.qmd){.btn .btn-primary}
+[Explore consulting offers](https://inertialrange.com/engage.html){.btn .btn-primary}
 [Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary}
 :::

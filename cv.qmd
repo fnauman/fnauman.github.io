@@ -15,7 +15,7 @@ format:
 ::: {.cv-page}
 
 ::: {.cv-intro}
-All three share the same chronology, employers, and education. If you are unsure which one to use, start with the **AI Engineer** version. It is the closest to my current work.
+All three share the same chronology, employers, and education. If you are unsure which one to use, start with the **Senior AI Engineer** version. It is the closest to my current work.
 :::
 
 ::: {.grid .mt-4}
@@ -23,7 +23,7 @@ All three share the same chronology, employers, and education. If you are unsure
 ::: {.g-col-12 .cv-card .cv-card-primary}
 <span class="cv-label">Current profile</span>
 
-### AI Engineer / Agentic Systems
+### Senior AI Engineer / Agentic Systems
 
 Best for LLM and coding agents, agents on analytics data, evaluation and tracing, Text-to-SQL, tool & API contracts, and agent-driven automation on BigQuery, Snowflake, or Databricks.
 
@@ -63,7 +63,7 @@ Best for AI opportunity discovery, business/IT/data stakeholder alignment, contr
 ::: {.cv-proof-list}
 - Roadmap ownership and stakeholder steering across business, data, and platform teams.
 - AI automation discovery from high-friction workflows to controlled implementation.
-- Project lead experience across an approximately 11M SEK Vinnova/EU portfolio.
+- Project lead for a ~9M SEK Vinnova project; AI lead for a ~2M SEK CISUTAC initiative.
 :::
 
 <div class="cv-action"><a class="btn btn-outline-primary cv-download" href="assets/FarrukhNauman_lead.pdf"><i class="bi bi-file-earmark-arrow-down" aria-hidden="true"></i> Download CV</a></div>
