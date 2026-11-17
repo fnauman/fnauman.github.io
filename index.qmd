@@ -1,6 +1,6 @@
 ---
 title: "Farrukh Nauman"
-description: "AI engineer building agents that work on real data — analytics agents, Text-to-SQL, coding agents — and the evaluations that show whether they are right."
+description: "Senior AI Engineer building agents that work on real data — analytics agents, Text-to-SQL, coding agents — and the evaluations that show whether they are right."
 image: assets/officialpic.JPG
 body-classes: home-page
 toc: false
@@ -35,13 +35,13 @@ format:
 
 <p class="hero-headline">I design and ship AI-agent systems that hold up on production data.</p>
 
-AI engineer and principal consultant. I build agents against real schemas and real data — analytics agents, Text-to-SQL, coding agents — with enforced retrieval, deterministic guardrails, and result-level evaluation.
+I am a Senior AI Engineer and principal consultant with a background in physics and applied AI. Here I write about building analytics agents, evaluating their answers, and using coding agents on substantial engineering work.
 
-<p class="hero-now"><strong>Now:</strong> building and evaluating AI agents for analytics on Google Cloud (BigQuery).</p>
+<p class="hero-now"><strong>Now:</strong> Senior AI Engineer, building and evaluating AI agents for analytics on Google Cloud (BigQuery).</p>
 
 ::: {.d-flex .gap-3 .mt-4 .flex-wrap}
 [See selected work](consulting.qmd){.btn .btn-primary}
-[Get in touch](contact.qmd){.btn .btn-outline-primary}
+[Read my writing](posts.qmd){.btn .btn-outline-primary}
 :::
 
 <p class="hero-cv-link mt-3"><a href="cv.qmd">Download a CV</a></p>
@@ -75,8 +75,8 @@ Largest daily job 5-10x faster after an agent-driven redesign
 :::
 
 ::: {.g-col-6 .g-col-md-3 .text-center .proof-item}
-**~11M SEK**
-Vinnova/EU AI portfolio led; interim lead of a DS team
+**4–7 person team**
+Interim lead for data science and advanced analytics
 :::
 
 :::
@@ -165,12 +165,12 @@ A validation system for a large Databricks-to-Snowflake migration: automated com
 
 ::: {.final-cta .mt-5 .text-center}
 
-### Need AI-agent systems that hold up in production?
+### Have a project in mind?
 
-Let's talk about the agent, the data it runs on, or how you will know it is right.
+My company, InertialRange Labs AB, handles consulting engagements. Explore the offers and how to scope the work.
 
 ::: {.d-flex .justify-content-center .gap-3 .mt-3}
-[Get in touch](contact.qmd){.btn .btn-primary .btn-lg}
+[Explore consulting offers](https://inertialrange.com/engage.html){.btn .btn-primary .btn-lg}
 [Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary .btn-lg}
 :::
 

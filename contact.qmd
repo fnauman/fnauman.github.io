@@ -1,42 +1,24 @@
 ---
-title: "Work With Me"
-description: "The ways to work together, who they fit, and how to reach me."
+title: "Get in touch"
+description: "Contact Farrukh Nauman about his writing, technical work, or a consulting project through InertialRange Labs AB."
 toc: false
 format:
   html:
     page-layout: article
 ---
 
-## Ways to work together
+## Consulting projects
 
-Engagements are contracted through my company, [InertialRange Labs AB](https://inertialrange.com). There are four offers:
+I deliver consulting engagements through **[InertialRange Labs AB](https://inertialrange.com)**. The company site explains the offers, deliverables, and how to turn a project brief into a written scope.
 
-- **Agent Reliability Audit** — fixed price, about 2 weeks: an eval suite on your data, a baseline, and a ranked list of fixes.
-- **Agent Build Sprint** — fixed price, 4 to 6 weeks: one agent built to an acceptance test agreed in week one.
-- **Reliability Retainer** — monthly: regression checks and reviews as models, prompts, and data change.
-- **Embedded AI Engineering** — hourly or daily rate: a senior engineer or interim lead inside your team.
+[Explore consulting offers](https://inertialrange.com/engage.html){.btn .btn-primary}
+[Discuss a project](https://inertialrange.com/contact.html){.btn .btn-outline-primary}
 
-[What each offer includes is on inertialrange.com →](https://inertialrange.com/engage.html)
+## Questions about my work or writing
 
-## Good fit
+If you have a question about a post, a technical example, or a possible collaboration, email me at [farrukh.nauman@inertialrange.com](mailto:farrukh.nauman@inertialrange.com). A link to the relevant piece and a few lines of context help.
 
-- You are **building AI agents against real data** — analytics agents, Text-to-SQL, RAG over schemas — and need someone who has shipped agentic systems with evaluation discipline, not just prompts.
-- You have an agent in use and **cannot say how often it is right**. You need an eval suite, tracing, and a failure analysis you can act on.
-- You want **coding agents on real engineering work** — a code migration, a platform migration, a pipeline redesign — with tests that decide what ships.
-- You are **driving AI adoption** and need someone to run discovery, align stakeholders, and take agentic PoCs to production.
-- You need an **interim team lead** who can own a roadmap, manage stakeholders, and still write code.
-- You have a **time series or telemetry problem** that needs production ML, not a research paper.
+[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary}
+[Connect on LinkedIn](https://www.linkedin.com/in/fnauman/){.btn .btn-outline-primary}
 
-I typically work with enterprise teams in manufacturing, logistics, energy, and industrial IoT, but the methods transfer.
-
-## Get in touch
-
-[Book a call](https://calendar.app.google/sH8s13r8keotW6jf9){.btn .btn-primary .btn-lg}
-[Email me](mailto:farrukh.nauman@inertialrange.com){.btn .btn-outline-primary .btn-lg}
-[Connect on LinkedIn](https://www.linkedin.com/in/fnauman/){.btn .btn-outline-primary .btn-lg}
-
-I usually reply within 1–2 business days. Two lines are enough to start: what you are building or already running, and what you need to know or ship. A topic helps too:
-
-::: {.intake-topics .mt-3}
-`AI agents` · `agent evaluation` · `Text-to-SQL` · `coding agents` · `data platforms` · `AI enablement` · `interim leadership` · `time series` · `something else`
-:::
+I usually reply within 1–2 business days.
