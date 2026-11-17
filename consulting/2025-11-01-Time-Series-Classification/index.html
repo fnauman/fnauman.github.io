@@ -336,7 +336,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../contact.html"> 
-<span class="menu-text">Work With Me</span></a>
+<span class="menu-text">Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
@@ -405,7 +405,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
       <div>
       <div class="quarto-title-meta-heading">Modified</div>
       <div class="quarto-title-meta-contents">
-        <p class="date-modified">November 1, 2025</p>
+        <p class="date-modified">November 17, 2026</p>
       </div>
     </div>
       
@@ -427,7 +427,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
   <li><a href="#variants-at-a-glance" id="toc-variants-at-a-glance" class="nav-link" data-scroll-target="#variants-at-a-glance">Variants at a glance</a></li>
   <li><a href="#simple-pipeline" id="toc-simple-pipeline" class="nav-link" data-scroll-target="#simple-pipeline">Simple pipeline</a></li>
   </ul></li>
-  <li><a href="#real-world-use-cases" id="toc-real-world-use-cases" class="nav-link" data-scroll-target="#real-world-use-cases">Real-world use cases</a></li>
+  <li><a href="#workload-considerations" id="toc-workload-considerations" class="nav-link" data-scroll-target="#workload-considerations">Workload considerations</a></li>
   <li><a href="#how-i-can-help" id="toc-how-i-can-help" class="nav-link" data-scroll-target="#how-i-can-help">How I can help</a></li>
   <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
   </ul>
@@ -447,7 +447,7 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><strong>OUTCOME</strong>: State-of-the-art accuracy with 10-100× faster inference than deep learning through modern feature engineering and careful algorithm selection.</p>
+<p><strong>METHOD OVERVIEW</strong>: ROCKET-family methods are candidates for time series classification on constrained hardware. The right choice depends on measured accuracy, latency, and memory use for your workload.</p>
 </div>
 </div>
 </div>
@@ -468,13 +468,13 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <ul>
 <li>Thousands of simple, randomly‑parameterized convolutions over the series</li>
 <li>Pool to compact features; train a lightweight linear classifier</li>
-<li>Results: competitive accuracy on many benchmarks and often 10–100× faster inference than deep architectures; MiniROCKET is deterministic and reproducible</li>
+<li>Compare classification accuracy, inference latency, and memory use against a named baseline on the same data split and hardware. Record the series length, batch size, and feature count so the comparison is reproducible.</li>
 </ul>
 <section id="variants-at-a-glance" class="level3">
 <h3 class="anchored" data-anchor-id="variants-at-a-glance">Variants at a glance</h3>
 <ul>
-<li><strong>MiniROCKET</strong> — Deterministic kernels and PPV pooling. Best for edge/IoT and reproducibility.</li>
-<li><strong>MultiROCKET</strong> — Multiple pooling stats; raw + differenced signals. Best for complex multivariate data when accuracy matters.</li>
+<li><strong>MiniROCKET</strong> — A compact set of convolutional kernels and proportion-of-positive-values (PPV) features; a candidate when efficient feature extraction matters.</li>
+<li><strong>MultiROCKET</strong> — Multiple pooling statistics over raw and differenced signals; compare its additional feature cost and classification quality on the target task.</li>
 <li><strong>ROCKET</strong> — Random kernels with simple pooling. Solid, fast baseline.</li>
 </ul>
 </section>
@@ -496,13 +496,14 @@ gtag('config', 'G-9BN5NTZ1J1', { 'anonymize_ip': true});
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>y_pred <span class="op">=</span> classifier.predict(X_test_features)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
-<section id="real-world-use-cases" class="level2">
-<h2 class="anchored" data-anchor-id="real-world-use-cases">Real-world use cases</h2>
+<section id="workload-considerations" class="level2">
+<h2 class="anchored" data-anchor-id="workload-considerations">Workload considerations</h2>
 <ul>
-<li><strong>Edge anomaly detection</strong>: Sub‑100 ms latency on embedded hardware; consistent behavior across a fleet.</li>
-<li><strong>IoT sensors</strong>: Efficient CPU‑only processing that preserves battery life.</li>
-<li><strong>Industrial monitoring</strong>: High‑quality multichannel vibration classification with interpretable features.</li>
+<li><strong>Edge classification</strong>: measure end-to-end latency and peak memory on the target device.</li>
+<li><strong>IoT sensors</strong>: measure CPU and power use at the required sampling and prediction rates.</li>
+<li><strong>Industrial monitoring</strong>: test across machines and operating conditions, with splits that avoid leakage between related signals.</li>
 </ul>
+<p>This overview does not report a client benchmark. A deployment claim needs the dataset, baseline, hardware, metric, and measured result; a general speed multiplier would hide those conditions.</p>
 </section>
 <section id="how-i-can-help" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-can-help">How I can help</h2>
